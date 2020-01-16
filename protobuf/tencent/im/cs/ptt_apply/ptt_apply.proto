@@ -1,0 +1,17 @@
+syntax = "proto3";
+package ptt_apply;
+    message Addr {
+        uint32 uint32_out_ip = 1;
+        uint32 uint32_out_port = 2;
+        uint32 uint32_inner_ip = 3;
+        uint32 uint32_inner_port = 4;
+        uint32 uint32_ip_type = 5;
+    }
+    message QQApplyAuthkeyRsp {
+        uint32 uint32_ver = 1;
+        uint32 uint32_seq = 2;
+        int32 int32_retcode = 3;
+        string str_uin = 4;
+        uint32 uint32_userip = 5;
+        repeated Addr address = 6;
+    }

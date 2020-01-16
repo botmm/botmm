@@ -1,0 +1,18 @@
+syntax = "proto3";
+package Submsgtype0x94;
+    message MsgBody {
+        uint32 uint32_task_id = 1;
+        uint32 uint32_folder_reddot_flag = 2;
+        uint32 uint32_discover_reddot_flag = 3;
+        uint32 uint32_start_ts = 4;
+        uint32 uint32_end_ts = 5;
+        uint32 uint32_period_of_validity = 6;
+        string str_folder_msg = 7;
+        uint32 uint32_discount_reddot_flag = 8;
+        uint32 uint32_nearby_reddot_flag = 9;
+        uint32 uint32_mine_reddot_flag = 10;
+        uint32 uint32_only_discover_reddot_flag = 11;
+        uint32 uint32_only_discount_reddot_flag = 12;
+        uint32 uint32_only_nearby_reddot_flag = 13;
+        uint32 uint32_only_mine_reddot_flag = 14;
+    }

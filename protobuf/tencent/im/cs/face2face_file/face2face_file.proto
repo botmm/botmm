@@ -1,0 +1,6 @@
+syntax = "proto3";
+package face2face_file;
+    message msg {
+        uint32 version = 1;
+        uint32 result = 2;
+    }

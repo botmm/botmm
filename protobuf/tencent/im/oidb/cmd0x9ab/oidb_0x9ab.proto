@@ -1,0 +1,20 @@
+syntax = "proto3";
+package oidb_0x9ab;
+    message GroupTabList {
+        uint32 uint32_curr_tab_id = 1;
+        repeated TabItem rpt_tab_list = 2;
+    }
+    message ReqBody {
+        uint64 uint64_group_code = 1;
+        uint32 uint32_tab_id = 2;
+    }
+    message RspBody {
+        GroupTabList list = 1;
+        TabItem item = 2;
+    }
+    message TabItem {
+        uint32 uint32_tab_id = 1;
+        bytes byt_tab_wording = 2;
+        bytes byt_tab_url = 3;
+        uint32 uint32_status_flag = 4;
+    }

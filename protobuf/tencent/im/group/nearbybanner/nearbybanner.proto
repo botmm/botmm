@@ -1,0 +1,50 @@
+syntax = "proto3";
+package nearbybanner;
+    message BannerInfo {
+        uint32 uint32_jump_type = 1;
+        bytes bytes_img_url = 2;
+        WebBanner msg_web_banner = 3;
+        RecommGroupBanner msg_recomm_banner = 4;
+        SetGroupBanner msg_set_banner = 5;
+        SearchBanner msg_search_banner = 6;
+        CreateGroupBanner msg_create_banner = 7;
+    }
+    message Banners {
+        repeated BannerInfo rpt_banner_info = 1;
+        uint32 uint32_slide_time = 2;
+    }
+    message ClientInfo {
+        uint32 uint32_lcd_height = 1;
+        uint32 uint32_lcd_width = 2;
+        bytes bytes_client_version = 3;
+        uint32 uint32_os = 4;
+    }
+    message CreateGroupBanner {
+        uint32 uint32_group_type = 1;
+    }
+    message RecommGroupBanner {
+        uint64 uint64_group_code = 1;
+    }
+    message ReqBody {
+        ClientInfo msg_client_info = 1;
+        UserInfo msg_user_info = 2;
+    }
+    message RspBody {
+        uint32 uint32_result = 1;
+        bytes bytes_error = 2;
+        Banners msg_banners = 3;
+    }
+    message SearchBanner {
+        bytes bytes_search_keyword = 1;
+    }
+    message SetGroupBanner {
+        uint64 uint64_group_code = 1;
+    }
+    message UserInfo {
+        int64 int64_longitude = 1;
+        int64 int64_latitude = 2;
+        bytes bytes_geocontent = 3;
+    }
+    message WebBanner {
+        bytes bytes_jump_url = 1;
+    }

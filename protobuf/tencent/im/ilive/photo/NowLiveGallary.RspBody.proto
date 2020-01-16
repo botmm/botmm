@@ -1,0 +1,7 @@
+syntax = "proto3";
+package NowLiveGallary.RspBody;
+    message PhotoInfo {
+        bytes video = 1;
+        bytes cover = 2;
+        uint64 timestamp = 3;
+    }

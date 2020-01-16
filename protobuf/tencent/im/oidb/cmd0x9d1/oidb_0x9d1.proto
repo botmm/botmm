@@ -1,0 +1,11 @@
+syntax = "proto3";
+import "appoint/define/appoint_define/UserFeed.proto";
+package oidb_0x9d1;
+    message ReqBody {
+        string str_feed_id = 1;
+    }
+    message RspBody {
+        string str_error_tips = 1;
+        /* message */ appoint_define.UserFeed msg_feeds = 2;
+        uint64 uint64_tinyid = 3;
+    }

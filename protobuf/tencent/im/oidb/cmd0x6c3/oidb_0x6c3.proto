@@ -1,0 +1,50 @@
+syntax = "proto3";
+package oidb_0x6c3;
+    message ExtParam {
+        LoginSig msg_login_sig = 1;
+    }
+    message GetExtraDataReq {
+    }
+    message GetExtraDataRsp {
+        bytes bytes_shop_config = 1;
+        int32 int32_version_seq = 2;
+    }
+    message GetStockReq {
+    }
+    message GetStockRsp {
+        int32 int32_count = 1;
+        int32 int32_give_count = 2;
+        bytes bytes_give_info = 3;
+        StockInfo msg_stock = 4;
+    }
+    message LoginSig {
+        uint32 uint32_type = 1;
+        bytes bytes_sig = 2;
+        uint32 uint32_appid = 3;
+    }
+    message ReqBody {
+        uint64 uint64_group = 1;
+        bytes bytes_user_ip = 2;
+        bytes bytes_version = 3;
+        uint32 uint32_portal = 4;
+        uint32 uint32_client = 5;
+        uint32 uint32_instance_id = 6;
+        ExtParam msg_ext_param = 7;
+        GetStockReq msg_get_stock = 8;
+        GetExtraDataReq msg_extra_data = 9;
+        uint32 uint32_business_id = 10;
+    }
+    message RspBody {
+        int32 int32_ret = 1;
+        bytes bytes_msg = 2;
+        GetStockRsp msg_get_stock = 3;
+        GetExtraDataRsp msg_extra_data = 4;
+    }
+    message StockInfo {
+        repeated StockItem msg_stock = 1;
+    }
+    message StockItem {
+        int32 int32_productid = 1;
+        int32 int32_amount = 2;
+        int32 int32_free_limit_chance = 3;
+    }

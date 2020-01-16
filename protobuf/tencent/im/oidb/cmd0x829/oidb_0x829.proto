@@ -1,0 +1,20 @@
+syntax = "proto3";
+package oidb_0x829;
+    message AddFrdInfo {
+        bytes bytes_mobile = 1;
+        uint32 uint32_allow_type = 2;
+        bytes bytes_remark = 3;
+        uint32 uint32_send_req_flag = 4;
+        uint32 uint32_send_result = 5;
+    }
+    message ReqBody {
+        uint32 uint32_request_platform = 1;
+        uint32 uint32_request_version = 2;
+        repeated bytes rpt_bytes_mobiles = 3;
+        bytes bytes_msg = 4;
+        uint32 uint32_source_id = 5;
+        uint32 uint32_sub_source_id = 6;
+    }
+    message RspBody {
+        repeated AddFrdInfo rpt_add_frd_info = 1;
+    }

@@ -1,0 +1,25 @@
+syntax = "proto3";
+import "appoint/define/appoint_define/AppointInfo.proto";
+import "appoint/define/appoint_define/PublisherInfo.proto";
+import "appoint/define/appoint_define/AppointID.proto";
+import "appoint/define/appoint_define/LBSInfo.proto";
+package cmd0x7cd;
+    message AppointBrife {
+        /* message */ appoint_define.PublisherInfo msg_publisher_info = 1;
+        /* message */ appoint_define.AppointInfo msg_appoints_info = 2;
+    }
+    message ReqBody {
+        uint32 uint32_stamp = 1;
+        uint32 uint32_start = 2;
+        uint32 uint32_want = 3;
+        /* message */ appoint_define.LBSInfo msg_lbs_info = 4;
+        repeated appoint_define.AppointID rpt_msg_appoint_ids = 5;
+        uint32 uint32_appoint_operation = 6;
+        uint64 uint64_request_uin = 100;
+    }
+    message RspBody {
+        uint32 uint32_stamp = 1;
+        uint32 uint32_over = 2;
+        uint32 uint32_next = 3;
+        repeated AppointBrife rpt_msg_appoints_info = 4;
+    }

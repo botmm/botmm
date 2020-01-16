@@ -1,0 +1,7 @@
+syntax = "proto3";
+package msg_svc.PbThirdQQUnReadMsgNumReq;
+    message ThirdQQReqInfo {
+        uint64 third_uin = 1;
+        bytes third_uin_sig = 2;
+        bytes third_uin_cookie = 3;
+    }

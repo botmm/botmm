@@ -1,0 +1,8 @@
+message MsgBody {
+    uint32 uint32_show_lastest;
+    uint64 uint64_sender_uin;
+    uint64 uint64_receiver_uin;
+    bytes bytes_sender_rich_content;
+    bytes bytes_receiver_rich_content;
+    bytes bytes_authkey;
+}

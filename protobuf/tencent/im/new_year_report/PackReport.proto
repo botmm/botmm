@@ -1,0 +1,21 @@
+syntax = "proto3";
+import "tencent/im/new_year_report/PackReport.proto";
+package PackReport;
+    message PkgReq {
+        uint64 uin = 1;
+        uint32 promotion_id = 2;
+        repeated Report report = 3;
+        uint64 seq = 4;
+    }
+    message PkgResp {
+        uint32 retcode = 1;
+        string retmsg = 2;
+    }
+    message Report {
+        uint64 id = 1;
+        repeated ReportElem elems = 2;
+    }
+    message ReportElem {
+        uint64 timestamp = 1;
+        uint64 count = 2;
+    }

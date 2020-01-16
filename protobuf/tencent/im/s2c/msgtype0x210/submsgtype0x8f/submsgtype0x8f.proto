@@ -1,0 +1,14 @@
+syntax = "proto3";
+package submsgtype0x8f;
+    message MsgBody {
+        SourceID msg_source_id = 1;
+        bytes bytes_feeds_id = 2;
+        enum enum_msg_type = 3;
+        bytes bytes_ext_msg = 4;
+        uint64 uint64_author_uin = 5;
+        uint64 uint64_confirm_uin = 6;
+    }
+    message SourceID {
+        uint32 uint32_source_type = 1;
+        uint64 uint64_source_code = 2;
+    }

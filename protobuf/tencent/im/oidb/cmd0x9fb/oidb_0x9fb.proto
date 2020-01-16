@@ -1,0 +1,57 @@
+syntax = "proto3";
+package oidb_0x9fb;
+    message Color {
+        uint32 uint32_r = 1;
+        uint32 uint32_g = 2;
+        uint32 uint32_b = 3;
+    }
+    message GroupLabel {
+        UinInfo uin_info = 1;
+        uint32 uint32_number_label = 2;
+        uint32 uint32_label_style = 3;
+    }
+    message Label {
+        bytes bytes_name = 1;
+        enum enum_type = 2;
+        Color text_color = 3;
+        Color edging_color = 4;
+        uint32 uint32_label_attr = 5;
+        uint32 uint32_label_type = 6;
+    }
+    message ReqBody {
+        uint32 uint32_appid = 1;
+        uint32 uint32_cmdid = 2;
+        int32 int32_channel = 3;
+        uint64 uint64_last_group_code = 4;
+        GroupLabel msg_group_label = 5;
+        uint32 uint32_reason = 6;
+    }
+    message RgroupInfo {
+        uint64 uint64_group_code = 1;
+        uint64 uint64_owner_uin = 2;
+        bytes bytes_group_name = 3;
+        bytes bytes_group_memo = 4;
+        uint32 uint32_member_num = 5;
+        uint32 uint32_group_face = 6;
+        uint32 uint32_group_class = 7;
+        bytes bytes_group_face_url = 8;
+        repeated Label rpt_group_label = 9;
+        bytes bytes_group_class_text = 10;
+        uint32 uint32_max_member_num = 11;
+        uint32 uint32_group_level = 12;
+        uint32 uint32_group_bitmap = 13;
+        uint32 uint32_group_hot_degree = 14;
+        uint32 uint32_group_flag = 15;
+        bytes bytes_recommend_reason = 16;
+    }
+    message RspBody {
+        uint32 uint32_cmdid = 1;
+        uint32 uint32_result = 2;
+        bytes bytes_errMsg = 3;
+        repeated RgroupInfo msg_groups = 4;
+        uint32 is_end = 5;
+    }
+    message UinInfo {
+        int64 int64_longitude = 1;
+        int64 int64_latitude = 2;
+    }

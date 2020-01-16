@@ -1,0 +1,18 @@
+syntax = "proto3";
+package submsgtype0xca;
+    message MsgBody {
+        uint64 uint64_uin = 1;
+        repeated MsgContent rpt_msg_list = 2;
+    }
+    message MsgContent {
+        uint64 uint64_tag = 1;
+        uint64 uint64_msg_type = 2;
+        uint64 uint64_seq = 3;
+        string str_content = 4;
+        uint64 uint64_action_id = 5;
+        uint64 uint64_ts = 6;
+        uint64 uint64_expts = 7;
+        string str_error_msg = 8;
+        uint64 uint64_show_space = 9;
+        string str_region_url = 10;
+    }

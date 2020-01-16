@@ -1,0 +1,7 @@
+syntax = "proto3";
+package submsgtype0xa4;
+    message MsgBody {
+        bytes bytes_title = 1;
+        bytes bytes_brief = 2;
+        bytes bytes_url = 3;
+    }

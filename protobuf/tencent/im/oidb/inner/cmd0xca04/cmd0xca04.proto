@@ -1,0 +1,17 @@
+syntax = "proto3";
+package cmd0xca04;
+    message AppInfo {
+        enum plat_type = 1;
+        string str_app_version = 2;
+    }
+    message ReqBody {
+        uint32 uint32_timestamp = 1;
+        repeated uint32 rpt_uint32_appids = 2;
+        AppInfo msg_app_info = 3;
+        repeated uint32 rpt_uint32_add_appids = 4;
+        repeated uint32 rpt_uint32_del_appids = 5;
+    }
+    message RspBody {
+        uint32 uint32_res = 1;
+        uint32 uint32_timestamp = 2;
+    }

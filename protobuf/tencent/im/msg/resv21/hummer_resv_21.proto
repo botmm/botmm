@@ -1,0 +1,9 @@
+syntax = "proto3";
+package hummer_resv_21;
+    message FileImgInfo {
+        uint32 uint32_file_width = 1;
+        uint32 uint32_file_height = 2;
+    }
+    message ResvAttr {
+        FileImgInfo file_image_info = 1;
+    }

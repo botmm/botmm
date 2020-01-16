@@ -1,0 +1,8 @@
+syntax = "proto3";
+package SubmsgType0x9e;
+    message MsgBody {
+        uint32 uint32_type = 1;
+        bytes bytes_wording = 2;
+        bytes bytes_url = 3;
+        uint32 uint32_auth_key = 4;
+    }

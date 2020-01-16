@@ -1,0 +1,21 @@
+syntax = "proto3";
+import "tencent/im/qapp/qvideoproj/qvideo_recom/qvideo_recom.proto";
+package qvideo_recom;
+    message QueryRecomQunVideoReq {
+        uint32 start_index = 1;
+        uint32 end_index = 2;
+    }
+    message QueryRecomQunVideoRsp {
+        int32 ret = 1;
+        string err = 2;
+        uint32 total = 3;
+        repeated QunInfo qun_infos = 4;
+    }
+    message QunInfo {
+        uint32 qun_index = 1;
+        uint64 qun_code = 2;
+        string qun_name = 3;
+        uint32 onlive_num = 4;
+        string qvideo_url = 5;
+        string logo_url = 6;
+    }

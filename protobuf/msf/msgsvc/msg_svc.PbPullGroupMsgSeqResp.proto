@@ -1,0 +1,7 @@
+syntax = "proto3";
+package msg_svc.PbPullGroupMsgSeqResp;
+    message GroupInfoResp {
+        uint64 group_code = 1;
+        uint64 member_seq = 2;
+        uint64 group_seq = 3;
+    }

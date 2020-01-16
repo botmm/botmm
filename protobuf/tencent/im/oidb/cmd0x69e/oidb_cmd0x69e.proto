@@ -1,0 +1,7 @@
+syntax = "proto3";
+package oidb_cmd0x69e;
+    message ReqBody {
+        repeated uint32 rpt_uint32_channel_ids = 1;
+    }
+    message RspBody {
+    }

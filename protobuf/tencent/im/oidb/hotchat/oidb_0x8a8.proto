@@ -1,0 +1,7 @@
+syntax = "proto3";
+package oidb_0x8a8;
+    message ReqBody {
+        /* message */ LBS.Wifi joined_wifi = 1;
+    }
+    message RspBody {
+    }

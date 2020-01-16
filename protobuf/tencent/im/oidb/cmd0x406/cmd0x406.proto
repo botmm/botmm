@@ -1,0 +1,59 @@
+syntax = "proto3";
+package cmd0x406;
+    message GroupFee {
+        string string_project_id = 1;
+        string string_project_name = 2;
+        uint32 uint32_project_cost = 3;
+        uint32 uint32_project_paid_user = 4;
+        uint32 uint32_project_npaid_user = 5;
+        uint64 uint64_project_start_time = 6;
+        uint64 uint64_project_close_time = 7;
+        uint32 uint32_project_status = 8;
+        uint32 uint32_project_paid = 9;
+    }
+    message GroupFeeInfoQuery {
+        string string_project_id = 1;
+        uint32 uint32_group_fee_type = 2;
+        GroupFee msg_group_fee_opt = 3;
+    }
+    message GroupFeeInfoResult {
+        uint32 uint32_group_fee_type = 1;
+        GroupFee msg_group_fee = 2;
+    }
+    message GroupFeeListQuery {
+        uint32 uint32_group_fee_type = 1;
+        GroupFee msg_group_fee_opt = 2;
+    }
+    message GroupFeeListResult {
+        uint32 uint32_group_fee_type = 1;
+        repeated GroupFee msg_group_fee_list = 2;
+    }
+    message GroupFeeMember {
+        uint64 uint64_uin = 1;
+        uint64 uint64_paid_time = 2;
+        string string_nick_name = 3;
+    }
+    message GroupFeeMemberListQuery {
+        string string_project_id = 1;
+        uint32 uint32_member_type = 2;
+        uint32 uint32_page_index = 3;
+        uint32 uint32_page_size = 4;
+    }
+    message GroupFeeMemberListResult {
+        int32 int32_page_index = 1;
+        uint32 uint32_member_type = 2;
+        repeated GroupFeeMember msg_member_list = 3;
+    }
+    message ReqBody {
+        uint64 uint64_group_id = 1;
+        GroupFeeInfoQuery msg_group_fee_info = 2;
+        GroupFeeListQuery msg_group_fee_list = 3;
+        GroupFeeMemberListQuery msg_member_list = 4;
+    }
+    message RspBody {
+        uint32 uint32_ret = 1;
+        string string_msg = 2;
+        GroupFeeInfoResult msg_group_fee_info = 3;
+        GroupFeeListResult msg_group_fee_list = 4;
+        GroupFeeMemberListResult msg_member_list = 5;
+    }

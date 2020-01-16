@@ -1,0 +1,9 @@
+syntax = "proto3";
+package msg_svc.PbDeleteMsgReq;
+    message MsgItem {
+        uint64 from_uin = 1;
+        uint64 to_uin = 2;
+        uint32 msg_type = 3;
+        uint32 msg_seq = 4;
+        uint64 msg_uid = 5;
+    }

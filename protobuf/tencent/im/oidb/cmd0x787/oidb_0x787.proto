@@ -1,0 +1,64 @@
+syntax = "proto3";
+package oidb_0x787;
+    message Filter {
+        uint32 uint32_member_level_info_uin = 1;
+        uint32 uint32_member_level_info_point = 2;
+        uint32 uint32_member_level_info_active_day = 3;
+        uint32 uint32_member_level_info_level = 4;
+        uint32 uint32_member_level_info_name = 5;
+        uint32 uint32_level_name = 6;
+        uint32 uint32_data_time = 7;
+        uint32 uint32_user_show_flag = 8;
+        uint32 uint32_sys_show_flag = 9;
+        uint32 uint32_time_to_update = 10;
+        uint32 uint32_nick_name = 11;
+        uint32 uint32_special_title = 12;
+        uint32 uint32_phone = 13;
+        uint32 uint32_email = 14;
+        uint32 uint32_remark = 15;
+        uint32 uint32_gender = 16;
+        uint32 uint32_job = 17;
+        uint32 uint32_office_mode = 18;
+    }
+    message LevelName {
+        uint32 uint32_level = 1;
+        bytes str_name = 2;
+    }
+    message MemberLevelInfo {
+        uint64 uint64_uin = 1;
+        uint32 uint32_point = 2;
+        uint32 uint32_active_day = 3;
+        uint32 uint32_level = 4;
+        bytes str_name = 5;
+        bytes bytes_nick_name = 6;
+        bytes bytes_special_title = 7;
+        uint32 uint32_special_title_expire_time = 8;
+        bytes bytes_phone = 9;
+        bytes bytes_email = 10;
+        bytes bytes_remark = 11;
+        uint32 uint32_gender = 12;
+        bytes bytes_job = 13;
+    }
+    message ReqBody {
+        uint64 uint64_group_code = 1;
+        uint64 uint64_begin_uin = 2;
+        uint64 uint64_data_time = 3;
+        repeated uint64 rpt_uin_list = 5;
+        Filter opt_filter = 6;
+        uint32 uint32_seq = 7;
+    }
+    message RspBody {
+        uint64 uint64_group_code = 1;
+        repeated MemberLevelInfo rpt_msg_member_level_info = 2;
+        repeated LevelName rpt_msg_level_name = 3;
+        uint64 uint64_end_uin = 4;
+        uint64 uint64_data_time = 5;
+        uint32 uint32_user_show_flag = 6;
+        uint32 uint32_sys_show_flag = 7;
+        uint32 uint32_time_to_update = 8;
+        bytes bytes_owner_name = 9;
+        bytes bytes_admin_name = 10;
+        uint32 uint32_seq = 11;
+        uint32 uint32_office_mode = 12;
+        uint32 uint32_level_name_seq = 13;
+    }

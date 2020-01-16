@@ -1,0 +1,19 @@
+syntax = "proto3";
+package oidb_0x814;
+    message Activity {
+        string id = 1;
+        string name = 2;
+        string cover = 3;
+        string url = 4;
+    }
+    message ReqBody {
+        uint64 show_uin = 1;
+        uint32 start = 2;
+        uint32 num = 3;
+        uint32 history = 4;
+    }
+    message RspBody {
+        uint32 total = 1;
+        repeated Activity activity_list = 2;
+        string url = 3;
+    }

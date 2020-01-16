@@ -1,0 +1,17 @@
+syntax = "proto3";
+package MsgType0x210_SubMsgType0x41;
+    message GameRsultMsg {
+        string str_game_name = 1;
+        string str_game_pic = 2;
+        string str_more_info = 3;
+        repeated UinResult rpt_msg_game_rsts = 4;
+        string str_game_subheading = 5;
+        uint64 uint64_uin = 6;
+        bytes bytes_nickname = 7;
+    }
+    message UinResult {
+        uint64 uint64_uin = 1;
+        bytes bytes_nickname = 2;
+        uint32 uint32_grade = 3;
+        string str_score = 4;
+    }

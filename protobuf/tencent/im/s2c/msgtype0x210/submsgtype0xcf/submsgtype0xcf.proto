@@ -1,0 +1,6 @@
+syntax = "proto3";
+package submsgtype0xcf;
+    message MsgBody {
+        uint32 uint32_rsptype = 1;
+        string string_rspbody = 2;
+    }

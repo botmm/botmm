@@ -1,0 +1,272 @@
+syntax = "proto3";
+package cmd0x383;
+    message ApplyCheckAuditFlagReqBody {
+        uint32 uint32_bus_id = 1;
+        string str_file_path = 2;
+    }
+    message ApplyCheckAuditFlagRspBody {
+        uint32 uint32_audit_flag = 1;
+    }
+    message ApplyCopyFromReqBody {
+        uint32 uint32_src_bus_id = 1;
+        bytes bytes_src_parent_folder = 2;
+        bytes bytes_src_file_path = 3;
+        uint32 uint32_dst_bus_id = 4;
+        uint64 uint64_file_size = 5;
+        string str_local_path = 6;
+        string str_file_name = 7;
+        uint64 uint64_src_uin = 8;
+        bytes bytes_md5 = 10;
+    }
+    message ApplyCopyFromRspBody {
+        bytes bytes_save_file_path = 1;
+        bool bool_safe_check_flag = 11;
+        uint32 uint32_safe_check_res = 12;
+    }
+    message ApplyCopyToReqBody {
+        uint32 uint32_src_bus_id = 1;
+        string str_src_file_path = 2;
+        uint32 uint32_dst_bus_id = 3;
+        uint64 uint64_dst_uin = 4;
+    }
+    message ApplyCopyToRspBody {
+        string str_save_file_path = 1;
+        bool bool_safe_check_flag = 11;
+        uint32 uint32_safe_check_res = 12;
+    }
+    message ApplyCreateFolderReqBody {
+        uint32 uint32_bus_id = 1;
+        string str_folder_name = 2;
+        string str_parent_folder_path = 3;
+    }
+    message ApplyCreateFolderRspBody {
+        string str_folder_path = 1;
+        bool bool_safe_check_flag = 11;
+        uint32 uint32_safe_check_res = 12;
+    }
+    message ApplyDelFileReqBody {
+        uint32 uint32_bus_id = 1;
+        string str_file_path = 2;
+    }
+    message ApplyDelFileRspBody {
+    }
+    message ApplyDownloadReqBody {
+        uint32 uint32_bus_id = 1;
+        string str_file_path = 2;
+        bool bool_thumbnail_req = 3;
+        uint32 uint32_url_type = 4;
+        bool bool_preview_req = 5;
+    }
+    message ApplyDownloadRspBody {
+        string str_download_ip = 1;
+        string str_download_dns = 2;
+        bytes bytes_download_url = 3;
+        bytes bytes_sha = 4;
+        bytes bytes_sha3 = 5;
+        bytes bytes_md5 = 6;
+        bytes bytes_cookie_val = 7;
+        string str_save_file_name = 8;
+        bool bool_safe_check_flag = 11;
+        uint32 uint32_safe_check_res = 12;
+        uint32 uint32_preview_port = 13;
+        string str_msg = 14;
+    }
+    message ApplyFeedMsgV2ReqBody {
+        bool bool_first_pkg_flag = 1;
+        uint32 uint32_total_file_num = 2;
+        uint32 uint32_file_num = 3;
+        uint32 uint32_bus_id = 4;
+        string str_file_path1 = 5;
+        string str_file_path2 = 6;
+        string str_file_path3 = 7;
+        uint32 uint32_msg_random1 = 11;
+        uint32 uint32_msg_random2 = 12;
+        uint32 uint32_msg_random3 = 13;
+        uint32 uint32_pt_appid = 30;
+        int32 int32_key_type = 31;
+        bytes bytes_session_key = 32;
+        bytes bytes_client_ip = 33;
+        uint32 uint32_client_port = 34;
+        bytes bytes_imei = 35;
+    }
+    message ApplyFeedMsgV2RspBody {
+        uint32 uint32_total_file_num = 1;
+        uint32 uint32_file_num = 2;
+        uint32 uint32_bus_id = 3;
+        string str_file_path1 = 4;
+        string str_file_path2 = 5;
+        string str_file_path3 = 6;
+        bool bool_safe_check_flag = 11;
+    }
+    message ApplyFileSearchReqBody {
+        repeated uint64 uint64_group_code_list = 1;
+        repeated uint64 uint64_uin_list = 2;
+        bytes bytes_key_word = 3;
+        bytes bytes_sync_cookie = 4;
+        uint32 uint32_count = 5;
+        uint32 uint32_search_type = 10;
+        uint32 uint32_file_type = 11;
+    }
+    message ApplyFileSearchRspBody {
+        bytes bytes_sync_cookie = 1;
+        uint32 uint32_is_end = 2;
+        bytes bytes_key_word = 3;
+        repeated ApplyFileSearchRspBody.Item item_list = 4;
+        uint32 uint32_total_match_count = 5;
+    }
+    message ApplyGetFileCountReqBody {
+        uint32 uint32_bus_id = 1;
+    }
+    message ApplyGetFileCountRspBody {
+        uint32 uint32_all_file_count = 1;
+    }
+    message ApplyGetFileInfoReqBody {
+        uint32 uint32_bus_id = 1;
+        string str_file_path = 2;
+        uint32 uint32_field_flag = 3;
+    }
+    message ApplyGetFileInfoRspBody {
+        ApplyGetFileListRspBody.FileInfo fileInfo = 1;
+    }
+    message ApplyGetFileListReqBody {
+        uint32 uint32_start_index = 1;
+        uint32 uint32_file_count = 2;
+        uint32 uint32_req_from = 3;
+        string str_parent_folder_path = 4;
+    }
+    message ApplyGetFileListRspBody {
+        uint32 uint32_file_count = 1;
+        uint32 uint32_all_file_count = 2;
+        bool bool_is_end = 3;
+        repeated ApplyGetFileListRspBody.FileInfo rpt_msg_file_info_list = 4;
+        uint32 uint32_folder_count = 5;
+        repeated ApplyGetFileListRspBody.FolderInfo rpt_msg_folder_info_list = 6;
+        uint32 uint32_filter_code = 7;
+    }
+    message ApplyGetFileListV2ReqBody {
+        FileTimestamp msg_start_timestamp = 1;
+        uint32 uint32_file_count = 2;
+        FileTimestamp msg_max_timestamp = 3;
+        uint32 uint32_all_file_count = 4;
+        uint32 uint32_req_from = 5;
+    }
+    message ApplyGetFileListV2RspBody {
+        bool bool_is_end = 1;
+        repeated ApplyGetFileListRspBody.FileInfo rpt_msg_file_info_list = 2;
+        FileTimestamp msg_max_timestamp = 3;
+        uint32 uint32_all_file_count = 4;
+        uint32 uint32_filter_code = 5;
+    }
+    message ApplyGetSpaceReqBody {
+    }
+    message ApplyGetSpaceRspBody {
+        uint64 uint64_total_space = 1;
+        uint64 uint64_used_space = 2;
+    }
+    message ApplyLinkFileReqBody {
+        uint32 uint32_src_bus_id = 1;
+        string str_src_file_path = 2;
+        uint32 uint32_dst_bus_id = 3;
+    }
+    message ApplyLinkFileRspBody {
+        string str_save_file_path = 1;
+        bool bool_safe_check_flag = 11;
+        uint32 uint32_safe_check_res = 12;
+    }
+    message ApplyRenameReqBody {
+        uint32 uint32_bus_id = 1;
+        string str_file_path = 2;
+        string str_file_name = 3;
+    }
+    message ApplyRenameRspBody {
+        bool bool_safe_check_flag = 11;
+        uint32 uint32_safe_check_res = 12;
+    }
+    message ApplyResendReqBody {
+        uint32 uint32_bus_id = 1;
+        string str_file_path = 2;
+        bytes bytes_sha = 3;
+    }
+    message ApplyResendRspBody {
+        string str_upload_ip = 1;
+        bytes bytes_file_key = 2;
+        bytes bytes_check_key = 3;
+    }
+    message ApplyTransFileReqBody {
+        uint32 uint32_bus_id = 1;
+        string str_file_path = 2;
+    }
+    message ApplyTransFileRspBody {
+        string str_save_file_path = 1;
+    }
+    message ApplyUploadReqBody {
+        uint32 uint32_bus_id = 1;
+        uint32 uint32_oper_type = 2;
+        string str_file_path = 3;
+        string str_file_name = 4;
+        string str_local_path = 5;
+        uint64 uint64_file_size = 6;
+        bytes bytes_sha = 7;
+        bytes bytes_sha3 = 8;
+        bytes bytes_md5 = 9;
+    }
+    message ApplyUploadRspBody {
+        string str_upload_ip = 1;
+        string str_server_dns = 2;
+        string str_file_path = 3;
+        bytes bytes_file_key = 4;
+        bytes bytes_check_key = 5;
+        bool bool_file_exist = 6;
+        bool bool_safe_check_flag = 11;
+        uint32 uint32_safe_check_res = 12;
+        uint32 uint32_im_fail_reason = 13;
+    }
+    message FileTimestamp {
+        uint32 uint32_upload_time = 1;
+        string str_file_path = 2;
+    }
+    message ReqBody {
+        uint64 uint64_groupcode = 1;
+        uint32 uint32_app_id = 2;
+        ApplyUploadReqBody msg_upload_req_body = 11;
+        ApplyResendReqBody msg_resend_req_body = 12;
+        ApplyDownloadReqBody msg_download_req_body = 13;
+        ApplyDelFileReqBody msg_del_file_req_body = 14;
+        ApplyRenameReqBody msg_rename_req_body = 15;
+        ApplyTransFileReqBody msg_trans_file_req_body = 16;
+        ApplyLinkFileReqBody msg_link_file_req_body = 17;
+        ApplyFeedMsgV2ReqBody msg_feed_msg_v2_req_body = 18;
+        ApplyGetSpaceReqBody msg_get_space_req_body = 19;
+        ApplyCheckAuditFlagReqBody msg_check_audit_flag_req_body = 20;
+        ApplyCopyFromReqBody msg_copy_from_req_body = 111;
+        ApplyCopyToReqBody msg_copy_to_req_body = 112;
+        ApplyGetFileListReqBody msg_get_file_list_req_body = 113;
+        ApplyCreateFolderReqBody msg_create_folder_req_body = 114;
+        ApplyGetFileCountReqBody msg_get_file_count_req_body = 115;
+        ApplyGetFileInfoReqBody msg_get_file_info_req_body = 116;
+        ApplyGetFileListV2ReqBody msg_get_file_list_v2_req_body = 117;
+        ApplyFileSearchReqBody msg_file_search_req_body = 119;
+    }
+    message RspBody {
+        int32 int32_ret_code = 1;
+        string str_ret_msg = 2;
+        string str_client_wording = 3;
+        ApplyUploadRspBody msg_upload_rsp_body = 11;
+        ApplyResendRspBody msg_resend_rsp_body = 12;
+        ApplyDownloadRspBody msg_download_rsp_body = 13;
+        ApplyDelFileRspBody msg_del_file_rsp_body = 14;
+        ApplyRenameRspBody msg_rename_rsp_body = 15;
+        ApplyTransFileRspBody msg_trans_file_rsp_body = 16;
+        ApplyLinkFileRspBody msg_link_file_rsp_body = 17;
+        ApplyFeedMsgV2RspBody msg_feed_msg_v2_rsp_body = 18;
+        ApplyGetSpaceRspBody msg_get_space_rsp_body = 19;
+        ApplyCheckAuditFlagRspBody msg_check_audit_flag_rsp_body = 20;
+        ApplyCopyFromRspBody msg_copy_from_rsp_body = 111;
+        ApplyCopyToRspBody msg_copy_to_rsp_body = 112;
+        ApplyGetFileListRspBody msg_get_file_list_rsp_body = 113;
+        ApplyCreateFolderRspBody msg_create_folder_rsp_body = 114;
+        ApplyGetFileCountRspBody msg_get_file_count_rsp_body = 115;
+        ApplyGetFileInfoRspBody msg_get_file_info_rsp_body = 116;
+        ApplyGetFileListV2RspBody msg_get_file_list_v2_rsp_body = 117;
+        ApplyFileSearchRspBody msg_file_search_rsp_body = 119;
+    }

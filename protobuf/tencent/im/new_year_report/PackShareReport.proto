@@ -1,0 +1,32 @@
+syntax = "proto3";
+import "tencent/im/new_year_report/PackShareReport.proto";
+package PackShareReport;
+    message PkgHead {
+        uint32 cmdtype = 1;
+        uint64 uin = 2;
+        uint64 seq = 3;
+        bytes resp_name = 4;
+        uint32 retcode = 5;
+        string retmsg = 6;
+    }
+    message PkgReq {
+        PkgHead head = 1;
+        ReportShareReq report_share = 10;
+    }
+    message PkgResp {
+        PkgHead head = 1;
+        ReportShareResp report_share = 10;
+    }
+    message ReportShareReq {
+        uint32 promotion_id = 1;
+        uint32 share_type = 2;
+        uint32 share_channel = 3;
+        uint32 swipe_count = 4;
+        uint32 combo_count = 5;
+        uint32 win_money_count = 6;
+        uint32 win_goods_count = 7;
+        uint32 share_error = 8;
+    }
+    message ReportShareResp {
+        uint32 reserve = 10;
+    }

@@ -1,0 +1,17 @@
+syntax = "proto3";
+package cmd0x758;
+    message InviteUinInfo {
+        uint64 uint64_uin = 1;
+        uint64 uint64_judge_group_code = 2;
+        uint64 uint64_judge_conf_code = 3;
+    }
+    message ReqBody {
+        uint64 uint64_join_group_code = 1;
+        repeated InviteUinInfo be_invited_uin_info = 2;
+        string string_msg = 3;
+        uint32 uint32_main_source_id = 4;
+        uint32 uint32_sub_source_id = 5;
+    }
+    message RspBody {
+        uint64 uint64_group_code = 1;
+    }

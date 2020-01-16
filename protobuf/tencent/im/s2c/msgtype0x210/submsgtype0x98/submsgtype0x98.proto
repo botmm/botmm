@@ -1,0 +1,10 @@
+syntax = "proto3";
+package submsgtype0x98;
+    message ModBlock {
+        uint32 uint32_op = 1;
+    }
+    message MsgBody {
+        uint64 uint64_uin = 1;
+        uint32 uint32_sub_cmd = 2;
+        ModBlock msg_mod_block = 3;
+    }

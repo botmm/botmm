@@ -1,0 +1,25 @@
+syntax = "proto3";
+package oidb_0x78f;
+    message ReqBody {
+        uint64 group_code = 1;
+        repeated string keyword_list = 2;
+        uint32 num_per_page = 3;
+        uint32 page_id = 4;
+        int32 rank_type = 5;
+        repeated uint64 uin_white_list = 6;
+        repeated uint64 uin_black_list = 7;
+        int32 msg_len_min = 8;
+        int32 msg_len_max = 9;
+        int32 time_begin = 10;
+        int32 time_end = 11;
+        uint32 msg_seq_begin = 12;
+        uint32 msg_seq_end = 13;
+        repeated uint32 elem_type_list = 14;
+    }
+    message RspBody {
+        uint64 uint64_group_code = 1;
+        uint32 uint32_total_cnt = 2;
+        uint32 uint32_cur_cnt = 3;
+        bytes opt_msg_record = 4;
+        bytes str_errorinfo = 5;
+    }

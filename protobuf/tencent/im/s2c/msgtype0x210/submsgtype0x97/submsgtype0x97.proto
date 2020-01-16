@@ -1,0 +1,6 @@
+syntax = "proto3";
+package submsgtype0x97;
+    message MsgBody {
+        string string_business_uin = 1;
+        string string_json_context = 2;
+    }

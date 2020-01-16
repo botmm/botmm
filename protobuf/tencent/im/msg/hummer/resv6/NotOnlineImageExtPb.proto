@@ -1,0 +1,8 @@
+syntax = "proto3";
+package NotOnlineImageExtPb;
+    message ResvAttr {
+        uint32 uint32_image_biz_type = 1;
+        uint32 uint32_customface_type = 2;
+        uint32 uint32_emoji_packageid = 3;
+        uint32 uint32_emoji_id = 4;
+    }

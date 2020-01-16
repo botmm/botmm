@@ -1,0 +1,34 @@
+syntax = "proto3";
+package cmd0x897;
+    message GroupNextVisitor {
+        GroupUinCode msg_group_uin_code = 1;
+        uint64 uint64_next_visitor = 2;
+        VisitorInfo msg_req_field = 3;
+        uint32 uint32_max_count = 4;
+        uint32 uint32_administrator_field = 5;
+        uint32 uint32_guest_field = 6;
+    }
+    message GroupUinCode {
+        uint64 uint64_group_uin = 1;
+        uint64 uint64_group_code = 2;
+    }
+    message GroupVisitorInfo {
+        GroupNextVisitor msg_group_next_visitor = 1;
+        uint32 uint32_flag = 2;
+        repeated VisitorInfo rpt_msg_visitor_info = 3;
+    }
+    message ReqBody {
+        repeated GroupNextVisitor rpt_msg_grp_next_visitor = 1;
+    }
+    message RspBody {
+        uint32 uint32_result = 1;
+        repeated GroupVisitorInfo rpt_msg_grp_visitor_info = 2;
+        string str_err_msg = 3;
+    }
+    message VisitorInfo {
+        uint64 uint64_visitor_uin = 1;
+        uint32 uint32_visitor_faceid = 2;
+        bytes string_visitor_nick = 3;
+        uint32 uint32_role = 4;
+        uint32 uint32_guest_flag = 5;
+    }

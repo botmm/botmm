@@ -1,0 +1,438 @@
+syntax = "proto3";
+package cmd0x346;
+    message ApplyCleanTrafficReq {
+    }
+    message ApplyCleanTrafficRsp {
+        int32 int32_ret_code = 10;
+        string str_ret_msg = 20;
+    }
+    message ApplyCopyFromReq {
+        uint64 uint64_src_uin = 10;
+        uint64 uint64_src_group = 20;
+        uint32 uint32_src_svcid = 30;
+        bytes bytes_src_parentfolder = 40;
+        bytes bytes_src_uuid = 50;
+        bytes bytes_file_md5 = 60;
+        uint64 uint64_dst_uin = 70;
+        uint64 uint64_file_size = 80;
+        string str_file_name = 90;
+        uint32 uint32_danger_level = 100;
+        uint64 uint64_total_space = 110;
+    }
+    message ApplyCopyFromRsp {
+        int32 int32_ret_code = 10;
+        string str_ret_msg = 20;
+        bytes bytes_uuid = 30;
+        uint64 uint64_total_space = 40;
+    }
+    message ApplyCopyToReq {
+        uint64 uint64_dst_id = 10;
+        uint64 uint64_dst_uin = 20;
+        uint32 uint32_dst_svcid = 30;
+        uint64 uint64_src_uin = 40;
+        uint64 uint64_file_size = 50;
+        string str_file_name = 60;
+        string str_local_filepath = 70;
+        bytes bytes_uuid = 80;
+    }
+    message ApplyCopyToRsp {
+        int32 int32_ret_code = 10;
+        string str_ret_msg = 20;
+        string str_file_key = 30;
+    }
+    message ApplyDownloadAbsReq {
+        uint64 uint64_uin = 10;
+        bytes bytes_uuid = 20;
+    }
+    message ApplyDownloadAbsRsp {
+        int32 int32_ret_code = 10;
+        string str_ret_msg = 20;
+        DownloadInfo msg_download_info = 30;
+    }
+    message ApplyDownloadReq {
+        uint64 uint64_uin = 10;
+        bytes bytes_uuid = 20;
+        uint32 uint32_owner_type = 30;
+        uint32 uint32_ext_uintype = 500;
+    }
+    message ApplyDownloadRsp {
+        int32 int32_ret_code = 10;
+        string str_ret_msg = 20;
+        DownloadInfo msg_download_info = 30;
+        FileInfo msg_file_info = 40;
+    }
+    message ApplyForwardFileReq {
+        uint64 uint64_sender_uin = 10;
+        uint64 uint64_recver_uin = 20;
+        bytes bytes_uuid = 30;
+        uint32 uint32_danger_level = 40;
+        uint64 uint64_total_space = 50;
+    }
+    message ApplyForwardFileRsp {
+        int32 int32_ret_code = 10;
+        string str_ret_msg = 20;
+        uint64 uint64_total_space = 30;
+        uint64 uint64_used_space = 40;
+        bytes bytes_uuid = 50;
+    }
+    message ApplyGetTrafficReq {
+    }
+    message ApplyGetTrafficRsp {
+        int32 int32_ret_code = 10;
+        string str_ret_msg = 20;
+        uint64 uint64_use_file_size = 30;
+        uint32 uint32_use_file_num = 40;
+        uint64 uint64_all_file_size = 50;
+        uint32 uint32_all_file_num = 60;
+    }
+    message ApplyListDownloadReq {
+        uint64 uint64_uin = 10;
+        uint32 uint32_begin_index = 20;
+        uint32 uint32_req_count = 30;
+    }
+    message ApplyListDownloadRsp {
+        int32 int32_ret_code = 10;
+        string str_ret_msg = 20;
+        uint32 uint32_total_count = 30;
+        uint32 uint32_begin_index = 40;
+        uint32 uint32_rsp_count = 50;
+        uint32 uint32_is_end = 60;
+        repeated FileInfo rpt_msg_file_list = 70;
+    }
+    message ApplyUploadHitReq {
+        uint64 uint64_sender_uin = 10;
+        uint64 uint64_recver_uin = 20;
+        uint64 uint64_file_size = 30;
+        string str_file_name = 40;
+        bytes bytes_10m_md5 = 50;
+        string str_local_filepath = 60;
+        uint32 uint32_danger_level = 70;
+        uint64 uint64_total_space = 80;
+    }
+    message ApplyUploadHitReqV2 {
+        uint64 uint64_sender_uin = 10;
+        uint64 uint64_recver_uin = 20;
+        uint64 uint64_file_size = 30;
+        string str_file_name = 40;
+        bytes bytes_10m_md5 = 50;
+        bytes bytes_3sha = 60;
+        bytes bytes_sha = 70;
+        string str_local_filepath = 80;
+        uint32 uint32_danger_level = 90;
+        uint64 uint64_total_space = 100;
+    }
+    message ApplyUploadHitReqV3 {
+        uint64 uint64_sender_uin = 10;
+        uint64 uint64_recver_uin = 20;
+        uint64 uint64_file_size = 30;
+        string str_file_name = 40;
+        bytes bytes_10m_md5 = 50;
+        bytes bytes_sha = 60;
+        string str_local_filepath = 70;
+        uint32 uint32_danger_level = 80;
+        uint64 uint64_total_space = 90;
+    }
+    message ApplyUploadHitRsp {
+        int32 int32_ret_code = 10;
+        string str_ret_msg = 20;
+        string str_upload_ip = 30;
+        uint32 uint32_upload_port = 40;
+        string str_upload_domain = 50;
+        bytes bytes_uuid = 60;
+        bytes bytes_upload_key = 70;
+        uint64 uint64_total_space = 80;
+        uint64 uint64_used_space = 90;
+    }
+    message ApplyUploadHitRspV2 {
+        int32 int32_ret_code = 10;
+        string str_ret_msg = 20;
+        string str_upload_ip = 30;
+        uint32 uint32_upload_port = 40;
+        string str_upload_domain = 50;
+        bytes bytes_uuid = 60;
+        bytes bytes_upload_key = 70;
+        uint64 uint64_total_space = 80;
+        uint64 uint64_used_space = 90;
+    }
+    message ApplyUploadHitRspV3 {
+        int32 int32_ret_code = 10;
+        string str_ret_msg = 20;
+        string str_upload_ip = 30;
+        uint32 uint32_upload_port = 40;
+        string str_upload_domain = 50;
+        bytes bytes_uuid = 60;
+        bytes bytes_upload_key = 70;
+        uint64 uint64_total_space = 80;
+        uint64 uint64_used_space = 90;
+    }
+    message ApplyUploadReq {
+        uint64 uint64_sender_uin = 10;
+        uint64 uint64_recver_uin = 20;
+        uint32 uint32_file_type = 30;
+        uint64 uint64_file_size = 40;
+        string str_file_name = 50;
+        bytes bytes_10m_md5 = 60;
+        string str_local_filepath = 70;
+        uint32 uint32_danger_level = 80;
+        uint64 uint64_total_space = 90;
+    }
+    message ApplyUploadReqV2 {
+        uint64 uint64_sender_uin = 10;
+        uint64 uint64_recver_uin = 20;
+        uint64 uint64_file_size = 30;
+        string str_file_name = 40;
+        bytes bytes_10m_md5 = 50;
+        bytes bytes_3sha = 60;
+        string str_local_filepath = 70;
+        uint32 uint32_danger_level = 80;
+        uint64 uint64_total_space = 90;
+    }
+    message ApplyUploadReqV3 {
+        uint64 uint64_sender_uin = 10;
+        uint64 uint64_recver_uin = 20;
+        uint64 uint64_file_size = 30;
+        string str_file_name = 40;
+        bytes bytes_10m_md5 = 50;
+        bytes bytes_sha = 60;
+        string str_local_filepath = 70;
+        uint32 uint32_danger_level = 80;
+        uint64 uint64_total_space = 90;
+    }
+    message ApplyUploadRsp {
+        int32 int32_ret_code = 10;
+        string str_ret_msg = 20;
+        uint64 uint64_total_space = 30;
+        uint64 uint64_used_space = 40;
+        uint64 uint64_uploaded_size = 50;
+        string str_upload_ip = 60;
+        string str_upload_domain = 70;
+        uint32 uint32_upload_port = 80;
+        bytes bytes_uuid = 90;
+        bytes bytes_upload_key = 100;
+        bool bool_file_exist = 110;
+        uint32 uint32_pack_size = 120;
+        repeated string rpt_str_uploadip_list = 130;
+    }
+    message ApplyUploadRspV2 {
+        int32 int32_ret_code = 10;
+        string str_ret_msg = 20;
+        uint64 uint64_total_space = 30;
+        uint64 uint64_used_space = 40;
+        uint64 uint64_uploaded_size = 50;
+        string str_upload_ip = 60;
+        string str_upload_domain = 70;
+        uint32 uint32_upload_port = 80;
+        bytes bytes_uuid = 90;
+        bytes bytes_upload_key = 100;
+        bool bool_file_exist = 110;
+        uint32 uint32_pack_size = 120;
+        repeated string rpt_str_uploadip_list = 130;
+        uint32 uint32_httpsvr_api_ver = 140;
+        bytes bytes_sha = 141;
+    }
+    message ApplyUploadRspV3 {
+        int32 int32_ret_code = 10;
+        string str_ret_msg = 20;
+        uint64 uint64_total_space = 30;
+        uint64 uint64_used_space = 40;
+        uint64 uint64_uploaded_size = 50;
+        string str_upload_ip = 60;
+        string str_upload_domain = 70;
+        uint32 uint32_upload_port = 80;
+        bytes bytes_uuid = 90;
+        bytes bytes_upload_key = 100;
+        bool bool_file_exist = 110;
+        uint32 uint32_pack_size = 120;
+        repeated string rpt_str_uploadip_list = 130;
+    }
+    message DelMessageReq {
+        uint64 uint64_uin_sender = 1;
+        uint64 uint64_uin_receiver = 2;
+        uint32 uint32_msg_time = 10;
+        uint32 uint32_msg_random = 20;
+        uint32 uint32_msg_seq_no = 30;
+    }
+    message DeleteFileReq {
+        uint64 uint64_uin = 10;
+        uint64 uint64_peer_uin = 20;
+        uint32 uint32_delete_type = 30;
+        bytes bytes_uuid = 40;
+    }
+    message DeleteFileRsp {
+        int32 int32_ret_code = 10;
+        string str_ret_msg = 20;
+    }
+    message DownloadInfo {
+        bytes bytes_download_key = 10;
+        string str_download_ip = 20;
+        string str_download_domain = 30;
+        uint32 uint32_port = 40;
+        string str_download_url = 50;
+        repeated string rpt_str_downloadip_list = 60;
+        string str_cookie = 70;
+    }
+    message DownloadSuccReq {
+        uint64 uint64_uin = 10;
+        bytes bytes_uuid = 20;
+    }
+    message DownloadSuccRsp {
+        int32 int32_ret_code = 10;
+        string str_ret_msg = 20;
+        int32 int32_down_stat = 30;
+    }
+    message ExtensionReq {
+        uint64 uint64_id = 1;
+        uint64 uint64_type = 2;
+        string str_dst_phonenum = 3;
+        int32 int32_phone_convert_type = 4;
+        bytes bytes_sig = 20;
+        uint64 uint64_route_id = 100;
+        DelMessageReq msg_del_message_req = 90100;
+        uint32 uint32_download_url_type = 90200;
+        uint32 uint32_ptt_format = 90300;
+        uint32 uint32_is_need_inner_ip = 90400;
+        uint32 uint32_net_type = 90500;
+        uint32 uint32_voice_type = 90600;
+        uint32 uint32_file_type = 90700;
+        uint32 uint32_ptt_time = 90800;
+    }
+    message ExtensionRsp {
+    }
+    message FileInfo {
+        uint64 uint64_uin = 1;
+        uint32 uint32_danger_evel = 2;
+        uint64 uint64_file_size = 3;
+        uint32 uint32_life_time = 4;
+        uint32 uint32_upload_time = 5;
+        bytes bytes_uuid = 6;
+        string str_file_name = 7;
+        uint32 uint32_abs_file_type = 90;
+        bytes bytes_10m_md5 = 100;
+        bytes bytes_sha = 101;
+        uint32 uint32_client_type = 110;
+        uint64 uint64_owner_uin = 120;
+        uint64 uint64_peer_uin = 121;
+        uint32 uint32_expire_time = 130;
+    }
+    message FileQueryReq {
+        uint64 uint64_uin = 10;
+        bytes bytes_uuid = 20;
+    }
+    message FileQueryRsp {
+        int32 int32_ret_code = 10;
+        string str_ret_msg = 20;
+        FileInfo msg_file_info = 30;
+    }
+    message RecallFileReq {
+        uint64 uint64_uin = 1;
+        bytes bytes_uuid = 2;
+    }
+    message RecallFileRsp {
+        int32 int32_ret_code = 1;
+        string str_ret_msg = 2;
+    }
+    message RecvListQueryReq {
+        uint64 uint64_uin = 1;
+        uint32 uint32_begin_index = 2;
+        uint32 uint32_req_count = 3;
+    }
+    message RecvListQueryRsp {
+        int32 int32_ret_code = 1;
+        string str_ret_msg = 2;
+        uint32 uint32_file_tot_count = 3;
+        uint32 uint32_begin_index = 4;
+        uint32 uint32_rsp_file_count = 5;
+        uint32 uint32_is_end = 6;
+        repeated FileInfo rpt_msg_file_list = 7;
+    }
+    message RenewFileReq {
+        uint64 uint64_uin = 1;
+        bytes bytes_uuid = 2;
+        uint32 uint32_add_ttl = 3;
+    }
+    message RenewFileRsp {
+        int32 int32_ret_code = 1;
+        string str_ret_msg = 2;
+    }
+    message ReqBody {
+        uint32 uint32_cmd = 1;
+        uint32 uint32_seq = 2;
+        RecvListQueryReq msg_recv_list_query_req = 3;
+        SendListQueryReq msg_send_list_query_req = 4;
+        RenewFileReq msg_renew_file_req = 5;
+        RecallFileReq msg_recall_file_req = 6;
+        ApplyUploadReq msg_apply_upload_req = 7;
+        ApplyUploadHitReq msg_apply_upload_hit_req = 8;
+        ApplyForwardFileReq msg_apply_forward_file_req = 9;
+        UploadSuccReq msg_upload_succ_req = 10;
+        DeleteFileReq msg_delete_file_req = 11;
+        DownloadSuccReq msg_download_succ_req = 12;
+        ApplyDownloadAbsReq msg_apply_download_abs_req = 13;
+        ApplyDownloadReq msg_apply_download_req = 14;
+        ApplyListDownloadReq msg_apply_list_download_req = 15;
+        FileQueryReq msg_file_query_req = 16;
+        ApplyCopyFromReq msg_apply_copy_from_req = 17;
+        ApplyUploadReqV2 msg_apply_upload_req_v2 = 18;
+        ApplyUploadReqV3 msg_apply_upload_req_v3 = 19;
+        ApplyUploadHitReqV2 msg_apply_upload_hit_req_v2 = 20;
+        ApplyUploadHitReqV3 msg_apply_upload_hit_req_v3 = 21;
+        uint32 uint32_business_id = 101;
+        uint32 uint32_client_type = 102;
+        ApplyCopyToReq msg_apply_copy_to_req = 90000;
+        ApplyCleanTrafficReq msg_apply_clean_traffic_req = 90001;
+        ApplyGetTrafficReq msg_apply_get_traffic_req = 90002;
+        ExtensionReq msg_extension_req = 99999;
+    }
+    message RspBody {
+        uint32 uint32_cmd = 1;
+        uint32 uint32_seq = 2;
+        RecvListQueryRsp msg_recv_list_query_rsp = 3;
+        SendListQueryRsp msg_send_list_query_rsp = 4;
+        RenewFileRsp msg_renew_file_rsp = 5;
+        RecallFileRsp msg_recall_file_rsp = 6;
+        ApplyUploadRsp msg_apply_upload_rsp = 7;
+        ApplyUploadHitRsp msg_apply_upload_hit_rsp = 8;
+        ApplyForwardFileRsp msg_apply_forward_file_rsp = 9;
+        UploadSuccRsp msg_upload_succ_rsp = 10;
+        DeleteFileRsp msg_delete_file_rsp = 11;
+        DownloadSuccRsp msg_download_succ_rsp = 12;
+        ApplyDownloadAbsRsp msg_apply_download_abs_rsp = 13;
+        ApplyDownloadRsp msg_apply_download_rsp = 14;
+        ApplyListDownloadRsp msg_apply_list_download_rsp = 15;
+        FileQueryRsp msg_file_query_rsp = 16;
+        ApplyCopyFromRsp msg_apply_copy_from_rsp = 17;
+        ApplyUploadRspV2 msg_apply_upload_rsp_v2 = 18;
+        ApplyUploadRspV3 msg_apply_upload_rsp_v3 = 19;
+        ApplyUploadHitRspV2 msg_apply_upload_hit_rsp_v2 = 20;
+        ApplyUploadHitRspV3 msg_apply_upload_hit_rsp_v3 = 21;
+        ApplyCopyToRsp msg_apply_copy_to_rsp = 90000;
+        ApplyCleanTrafficRsp msg_apply_clean_traffic_rsp = 90001;
+        ApplyGetTrafficRsp msg_apply_get_traffic_rsp = 90002;
+        ExtensionRsp msg_extension_rsp = 99999;
+    }
+    message SendListQueryReq {
+        uint64 uint64_uin = 1;
+        uint32 uint32_begin_index = 2;
+        uint32 uint32_req_count = 3;
+    }
+    message SendListQueryRsp {
+        int32 int32_ret_code = 1;
+        string str_ret_msg = 2;
+        uint32 uint32_file_tot_count = 3;
+        uint32 uint32_begin_index = 4;
+        uint32 uint32_rsp_file_count = 5;
+        uint32 uint32_is_end = 6;
+        uint64 uint64_tot_limit = 7;
+        uint64 uint64_used_limit = 8;
+        repeated FileInfo rpt_msg_file_list = 9;
+    }
+    message UploadSuccReq {
+        uint64 uint64_sender_uin = 10;
+        uint64 uint64_recver_uin = 20;
+        bytes bytes_uuid = 30;
+    }
+    message UploadSuccRsp {
+        int32 int32_ret_code = 10;
+        string str_ret_msg = 20;
+        FileInfo msg_file_info = 30;
+    }

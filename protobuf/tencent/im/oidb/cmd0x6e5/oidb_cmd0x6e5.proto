@@ -1,0 +1,18 @@
+syntax = "proto3";
+package oidb_cmd0x6e5;
+    message InterestLabelInfo {
+        uint32 uint32_interest_label_id = 1;
+        bytes bytes_interest_label_name = 2;
+    }
+    message ReqBody {
+        uint64 uint64_uin = 1;
+        uint32 uint32_req_all_interest_label_list = 11;
+        uint32 uint32_req_default_interest_label_id_list = 12;
+        uint32 uint32_req_last_interest_label_id_list = 13;
+    }
+    message RspBody {
+        uint64 uint64_uin = 1;
+        repeated InterestLabelInfo rpt_interest_label_list = 11;
+        repeated uint32 rpt_uint32_default_interest_label_id_list = 12;
+        repeated uint64 rpt_uint64_last_interest_label_id_list = 13;
+    }

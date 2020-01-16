@@ -1,0 +1,13 @@
+syntax = "proto3";
+import "appoint/define/appoint_define/InterestTag.proto";
+package cmd0x9c7;
+    message ReqBody {
+        uint32 uint32_set_mode = 1;
+        uint32 uint32_test_mode = 2;
+        repeated appoint_define.InterestTag rpt_msg_tags = 3;
+    }
+    message RspBody {
+        repeated appoint_define.InterestTag rpt_msg_tags = 1;
+        string str_error = 2;
+        string str_test_result_url = 3;
+    }

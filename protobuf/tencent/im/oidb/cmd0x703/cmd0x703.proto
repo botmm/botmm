@@ -1,0 +1,23 @@
+syntax = "proto3";
+package cmd0x703;
+    message PhotoInfo {
+        uint32 uint32_id = 1;
+        uint32 uint32_is_invalid = 2;
+        string str_url = 4;
+        uint32 uint32_timestamp = 5;
+    }
+    message ReqBody {
+        repeated uint64 rpt_uint64_uin = 1;
+        uint32 uint32_photo_type = 2;
+        uint32 uint32_include_invalid = 60001;
+    }
+    message RspBody {
+        repeated UinPhotoListInfo rpt_msg_uin_photo_list = 1;
+    }
+    message UinPhotoListInfo {
+        uint64 uint64_uin = 1;
+        uint32 uint32_timestamp = 2;
+        repeated PhotoInfo rpt_msg_photo_info = 4;
+        repeated uint32 rpt_selected_id_list = 10;
+        string str_default_photo = 11;
+    }

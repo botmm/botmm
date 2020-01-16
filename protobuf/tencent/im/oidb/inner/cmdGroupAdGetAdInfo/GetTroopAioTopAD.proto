@@ -1,0 +1,29 @@
+syntax = "proto3";
+package GetTroopAioTopAD;
+    message AdInfo {
+        uint32 uint32_ad_id = 1;
+        string str_background_url = 2;
+        string str_more_url = 3;
+        string str_pic_url = 4;
+        uint32 uint32_valid_interval = 5;
+        enum ad_show_type = 6;
+        ExtAdInfo msg_ext_adinfo = 7;
+    }
+    message AppInfo {
+        enum plat_type = 1;
+        string str_app_version = 2;
+    }
+    message ExtAdInfo {
+        string str_word = 1;
+        string str_ui_url = 2;
+        string str_jmp_url = 3;
+    }
+    message ReqBody {
+        uint64 uint64_groupcode = 1;
+        AppInfo msg_app_info = 2;
+    }
+    message RspBody {
+        uint32 uint32_res = 1;
+        uint32 uint32_time_interval = 2;
+        repeated AdInfo rpt_ad_info = 3;
+    }

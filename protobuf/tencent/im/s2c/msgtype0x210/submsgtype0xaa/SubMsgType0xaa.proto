@@ -1,0 +1,57 @@
+syntax = "proto3";
+package SubMsgType0xaa;
+    message GameTeam_MsgBody {
+        uint32 uint32_GameTeamCmd = 1;
+        GameTeam_TurnOverMessage msg_turnOverMessage = 2;
+        GameTeam_StartGameMessage msg_startGameMessage = 3;
+        GameTeam_UpdateTeamMessage msg_updateTeamMessage = 4;
+    }
+    message GameTeam_StartGameMessage {
+        string str_gamedata = 1;
+        uint32 uint32_platformType = 2;
+        string str_title = 3;
+        string str_summary = 4;
+        string str_picUrl = 5;
+        string str_appid = 6;
+        string str_appStoreId = 7;
+        string str_packageName = 8;
+        uint64 uint64_createMsgTime = 9;
+        uint32 uint32_expire = 10;
+        uint64 uint64_buildTeamTime = 11;
+    }
+    message GameTeam_TurnOverMessage {
+        string str_teamId = 1;
+        uint32 uint32_sessionType = 2;
+        string str_sourceUin = 3;
+        string str_actionUin = 4;
+        uint32 actionType = 5;
+        uint32 uint32_currentCount = 6;
+        uint32 uint32_totalCount = 7;
+        uint64 uint64_createMsgTime = 8;
+        uint32 uint32_status = 9;
+        uint32 uint32_expire = 10;
+        uint64 uint64_buildTeamTime = 11;
+        string str_leaderUin = 12;
+        uint32 uin32_leaderStatus = 13;
+        repeated InviteSource InviteSourceList = 14;
+    }
+    message GameTeam_UpdateTeamMessage {
+        string str_teamId = 1;
+        string str_gameId = 2;
+        uint32 uint32_status = 3;
+        string str_modeImg = 4;
+        uint32 uint32_current_count = 5;
+        uint64 uint64_createMsgTime = 6;
+        uint32 uint32_expire = 7;
+        uint64 uint64_buildTeamTime = 8;
+        string str_leaderUin = 9;
+        uint32 uin32_leaderStatus = 10;
+    }
+    message InviteSource {
+        uint32 type = 1;
+        string src = 2;
+    }
+    message MsgBody {
+        uint32 cmd = 1;
+        GameTeam_MsgBody msg_gameTeamMsg = 2;
+    }

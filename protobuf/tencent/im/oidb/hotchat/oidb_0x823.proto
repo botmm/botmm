@@ -1,0 +1,21 @@
+syntax = "proto3";
+package oidb_0x823;
+    message KickPublicGroupVisitorReqBody {
+        repeated uint64 rpt_uint64_visitor_uin = 1;
+    }
+    message KickPublicGroupVisitorRspBody {
+        repeated uint64 rpt_uint64_visitor_uin = 1;
+    }
+    message PlayerDeviceInfo {
+        int32 int32_client_type = 1;
+        uint32 uint32_portal = 2;
+    }
+    message ReqBody {
+        PlayerDeviceInfo msg_req_info = 1;
+        uint64 uint64_group_uin = 2;
+        uint64 uint64_group_code = 3;
+        KickPublicGroupVisitorReqBody msg_kick_visitor = 4;
+    }
+    message RspBody {
+        KickPublicGroupVisitorRspBody msg_kick_visitor = 1;
+    }

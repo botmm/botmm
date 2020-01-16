@@ -1,0 +1,130 @@
+syntax = "proto3";
+package oidb_0x88d;
+    message GroupExInfoOnly {
+        uint32 uint32_tribe_id = 1;
+        uint32 uint32_money_for_add_group = 2;
+    }
+    message GroupGeoInfo {
+        uint64 uint64_owneruin = 1;
+        uint32 uint32_settime = 2;
+        uint32 uint32_cityid = 3;
+        int64 int64_longitude = 4;
+        int64 int64_latitude = 5;
+        bytes bytes_geocontent = 6;
+        uint64 uint64_poi_id = 7;
+    }
+    message GroupHeadPortrait {
+        uint32 uint32_pic_cnt = 1;
+        repeated GroupHeadPortraitInfo rpt_msg_info = 2;
+        uint32 uint32_default_id = 3;
+        uint32 uint32_verifying_pic_cnt = 4;
+        repeated GroupHeadPortraitInfo rpt_msg_verifyingpic_info = 5;
+    }
+    message GroupHeadPortraitInfo {
+        uint32 rpt_uint32_pic_id = 1;
+    }
+    message GroupInfo {
+        uint64 uint64_group_owner = 1;
+        uint32 uint32_group_create_time = 2;
+        uint32 uint32_group_flag = 3;
+        uint32 uint32_group_flag_ext = 4;
+        uint32 uint32_group_member_max_num = 5;
+        uint32 uint32_group_member_num = 6;
+        uint32 uint32_group_option = 7;
+        uint32 uint32_group_class_ext = 8;
+        uint32 uint32_group_special_class = 9;
+        uint32 uint32_group_level = 10;
+        uint32 uint32_group_face = 11;
+        uint32 uint32_group_default_page = 12;
+        uint32 uint32_group_info_seq = 13;
+        uint32 uint32_group_roaming_time = 14;
+        bytes string_group_name = 15;
+        bytes string_group_memo = 16;
+        bytes string_group_finger_memo = 17;
+        bytes string_group_class_text = 18;
+        repeated uint32 uint32_group_alliance_code = 19;
+        uint32 uint32_group_extra_adm_num = 20;
+        uint64 uint64_group_uin = 21;
+        uint32 uint32_group_cur_msg_seq = 22;
+        uint32 uint32_group_last_msg_time = 23;
+        bytes string_group_question = 24;
+        bytes string_group_answer = 25;
+        uint32 uint32_group_visitor_max_num = 26;
+        uint32 uint32_group_visitor_cur_num = 27;
+        uint32 uint32_level_name_seq = 28;
+        uint32 uint32_group_admin_max_num = 29;
+        uint32 uint32_group_aio_skin_timestamp = 30;
+        uint32 uint32_group_board_skin_timestamp = 31;
+        bytes string_group_aio_skin_url = 32;
+        bytes string_group_board_skin_url = 33;
+        uint32 uint32_group_cover_skin_timestamp = 34;
+        bytes string_group_cover_skin_url = 35;
+        uint32 uint32_group_grade = 36;
+        uint32 uint32_active_member_num = 37;
+        uint32 uint32_certification_type = 38;
+        bytes string_certification_text = 39;
+        bytes string_group_rich_finger_memo = 40;
+        repeated TagRecord rpt_tag_record = 41;
+        GroupGeoInfo group_geo_info = 42;
+        uint32 uint32_head_portrait_seq = 43;
+        GroupHeadPortrait msg_head_portrait = 44;
+        uint32 uint32_shutup_timestamp = 45;
+        uint32 uint32_shutup_timestamp_me = 46;
+        uint32 uint32_create_source_flag = 47;
+        uint32 uint32_cmduin_msg_seq = 48;
+        uint32 uint32_cmduin_join_time = 49;
+        uint32 uint32_cmduin_uin_flag = 50;
+        uint32 uint32_cmduin_flag_ex = 51;
+        uint32 uint32_cmduin_new_mobile_flag = 52;
+        uint32 uint32_cmduin_read_msg_seq = 53;
+        uint32 uint32_cmduin_last_msg_time = 54;
+        uint32 uint32_group_type_flag = 55;
+        uint32 uint32_app_privilege_flag = 56;
+        GroupExInfoOnly st_group_ex_info = 57;
+        uint32 uint32_group_sec_level = 58;
+        uint32 uint32_group_sec_level_info = 59;
+        uint32 uint32_cmduin_privilege = 60;
+        bytes string_poid_info = 61;
+        uint32 uint32_cmduin_flag_ex2 = 62;
+        uint64 uint64_conf_uin = 63;
+        uint32 uint32_conf_max_msg_seq = 64;
+        uint32 uint32_conf_to_group_time = 65;
+        uint32 uint32_password_redbag_time = 66;
+        uint64 uint64_subscription_uin = 67;
+        uint32 uint32_member_list_change_seq = 68;
+        uint32 uint32_membercard_seq = 69;
+        uint64 uint64_root_id = 70;
+        uint64 uint64_parent_id = 71;
+        uint32 uint32_team_seq = 72;
+        uint64 uint64_history_msg_begin_time = 73;
+        uint64 uint32_invite_no_auth_num_limit = 74;
+    }
+    message ReqBody {
+        uint32 uint32_appid = 1;
+        repeated ReqGroupInfo stzreqgroupinfo = 2;
+        uint32 uint32_pc_client_version = 3;
+    }
+    message ReqGroupInfo {
+        uint64 uint64_group_code = 1;
+        GroupInfo stgroupinfo = 2;
+        uint32 uint32_last_get_group_name_time = 3;
+    }
+    message RspBody {
+        repeated RspGroupInfo stzrspgroupinfo = 1;
+        bytes str_errorinfo = 2;
+    }
+    message RspGroupInfo {
+        uint64 uint64_group_code = 1;
+        uint32 uint32_result = 2;
+        GroupInfo stgroupinfo = 3;
+    }
+    message TagRecord {
+        uint64 uint64_from_uin = 1;
+        uint64 uint64_group_code = 2;
+        bytes bytes_tag_id = 3;
+        uint64 uint64_set_time = 4;
+        uint32 uint32_good_num = 5;
+        uint32 uint32_bad_num = 6;
+        uint32 uint32_tag_len = 7;
+        bytes bytes_tag_value = 8;
+    }

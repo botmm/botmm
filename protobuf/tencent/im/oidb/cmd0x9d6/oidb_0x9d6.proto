@@ -1,0 +1,10 @@
+syntax = "proto3";
+package oidb_0x9d6;
+    message ReqBody {
+        string str_feed_id = 1;
+        uint32 uint32_operation = 2;
+    }
+    message RspBody {
+        string str_error_tips = 1;
+        uint32 uint32_praise_count = 2;
+    }

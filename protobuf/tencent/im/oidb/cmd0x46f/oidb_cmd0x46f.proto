@@ -1,0 +1,26 @@
+syntax = "proto3";
+package oidb_cmd0x46f;
+    message DislikeParam {
+        uint64 uint64_articleid = 1;
+        uint32 uint32_reasonid = 2;
+        repeated uint64 rpt_uint64_tagid = 11;
+        repeated UserDisLike rpt_user_dislike_list = 12;
+    }
+    message DislikeResult {
+        uint64 uint64_articleid = 1;
+        uint32 uint32_result = 2;
+        string str_message = 3;
+    }
+    message ReqBody {
+        uint64 uint64_uin = 1;
+        repeated DislikeParam rpt_param_list = 11;
+    }
+    message RspBody {
+        uint32 uint32_fail_count = 1;
+        repeated DislikeResult rpt_result_list = 11;
+    }
+    message UserDisLike {
+        enum type = 1;
+        uint64 uint64_dislike_tagid = 2;
+        bytes bytes_dislike_account_id = 3;
+    }

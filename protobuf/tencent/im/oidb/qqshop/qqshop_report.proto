@@ -1,0 +1,25 @@
+syntax = "proto3";
+package qqshop_report;
+    message SQQSHPCliLogInfo {
+        uint64 puin = 1;
+        uint32 tvalue = 2;
+        uint32 cnt = 3;
+        uint32 network = 4;
+        string strp1 = 5;
+        string strp2 = 6;
+        string strp3 = 7;
+        string strp4 = 8;
+        uint64 uintp1 = 9;
+        uint64 uintp2 = 10;
+        uint64 uintp3 = 11;
+        uint64 uintp4 = 12;
+        string wifimac = 13;
+        string ifda = 14;
+    }
+    message SQQSHPCliLogReq {
+        repeated SQQSHPCliLogInfo logs = 1;
+    }
+    message SQQSHPCliLogRsp {
+        int32 ret = 1;
+        string ret_msg = 2;
+    }

@@ -1,0 +1,7 @@
+syntax = "proto3";
+package MiniFileProto;
+    message MiniFile {
+        bytes md5 = 1;
+        string name = 2;
+        uint64 length = 3;
+    }

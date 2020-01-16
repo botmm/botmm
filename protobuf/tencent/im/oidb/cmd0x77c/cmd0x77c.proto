@@ -1,0 +1,16 @@
+syntax = "proto3";
+package cmd0x77c;
+    message ReqBody {
+        uint64 uint64_uin = 1;
+        int32 int32_timezone = 2;
+    }
+    message RspBody {
+        uint64 uint64_uin = 1;
+        uint64 uint64_friend_uin = 2;
+        uint32 uint32_add_time = 3;
+        uint32 uint32_add_year = 4;
+        uint32 uint32_qzone_interaction_numbers = 5;
+        bytes bytes_wording = 6;
+        uint32 uint32_next_time_gap = 7;
+        bytes bytes_url = 8;
+    }

@@ -1,0 +1,36 @@
+syntax = "proto3";
+package oidb_0x6cf;
+    message ArticleSummary {
+        uint64 uint64_article_id = 1;
+        bytes bytes_article_title = 2;
+        bytes bytes_article_summary = 3;
+        bytes bytes_first_page_pic_url = 4;
+        bytes bytes_original_url = 5;
+        bytes bytes_article_content_url = 6;
+        uint64 uint64_time = 7;
+        uint32 uint32_comment_count = 8;
+        bytes bytes_subscribe_id = 9;
+        bytes bytes_subscribe_name = 10;
+        uint64 uint64_recommend_time = 11;
+        uint64 uint64_recommend_seq = 12;
+        uint32 uint32_show_big_picture = 13;
+        uint64 uint64_algorithm_id = 14;
+        bytes bytes_recommend_reason = 15;
+        bytes json_picture_list = 16;
+        bytes json_video_list = 17;
+        uint32 uint32_strategy_id = 21;
+        uint32 uint32_video_play_count = 22;
+        bytes bytes_frd_praise_info = 23;
+    }
+    message ReqBody {
+        uint64 uint64_uin = 1;
+        uint64 uint64_article_id = 2;
+        bytes bytes_inner_id = 3;
+        enum enum_article_source = 4;
+    }
+    message RspBody {
+        uint64 uint64_uin = 1;
+        repeated ArticleSummary rpt_article_list = 2;
+        bytes bytes_inner_id = 3;
+        ArticleSummary req_article_summary = 4;
+    }

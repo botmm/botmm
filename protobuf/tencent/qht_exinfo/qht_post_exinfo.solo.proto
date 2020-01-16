@@ -1,0 +1,7 @@
+message qht_post_exinfo {
+    string groupCode;
+    uint64 msgSeq;
+    uint64 pVersion;
+    uint64 bid;
+    string pid;
+}

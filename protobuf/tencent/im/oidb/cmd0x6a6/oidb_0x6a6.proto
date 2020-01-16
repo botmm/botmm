@@ -1,0 +1,13 @@
+syntax = "proto3";
+package oidb_0x6a6;
+    message ReqBody {
+        bytes bytes_article_id = 1;
+        uint32 uint32_req_type = 2;
+        uint32 uint32_article_type = 3;
+        uint32 uint32_platform_type = 4;
+    }
+    message RspBody {
+        uint32 uint32_read_count = 1;
+        uint64 uint64_read_count = 2;
+        uint32 uint32_ret_code = 3;
+    }

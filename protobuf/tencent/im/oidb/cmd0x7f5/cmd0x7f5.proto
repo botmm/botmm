@@ -1,0 +1,74 @@
+syntax = "proto3";
+package cmd0x7f5;
+    message Color {
+        uint32 uint32_r = 1;
+        uint32 uint32_g = 2;
+        uint32 uint32_b = 3;
+    }
+    message GPS {
+        uint32 uint32_latitude = 1;
+        uint32 uint32_longitude = 2;
+        uint32 uint32_altitude = 3;
+        uint32 uint32_accuracy = 4;
+        uint32 uint32_time = 5;
+        uint32 uint32_flag = 6;
+        uint32 uint32_cityid = 7;
+        bytes bytes_client_version = 8;
+        uint32 uint32_client = 9;
+    }
+    message GroupInfo {
+        uint64 uint64_group_code = 1;
+        uint32 uint32_accuracy = 2;
+        int32 int32_ilat = 3;
+        int32 int32_ilon = 4;
+        bytes bytes_location = 5;
+        uint32 uint32_extflag = 6;
+        uint32 uint32_group_member_num = 8;
+        uint64 uint64_group_owner = 10;
+        uint32 uint32_group_createtime = 11;
+        bytes string_group_name = 13;
+        bytes string_group_finger_memo = 14;
+        LabelRspInfo label_info = 15;
+        string string_join_auth_key = 16;
+    }
+    message Label {
+        bytes bytes_name = 1;
+        enum enum_type = 2;
+        Color text_color = 3;
+        Color edging_color = 4;
+        uint32 uint32_label_attr = 5;
+        uint32 uint32_label_type = 6;
+    }
+    message LabelInfo {
+        int32 int32_result = 1;
+        uint64 uint64_group_code = 2;
+        repeated Label rpt_group_label = 3;
+    }
+    message LabelRspInfo {
+        bytes bytes_error = 1;
+        repeated LabelInfo rpt_label_info = 2;
+    }
+    message ReqBody {
+        uint32 uint32_max_count = 1;
+        uint32 uint32_max_distance = 2;
+        uint32 uint32_loc_type = 3;
+        GPS msg_gps = 4;
+        bytes bytes_route_mac = 5;
+        fixed32 uint32_ipv4 = 6;
+        repeated Wifi rpt_msg_wifi_mac = 7;
+        bytes bytes_req_context = 8;
+        uint32 uint32_area_count = 9;
+        uint32 uint32_sort_type = 10;
+        uint32 uint32_filter_id = 11;
+        uint32 uint32_strategy = 12;
+    }
+    message RspBody {
+        uint32 uint32_completed_flag = 1;
+        uint32 uint32_recruit_number = 2;
+        repeated GroupInfo rpt_group_info = 3;
+        bytes bytes_req_context = 4;
+    }
+    message Wifi {
+        bytes bytes_mac = 1;
+        uint32 uint32_rssi = 2;
+    }

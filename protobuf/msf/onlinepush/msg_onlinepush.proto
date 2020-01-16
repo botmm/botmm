@@ -1,0 +1,7 @@
+syntax = "proto3";
+import "msf/msgcomm/msg_comm.proto";
+package msg_onlinepush;
+    message PbPushMsg {
+        /* message */ msg_comm.Msg msg = 1;
+        int32 svrip = 2;
+    }

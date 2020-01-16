@@ -1,0 +1,18 @@
+syntax = "proto3";
+package cmd0x6f5;
+    message ReqBody {
+        string str_qq_version = 1;
+        uint32 uint32_qq_platform = 2;
+    }
+    message RspBody {
+        string str_config_version = 1;
+        repeated TaskInfo rpt_task_info = 2;
+    }
+    message TaskInfo {
+        uint32 uint32_task_id = 1;
+        uint32 uint32_appid = 2;
+        uint32 uint32_passthrough_level = 3;
+        uint32 uint32_show_level = 4;
+        uint32 uint32_extra = 5;
+        uint32 uint32_priority = 6;
+    }

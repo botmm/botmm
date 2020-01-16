@@ -1,0 +1,10 @@
+syntax = "proto3";
+package SubMsgType0x7.MsgBody.ProgressRsp;
+    message ProgressInfo {
+        uint64 uint64_sessionid = 1;
+        uint64 uint64_progress = 2;
+        uint32 uint32_status = 3;
+        uint64 uint64_filesize = 4;
+        string str_filename = 5;
+        uint64 uint64_time = 6;
+    }

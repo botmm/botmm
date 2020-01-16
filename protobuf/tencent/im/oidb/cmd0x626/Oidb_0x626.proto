@@ -1,0 +1,17 @@
+syntax = "proto3";
+package Oidb_0x626;
+    message OpenIDInfoRsp {
+        uint32 uint32_appid = 1;
+        uint64 uint64_tinyid = 2;
+        bytes bytes_openid = 3;
+        uint32 uint32_acounttype = 4;
+    }
+    message Tiny2Open_ReqBody {
+        repeated TinyIDInfoReq msg_tinyid_req_info = 1;
+    }
+    message Tiny2Open_RspBody {
+        repeated OpenIDInfoRsp msg_openid_rsp_info = 1;
+    }
+    message TinyIDInfoReq {
+        uint64 uint64_tinyid = 1;
+    }

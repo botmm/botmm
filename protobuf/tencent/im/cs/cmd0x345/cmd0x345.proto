@@ -1,0 +1,27 @@
+syntax = "proto3";
+package cmd0x345;
+    message ReqBody {
+        uint32 uint32_sub_cmd = 1;
+        ReqBody.SubCmd0x1ReqBody msg_subcmd_0x1_req_body = 2;
+        ReqBody.SubCmd0x2ReqBody msg_subcmd_0x2_req_body = 3;
+        ReqBody.SubCmd0x3ReqBody msg_subcmd_0x3_req_body = 4;
+        ReqBody.SubCmd0x4ReqBody msg_subcmd_0x4_req_body = 5;
+        ReqBody.SubCmd0x5ReqBody msg_subcmd_0x5_req_body = 6;
+        ReqBody.SubCmd0x6ReqBody msg_subcmd_0x6_req_body = 7;
+        ReqBody.SubCmd0x7ReqBody msg_subcmd_0x7_req_body = 8;
+        ReqBody.SubCmd0x9ReqBody msg_subcmd_0x9_req_body = 9;
+        ReqBody.SubCmd0xaReqBody msg_subcmd_0xa_req_body = 10;
+    }
+    message RspBody {
+        uint32 uint32_sub_cmd = 1;
+        uint32 uint32_return_code = 2;
+        RspBody.SubCmd0x1RspBody msg_subcmd_0x1_rsp_body = 3;
+        RspBody.SubCmd0x2RspBody msg_subcmd_0x2_rsp_body = 4;
+        RspBody.SubCmd0x3RspBody msg_subcmd_0x3_rsp_body = 5;
+        RspBody.SubCmd0x4RspBody msg_subcmd_0x4_rsp_body = 6;
+        RspBody.SubCmd0x5RspBody msg_subcmd_0x5_rsp_body = 7;
+        RspBody.SubCmd0x6RspBody msg_subcmd_0x6_rsp_body = 8;
+        RspBody.SubCmd0x7RspBody msg_subcmd_0x7_rsp_body = 9;
+        RspBody.SubCmd0x9RspBody msg_subcmd_0x9_rsp_body = 10;
+        RspBody.SubCmd0xaRspBody msg_subcmd_0xa_rsp_body = 11;
+    }

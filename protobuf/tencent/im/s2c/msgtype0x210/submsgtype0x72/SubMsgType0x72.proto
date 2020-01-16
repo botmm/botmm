@@ -1,0 +1,9 @@
+syntax = "proto3";
+package SubMsgType0x72;
+    message MsgBody {
+        uint32 uint32_sub_cmd = 1;
+        uint32 uint32_urgency = 2;
+        uint32 uint32_template_no = 3;
+        string str_content = 4;
+        string str_info_date = 5;
+    }

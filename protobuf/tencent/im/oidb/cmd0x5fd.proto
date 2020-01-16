@@ -1,0 +1,15 @@
+syntax = "proto3";
+import "appoint/define/appoint_define/DateComment.proto";
+package cmd0x5fd;
+    message ReqBody {
+        /* message */ appoint_define.DateComment msg_comment = 1;
+        uint32 uint32_max_fetch_count = 2;
+        string str_last_comment_id = 3;
+    }
+    message RspBody {
+        repeated appoint_define.DateComment msg_comment = 1;
+        string str_error_tips = 2;
+        uint32 uint32_clear_cache_flag = 3;
+        string str_comment_wording = 4;
+        uint32 uint32_comment_num = 5;
+    }

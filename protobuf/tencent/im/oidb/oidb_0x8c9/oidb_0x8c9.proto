@@ -1,0 +1,18 @@
+syntax = "proto3";
+package oidb_0x8c9;
+    message GroupAppUnreadInfo {
+        uint64 opt_uint64_appid = 1;
+        int32 opt_int32_group_unread_num = 2;
+        int32 opt_int32_group_album_passive_cnt = 3;
+    }
+    message ReqBody {
+        uint64 opt_uint64_from_uin = 1;
+        uint64 opt_uint64_group_code = 2;
+        repeated uint64 rpt_uint64_appid = 3;
+        bytes opt_bytes_group_sig = 4;
+    }
+    message RspBody {
+        uint64 opt_uint64_group_code = 1;
+        repeated GroupAppUnreadInfo rpt_group_app_unread_info = 2;
+        int32 opt_int32_show_red_point_mobile = 3;
+    }

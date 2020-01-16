@@ -1,0 +1,31 @@
+syntax = "proto3";
+package LBS;
+    message Attribute {
+        bytes imei = 1;
+        bytes imsi = 2;
+        bytes phone_num = 3;
+    }
+    message Cell {
+        int32 mcc = 1;
+        int32 mnc = 2;
+        int32 lac = 3;
+        int32 cellid = 4;
+        int32 rssi = 5;
+    }
+    message GPS {
+        int32 latitude = 1;
+        int32 longitude = 2;
+        int32 altitude = 3;
+        enum coordinate = 4;
+    }
+    message LBSInfo {
+        GPS gps = 1;
+        repeated Wifi rpt_wifi = 2;
+        repeated Cell rpt_cell = 3;
+        Attribute attribute = 4;
+    }
+    message Wifi {
+        uint64 mac = 1;
+        bytes essid = 2;
+        int32 rssi = 3;
+    }

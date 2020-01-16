@@ -1,0 +1,43 @@
+syntax = "proto3";
+package oidb_0x8bb;
+    message ForbidUin {
+        uint64 uint64_uin = 1;
+        uint32 uint32_update_time = 2;
+    }
+    message GroupConcernedInfo {
+        uint64 uint64_group_code = 1;
+        uint32 uint32_update_time = 2;
+        repeated UinInfo rpt_msg_concerned = 3;
+        repeated WordInfo rpt_msg_word = 4;
+        repeated ForbidUin rpt_msg_forbid_uins = 5;
+        repeated uint64 rpt_uint64_default_uins = 6;
+    }
+    message ReadReq {
+        repeated GroupConcernedInfo rpt_msg_group_concerned = 1;
+    }
+    message ReadRsp {
+        repeated GroupConcernedInfo rpt_msg_group_concerned = 1;
+    }
+    message ReqBody {
+        WriteReq msg_write_req = 1;
+        ReadReq msg_read_req = 2;
+    }
+    message RspBody {
+        WriteRsp msg_write_rsp = 1;
+        ReadRsp msg_read_rsp = 2;
+    }
+    message UinInfo {
+        uint64 uint64_uin = 1;
+        uint32 uint32_update_time = 2;
+        uint32 uint32_from = 3;
+    }
+    message WordInfo {
+        string str_keyword = 1;
+        uint32 uint32_update_time = 2;
+    }
+    message WriteReq {
+        repeated GroupConcernedInfo rpt_msg_group_concerned = 1;
+    }
+    message WriteRsp {
+        repeated GroupConcernedInfo rpt_msg_group_concerned = 1;
+    }

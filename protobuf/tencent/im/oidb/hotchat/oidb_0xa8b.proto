@@ -1,0 +1,19 @@
+syntax = "proto3";
+package oidb_0xa8b;
+    message DeletePoid {
+        bytes bytes_poid = 1;
+    }
+    message ReqBody {
+        repeated StorePoid rpt_msg_store_poid = 1;
+        repeated DeletePoid rpt_msg_delete_poid = 2;
+        uint32 uint32_start_num = 3;
+    }
+    message RspBody {
+        bytes bytes_poid = 1;
+        bytes bytes_msg_error_info = 2;
+        repeated Common.WifiPOIInfo rpt_msg_favor_lists = 3;
+        uint32 uint32_next_num = 4;
+    }
+    message StorePoid {
+        bytes bytes_poid = 1;
+    }

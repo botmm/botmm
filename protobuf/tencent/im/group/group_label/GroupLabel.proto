@@ -1,0 +1,38 @@
+syntax = "proto3";
+package GroupLabel;
+    message Color {
+        uint32 uint32_r = 1;
+        uint32 uint32_g = 2;
+        uint32 uint32_b = 3;
+    }
+    message GroupInfo {
+        int32 int32_result = 1;
+        uint64 uint64_group_code = 2;
+        repeated Label rpt_group_label = 3;
+    }
+    message Label {
+        bytes bytes_name = 1;
+        enum enum_type = 2;
+        Color text_color = 3;
+        Color edging_color = 4;
+        uint32 uint32_label_attr = 5;
+        uint32 uint32_label_type = 6;
+    }
+    message ReqBody {
+        SourceId source_id = 1;
+        UinInfo uin_info = 2;
+        uint32 uint32_number_label = 3;
+        repeated uint64 rpt_group_code = 4;
+        uint32 uint32_label_style = 5;
+    }
+    message RspBody {
+        bytes bytes_error = 1;
+        repeated GroupInfo rpt_group_info = 2;
+    }
+    message SourceId {
+        uint32 uint32_source_id = 1;
+    }
+    message UinInfo {
+        int64 int64_longitude = 1;
+        int64 int64_latitude = 2;
+    }

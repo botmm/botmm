@@ -1,0 +1,12 @@
+syntax = "proto3";
+package qqshop_code;
+    message SReq {
+        uint32 version = 1;
+        uint32 appid = 2;
+        string redirect_uri = 3;
+    }
+    message SRsp {
+        int32 ret_code = 1;
+        uint32 expired_time = 2;
+        string auth_code = 3;
+    }

@@ -1,0 +1,17 @@
+syntax = "proto3";
+package cmd0xa02;
+    message ReqBody {
+        repeated TinyID rpt_tinyid = 1;
+    }
+    message RspBody {
+        repeated TinyID2UserAccInfo rpt_tinyid2useracc_info = 1;
+    }
+    message TinyID {
+        uint64 uint64_tinyid = 1;
+    }
+    message TinyID2UserAccInfo {
+        uint64 uint64_tinyid = 1;
+        uint32 uint32_useracctype = 2;
+        uint32 uint32_sdkappid = 3;
+        string str_useracc_identifier = 4;
+    }

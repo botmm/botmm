@@ -1,0 +1,7 @@
+syntax = "proto3";
+import "msf/msgsvc/msg_svc$PbC2CMsgWithDrawReq.proto";
+package msg_svc.PbC2CMsgWithDrawResp;
+    message MsgStatus {
+        /* message */ msg_svc.PbC2CMsgWithDrawReq.MsgInfo msg_info = 1;
+        uint32 uint32_status = 2;
+    }

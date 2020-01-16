@@ -1,0 +1,34 @@
+syntax = "proto3";
+import "tencent/im/new_year_ranking/PackRanking.proto";
+package PackRanking;
+    message PkgReq {
+        uint32 cmdtype = 1;
+        uint64 uin = 2;
+        QueryRankingReq query_ranking = 10;
+    }
+    message PkgResp {
+        uint32 cmdtype = 1;
+        uint64 uin = 2;
+        uint32 retcode = 3;
+        bytes retmsg = 4;
+        bytes resp_name = 5;
+        QueryRankingResp query_ranking = 10;
+    }
+    message QueryRankingReq {
+        enum flag = 1;
+        uint32 num = 2;
+    }
+    message QueryRankingResp {
+        RankingInfo rank_swipe = 1;
+        RankingInfo rank_combo = 2;
+    }
+    message RankingElem {
+        uint64 uin = 1;
+        uint32 count = 2;
+    }
+    message RankingInfo {
+        uint64 uin = 1;
+        uint32 ranking = 2;
+        uint32 count = 3;
+        repeated RankingElem elems = 4;
+    }

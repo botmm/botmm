@@ -1,0 +1,10 @@
+syntax = "proto3";
+package cmd0x8a3_7;
+    message ReqBody {
+        uint32 uint32_req_flag = 1;
+        bytes bytes_uid = 2;
+        uint64 praise_num = 3;
+    }
+    message RspBody {
+        /* message */ Common.WifiPOIInfo wifi_info = 1;
+    }

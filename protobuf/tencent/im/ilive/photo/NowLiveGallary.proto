@@ -1,0 +1,10 @@
+syntax = "proto3";
+import "tencent/im/ilive/photo/NowLiveGallary$RspBody.proto";
+package NowLiveGallary;
+    message ReqBody {
+        uint64 req_uin = 1;
+    }
+    message RspBody {
+        uint32 errCode = 1;
+        repeated RspBody.PhotoInfo photo_info_list = 2;
+    }

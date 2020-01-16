@@ -1,0 +1,12 @@
+syntax = "proto3";
+package oidb_0xa89;
+    message ReqBody {
+        bytes bytes_poid = 1;
+        bytes bytes_msg_body = 2;
+    }
+    message RspBody {
+        bytes bytes_poid = 1;
+        bytes bytes_msg_error_info = 2;
+        uint64 uint64_msg_seq = 3;
+        bytes bytes_rsp_msg_body = 4;
+    }

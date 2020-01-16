@@ -1,0 +1,26 @@
+syntax = "proto3";
+package submsgtype0xc5;
+    message MsgBody {
+        uint32 uint32_source = 2;
+        uint64 uint64_seq = 6;
+        NotifyBody msg_notify_infos = 10;
+    }
+    message NotifyBody {
+        StyleSheet msg_style_sheet = 1;
+    }
+    message StyleSheet {
+        uint32 uint32_show_folder = 1;
+        enum folder_red_type = 2;
+        bytes bytes_orange_word = 3;
+        bytes bytes_summary = 4;
+        TipsBody msg_tip_body = 5;
+        uint32 uint32_show_lock_screen = 6;
+    }
+    message TipsBody {
+        enum tips_ui_type = 1;
+        uint64 uint64_uin = 2;
+        bytes bytes_icon_url = 3;
+        bytes bytes_content = 4;
+        bytes bytes_schema = 5;
+        bytes bytes_business_info = 6;
+    }

@@ -1,0 +1,72 @@
+syntax = "proto3";
+package oidb_0x435;
+    message AddTopicReqBody {
+        TopicInfo msg_topic_info = 1;
+    }
+    message AddTopicRspBody {
+        TopicInfo msg_topic_info = 1;
+    }
+    message AddVoteReqBody {
+        uint32 uint32_pk_item_id = 1;
+        repeated VoteItem rpt_msg_vote_item = 2;
+    }
+    message AddVoteRspBody {
+    }
+    message DeletePKItemReqBody {
+        uint32 uint32_pk_item_id = 1;
+    }
+    message DeletePKItemRspBody {
+    }
+    message GetAllPKItemsReqBody {
+        uint32 uint32_pk_item_id = 1;
+    }
+    message GetAllPKItemsRspBody {
+        repeated PKItem rpt_msg_pk_item = 1;
+    }
+    message GetPKItemReqBody {
+        uint32 uint32_pk_item_id = 1;
+    }
+    message GetPKItemRspBody {
+        repeated PKItem rpt_msg_pk_item = 1;
+    }
+    message PKItem {
+        uint32 uint32_pk_item_id = 1;
+        bytes bytes_pk_description = 2;
+        uint32 uint32_start_time = 3;
+        uint32 uint32_end_time = 4;
+        uint32 uint32_valid_time = 5;
+        repeated VoteItem rpt_msg_vote = 6;
+        uint32 uint32_interval_time = 7;
+        uint32 uint32_pk_is_over = 8;
+    }
+    message ReqBody {
+        uint32 uint32_subcmd = 1;
+        bytes bytes_topic_id = 2;
+        AddTopicReqBody msg_add_req_body = 11;
+        AddVoteReqBody msg_vote_req_body = 12;
+        DeletePKItemReqBody msg_del_req_body = 13;
+        GetPKItemReqBody msg_get_req_body = 14;
+        GetAllPKItemsReqBody msg_get_all_pk_items_req_body = 15;
+    }
+    message RspBody {
+        int32 int32_ret_code = 1;
+        bytes bytes_error_msg = 2;
+        uint32 uint32_subcmd = 3;
+        bytes bytes_topic_id = 4;
+        uint32 uint32_interval_time = 5;
+        AddTopicRspBody msg_add_rsp_body = 11;
+        AddVoteRspBody msg_vote_rsp_body = 12;
+        DeletePKItemRspBody msg_del_rsp_body = 13;
+        GetPKItemRspBody msg_get_rsp_body = 14;
+        GetAllPKItemsRspBody msg_get_all_pk_items_rsp_body = 15;
+    }
+    message TopicInfo {
+        bytes bytes_topic_name = 1;
+        repeated PKItem rpt_msg_pkitems = 2;
+    }
+    message VoteItem {
+        uint32 uint32_vote_id = 1;
+        bytes bytes_option_description = 2;
+        uint32 uint32_vote_count = 3;
+        uint32 uint32_user_define = 4;
+    }

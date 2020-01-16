@@ -1,0 +1,21 @@
+syntax = "proto3";
+import "tencent/im/msgsync/cmd0x100/Submsgtype0x8a.proto";
+package Submsgtype0x8a;
+    message MsgInfo {
+        uint64 uint64_from_uin = 1;
+        uint64 uint64_to_uin = 2;
+        uint32 uint32_msg_seq = 3;
+        uint64 uint64_msg_uid = 4;
+        uint64 uint64_msg_time = 5;
+        uint32 uint32_msg_random = 6;
+        uint32 uint32_pkg_num = 7;
+        uint32 uint32_pkg_index = 8;
+        uint32 uint32_div_seq = 9;
+    }
+    message ReqBody {
+        repeated MsgInfo msg_info = 1;
+        uint32 uint32_app_id = 2;
+        uint32 uint32_inst_id = 3;
+        uint32 uint32_long_message_flag = 4;
+        bytes bytes_reserved = 5;
+    }

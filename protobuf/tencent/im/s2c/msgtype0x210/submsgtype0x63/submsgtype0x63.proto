@@ -1,0 +1,8 @@
+syntax = "proto3";
+package submsgtype0x63;
+    message MsgBody {
+        uint64 uint64_roomid = 1;
+        uint32 uint32_seq = 2;
+        string str_url = 3;
+        string str_data = 4;
+    }

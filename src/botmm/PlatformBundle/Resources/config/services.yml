@@ -1,0 +1,33 @@
+services:
+#    botmm_platform.example:
+#        class: botmm\PlatformBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
+
+    botmm_platform.android:
+        class: botmm\PlatformBundle\PlatformInfo\Android
+        arguments: ["%botmm_platform.android%"]
+
+    botmm_platform.network:
+        class: botmm\PlatformBundle\PlatformInfo\Network
+        arguments: ["%botmm_platform.network%"]
+
+    botmm_platform.apk:
+        class: botmm\PlatformBundle\PlatformInfo\Apk
+        arguments: ["%botmm_platform.apk%"]
+
+    botmm_platform.runtime:
+        class: botmm\PlatformBundle\PlatformInfo\Runtime
+
+    botmm_platform.platform_info:
+        class: botmm\PlatformBundle\PlatformInfo\PlatformInfo
+        arguments:
+            - "@botmm_platform.android"
+            - "@botmm_platform.apk"
+            - "@botmm_platform.network"
+            - "@botmm_platform.runtime"
+
+    botmm_platform.qq_info:
+        class: botmm\PlatformBundle\PlatformInfo\QqInfo
+        arguments:
+            - "%botmm_default_login_qq%"
+            - "%botmm_default_login_pwd%"

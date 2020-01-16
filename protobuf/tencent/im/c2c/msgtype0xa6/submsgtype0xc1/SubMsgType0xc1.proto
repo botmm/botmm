@@ -1,0 +1,31 @@
+syntax = "proto3";
+package SubMsgType0xc1;
+    message MsgBody {
+        bytes bytes_file_key = 1;
+        uint64 uint64_from_uin = 2;
+        uint64 uint64_to_uin = 3;
+        uint32 uint32_status = 4;
+        uint32 uint32_ttl = 5;
+        uint32 uint32_type = 6;
+        uint32 uint32_encrypt_prehead_length = 7;
+        uint32 uint32_encrypt_type = 8;
+        bytes bytes_encrypt_key = 9;
+        uint32 uint32_read_times = 10;
+        uint32 uint32_left_time = 11;
+        NotOnlineImage not_online_image = 12;
+    }
+    message NotOnlineImage {
+        bytes file_path = 1;
+        uint32 file_len = 2;
+        bytes download_path = 3;
+        bytes old_ver_send_file = 4;
+        uint32 img_type = 5;
+        bytes previews_image = 6;
+        bytes pic_md5 = 7;
+        uint32 pic_height = 8;
+        uint32 pic_width = 9;
+        bytes res_id = 10;
+        bytes flag = 11;
+        string str_download_url = 12;
+        uint32 original = 13;
+    }

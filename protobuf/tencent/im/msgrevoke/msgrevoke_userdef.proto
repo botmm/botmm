@@ -1,0 +1,13 @@
+syntax = "proto3";
+import "tencent/im/msgrevoke/msgrevoke_userdef$MsgInfoUserDef.proto";
+package msgrevoke_userdef;
+    message MsgInfoUserDef {
+        uint32 uint32_long_message_flag = 1;
+        repeated MsgInfoUserDef.MsgInfoDef long_msg_info = 2;
+        repeated string str_file_uuid = 3;
+    }
+    message UinTypeUserDef {
+        uint32 uint32_from_uin_type = 1;
+        uint64 uint64_from_group_code = 2;
+        repeated string str_file_uuid = 3;
+    }

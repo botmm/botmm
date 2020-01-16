@@ -1,0 +1,12 @@
+syntax = "proto3";
+package submsgtype0x67;
+    message GroupInfo {
+        uint64 uint64_group_code = 1;
+        string str_group_name = 2;
+        string str_group_memo = 3;
+        uint32 uint32_member_num = 4;
+        uint32 uint32_group_type = 5;
+    }
+    message MsgBody {
+        repeated GroupInfo rpt_msg_grpinfo = 1;
+    }

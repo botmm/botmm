@@ -1,0 +1,204 @@
+syntax = "proto3";
+package C2CType0x211_SubC2CType0x8;
+    message BusiReqHead {
+        int32 int32_version = 1;
+        int32 int32_seq = 2;
+    }
+    message BusiRespHead {
+        int32 int32_version = 1;
+        int32 int32_seq = 2;
+        int32 int32_reply_code = 3;
+        string str_result = 4;
+    }
+    message Cell {
+        int32 int32_mcc = 1;
+        int32 int32_mnc = 2;
+        int32 int32_lac = 3;
+        int32 int32_cellid = 4;
+        int32 int32_rssi = 5;
+    }
+    message ConnType {
+        enum type = 1;
+        string str_desription = 2;
+    }
+    message GPS {
+        int32 int32_lat = 1;
+        int32 int32_lon = 2;
+        int32 int32_alt = 3;
+        enum eType = 4;
+    }
+    message IPAddrInfo {
+        int32 int32_ip = 1;
+        int32 int32_mask = 2;
+        int32 int32_gateway = 3;
+        int32 int32_port = 4;
+    }
+    message JudgeResult {
+        enum type = 1;
+        string str_ssid = 2;
+        string str_tips = 3;
+        int32 int32_idle_timeout = 4;
+        uint32 uint32_idle_waiting = 5;
+        uint32 uint32_force_wifi = 6;
+        uint32 uint32_flags_wifipsw = 7;
+        uint32 uint32_flags_netcheck = 8;
+    }
+    message LBSInfo {
+        GPS msg_gps = 1;
+        repeated Wifi rpt_msg_wifis = 2;
+        repeated Cell rpt_msg_cells = 3;
+    }
+    message MsgBody {
+        enum msg_type = 1;
+        NotifyList msg_cc_notifylist = 2;
+        NearFieldAbiQuery msg_ccnf_abi_query = 3;
+        PushJudgeResult msg_cc_push_judge_result = 4;
+        NearFieldFileSendReq msg_ccnf_filesend_req = 5;
+        NearFieldFileStateSync msg_ccnf_filestate_sync = 6;
+    }
+    message NearFieldAbiQuery {
+        uint64 uint64_to_uin = 1;
+        uint64 uint64_from_uin = 2;
+        bool bool_need_tips = 3;
+        int32 int32_timeout = 4;
+        bytes bytes_cookie = 5;
+        int32 int32_peer_ip = 6;
+        int32 int32_peer_port = 7;
+        bytes bytes_peer_extra = 8;
+    }
+    message NearFieldFileInfo {
+        string str_file_name = 1;
+        uint64 uint64_file_size = 2;
+        string str_file_md5 = 3;
+        string str_file_url = 4;
+        string str_file_thumb_md5 = 5;
+        string str_file_thumb_url = 6;
+        uint64 uint64_session_id = 7;
+        int32 int32_timeout = 8;
+        uint64 uint64_group_id = 9;
+    }
+    message NearFieldFileSendReq {
+        uint64 uint64_to_uin = 1;
+        repeated NearFieldFileInfo rpt_msg_file_list = 2;
+        int32 int32_ip = 3;
+        int32 int32_udp_port = 4;
+        string str_ssid = 5;
+        int32 int32_conn_wifiap_timeout = 6;
+        uint32 uint32_force_wifi = 7;
+        string str_wifipsw = 8;
+    }
+    message NearFieldFileStateSync {
+        enum eType = 1;
+        uint64 uint64_session_id = 2;
+        uint64 uint64_from_uin = 3;
+        int32 int32_error_code = 4;
+    }
+    message NearfieldInfo {
+        LBSInfo msg_lbs_info = 1;
+        ConnType msg_conn_type = 2;
+        IPAddrInfo msg_ip_info = 3;
+        WifiDetailInfo msg_wifi_detail = 4;
+        WifiAbility msg_wifi_abi = 5;
+        bytes bytes_extra = 6;
+    }
+    message NotifyList {
+        enum notify_type = 1;
+        repeated UpdateInfo rpt_msg_update_list = 2;
+        uint32 uint32_session_id = 3;
+    }
+    message PushJudgeResult {
+        BusiRespHead msg_head = 1;
+        uint64 uint64_to_uin = 2;
+        JudgeResult msg_result = 3;
+        int32 int32_peer_ip = 4;
+        int32 int32_peer_port = 5;
+        bytes bytes_peer_extra = 6;
+    }
+    message ReqAIOJudge {
+        BusiReqHead msg_head = 1;
+        uint64 uint64_to_uin = 2;
+        NearfieldInfo msg_nearfield_info = 3;
+    }
+    message ReqExit {
+        BusiReqHead msg_head = 1;
+        uint32 uint32_session_id = 2;
+        NearfieldInfo msg_nearfield_info = 3;
+    }
+    message ReqGetList {
+        BusiReqHead msg_head = 1;
+        NearfieldInfo msg_nearfield_info = 2;
+        uint32 uint32_session_id = 3;
+        bytes bytes_cookie = 4;
+    }
+    message ReqReportNearFieldAbi {
+        BusiReqHead msg_head = 1;
+        uint64 uint64_from_uin = 2;
+        NearfieldInfo msg_nearfield_info = 3;
+        bytes bytes_cookie = 4;
+    }
+    message RespAIOJudge {
+        BusiRespHead msg_head = 1;
+        JudgeResult msg_result = 2;
+        uint32 uint32_timeout = 3;
+        uint64 uint64_to_uin = 4;
+        int32 int32_peer_ip = 5;
+        int32 int32_peer_port = 6;
+        bytes bytes_peer_extra = 7;
+    }
+    message RespExit {
+        BusiRespHead msg_head = 1;
+    }
+    message RespGetList {
+        BusiRespHead msg_head = 1;
+        repeated UserProfile rpt_msg_user_list = 2;
+        uint32 uint32_session_id = 3;
+        int32 int32_update_interval = 4;
+        bytes bytes_cookie = 5;
+    }
+    message UpdateInfo {
+        enum type = 1;
+        UserProfile msg_user = 2;
+    }
+    message UserAbility {
+        int32 int32_sys_qlver = 1;
+        int32 int32_sys_term = 2;
+        int32 int32_sys_app = 3;
+        int32 int32_abs_wifi_host = 10;
+        int32 int32_abs_wifi_client = 11;
+        int32 int32_abs_wifi_forcedcreate = 12;
+        int32 int32_abs_wifi_forcedconnect = 13;
+        int32 int32_abs_wifi_password = 14;
+        int32 int32_abs_net_reachablecheck = 20;
+        int32 int32_abs_net_speed_test = 21;
+        int32 int32_abs_ui_prompt_onclick = 30;
+        int32 int32_abs_ui_prompt_passive = 31;
+    }
+    message UserExtraInfo {
+        UserAbility ability = 1;
+    }
+    message UserProfile {
+        uint64 uint64_uin = 1;
+        int32 int32_face_id = 2;
+        int32 int32_sex = 3;
+        int32 int32_age = 4;
+        string str_nick = 5;
+        bytes bytes_tmp_talk_sig = 6;
+        JudgeResult msg_result = 7;
+        int32 int32_ip = 8;
+        int32 int32_port = 9;
+        bytes bytes_tip = 10;
+        bytes bytes_extra = 11;
+    }
+    message Wifi {
+        uint64 uint64_mac = 1;
+        int32 int32_rssi = 2;
+    }
+    message WifiAbility {
+        bool bool_establish_abi = 1;
+        bool bool_auto_connect_abi = 2;
+    }
+    message WifiDetailInfo {
+        bool bool_self_establish = 1;
+        string str_ssid = 2;
+        string str_mac = 3;
+    }

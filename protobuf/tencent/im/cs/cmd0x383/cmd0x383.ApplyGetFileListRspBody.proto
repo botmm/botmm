@@ -1,0 +1,25 @@
+syntax = "proto3";
+package cmd0x383.ApplyGetFileListRspBody;
+    message FileInfo {
+        string str_file_path = 1;
+        string str_file_name = 2;
+        uint64 uint64_file_size = 3;
+        uint32 uint32_bus_id = 4;
+        uint32 uint32_upload_uin = 5;
+        uint64 uint64_uploaded_size = 6;
+        uint32 uint32_upload_time = 7;
+        uint32 uint32_dead_time = 8;
+        uint32 uint32_modify_time = 9;
+        uint32 uint32_download_times = 10;
+        bytes bytes_sha = 11;
+        bytes bytes_sha3 = 12;
+        bytes bytes_md5 = 13;
+        string str_local_path = 14;
+        string str_uploader_name = 25;
+    }
+    message FolderInfo {
+        string str_folder_path = 1;
+        string str_folder_name = 2;
+        uint32 uint32_create_time = 3;
+        uint64 uint64_create_uin = 4;
+    }

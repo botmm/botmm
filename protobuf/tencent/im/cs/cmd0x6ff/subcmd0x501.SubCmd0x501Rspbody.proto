@@ -1,0 +1,12 @@
+syntax = "proto3";
+package subcmd0x501.SubCmd0x501Rspbody;
+    message IpAddr {
+        uint32 uint32_type = 1;
+        fixed32 uint32_ip = 2;
+        uint32 uint32_port = 3;
+        uint32 uint32_area = 4;
+    }
+    message SrvAddrs {
+        uint32 uint32_service_type = 1;
+        repeated subcmd0x501.SubCmd0x501Rspbody.IpAddr rpt_msg_addrs = 2;
+    }

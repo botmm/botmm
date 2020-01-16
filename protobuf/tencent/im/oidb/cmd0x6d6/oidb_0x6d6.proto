@@ -1,0 +1,120 @@
+syntax = "proto3";
+package oidb_0x6d6;
+    message DeleteFileReqBody {
+        uint64 uint64_group_code = 1;
+        uint32 uint32_app_id = 2;
+        uint32 uint32_bus_id = 3;
+        string str_parent_folder_id = 4;
+        string str_file_id = 5;
+    }
+    message DeleteFileRspBody {
+        int32 int32_ret_code = 1;
+        string str_ret_msg = 2;
+        string str_client_wording = 3;
+    }
+    message DownloadFileReqBody {
+        uint64 uint64_group_code = 1;
+        uint32 uint32_app_id = 2;
+        uint32 uint32_bus_id = 3;
+        string str_file_id = 4;
+        bool bool_thumbnail_req = 5;
+        uint32 uint32_url_type = 6;
+        bool bool_preview_req = 7;
+    }
+    message DownloadFileRspBody {
+        int32 int32_ret_code = 1;
+        string str_ret_msg = 2;
+        string str_client_wording = 3;
+        string str_download_ip = 4;
+        bytes str_download_dns = 5;
+        bytes bytes_download_url = 6;
+        bytes bytes_sha = 7;
+        bytes bytes_sha3 = 8;
+        bytes bytes_md5 = 9;
+        bytes bytes_cookie_val = 10;
+        string str_save_file_name = 11;
+        uint32 uint32_preview_port = 12;
+    }
+    message MoveFileReqBody {
+        uint64 uint64_group_code = 1;
+        uint32 uint32_app_id = 2;
+        uint32 uint32_bus_id = 3;
+        string str_file_id = 4;
+        string str_parent_folder_id = 5;
+        string str_dest_folder_id = 6;
+    }
+    message MoveFileRspBody {
+        int32 int32_ret_code = 1;
+        string str_ret_msg = 2;
+        string str_client_wording = 3;
+        string str_parent_folder_id = 4;
+    }
+    message RenameFileReqBody {
+        uint64 uint64_group_code = 1;
+        uint32 uint32_app_id = 2;
+        uint32 uint32_bus_id = 3;
+        string str_file_id = 4;
+        string str_parent_folder_id = 5;
+        string str_new_file_name = 6;
+    }
+    message RenameFileRspBody {
+        int32 int32_ret_code = 1;
+        string str_ret_msg = 2;
+        string str_client_wording = 3;
+    }
+    message ReqBody {
+        UploadFileReqBody upload_file_req = 1;
+        ResendReqBody resend_file_req = 2;
+        DownloadFileReqBody download_file_req = 3;
+        DeleteFileReqBody delete_file_req = 4;
+        RenameFileReqBody rename_file_req = 5;
+        MoveFileReqBody move_file_req = 6;
+    }
+    message ResendReqBody {
+        uint64 uint64_group_code = 1;
+        uint32 uint32_app_id = 2;
+        uint32 uint32_bus_id = 3;
+        string str_file_id = 4;
+        bytes bytes_sha = 5;
+    }
+    message ResendRspBody {
+        int32 int32_ret_code = 1;
+        string str_ret_msg = 2;
+        string str_client_wording = 3;
+        string str_upload_ip = 4;
+        bytes bytes_file_key = 5;
+        bytes bytes_check_key = 6;
+    }
+    message RspBody {
+        UploadFileRspBody upload_file_rsp = 1;
+        ResendRspBody resend_file_rsp = 2;
+        DownloadFileRspBody download_file_rsp = 3;
+        DeleteFileRspBody delete_file_rsp = 4;
+        RenameFileRspBody rename_file_rsp = 5;
+        MoveFileRspBody move_file_rsp = 6;
+    }
+    message UploadFileReqBody {
+        uint64 uint64_group_code = 1;
+        uint32 uint32_app_id = 2;
+        uint32 uint32_bus_id = 3;
+        uint32 uint32_entrance = 4;
+        string str_parent_folder_id = 5;
+        string str_file_name = 6;
+        string str_local_path = 7;
+        uint64 uint64_file_size = 8;
+        bytes bytes_sha = 9;
+        bytes bytes_sha3 = 10;
+        bytes bytes_md5 = 11;
+    }
+    message UploadFileRspBody {
+        int32 int32_ret_code = 1;
+        string str_ret_msg = 2;
+        string str_client_wording = 3;
+        string str_upload_ip = 4;
+        string str_server_dns = 5;
+        uint32 uint32_bus_id = 6;
+        string str_file_id = 7;
+        bytes bytes_file_key = 8;
+        bytes bytes_check_key = 9;
+        bool bool_file_exist = 10;
+    }

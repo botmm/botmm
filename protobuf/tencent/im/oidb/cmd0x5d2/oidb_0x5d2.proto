@@ -1,0 +1,49 @@
+syntax = "proto3";
+package oidb_0x5d2;
+    message FriendInfo {
+        uint64 uin = 1;
+        uint32 gender = 2;
+        uint32 age = 3;
+        uint32 group = 4;
+        uint32 login = 5;
+        bytes remark = 6;
+    }
+    message FriendList {
+        uint64 uin = 1;
+        bytes nick = 2;
+    }
+    message GroupInfo {
+        uint32 id = 1;
+        bytes name = 2;
+    }
+    message LoginInfo {
+        uint32 id = 1;
+        bytes name = 2;
+    }
+    message ReqBody {
+        uint32 sub_cmd = 1;
+        ReqGetList req_get_list = 2;
+        ReqGetInfo req_get_info = 3;
+    }
+    message ReqGetInfo {
+        repeated uint64 uin_list = 1;
+    }
+    message ReqGetList {
+        uint32 seq = 1;
+    }
+    message RspBody {
+        uint32 sub_cmd = 1;
+        RspGetList rsp_get_list = 2;
+        RspGetInfo rsp_get_info = 3;
+    }
+    message RspGetInfo {
+        repeated GroupInfo group_info = 1;
+        repeated LoginInfo login_info = 2;
+        uint32 time = 3;
+        repeated FriendInfo frd_info = 4;
+        repeated uint64 frd_delete = 5;
+    }
+    message RspGetList {
+        uint32 seq = 1;
+        repeated FriendList list = 2;
+    }

@@ -1,0 +1,10 @@
+syntax = "proto3";
+package im_msg_body.FunFace;
+    message Bomb {
+        bool bool_burst = 1;
+    }
+    message Turntable {
+        repeated uint64 rpt_uint64_uin_list = 1;
+        uint64 uint64_hit_uin = 2;
+        string str_hit_uin_nick = 3;
+    }

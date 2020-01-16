@@ -1,0 +1,39 @@
+syntax = "proto3";
+import "appoint/define/appoint_define/LocaleInfo.proto";
+package cmd0x7cb;
+    message CommentConfig {
+        uint32 uint32_appoint_subject = 1;
+        repeated ConfigItem rpt_msg_configs = 2;
+    }
+    message ConfigItem {
+        uint32 uint32_id = 1;
+        string str_config = 2;
+    }
+    message DateRequest {
+        uint32 uint32_time = 1;
+        string str_err_msg = 2;
+    }
+    message ReqBody {
+        uint32 uint32_time_stamp = 1;
+    }
+    message RspBody {
+        uint32 uint32_time_stamp = 1;
+        uint32 uint32_time_gap = 2;
+        repeated CommentConfig rpt_comment_configs = 3;
+        string str_attend_tips_to_A = 4;
+        string str_first_msg_tips = 5;
+        repeated ConfigItem rpt_cancle_config = 6;
+        DateRequest msg_date_request = 7;
+        repeated appoint_define.LocaleInfo rpt_msg_hot_locale = 8;
+        repeated TopicConfig rpt_msg_topic_list = 9;
+        string str_travel_msg_tips = 10;
+        string str_travel_profile_tips = 11;
+        string str_travel_atten_tips = 12;
+        uint32 uint32_topic_default = 13;
+    }
+    message TopicConfig {
+        uint32 uint32_topic_id = 1;
+        string str_topic_name = 2;
+        uint32 uint32_deadline = 3;
+        string str_err_deadline = 4;
+    }

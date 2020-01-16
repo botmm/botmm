@@ -1,0 +1,25 @@
+syntax = "proto3";
+package oidb_0x81f;
+    message AccuData {
+        uint32 uint32_accu_type = 1;
+        uint32 uint32_accu_value = 2;
+    }
+    message ExtParam {
+    }
+    message GetAuthDataReq {
+        uint32 uint32_auth = 1;
+        uint32 uint32_accu_data = 2;
+    }
+    message GetAuthDataRsp {
+        uint32 uint32_auth = 1;
+        repeated AccuData rpt_msg_accu_data = 2;
+        uint64 uint64_timestamp = 3;
+    }
+    message ReqBody {
+        uint64 uint64_uin = 1;
+        ExtParam msg_extern_param = 2;
+        GetAuthDataReq msg_auth_data = 3;
+    }
+    message RspBody {
+        GetAuthDataRsp msg_auth_data = 1;
+    }

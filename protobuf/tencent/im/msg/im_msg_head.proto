@@ -1,0 +1,128 @@
+syntax = "proto3";
+package im_msg_head;
+    message C2CHead {
+        uint64 uint64_to_uin = 1;
+        uint64 uint64_from_uin = 2;
+        uint32 uint32_cc_type = 3;
+        uint32 uint32_cc_cmd = 4;
+        bytes bytes_auth_pic_sig = 5;
+        bytes bytes_auth_sig = 6;
+        bytes bytes_auth_buf = 7;
+        uint32 uint32_server_time = 8;
+        uint32 uint32_client_time = 9;
+        uint32 uint32_rand = 10;
+        string string_phone_number = 11;
+    }
+    message CSHead {
+        uint64 uint64_uin = 1;
+        uint32 uint32_command = 2;
+        uint32 uint32_seq = 3;
+        uint32 uint32_version = 4;
+        uint32 uint32_retry_times = 5;
+        uint32 uint32_client_type = 6;
+        uint32 uint32_pubno = 7;
+        uint32 uint32_localid = 8;
+        uint32 uint32_timezone = 9;
+        fixed32 uint32_client_ip = 10;
+        uint32 uint32_client_port = 11;
+        fixed32 uint32_conn_ip = 12;
+        uint32 uint32_conn_port = 13;
+        fixed32 uint32_interface_ip = 14;
+        uint32 uint32_interface_port = 15;
+        fixed32 uint32_actual_ip = 16;
+        uint32 uint32_flag = 17;
+        fixed32 uint32_timestamp = 18;
+        uint32 uint32_subcmd = 19;
+        uint32 uint32_result = 20;
+        uint32 uint32_app_id = 21;
+        uint32 uint32_instance_id = 22;
+        uint64 uint64_session_id = 23;
+        uint32 uint32_idc_id = 24;
+    }
+    message DeltaHead {
+        uint64 uint64_total_len = 1;
+        uint64 uint64_offset = 2;
+        uint64 uint64_ack_offset = 3;
+        bytes bytes_cookie = 4;
+        bytes bytes_ack_cookie = 5;
+        uint32 uint32_result = 6;
+        uint32 uint32_flags = 7;
+    }
+    message Head {
+        uint32 uint32_head_type = 1;
+        CSHead msg_cs_head = 2;
+        S2CHead msg_s2c_head = 3;
+        HttpConnHead msg_httpconn_head = 4;
+        uint32 uint32_paint_flag = 5;
+        LoginSig msg_login_sig = 6;
+        DeltaHead msg_delta_head = 7;
+        C2CHead msg_c2c_head = 8;
+        SConnHead msg_sconn_head = 9;
+        InstCtrl msg_inst_ctrl = 10;
+    }
+    message HttpConnHead {
+        uint64 uint64_uin = 1;
+        uint32 uint32_command = 2;
+        uint32 uint32_sub_command = 3;
+        uint32 uint32_seq = 4;
+        uint32 uint32_version = 5;
+        uint32 uint32_retry_times = 6;
+        uint32 uint32_client_type = 7;
+        uint32 uint32_pub_no = 8;
+        uint32 uint32_local_id = 9;
+        uint32 uint32_time_zone = 10;
+        fixed32 uint32_client_ip = 11;
+        uint32 uint32_client_port = 12;
+        fixed32 uint32_qzhttp_ip = 13;
+        uint32 uint32_qzhttp_port = 14;
+        fixed32 uint32_spp_ip = 15;
+        uint32 uint32_spp_port = 16;
+        uint32 uint32_flag = 17;
+        bytes bytes_key = 18;
+        uint32 uint32_compress_type = 19;
+        uint32 uint32_origin_size = 20;
+        uint32 uint32_error_code = 21;
+        RedirectMsg msg_redirect = 22;
+        uint32 uint32_command_id = 23;
+        uint32 uint32_service_cmdid = 24;
+        TransOidbHead msg_oidbhead = 25;
+    }
+    message InstCtrl {
+        repeated InstInfo rpt_msg_send_to_inst = 1;
+        repeated InstInfo rpt_msg_exclude_inst = 2;
+        InstInfo msg_from_inst = 3;
+    }
+    message InstInfo {
+        uint32 uint32_apppid = 1;
+        uint32 uint32_instid = 2;
+        uint32 uint32_platform = 3;
+        enum enum_device_type = 10;
+    }
+    message LoginSig {
+        uint32 uint32_type = 1;
+        bytes bytes_sig = 2;
+    }
+    message RedirectMsg {
+        fixed32 uint32_last_redirect_ip = 1;
+        uint32 uint32_last_redirect_port = 2;
+        fixed32 uint32_redirect_ip = 3;
+        uint32 uint32_redirect_port = 4;
+        uint32 uint32_redirect_count = 5;
+    }
+    message S2CHead {
+        uint32 uint32_sub_msgtype = 1;
+        uint32 uint32_msg_type = 2;
+        uint64 uint64_from_uin = 3;
+        uint32 uint32_msg_id = 4;
+        fixed32 uint32_relay_ip = 5;
+        uint32 uint32_relay_port = 6;
+        uint64 uint64_to_uin = 7;
+    }
+    message SConnHead {
+    }
+    message TransOidbHead {
+        uint32 uint32_command = 1;
+        uint32 uint32_service_type = 2;
+        uint32 uint32_result = 3;
+        string str_error_msg = 4;
+    }

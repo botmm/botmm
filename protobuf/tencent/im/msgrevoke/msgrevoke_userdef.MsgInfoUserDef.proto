@@ -1,0 +1,8 @@
+syntax = "proto3";
+package msgrevoke_userdef.MsgInfoUserDef;
+    message MsgInfoDef {
+        uint32 uint32_msg_seq = 1;
+        uint32 long_msg_id = 2;
+        uint32 long_msg_num = 3;
+        uint32 long_msg_index = 4;
+    }

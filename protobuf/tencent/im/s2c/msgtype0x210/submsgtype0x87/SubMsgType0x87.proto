@@ -1,0 +1,17 @@
+syntax = "proto3";
+package SubMsgType0x87;
+    message MsgBody {
+        uint64 uint64_friend_msg_type_flag = 1;
+        repeated MsgNotify rpt_msg_msg_notify = 2;
+        MsgNotifyUnread msg_msg_notify_unread = 3;
+    }
+    message MsgNotify {
+        uint64 uint64_uin = 1;
+        uint64 uint64_fuin = 2;
+        uint32 uint32_time = 3;
+        uint32 uint32_reqsubtype = 4;
+        uint32 uint32_max_count = 5;
+    }
+    message MsgNotifyUnread {
+        uint32 uint32_unreadcount = 1;
+    }

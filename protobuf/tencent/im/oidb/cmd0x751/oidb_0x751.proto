@@ -1,0 +1,21 @@
+syntax = "proto3";
+package oidb_0x751;
+    message CheckIsConfMemberResult {
+        uint64 uint64_conf_uin = 1;
+        uint32 uint32_is_conf_member = 2;
+    }
+    message ReqBody {
+        uint32 uint32_sub_cmd = 1;
+        ReqCheckIsConfMember msg_req_check_is_conf_member = 2;
+    }
+    message ReqCheckIsConfMember {
+        repeated uint64 rpt_uint64_conf_uin = 1;
+    }
+    message RspBody {
+        uint32 uint32_err_code = 1;
+        bytes bytes_err_msg = 2;
+        RspCheckIsConfMember msg_rsp_check_is_conf_member = 3;
+    }
+    message RspCheckIsConfMember {
+        repeated CheckIsConfMemberResult msg_check_is_conf_member_result = 1;
+    }

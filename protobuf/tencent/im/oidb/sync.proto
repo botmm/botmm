@@ -1,0 +1,12 @@
+syntax = "proto3";
+import "appoint/define/appoint_define/AppointContent.proto";
+import "appoint/define/appoint_define/GPS.proto";
+package sync;
+    message SyncAppointmentReq {
+        uint64 uint64_uin = 1;
+        /* message */ appoint_define.AppointContent msg_appointment = 2;
+        /* message */ appoint_define.GPS msg_gps_info = 3;
+    }
+    message SyncAppointmentRsp {
+        uint32 uint32_result = 1;
+    }

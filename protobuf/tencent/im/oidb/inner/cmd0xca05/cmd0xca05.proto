@@ -1,0 +1,20 @@
+syntax = "proto3";
+package cmd0xca05;
+    message AppInfo {
+        enum plat_type = 1;
+        string str_app_version = 2;
+    }
+    message ReqBody {
+        uint32 uint32_type = 1;
+        repeated uint64 rpt_app_ids = 2;
+        AppInfo msg_app_info = 3;
+    }
+    message Result {
+        uint32 uint32_id = 1;
+        uint32 uint32_res = 2;
+    }
+    message RspBody {
+        uint32 uint32_res = 1;
+        repeated Result rpt_result = 2;
+        uint32 uint32_timestamp = 3;
+    }

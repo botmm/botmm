@@ -1,0 +1,20 @@
+syntax = "proto3";
+package oidb_0x8a0;
+    message KickMemberInfo {
+        uint32 opt_uint32_opearte = 1;
+        uint64 opt_uint64_member_uin = 2;
+        uint32 opt_uint32_flag = 3;
+        bytes opt_bytes_msg = 4;
+    }
+    message KickResult {
+        uint32 opt_uint32_result = 1;
+        uint64 opt_uint64_member_uin = 2;
+    }
+    message ReqBody {
+        uint64 opt_uint64_group_code = 1;
+        repeated KickMemberInfo rpt_msg_kick_list = 2;
+    }
+    message RspBody {
+        uint64 opt_uint64_group_code = 1;
+        repeated KickResult rpt_msg_kick_result = 2;
+    }

@@ -1,0 +1,14 @@
+syntax = "proto3";
+package GetHotChatList;
+    message ReqBody {
+        uint32 get_wifi_group = 1;
+        uint32 get_poi_group = 2;
+        /* message */ LBS.Wifi joined_wifi = 3;
+        /* message */ LBS.LBSInfo lbs_info = 4;
+        uint32 uint32_msg_tab_switch_off_all = 5;
+    }
+    message RspBody {
+        /* message */ Common.WifiPOIInfo wifi_info = 1;
+        repeated Common.WifiPOIInfo poi_info_list = 2;
+        uint32 uint32_msg_tab_switch_off_all = 3;
+    }

@@ -1,0 +1,25 @@
+syntax = "proto3";
+package submsgtype0xb1;
+    message DealInviteInfo {
+        uint64 uint64_uin = 1;
+        uint64 uint64_group_code = 2;
+        string str_id = 3;
+        uint32 uint32_deal_result = 4;
+    }
+    message InviteInfo {
+        uint64 uint64_uin = 1;
+        uint64 uint64_group_code = 2;
+        uint32 uint32_expire_time = 3;
+        string str_id = 4;
+    }
+    message MsgBody {
+        uint32 uint32_notify_type = 1;
+        InviteInfo invite_info = 2;
+        UninviteInfo univite_info = 3;
+        DealInviteInfo deal_info = 4;
+    }
+    message UninviteInfo {
+        uint64 uint64_uin = 1;
+        uint64 uint64_group_code = 2;
+        string str_id = 3;
+    }

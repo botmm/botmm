@@ -1,0 +1,10 @@
+syntax = "proto3";
+package SubMsgType0xcb;
+    message MsgBody {
+        uint32 uint32_anchor_status = 1;
+        bytes bytes_jump_schema = 2;
+        bytes bytes_anchor_nickname = 3;
+        bytes bytes_anchor_head_url = 4;
+        bytes bytes_live_wording = 5;
+        bytes bytes_live_end_wording = 6;
+    }

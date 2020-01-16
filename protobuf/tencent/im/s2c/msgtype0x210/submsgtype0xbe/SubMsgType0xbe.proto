@@ -1,0 +1,17 @@
+syntax = "proto3";
+package SubMsgType0xbe;
+    message Medal {
+        uint32 uint32_id = 1;
+        uint32 uint32_level = 2;
+        uint32 uint32_type = 3;
+        string str_icon_url = 4;
+        string str_flash_url = 5;
+        string str_name = 6;
+    }
+    message MsgBody {
+        uint64 uint64_uin = 1;
+        uint64 uint64_group_code = 2;
+        uint32 uint32_notify_type = 3;
+        uint32 uint32_online_level = 4;
+        repeated Medal rpt_msg_medal_list = 5;
+    }

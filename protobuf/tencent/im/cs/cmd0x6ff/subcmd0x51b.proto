@@ -1,0 +1,44 @@
+syntax = "proto3";
+import "msf/msgcomm/msg_comm/Msg.proto";
+package subcmd0x51b;
+    message DelSingleClusterMsgReq {
+        uint64 uint64_puin = 1;
+        bytes bytes_cluster_id = 2;
+    }
+    message DelSingleClusterMsgRsp {
+        enum ret_code = 1;
+        bytes bytes_error_msg = 2;
+    }
+    message GetSingleClusterMsgReq {
+        uint64 uint64_puin = 1;
+        bytes bytes_cluster_id = 2;
+        repeated fixed64 rpt_fixed64_msgid_list = 3;
+    }
+    message GetSingleClusterMsgRsp {
+        enum ret_code = 1;
+        bytes bytes_error_msg = 2;
+        uint64 uint64_puin = 3;
+        repeated msg_comm.Msg rpt_msg_msg_list = 4;
+    }
+    message GetSingleRoamMsgReq {
+        uint64 uint64_puin = 1;
+        fixed64 fixed64_last_msg_id = 2;
+    }
+    message GetSingleRoamMsgRsp {
+        enum ret_code = 1;
+        bytes bytes_error_msg = 2;
+        uint64 uint64_puin = 3;
+        repeated msg_comm.Msg rpt_msg_msg_list = 4;
+    }
+    message ReqBody {
+        int32 int32_cmd = 1;
+        GetSingleRoamMsgReq msg_get_single_roam_msg_req = 2;
+        GetSingleClusterMsgReq msg_get_single_cluster_msg_req = 3;
+        DelSingleClusterMsgReq msg_del_single_cluster_msg_req = 4;
+    }
+    message RspBody {
+        int32 int32_cmd = 1;
+        GetSingleRoamMsgRsp msg_get_single_roam_msg_rep = 2;
+        GetSingleClusterMsgRsp msg_get_single_cluster_msg_rep = 3;
+        DelSingleClusterMsgRsp msg_del_single_cluster_msg_rep = 4;
+    }

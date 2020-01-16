@@ -1,0 +1,11 @@
+syntax = "proto3";
+package oidb_0x508;
+    message ReqBody {
+        uint64 rpt_uint64_update_seq = 1;
+    }
+    message RspBody {
+        uint32 opt_uint32_result = 1;
+        bytes opt_bytes_errinfo = 2;
+        repeated uint64 rpt_uint64_appid_list = 3;
+        uint64 opt_uint64_update_seq = 4;
+    }

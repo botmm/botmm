@@ -1,0 +1,55 @@
+syntax = "proto3";
+package cmd0x7c4;
+    message GetRecommendSNFrdListReq {
+        uint64 uint64_uin = 1;
+        uint32 uint32_sequence = 2;
+        uint32 uint32_start_idx = 3;
+        uint32 uint32_req_num = 4;
+    }
+    message GetRecommendSNFrdListRsp {
+        uint64 uint64_uin = 1;
+        uint32 uint32_sequence = 2;
+        uint32 uint32_over = 3;
+        uint32 uint32_next_start_idx = 4;
+        repeated OneFrdData rpt_msg_one_frd_data = 5;
+    }
+    message GetSNFrdListReq {
+        uint64 uint64_uin = 1;
+        uint32 uint32_sequence = 2;
+        uint32 uint32_start_idx = 3;
+        uint32 uint32_req_num = 4;
+    }
+    message GetSNFrdListRsp {
+        uint64 uint64_uin = 1;
+        uint32 uint32_sequence = 2;
+        uint32 uint32_over = 3;
+        uint32 uint32_next_start_idx = 4;
+        repeated OneFrdData rpt_msg_one_frd_data = 5;
+        uint32 uint32_recommend_frd_count = 6;
+    }
+    message MsgBox {
+        uint32 uint32_reason_id = 1;
+        bytes bytes_msg = 2;
+    }
+    message OneFrdData {
+        uint64 uint64_frd_id = 1;
+        uint32 uint32_reason_id = 2;
+        bytes bytes_smart_remark = 3;
+        uint32 uint32_gender = 4;
+        uint32 uint32_ages = 5;
+    }
+    message RecommendReason {
+        uint32 uint32_reason_id = 1;
+        bytes bytes_recommend_reason = 2;
+    }
+    message ReqBody {
+        GetRecommendSNFrdListReq msg_get_recommend_sn_frd_list_req = 1;
+        GetSNFrdListReq msg_get_sn_frd_list_req = 2;
+        uint32 uint32_client_ver = 3;
+    }
+    message RspBody {
+        GetRecommendSNFrdListRsp msg_get_recommend_sn_frd_list_rsp = 1;
+        GetSNFrdListRsp msg_get_sn_frd_list_rsp = 2;
+        repeated RecommendReason rpt_msg_recommend_reason = 3;
+        MsgBox msg_box = 4;
+    }

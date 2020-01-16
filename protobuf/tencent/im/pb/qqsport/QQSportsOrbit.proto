@@ -1,0 +1,28 @@
+syntax = "proto3";
+import "tencent/im/pb/qqsport/QQSportsOrbit.proto";
+package QQSportsOrbit;
+    message OrbitHeader {
+        int32 type = 1;
+        int32 startTime = 2;
+        int32 endTime = 3;
+        int32 totalTime = 4;
+        float distance = 5;
+    }
+    message OrbitPoint {
+        double speed = 1;
+        double latitude = 2;
+        double longitude = 3;
+        int32 time = 4;
+    }
+    message OrbitReq {
+        OrbitHeader reqHeader = 1;
+        repeated OrbitPoint tracePath = 2;
+        int32 isOver = 3;
+        int32 num = 4;
+    }
+    message OrbitRsp {
+        int32 retCode = 1;
+        int32 lastNum = 2;
+        int32 isOver = 3;
+        OrbitHeader rspHeader = 4;
+    }

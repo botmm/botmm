@@ -1,0 +1,9 @@
+syntax = "proto3";
+package submsgtype0xb4;
+    message BodyType {
+        /* message */ torch_transfer.TorchbearerInfo msg_torchbearer = 1;
+    }
+    message MsgBody {
+        uint32 uint32_type = 1;
+        BodyType msg_body_type = 2;
+    }

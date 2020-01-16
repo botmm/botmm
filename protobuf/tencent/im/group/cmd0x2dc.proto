@@ -1,0 +1,14 @@
+syntax = "proto3";
+package cmd0x2dc;
+    message GroupVisitorJoinMsg {
+        uint64 uint64_group_uin = 1;
+        uint64 uint64_group_code = 2;
+        repeated VisitorJoinInfo rpt_msg_visitor_join_info = 3;
+        uint32 uint32_op_flag = 4;
+    }
+    message VisitorJoinInfo {
+        uint64 uint64_visitor_uin = 1;
+        uint32 uint32_join_time = 2;
+        bytes bytes_visitor_name = 3;
+        uint32 uint32_face_id = 4;
+    }

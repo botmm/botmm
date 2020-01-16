@@ -1,0 +1,16 @@
+syntax = "proto3";
+import "appoint/define/appoint_define/AppointID.proto";
+import "appoint/define/appoint_define/AppointInfo.proto";
+package cmd0x7db;
+    message ReqBody {
+        /* message */ appoint_define.AppointID msg_appoint_id = 1;
+        uint32 uint32_appoint_action = 2;
+        uint32 uint32_overwrite = 3;
+        repeated appoint_define.AppointID rpt_msg_appoint_ids = 4;
+    }
+    message RspBody {
+        string str_wording = 1;
+        /* message */ appoint_define.AppointInfo msg_appoint_info = 2;
+        bytes bytes_SigC2C = 3;
+        uint32 uint32_appoint_action = 4;
+    }

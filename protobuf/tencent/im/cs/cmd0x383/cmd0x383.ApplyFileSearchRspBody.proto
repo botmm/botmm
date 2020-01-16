@@ -1,0 +1,11 @@
+syntax = "proto3";
+package cmd0x383.ApplyFileSearchRspBody;
+    message Item {
+        uint64 uint64_group_code = 1;
+        bytes bytes_group_name = 2;
+        uint64 uint64_upload_uin = 3;
+        bytes bytes_uploader_nick_name = 4;
+        repeated bytes bytes_match_word = 5;
+        uint64 uint64_match_uin = 6;
+        /* message */ cmd0x383.ApplyGetFileListRspBody.FileInfo file_info = 7;
+    }

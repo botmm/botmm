@@ -1,0 +1,7 @@
+syntax = "proto3";
+package Oidb_0x6be;
+    message ReqBody {
+        uint32 uint32_appid = 60501;
+    }
+    message RspBody {
+    }

@@ -1,0 +1,9 @@
+syntax = "proto3";
+package submsgtype0xa1;
+    message MsgBody {
+        uint32 uint32_sub_cmd = 1;
+        uint64 uint64_qid = 2;
+        fixed32 fixed32_update_time = 3;
+        uint32 uint32_team_created_destroied = 4;
+        repeated uint64 rpt_uint64_office_face_changed_uins = 5;
+    }

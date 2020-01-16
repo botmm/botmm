@@ -1,0 +1,22 @@
+syntax = "proto3";
+import "tencent/qun/group_activity/group_activity.proto";
+package group_activity;
+    message GroupAct {
+        uint32 uint32_act_id = 1;
+        string string_title = 2;
+        string string_des = 3;
+        string string_url = 4;
+        uint32 uint32_jumptype = 5;
+        string string_jumpparam = 6;
+        string string_iconurl = 7;
+        string string_btntext = 8;
+        uint32 uint32_start_time = 9;
+        uint32 uint32_end_time = 10;
+    }
+    message ReqBody {
+        repeated uint32 uint32_act_id = 1;
+    }
+    message RspBody {
+        uint32 uint32_error_code = 1;
+        repeated GroupAct act_list = 2;
+    }

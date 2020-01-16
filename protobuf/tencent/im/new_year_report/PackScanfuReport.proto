@@ -1,0 +1,25 @@
+syntax = "proto3";
+import "tencent/im/new_year_report/PackScanfuReport.proto";
+package PackScanfuReport;
+    message PkgReq {
+        uint64 uin = 1;
+        uint32 promotion_id = 2;
+        uint64 seq = 3;
+        SaofuReport saofu_report = 10;
+    }
+    message PkgResp {
+        uint32 retcode = 1;
+        string retmsg = 2;
+    }
+    message SaofuReport {
+        uint64 timestamp = 1;
+        uint32 identity_count = 2;
+        uint32 identity_succ_count = 3;
+        uint32 identity_fail_count = 4;
+        uint32 identity_succ_ave_time = 5;
+        uint32 identity_fail_ave_time = 6;
+        uint32 play_count = 7;
+        uint32 is_bingo_limit = 8;
+        uint32 stay_time = 9;
+        uint32 promotion_id = 20;
+    }

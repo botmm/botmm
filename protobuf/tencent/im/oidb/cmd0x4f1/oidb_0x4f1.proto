@@ -1,0 +1,13 @@
+syntax = "proto3";
+package oidb_0x4f1;
+    message ReqBody {
+        bytes bytes_cookies = 3;
+        bytes bytes_skey = 4;
+    }
+    message RspBody {
+        uint32 uint32_pstn_gray_flag = 1;
+        uint32 uint32_interval = 2;
+        bytes bytes_cookies = 3;
+        uint32 uint32_c2c_trial_authority = 11;
+        uint32 uint32_multi_trial_authority = 13;
+    }

@@ -1,0 +1,30 @@
+syntax = "proto3";
+import "tencent/im/troop/activity/troopactivity.proto";
+package troopactivity;
+    message ActSSOReq {
+        enum cmd = 1;
+        uint64 group_code = 2;
+        bytes body = 3;
+    }
+    message ActSSORsp {
+        enum err_code = 1;
+        string err_msg = 2;
+        enum cmd = 3;
+        bytes body = 4;
+    }
+    message Activity {
+        string str_activity_id = 1;
+        string str_name = 2;
+        string str_start_time = 3;
+        string str_end_time = 4;
+        string str_cover_url = 5;
+        string str_loc_name = 6;
+        uint64 uint64_flag = 7;
+        string str_poi_loc_name = 8;
+    }
+    message GroupInfoCardResp {
+        repeated Activity activitys = 1;
+        uint32 being_act_num = 2;
+        uint32 history_act_num = 3;
+        string group_act_url = 4;
+    }

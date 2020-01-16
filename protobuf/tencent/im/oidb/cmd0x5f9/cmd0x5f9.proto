@@ -1,0 +1,14 @@
+syntax = "proto3";
+import "appoint/define/appoint_define/LocaleInfo.proto";
+package cmd0x5f9;
+    message ReqBody {
+        string str_keyword = 1;
+        bytes bytes_cookie = 2;
+        string str_srccity = 3;
+    }
+    message RspBody {
+        repeated appoint_define.LocaleInfo rpt_msg_district = 1;
+        repeated appoint_define.LocaleInfo rpt_msg_poi = 2;
+        uint32 uint32_ended = 3;
+        bytes bytes_cookie = 4;
+    }

@@ -1,0 +1,18 @@
+syntax = "proto3";
+package FrdSysMsg;
+    message FriendHelloInfo {
+        string str_source_name = 1;
+    }
+    message FriendMiscInfo {
+        string str_fromuin_nick = 1;
+    }
+    message GroupInfo {
+        uint64 uint64_group_uin = 1;
+        string str_group_name = 2;
+        string str_group_nick = 3;
+    }
+    message TongXunLuNickInfo {
+        uint64 uint64_fromuin = 1;
+        uint64 uint64_touin = 2;
+        string str_tongxunlu_nickname = 3;
+    }

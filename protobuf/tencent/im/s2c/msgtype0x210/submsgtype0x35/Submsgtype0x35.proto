@@ -1,0 +1,5 @@
+syntax = "proto3";
+package Submsgtype0x35;
+    message MsgBody {
+        uint32 uint32_bubble_timestamp = 1;
+    }

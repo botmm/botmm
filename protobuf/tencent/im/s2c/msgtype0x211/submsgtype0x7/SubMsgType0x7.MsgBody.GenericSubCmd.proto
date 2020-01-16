@@ -1,0 +1,11 @@
+syntax = "proto3";
+package SubMsgType0x7.MsgBody.GenericSubCmd;
+    message QQDataTextMsg {
+        repeated SubMsgType0x7.MsgBody.GenericSubCmd.QQDataTextMsg.MsgItem rpt_msg_item = 1;
+    }
+    message WifiPhotoNoPush {
+        bytes bytes_json = 1;
+    }
+    message WifiPhotoWithPush {
+        bytes bytes_json = 1;
+    }

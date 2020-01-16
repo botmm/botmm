@@ -1,0 +1,10 @@
+syntax = "proto3";
+package SubMsgType0x40;
+    message MsgBody {
+        bytes bytes_vUuid = 1;
+        uint64 uint64_fromUin = 2;
+        uint64 uint64_toUin = 3;
+        uint32 uint32_State = 4;
+        uint32 uint32_opertype = 11;
+        string str_fromphonenum = 12;
+    }

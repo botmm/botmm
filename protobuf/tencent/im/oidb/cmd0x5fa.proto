@@ -1,0 +1,16 @@
+syntax = "proto3";
+import "appoint/define/appoint_define/AppointID.proto";
+import "appoint/define/appoint_define/StrangerInfo.proto";
+package cmd0x5fa;
+    message ReqBody {
+        /* message */ appoint_define.AppointID rpt_appoint_ids = 1;
+        uint32 uint32_refer_idx = 2;
+        uint32 uint32_get_refer_rec = 3;
+        uint32 uint32_req_next_count = 4;
+        uint32 uint32_req_prev_count = 5;
+    }
+    message RspBody {
+        repeated appoint_define.StrangerInfo rpt_msg_stranger_info = 1;
+        uint32 uint32_reach_start = 2;
+        uint32 uint32_reach_end = 3;
+    }

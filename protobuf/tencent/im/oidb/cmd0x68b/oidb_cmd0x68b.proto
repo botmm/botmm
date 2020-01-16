@@ -1,0 +1,192 @@
+syntax = "proto3";
+package oidb_cmd0x68b;
+    message ArticleSummary {
+        uint64 uint64_article_id = 1;
+        bytes bytes_article_title = 2;
+        bytes bytes_article_summary = 3;
+        bytes bytes_first_page_pic_url = 4;
+        bytes bytes_original_url = 5;
+        bytes bytes_article_content_url = 6;
+        uint64 uint64_time = 7;
+        uint32 uint32_comment_count = 8;
+        bytes bytes_subscribe_id = 9;
+        bytes bytes_subscribe_name = 10;
+        uint64 uint64_recommend_time = 11;
+        uint64 uint64_recommend_seq = 12;
+        uint32 uint32_show_big_picture = 13;
+        uint64 uint64_algorithm_id = 14;
+        bytes bytes_recommend_reason = 15;
+        bytes json_picture_list = 16;
+        bytes json_video_list = 17;
+        uint32 uint32_abandon_repeat_flag = 18;
+        bytes bytes_test = 19;
+        bytes bytes_colour = 20;
+        uint32 uint32_strategy_id = 21;
+        uint64 uint64_source_article_id = 22;
+        uint64 uint64_merged_video_id = 23;
+        repeated ArticleTagInfo rpt_article_tag_list = 24;
+        bytes bytes_friend_like_wording = 25;
+        bytes bytes_media_specs = 26;
+        uint32 uint32_video_show_small_picture = 27;
+        ChannelInfo msg_channel_info = 28;
+        bytes bytes_inner_uniq_id = 29;
+        uint32 uint32_comment_icon_type = 30;
+        bytes bytes_server_context = 31;
+        repeated DisLikeInfo rpt_dislike_list = 32;
+        uint32 uint32_is_disp_timestamp = 33;
+        uint32 uint32_is_gallery = 34;
+        uint32 uint32_picture_number = 35;
+        PackInfo msg_pack_info = 36;
+        repeated CommentInfo rpt_comments = 37;
+        bytes bytes_circle_id = 38;
+        uint32 uint32_is_active = 39;
+    }
+    message ArticleTagInfo {
+        uint64 uint64_tag_id = 1;
+        bytes bytes_tag_name = 2;
+    }
+    message ChannelInfo {
+        uint32 uint32_channel_id = 1;
+        uint32 uint32_channel_type = 2;
+        bytes bytes_channel_name = 3;
+        bytes bytes_channel_display_name = 4;
+        bytes bytes_channel_url = 5;
+    }
+    message CommentInfo {
+        uint64 uint64_uin = 1;
+        string str_content = 2;
+        string str_jump_url = 3;
+    }
+    message CommentInfoList {
+        repeated CommentInfo rpt_comment_info_list = 1;
+    }
+    message DisLikeInfo {
+        enum type = 1;
+        bytes bytes_dislike_describe = 2;
+        uint64 uint64_dislike_tagid = 3;
+        bytes bytes_dislike_account_id = 4;
+    }
+    message FriendRecommendInfo {
+        repeated uint64 rpt_recommenders = 1;
+        string str_header_title = 2;
+        repeated PackJumpInfo rpt_jumps = 3;
+        repeated SocialLeaderInfoData rpt_social_leader_info = 4;
+    }
+    message InnerMsg {
+        bytes bytes_inner_uniq_id = 1;
+        bytes bytes_title = 2;
+        uint64 uint64_algorithm_id = 3;
+        uint32 uint32_strategy_id = 4;
+        enum uint32_jump_src_type = 5;
+        bytes bytes_push_context = 6;
+    }
+    message OneSetTopCookie {
+        uint64 uint64_article_id = 1;
+        uint64 uint64_set_top_time = 2;
+        uint32 uint32_flash_times = 3;
+    }
+    message PackInfo {
+        uint64 uint64_pack_id = 1;
+        enum pack_type = 2;
+        FriendRecommendInfo msg_friend_recommend_info = 3;
+        SpecialTopicInfo msg_special_topic_info = 4;
+    }
+    message PackJumpInfo {
+        enum enum_style = 1;
+        string str_wording = 2;
+        string str_url = 3;
+    }
+    message ReqBody {
+        uint64 uint64_uin = 1;
+        uint32 uint32_network_type = 2;
+        ReqChannelPara reqChannelPara = 11;
+        uint32 uint32_req_topic_list = 12;
+        repeated uint64 rpt_curr_topicid_list = 13;
+        uint32 uint32_req_dislike_type = 14;
+        enum enum_req_feeds_style = 15;
+        uint64 uint64_client_swithes = 16;
+    }
+    message ReqChannelPara {
+        uint64 uint64_channel_id = 1;
+        uint32 uint32_req_channel_list = 2;
+        uint64 uint64_begin_recommend_seq = 3;
+        uint64 uint64_end_recommend_seq = 4;
+        uint32 uint32_req_article_list = 11;
+        uint32 uint32_req_deleted_article_list = 12;
+        repeated uint64 rpt_curr_article_list = 13;
+        uint32 uint32_req_recommend_flag = 14;
+        repeated uint64 rpt_subscription_article_list = 15;
+        uint32 uint32_req_video_list = 16;
+        uint32 uint32_req_picture_list = 17;
+        uint32 uint32_need_force_set_top = 18;
+        bytes bytes_set_top_cookie = 19;
+        uint32 uint32_req_neisou_article_list = 20;
+        bytes bytes_device_id = 21;
+        uint32 uint32_update_times = 22;
+        uint32 uint32_req_merged_video = 23;
+        repeated SubscribeMsg rpt_subscribe_msg_list = 24;
+        uint32 uint32_is_support_without_picture = 25;
+        uint32 uint32_req_media_specs = 26;
+        uint32 uint32_is_support_video_with_small_picture = 27;
+        repeated InnerMsg rpt_inner_msg_list = 28;
+        uint32 uint32_req_is_disp_timestamp = 29;
+        uint32 uint32_is_support_gallery = 30;
+        uint32 uint32_req_picture_number = 31;
+        uint32 uint32_is_support_packinfo = 32;
+    }
+    message RspBody {
+        uint64 uint64_uin = 1;
+        RspChannelArticle rspChannelArticle = 11;
+        RspTopicList rspTopicList = 12;
+        repeated uint64 rpt_obsolete_topicid_list = 13;
+        RspRedBonusInfo rspRedBonusInfo = 14;
+    }
+    message RspChannelArticle {
+        uint64 uint64_channel_id = 1;
+        uint32 uint32_is_no_more_data = 2;
+        repeated ArticleSummary rpt_article_list = 11;
+        repeated ArticleSummary rpt_deleted_article_list = 12;
+        bytes bytes_set_top_cookie = 13;
+    }
+    message RspRedBonusInfo {
+        uint32 uint32_accumlated_days = 1;
+        uint32 uint32_required_days = 2;
+        string str_turntable_url = 3;
+    }
+    message RspTopicList {
+        uint32 uint32_position = 1;
+        uint32 uint32_fix_position = 2;
+        repeated TopicInfo rpt_topic_list = 11;
+    }
+    message ServerContext {
+        repeated uint64 rpt_recommend_uin_list = 1;
+        repeated uint64 rpt_circle_id_list = 2;
+    }
+    message SetTopCookie {
+        repeated OneSetTopCookie rpt_one_set_top_cookie = 1;
+    }
+    message SocialLeaderInfoData {
+        uint64 ddwLeaderUin = 1;
+        uint32 dwCircleId = 2;
+        double dCentrality = 3;
+    }
+    message SpecialTopicInfo {
+        string str_header_icon_url = 1;
+        string str_header_title = 2;
+        repeated PackJumpInfo rpt_jumps = 3;
+        string str_header_jump_url = 4;
+    }
+    message SubscribeMsg {
+        uint64 uint64_source_article_id = 1;
+        bytes bytes_title = 2;
+        uint64 uint64_algorithm_id = 3;
+        uint32 uint32_strategy_id = 4;
+    }
+    message TopicInfo {
+        uint64 uint64_topic_id = 1;
+        bytes bytes_title = 2;
+        bytes bytes_url = 3;
+        bytes bytes_sum_pic_url = 4;
+        bytes bytes_summary = 5;
+        uint32 uint32_pv = 6;
+    }

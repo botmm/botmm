@@ -1,0 +1,79 @@
+syntax = "proto3";
+package Oidb_0x5e0;
+    message ContentItem {
+        uint32 uint32_update_profile_id = 1;
+        NickNameFiled msg_nicknamefiled = 2;
+        GenderFiled msg_genderfiled = 3;
+        FriendRemark msg_friendremark = 4;
+        LongNick msg_longnick = 5;
+        GroupName msg_groupname = 6;
+        FriendTeamList msg_friend_teamlist = 7;
+        ValueBit msg_value_bit = 8;
+        GeneralBuffer msg_general_buffer = 9;
+        ProfileInfo msg_profile_info = 10;
+    }
+    message FriendRemark {
+        uint64 uint64_uin = 1;
+        bytes bytes_value = 2;
+    }
+    message FriendTeamList {
+        uint32 uint32_update_flag = 2;
+    }
+    message GenderFiled {
+        uint64 uint64_uin = 1;
+        uint32 uint32_gender = 2;
+    }
+    message GeneralBuffer {
+        bytes bytes_value = 1;
+        uint64 uint64_uin = 2;
+    }
+    message GroupName {
+        uint64 uint64_group_uin = 1;
+        bytes bytes_value = 2;
+    }
+    message LongNick {
+        uint64 uint64_uin = 1;
+        bytes bytes_value = 2;
+    }
+    message NickNameFiled {
+        uint64 uint64_uin = 1;
+        bytes bytes_value = 2;
+    }
+    message ProfileInfo {
+        uint64 uint64_uin = 1;
+        repeated ProfileTvInfo rpt_msg_profile_info = 2;
+    }
+    message ProfileListResult {
+        uint32 uint32_result = 1;
+        uint32 uint32_update_profile_id = 2;
+        uint32 uint32_new_content_timestamp = 3;
+    }
+    message ProfileTvInfo {
+        uint32 uint32_field_id = 1;
+        uint32 uint32_field_type = 2;
+        uint64 uint64_field_int_value = 3;
+        bytes bytes_field_str_value = 4;
+    }
+    message ReqBody {
+        repeated UpdateProfileList rpt_msg_update_profile_list = 1;
+        bytes bytes_svrcontext = 2;
+        repeated uint64 rpt_uint64_uinlist = 3;
+    }
+    message RspBody {
+        repeated ContentItem rpt_msg_contentItem = 1;
+        uint32 uint32_over_flag = 2;
+        repeated ProfileListResult rpt_msg_ProfileListResult = 3;
+        bytes bytes_svrcontext = 4;
+    }
+    message UpdateProfileList {
+        uint32 uint32_update_profile_id = 1;
+        uint32 uint32_get_content_timestamp = 2;
+        uint32 uint32_friendlist_type = 3;
+        uint32 uint32_need_content = 4;
+        repeated uint32 rpt_uint32_profile_field_list = 10;
+    }
+    message ValueBit {
+        uint64 uint64_uin = 1;
+        bytes bytes_identity_flag = 2;
+        bytes bytes_ext_flag = 3;
+    }

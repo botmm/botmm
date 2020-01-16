@@ -1,0 +1,149 @@
+syntax = "proto3";
+import "com/trunk/Qworkflow/Qworkflow/Workflow.proto";
+import "com/trunk/Qworkflow/Qworkflow/WorkflowBrief.proto";
+import "com/trunk/Qworkflow/Qworkflow/AppID.proto";
+import "com/trunk/Qworkflow/Qworkflow/UserSource.proto";
+package oidb_0x592;
+    message AddScheduleReq {
+        /* message */ Qworkflow.Workflow msg_schedule = 1;
+    }
+    message AddScheduleRsp {
+        uint32 uint32_result = 1;
+        bytes bytes_error_msg = 2;
+        bytes bytes_workflow_id = 3;
+        uint32 uint32_data_version = 4;
+    }
+    message ChangeMyNotificationReceivingStatusReq {
+        bytes bytes_workflow_id = 1;
+    }
+    message ChangeMyNotificationReceivingStatusRsp {
+        uint32 uint32_result = 1;
+        bytes bytes_error_msg = 2;
+    }
+    message DeleteMyScheduleReq {
+        bytes bytes_workflow_id = 1;
+    }
+    message DeleteMyScheduleRsp {
+        uint32 uint32_result = 1;
+        bytes bytes_error_msg = 2;
+    }
+    message GetOnceScheduleListReq {
+        uint32 uint32_get_direction = 1;
+        uint64 uint64_start_time = 2;
+        uint32 uint32_amount = 3;
+        repeated Qworkflow.WorkflowBrief rpt_msg_workflow_list = 4;
+        uint32 uint32_main_type = 5;
+    }
+    message GetOnceScheduleListRsp {
+        uint32 uint32_result = 1;
+        bytes bytes_error_msg = 2;
+        uint32 uint32_get_direction = 3;
+        uint64 uint64_end_time = 4;
+        repeated GetScheduleResult rpt_msg_result_list = 5;
+    }
+    message GetRepeatedScheduleListReq {
+        uint64 uint64_lastest_modtime = 1;
+        uint32 uint32_amount = 2;
+        uint32 uint32_main_type = 3;
+    }
+    message GetRepeatedScheduleListRsp {
+        uint32 uint32_result = 1;
+        bytes bytes_error_msg = 2;
+        repeated GetScheduleResult rpt_msg_schedule_list = 3;
+        uint64 uint64_next_modtime = 4;
+    }
+    message GetScheduleByIDReq {
+        bytes bytes_workflow_id = 1;
+        /* message */ Qworkflow.WorkflowBrief msg_schedule_brief = 2;
+    }
+    message GetScheduleByIDRsp {
+        uint32 uint32_result = 1;
+        bytes bytes_error_msg = 2;
+        GetScheduleResult msg_schedule_result = 3;
+    }
+    message GetScheduleResult {
+        uint32 uint32_result = 1;
+        /* message */ Qworkflow.Workflow msg_schedule = 2;
+    }
+    message ModifyUnreadCntReq {
+        enum enum_modify_type = 1;
+        uint32 uint32_notice_var = 2;
+        uint32 uint32_notice_version = 3;
+    }
+    message ModifyUnreadCntRsp {
+        uint32 uint32_result = 1;
+        bytes bytes_error_msg = 2;
+    }
+    message RecallScheduleReq {
+        bytes bytes_workflow_id = 1;
+        enum enum_silent_switch = 2;
+    }
+    message RecallScheduleRsp {
+        uint32 uint32_result = 1;
+        bytes bytes_error_msg = 2;
+    }
+    message ReqBody {
+        /* message */ Qworkflow.AppID msg_appid = 1;
+        AddScheduleReq msg_add_schedule_req = 2;
+        GetOnceScheduleListReq msg_get_once_schedule_list_req = 3;
+        GetScheduleByIDReq msg_get_schedule_by_id_req = 4;
+        GetRepeatedScheduleListReq msg_get_repeated_schedule_list_req = 5;
+        UpdateScheduleContentReq msg_update_schedule_content_req = 6;
+        DeleteMyScheduleReq msg_delete_my_schedule_req = 7;
+        RecallScheduleReq msg_recall_schedule_req = 8;
+        ShareScheduleReq msg_share_schedule_req = 9;
+        ChangeMyNotificationReceivingStatusReq msg_change_my_recv_status_req = 10;
+        SetAllReadedTimeReq msg_set_all_readed_time_req = 11;
+        ModifyUnreadCntReq msg_modify_unread_cnt_req = 12;
+        SetRemindBellSwitchReq msg_set_remind_bell_switch_req = 13;
+    }
+    message RspBody {
+        /* message */ Qworkflow.AppID msg_appid = 1;
+        AddScheduleRsp msg_add_schedule_rsp = 2;
+        GetOnceScheduleListRsp msg_get_once_schedule_list_rsp = 3;
+        GetScheduleByIDRsp msg_get_schedule_by_id_rsp = 4;
+        GetRepeatedScheduleListRsp msg_get_repeated_schedule_list_rsp = 5;
+        UpdateScheduleContentRsp msg_update_schedule_content_rsp = 6;
+        DeleteMyScheduleRsp msg_delete_my_schedule_rsp = 7;
+        RecallScheduleRsp msg_recall_schedule_rsp = 8;
+        ShareScheduleRsp msg_share_schedule_rsp = 9;
+        ChangeMyNotificationReceivingStatusRsp msg_change_my_recv_status_rsp = 10;
+        SetAllReadedTimeRsp msg_set_all_readed_time_rsp = 11;
+        ModifyUnreadCntRsp msg_modify_unread_cnt_rsp = 12;
+        SetRemindBellSwitchRsp msg_set_remind_bell_switch_rsp = 13;
+    }
+    message SetAllReadedTimeReq {
+        uint64 uint64_all_readed_time = 1;
+    }
+    message SetAllReadedTimeRsp {
+        uint32 uint32_result = 1;
+        bytes bytes_error_msg = 2;
+    }
+    message SetRemindBellSwitchReq {
+        uint32 uint32_remind_bell_switch = 1;
+        bytes bytes_workflow_id = 2;
+    }
+    message SetRemindBellSwitchRsp {
+        uint32 uint32_result = 1;
+        bytes bytes_error_msg = 2;
+    }
+    message ShareReceiver {
+        uint64 uint64_uin = 1;
+        /* message */ Qworkflow.UserSource msg_source = 2;
+    }
+    message ShareScheduleReq {
+        bytes bytes_workflow_id = 1;
+        ShareReceiver msg_receiver = 2;
+    }
+    message ShareScheduleRsp {
+        uint32 uint32_result = 1;
+        bytes bytes_error_msg = 2;
+    }
+    message UpdateScheduleContentReq {
+        /* message */ Qworkflow.Workflow msg_schedule = 1;
+    }
+    message UpdateScheduleContentRsp {
+        uint32 uint32_result = 1;
+        bytes bytes_error_msg = 2;
+        uint32 uint32_data_version = 3;
+    }

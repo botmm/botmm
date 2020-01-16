@@ -1,0 +1,24 @@
+syntax = "proto3";
+package oidb_c2c_searcher;
+    message Iterator {
+        bool complete = 1;
+        uint64 uin = 2;
+        MsgKey key = 3;
+    }
+    message MsgKey {
+        uint64 time = 1;
+        uint32 magic = 2;
+        uint32 seq = 3;
+    }
+    message ReqBody {
+        bytes query = 1;
+        repeated Iterator friends = 2;
+        uint32 max_cnt = 3;
+        uint32 type = 4;
+    }
+    message RspBody {
+        enum result = 1;
+        repeated Iterator friends = 2;
+        repeated bytes msgs = 3;
+        repeated bytes segs = 4;
+    }

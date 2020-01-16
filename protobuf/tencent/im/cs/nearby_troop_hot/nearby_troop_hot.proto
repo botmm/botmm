@@ -1,0 +1,45 @@
+syntax = "proto3";
+package nearby_troop_hot;
+    message ExtInfo {
+        string ext = 1;
+    }
+    message GPS {
+        uint64 longtitude = 1;
+        uint64 latitude = 2;
+        uint64 range = 3;
+    }
+    message HotQunMsg {
+        uint32 magic = 1;
+        uint64 uin = 2;
+        uint32 cmd = 3;
+        uint32 seq = 4;
+        ExtInfo ext = 5;
+        HotQunReq msg_req_body = 10;
+        HotQunRsp msg_rsp_body = 11;
+    }
+    message HotQunReq {
+        uint32 page_num = 1;
+        uint32 page_size = 2;
+        GPS gps = 4;
+    }
+    message HotQunRsp {
+        RetInfo ret_info = 1;
+        QunInfo qun_info = 2;
+        repeated QunItem qun_item = 10;
+    }
+    message QunInfo {
+        string title = 1;
+        string desc = 2;
+        uint32 cnt = 3;
+        string url = 4;
+    }
+    message QunItem {
+        uint64 uin = 1;
+        string title = 2;
+        string desc = 3;
+        GPS gps = 4;
+    }
+    message RetInfo {
+        uint32 ret_code = 1;
+        string err_info = 2;
+    }

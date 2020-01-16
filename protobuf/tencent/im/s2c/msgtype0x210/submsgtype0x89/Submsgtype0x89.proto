@@ -1,0 +1,23 @@
+syntax = "proto3";
+package Submsgtype0x89;
+    message MsgBody {
+        uint64 uint64_uiUin = 1;
+        uint32 uint32_push_red_ts = 2;
+        repeated NumRedBusiInfo rpt_msg_num_red = 3;
+    }
+    message NumRedBusiInfo {
+        string str_client_ver_begin = 1;
+        string str_client_ver_end = 2;
+        uint32 uint32_plat_id = 3;
+        uint32 uint32_app_id = 4;
+        uint32 uint32_android_app_id = 5;
+        uint32 uint32_ios_app_id = 6;
+        string str_path = 7;
+        string str_android_path = 8;
+        string str_ios_path = 9;
+        string str_missionid = 10;
+        uint64 uint64_msgid = 11;
+        uint32 uint32_status = 12;
+        uint32 uint32_expire_time = 13;
+        int32 int32_appset = 14;
+    }

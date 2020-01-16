@@ -1,0 +1,172 @@
+syntax = "proto3";
+package oidb_0x7bb;
+    message DeductItemReq {
+        uint32 item_id = 1;
+        uint32 count = 2;
+    }
+    message DeductItemRsp {
+        uint32 count = 1;
+    }
+    message ExtraInfo {
+        bytes name = 1;
+        uint64 adcode = 2;
+        repeated PoiStatus status = 3;
+    }
+    message HistoryInfo {
+        uint32 op_type = 1;
+        ItemInfo item = 2;
+        uint64 ctime = 3;
+        TaskInfo task = 4;
+    }
+    message ItemInfo {
+        uint32 item_id = 1;
+        uint32 type = 2;
+        bytes name = 3;
+        bytes icon = 4;
+        bytes url = 5;
+        uint32 unlock = 6;
+        uint32 level = 7;
+        uint32 count = 8;
+        uint64 ctime = 9;
+        uint64 expire = 10;
+        PoiInfo info = 11;
+        bytes icon_3d = 12;
+        uint32 belong = 13;
+        uint32 cooldown = 14;
+        bytes extra = 15;
+        bytes sig = 21;
+        bytes billno = 22;
+    }
+    message LBSSig {
+        int32 int32_lat = 1;
+        int32 int32_lon = 2;
+        uint64 uint64_time = 3;
+        bytes bytes_verify_key = 4;
+    }
+    message MapSig {
+        bytes signature = 1;
+        int32 lat = 2;
+        int32 lng = 3;
+    }
+    message OpenPoiReq {
+        uint64 task_id = 1;
+        uint64 poi_id = 2;
+        uint32 mode = 3;
+        LBSSig msg_lbs_sig = 10;
+    }
+    message OpenPoiRsp {
+        ItemInfo item = 1;
+        uint32 status = 2;
+        bool holder = 3;
+    }
+    message PageHistoryReq {
+        uint32 start_index = 1;
+        uint32 req_num = 2;
+        uint32 type = 3;
+    }
+    message PageHistoryRsp {
+        repeated HistoryInfo historys = 1;
+        bool over = 2;
+        uint32 next_start = 3;
+    }
+    message PageItemReq {
+        uint32 start_index = 1;
+        uint32 req_num = 2;
+        uint32 type = 3;
+    }
+    message PageItemRsp {
+        repeated ItemInfo items = 1;
+        bool over = 2;
+        uint32 next_start = 3;
+    }
+    message PoiInfo {
+        uint64 poi_id = 1;
+        int32 lat = 2;
+        int32 lng = 3;
+        bytes name = 4;
+        bytes addr = 5;
+        uint64 adcode = 6;
+        uint32 type = 7;
+        bytes icon = 8;
+        bytes banner = 9;
+        bytes photo = 10;
+        uint32 appid = 11;
+    }
+    message PoiStatus {
+        uint64 poi_id = 1;
+        uint32 status = 2;
+    }
+    message QueryItemReq {
+        repeated bytes item_sig = 1;
+    }
+    message QueryItemRsp {
+        repeated ItemInfo item = 1;
+    }
+    message QueryPoiReq {
+        uint64 task_id = 1;
+        uint64 poi_id = 2;
+        bytes map_sig = 3;
+    }
+    message QueryPoiRsp {
+        PoiInfo poi = 1;
+        repeated ItemInfo items = 2;
+        uint32 status = 3;
+        uint32 style = 4;
+    }
+    message QueryTaskReq {
+        repeated TaskInfo tasks = 1;
+        TaskInfo select = 2;
+    }
+    message QueryTaskRsp {
+        repeated TaskInfo tasks = 1;
+    }
+    message ReportInfo {
+        uint64 id = 1;
+        bytes value = 2;
+    }
+    message ReportReq {
+        repeated ReportInfo infos = 1;
+    }
+    message ReportRsp {
+        repeated ReportInfo infos = 1;
+    }
+    message ReqBody {
+        OpenPoiReq open_poi_req = 1;
+        QueryPoiReq query_poi_req = 2;
+        QueryItemReq query_item_req = 3;
+        PageItemReq page_item_req = 4;
+        PageHistoryReq page_history_req = 5;
+        DeductItemReq deduct_item_req = 6;
+        QueryTaskReq query_task_req = 8;
+        ReportReq report_req = 9;
+    }
+    message RspBody {
+        OpenPoiRsp open_poi_rsp = 1;
+        QueryPoiRsp query_poi_rsp = 2;
+        QueryItemRsp query_item_rsp = 3;
+        PageItemRsp page_item_rsp = 4;
+        PageHistoryRsp page_history_rsp = 5;
+        DeductItemRsp deduct_item_rsp = 6;
+        QueryTaskRsp query_task_rsp = 8;
+        ReportRsp report_rsp = 9;
+    }
+    message TaskInfo {
+        uint64 task_id = 1;
+        uint32 set_id = 2;
+        bytes name = 3;
+        uint32 type = 4;
+        uint32 priority = 5;
+        bytes icon = 6;
+        bytes banner = 7;
+        uint32 appid = 8;
+        uint32 status = 13;
+        uint64 begtime = 14;
+        uint64 endtime = 15;
+        uint64 mtime = 16;
+        repeated ExtraInfo extras = 17;
+        uint32 cooldown = 21;
+        bytes animation = 22;
+        bytes jump_url = 23;
+        bytes screen_info = 24;
+        bytes config = 25;
+    }

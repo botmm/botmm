@@ -1,0 +1,264 @@
+syntax = "proto3";
+package SubMsgType0x27;
+    message AddGroup {
+        uint32 uint32_groupid = 1;
+        uint32 uint32_sortid = 2;
+        bytes bytes_groupname = 3;
+    }
+    message AppointmentNotify {
+        uint64 uint64_from_uin = 1;
+        string str_appoint_id = 2;
+        uint32 uint32_notifytype = 3;
+        string str_tips_content = 4;
+        uint32 uint32_unread_count = 5;
+        string str_join_wording = 6;
+        string str_view_wording = 7;
+        bytes bytes_sig = 8;
+        bytes bytes_event_info = 9;
+        bytes bytes_nearby_event_info = 10;
+        bytes bytes_feed_event_info = 11;
+    }
+    message BinaryMsg {
+        uint32 uint32_op_type = 1;
+        bytes bytes_op_value = 2;
+    }
+    message ConfMsgRoamFlag {
+        uint64 uint64_confid = 1;
+        uint32 uint32_flag = 2;
+        uint64 uint64_timestamp = 3;
+    }
+    message DaRenNotify {
+        uint64 uint64_uin = 1;
+        uint32 uint32_login_days = 2;
+        uint32 uint32_days = 3;
+        uint32 uint32_is_yestoday_login = 4;
+        uint32 uint32_is_today_login = 5;
+    }
+    message DelFriend {
+        repeated uint64 rpt_uint64_uins = 1;
+    }
+    message DelGroup {
+        uint32 uint32_groupid = 1;
+    }
+    message FanpaiziNotify {
+        uint64 uint64_from_uin = 1;
+        string str_from_nick = 2;
+        bytes bytes_tips_content = 3;
+        bytes bytes_sig = 4;
+    }
+    message ForwardBody {
+        uint32 uint32_notify_type = 1;
+        uint32 uint32_op_type = 2;
+        AddGroup msg_add_group = 3;
+        DelGroup msg_del_group = 4;
+        ModGroupName msg_mod_group_name = 5;
+        ModGroupSort msg_mod_group_sort = 6;
+        ModFriendGroup msg_mod_friend_group = 7;
+        ModProfile msg_mod_profile = 8;
+        ModFriendRemark msg_mod_friend_remark = 9;
+        ModLongNick msg_mod_long_nick = 10;
+        ModCustomFace msg_mod_custom_face = 11;
+        ModGroupProfile msg_mod_group_profile = 12;
+        ModGroupMemberProfile msg_mod_group_member_profile = 13;
+        DelFriend msg_del_friend = 14;
+        ModFrdRoamPriv msg_roam_priv = 15;
+        GrpMsgRoamFlag msg_grp_msg_roam_flag = 16;
+        ConfMsgRoamFlag msg_conf_msg_roam_flag = 17;
+        ModLongNick msg_mod_rich_long_nick = 18;
+        BinaryMsg msg_bin_pkg = 19;
+        ModSnsGeneralInfo msg_mod_friend_rings = 20;
+        ModConfProfile msg_mod_conf_profile = 21;
+        SnsUpdateFlag msg_mod_friend_flag = 22;
+        AppointmentNotify msg_appointment_notify = 23;
+        DaRenNotify msg_daren_notify = 25;
+        NewComeinUserNotify msg_new_comein_user_notify = 26;
+        PushSearchDev msg_push_search_dev = 200;
+        PushReportDev msg_push_report_dev = 201;
+        QQPayPush msg_qq_pay_push = 202;
+        bytes bytes_redpoint_info = 203;
+        HotFriendNotify msg_hot_friend_notify = 204;
+        PraiseRankNotify msg_praise_rank_notify = 205;
+        FanpaiziNotify msg_fanpanzi_notify = 2000;
+    }
+    message FriendGroup {
+        uint64 uint64_fuin = 1;
+        repeated uint32 rpt_uint32_old_group_id = 2;
+        repeated uint32 rpt_uint32_new_group_id = 3;
+    }
+    message FriendRemark {
+        uint32 uint32_type = 1;
+        uint64 uint64_fuin = 2;
+        bytes bytes_rmk_name = 3;
+        uint64 uint64_group_code = 4;
+    }
+    message GPS {
+        int32 int32_lat = 1;
+        int32 int32_lon = 2;
+        int32 int32_alt = 3;
+        int32 int32_type = 4;
+    }
+    message GroupMemberProfileInfo {
+        uint32 uint32_field = 1;
+        bytes bytes_value = 2;
+    }
+    message GroupProfileInfo {
+        uint32 uint32_field = 1;
+        bytes bytes_value = 2;
+    }
+    message GroupSort {
+        uint32 uint32_groupid = 1;
+        uint32 uint32_sortid = 2;
+    }
+    message GrpMsgRoamFlag {
+        uint64 uint64_groupcode = 1;
+        uint32 uint32_flag = 2;
+        uint64 uint64_timestamp = 3;
+    }
+    message HotFriendNotify {
+        uint64 uint64_dst_uin = 1;
+        uint32 uint32_praise_hot_level = 2;
+        uint32 uint32_chat_hot_level = 3;
+        uint32 uint32_praise_hot_days = 4;
+        uint32 uint32_chat_hot_days = 5;
+        uint32 uint32_close_level = 6;
+        uint32 uint32_close_days = 7;
+        uint32 uint32_praise_flag = 8;
+        uint32 uint32_chat_flag = 9;
+        uint32 uint32_close_flag = 10;
+        uint64 uint64_notify_time = 11;
+        uint64 uint64_last_praise_time = 12;
+        uint64 uint64_last_chat_time = 13;
+        uint32 uint32_qzone_hot_level = 14;
+        uint32 uint32_qzone_hot_days = 15;
+        uint32 uint32_qzone_flag = 16;
+        uint64 uint64_last_qzone_time = 17;
+    }
+    message ModConfProfile {
+        uint64 uint64_uin = 1;
+        uint32 uint32_conf_uin = 2;
+        repeated ProfileInfo rpt_msg_profile_infos = 3;
+    }
+    message ModCustomFace {
+        uint32 uint32_type = 1;
+        uint64 uint64_uin = 2;
+        uint64 uint64_group_code = 3;
+    }
+    message ModFrdRoamPriv {
+        repeated OneRoamPriv rpt_msg_roam_priv = 1;
+    }
+    message ModFriendGroup {
+        repeated FriendGroup rpt_msg_frd_group = 1;
+    }
+    message ModFriendRemark {
+        repeated FriendRemark rpt_msg_frd_rmk = 1;
+    }
+    message ModGroupMemberProfile {
+        uint64 uint64_group_uin = 1;
+        uint64 uint64_uin = 2;
+        repeated GroupMemberProfileInfo rpt_msg_group_member_profile_infos = 3;
+        uint64 uint64_group_code = 4;
+    }
+    message ModGroupName {
+        uint32 uint32_groupid = 1;
+        bytes bytes_groupname = 2;
+    }
+    message ModGroupProfile {
+        uint64 uint64_group_uin = 1;
+        repeated GroupProfileInfo rpt_msg_group_profile_infos = 2;
+        uint64 uint64_group_code = 3;
+    }
+    message ModGroupSort {
+        repeated GroupSort rpt_msg_groupsort = 1;
+    }
+    message ModLongNick {
+        uint64 uint64_uin = 1;
+        bytes bytes_value = 2;
+    }
+    message ModProfile {
+        uint64 uint64_uin = 1;
+        repeated ProfileInfo rpt_msg_profile_infos = 2;
+    }
+    message ModSnsGeneralInfo {
+        repeated SnsUpateBuffer rpt_msg_sns_general_infos = 1;
+    }
+    message MsgBody {
+        repeated ForwardBody rpt_msg_mod_infos = 1;
+    }
+    message NewComeinUser {
+        uint64 uint64_uin = 1;
+        uint32 uint32_is_frd = 2;
+        bytes bytes_remark = 3;
+        bytes bytes_nick = 4;
+    }
+    message NewComeinUserNotify {
+        uint32 uint32_msg_type = 1;
+        bool bool_strong_notify = 2;
+        uint32 uint32_push_time = 3;
+        NewComeinUser msg_new_comein_user = 4;
+        NewGroup msg_new_group = 5;
+        NewGroupUser msg_new_group_user = 6;
+    }
+    message NewGroup {
+        uint64 uint64_group_code = 1;
+        bytes bytes_group_name = 2;
+        uint64 uint64_owner_uin = 3;
+        bytes bytes_owner_nick = 4;
+        bytes bytes_distance = 5;
+    }
+    message NewGroupUser {
+        uint64 uint64_uin = 1;
+        int32 int32_sex = 2;
+        int32 int32_age = 3;
+        string str_nick = 4;
+        bytes bytes_distance = 5;
+    }
+    message OneRoamPriv {
+        uint64 uint64_fuin = 1;
+        uint32 uint32_priv_tag = 2;
+        uint32 uint32_priv_value = 3;
+    }
+    message PraiseRankNotify {
+        uint32 uint32_is_champion = 11;
+        uint32 uint32_rank_num = 12;
+        string str_msg = 13;
+    }
+    message ProfileInfo {
+        uint32 uint32_field = 1;
+        bytes bytes_value = 2;
+    }
+    message PushReportDev {
+        uint32 uint32_msg_type = 1;
+        bytes bytes_cookie = 4;
+        uint32 uint32_report_max_num = 5;
+        bytes bytes_sn = 6;
+    }
+    message PushSearchDev {
+        uint32 uint32_msg_type = 1;
+        GPS msg_gps_info = 2;
+        uint32 uint32_dev_time = 3;
+        uint32 uint32_push_time = 4;
+        uint64 uint64_din = 5;
+        string str_data = 6;
+    }
+    message QQPayPush {
+        uint64 uint64_uin = 1;
+        bool bool_pay_ok = 2;
+    }
+    message SnsUpateBuffer {
+        uint64 uint64_uin = 1;
+        uint64 uint64_code = 2;
+        repeated SnsUpdateItem rpt_msg_sns_update_item = 400;
+        repeated uint32 rpt_uint32_idlist = 401;
+    }
+    message SnsUpdateFlag {
+        repeated SnsUpdateOneFlag rpt_msg_update_sns_flag = 1;
+    }
+    message SnsUpdateItem {
+        uint32 uint32_update_sns_type = 1;
+        bytes bytes_value = 2;
+    }
+    message SnsUpdateOneFlag {
+        uint64 uint64__uin = 1;
+        uint64 uint64_id = 2;
+        uint32 uint32_flag = 3;
+    }

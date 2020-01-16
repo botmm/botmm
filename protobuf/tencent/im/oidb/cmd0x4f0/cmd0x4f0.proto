@@ -1,0 +1,16 @@
+syntax = "proto3";
+import "appoint/define/appoint_define/PublisherInfo.proto";
+package cmd0x4f0;
+    message ReqBody {
+        uint32 uint32_req_count = 1;
+        bytes bytes_cookie = 2;
+    }
+    message RspBody {
+        string str_error_tips = 1;
+        repeated appoint_define.PublisherInfo rpt_msg_vistor_info = 2;
+        bytes bytes_cookie = 3;
+        uint32 uint32_completed = 4;
+        uint32 uint32_total_visitor = 5;
+        uint32 uint32_timestamp = 6;
+        uint32 uint32_unread_visitor = 7;
+    }

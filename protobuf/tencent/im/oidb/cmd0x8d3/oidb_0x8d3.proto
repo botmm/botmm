@@ -1,0 +1,45 @@
+syntax = "proto3";
+package oidb_0x8d3;
+    message AppInfo {
+        uint64 opt_uint64_appid = 1;
+        bytes opt_bytes_appname = 2;
+        uint32 opt_uint32_app_type = 3;
+        uint32 opt_uint32_app_from = 4;
+        bytes opt_bytes_app_intro = 5;
+        bytes opt_bytes_app_url = 6;
+        bytes opt_bytes_app_icon = 7;
+        uint32 opt_uint32_app_window_high = 8;
+        uint32 opt_uint32_app_window_width = 9;
+        uint32 opt_uint32_app_update_time = 10;
+        uint32 opt_uint32_app_icon_update_time = 11;
+        bytes opt_bytes_open_param = 12;
+        uint32 opt_uint32_app_status = 13;
+        uint32 opt_uint32_app_inner_type = 14;
+        uint32 opt_uint32_init_flag = 15;
+        uint32 opt_uint32_setting_flag = 16;
+        AppTip opt_msg_app_tip = 17;
+        bytes opt_bytes_tags = 18;
+        bytes opt_bytes_version_ios = 19;
+        bytes opt_bytes_version_android = 20;
+        bytes opt_bytes_android_download_url = 21;
+        bytes opt_bytes_ios_download_url = 22;
+        bytes opt_bytes_ios_open = 23;
+        bytes opt_bytes_android_open = 24;
+        uint32 opt_uint32_app_sort_key = 25;
+        uint32 opt_uint32_app_is_new = 26;
+        uint32 opt_uint32_app_new_time = 27;
+    }
+    message AppTip {
+        uint32 uint32_tip_info_seq = 1;
+        bytes bytes_icon = 2;
+        uint32 uint32_icon_time_stamp = 3;
+        bytes bytes_tooltip = 4;
+        uint32 uint32_reportid_click = 5;
+        uint32 uint32_reportid_show = 6;
+    }
+    message ReqBody {
+        repeated uint64 rpt_uint64_appidlist = 1;
+    }
+    message RspBody {
+        repeated AppInfo rpt_msg_appinfo_list = 1;
+    }

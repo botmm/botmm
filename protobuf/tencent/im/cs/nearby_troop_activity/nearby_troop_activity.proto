@@ -1,0 +1,25 @@
+syntax = "proto3";
+package nearby_troop_activity;
+    message ActivityDigest {
+        string str_activity_id = 1;
+        string str_name = 2;
+        string str_time = 3;
+        string str_cover_url = 4;
+        string str_loc_name = 5;
+        uint64 uint64_enroll = 6;
+        string str_url_info = 7;
+        uint32 uint32_distance = 8;
+    }
+    message ReqBody {
+        int64 int64_longtitude = 1;
+        int64 int64_latitude = 2;
+        uint64 uint64_distance = 3;
+    }
+    message RspBody {
+        uint32 uint32_ret = 1;
+        uint64 uint64_count = 2;
+        string str_title = 3;
+        string str_wording = 4;
+        string str_url_list = 5;
+        repeated ActivityDigest rpt_activity = 6;
+    }

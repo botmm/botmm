@@ -1,0 +1,24 @@
+syntax = "proto3";
+package troop_member_distribute;
+    message GenderNumber {
+        uint32 uint32_man_number = 1;
+        uint32 uint32_woman_number = 2;
+        uint32 uint32_unknow_number = 3;
+    }
+    message OStatisticInfo {
+        bytes bytes_desc = 1;
+        uint32 uint32_count = 2;
+        uint32 uint32_statistic_type = 3;
+    }
+    message ReqBody {
+        uint64 uint64_group_code = 1;
+        uint32 uint32_gender_number = 2;
+    }
+    message RspBody {
+        uint32 uint32_result = 1;
+        uint64 uint64_group_code = 2;
+        uint32 uint32_group_max_member = 3;
+        uint32 uint32_group_member = 4;
+        repeated OStatisticInfo rpt_msg_statistic = 5;
+        GenderNumber msg_gender_number = 6;
+    }

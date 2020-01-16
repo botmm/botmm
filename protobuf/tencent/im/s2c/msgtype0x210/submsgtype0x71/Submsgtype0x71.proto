@@ -1,0 +1,43 @@
+syntax = "proto3";
+package Submsgtype0x71;
+    message MsgBody {
+        repeated ReportAppInfo rpt_msg_app_info = 1;
+        uint64 uint64_uiUin = 2;
+    }
+    message RedDisplayInfo {
+        repeated RedTypeInfo rpt_msg_red_type_info = 1;
+        RedTypeInfo msg_tab_display_info = 2;
+    }
+    message RedTypeInfo {
+        uint32 uint32_red_type = 1;
+        string str_red_content = 2;
+        string str_red_desc = 3;
+        uint32 uint32_red_priority = 4;
+    }
+    message ReportAppInfo {
+        uint32 uint32_app_id = 1;
+        int32 int32_new_flag = 2;
+        uint32 uint32_type = 3;
+        string str_buffer = 4;
+        string str_path = 5;
+        uint32 uint32_push_red_ts = 6;
+        string str_mission = 7;
+        int32 int32_appset = 8;
+        int32 int32_num = 9;
+        string str_icon_url = 10;
+        int32 int32_icon_flag = 11;
+        int32 int32_icon_type = 12;
+        uint32 uint32_duration = 13;
+        ReportVersion msg_version_info = 14;
+        uint32 uint32_android_app_id = 15;
+        uint32 uint32_ios_app_id = 16;
+        string str_android_path = 17;
+        string str_ios_path = 18;
+        int32 int32_mission_level = 19;
+        RedDisplayInfo msg_display_desc = 20;
+    }
+    message ReportVersion {
+        int32 int32_plant_id = 1;
+        bool bool_allver = 2;
+        repeated string rpt_str_version = 3;
+    }

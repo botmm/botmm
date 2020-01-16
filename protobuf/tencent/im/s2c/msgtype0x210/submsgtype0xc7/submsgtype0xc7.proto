@@ -1,0 +1,29 @@
+syntax = "proto3";
+package submsgtype0xc7;
+    message ForwardBody {
+        uint32 uint32_notify_type = 1;
+        uint32 uint32_op_type = 2;
+        HotFriendNotify msg_hot_friend_notify = 3000;
+    }
+    message HotFriendNotify {
+        uint64 uint64_dst_uin = 1;
+        uint32 uint32_praise_hot_level = 2;
+        uint32 uint32_chat_hot_level = 3;
+        uint32 uint32_praise_hot_days = 4;
+        uint32 uint32_chat_hot_days = 5;
+        uint32 uint32_close_level = 6;
+        uint32 uint32_close_days = 7;
+        uint32 uint32_praise_flag = 8;
+        uint32 uint32_chat_flag = 9;
+        uint32 uint32_close_flag = 10;
+        uint64 uint64_notify_time = 11;
+        uint64 uint64_last_praise_time = 12;
+        uint64 uint64_last_chat_time = 13;
+        uint32 uint32_qzone_hot_level = 14;
+        uint32 uint32_qzone_hot_days = 15;
+        uint32 uint32_qzone_flag = 16;
+        uint64 uint64_last_qzone_time = 17;
+    }
+    message MsgBody {
+        repeated ForwardBody rpt_msg_mod_infos = 1;
+    }

@@ -1,0 +1,46 @@
+syntax = "proto3";
+package oidb_0x791;
+    message GetRedDotOpt {
+        uint64 uint64_uin = 1;
+        repeated uint32 rpt_uint32_appid = 2;
+    }
+    message GetRedDotRes {
+        uint64 uint64_uin = 1;
+        repeated RedDotInfo rpt_msg_reddot_info = 2;
+        uint32 uint32_interval = 3;
+    }
+    message RedDotInfo {
+        uint32 uint32_appid = 1;
+        bool bool_display_reddot = 2;
+        uint32 uint32_number = 3;
+        uint32 uint32_reason = 4;
+        uint32 uint32_last_time = 5;
+        uint64 uint64_cmd_uin = 6;
+        bytes str_face_url = 7;
+        bytes str_custom_buffer = 8;
+        uint32 uint32_expire_time = 9;
+    }
+    message ReqBody {
+        SetRedDotOpt msg_set_reddot = 1;
+        GetRedDotOpt msg_get_reddot = 2;
+    }
+    message RspBody {
+        uint32 uint32_result = 1;
+        GetRedDotRes msg_get_reddot_res = 2;
+        SetRedDotRes msg_set_reddot_res = 3;
+    }
+    message SetRedDotOpt {
+        uint64 uint64_cmd_uin = 1;
+        repeated uint64 rpt_uint64_uin = 2;
+        bool bool_clear = 3;
+        bool bool_display_reddot = 4;
+        int32 int32_number = 5;
+        uint32 uint32_reason = 6;
+        bool bool_push_to_client = 7;
+        bytes str_face_url = 8;
+        bytes str_custom_buffer = 9;
+        uint32 uint32_expire_time = 10;
+    }
+    message SetRedDotRes {
+        repeated uint64 rpt_uint64_failed_uin = 1;
+    }

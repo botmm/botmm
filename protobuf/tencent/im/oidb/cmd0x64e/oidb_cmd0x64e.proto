@@ -1,0 +1,23 @@
+syntax = "proto3";
+package oidb_cmd0x64e;
+    message ReportInfo {
+        uint64 uint64_uin = 1;
+        uint32 uint32_source = 2;
+        uint64 uint64_source_article_id = 3;
+        uint32 uint32_channel_id = 4;
+        uint32 uint32_algorithm_id = 6;
+        enum enum_operation = 7;
+        uint32 uint32_read_time_length = 8;
+        bytes bytes_collect_url = 9;
+        enum enum_op_source = 10;
+        uint32 uint32_strategy_id = 11;
+        bytes bytes_inner_id = 12;
+        uint32 uint32_play_time_length = 13;
+        bytes server_context = 15;
+        bytes bytes_device_id = 25;
+    }
+    message ReqBody {
+        repeated ReportInfo rpt_report_info = 1;
+    }
+    message RspBody {
+    }

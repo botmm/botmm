@@ -1,0 +1,53 @@
+syntax = "proto3";
+package QFind;
+    message DeviceInfo {
+        uint64 service_uuid = 1;
+        uint32 pid = 2;
+        bytes sn = 3;
+        uint64 din = 4;
+        uint32 timestamp = 5;
+        uint32 type = 6;
+        DeviceLoc dev_loc = 7;
+        bytes bytes_sig = 8;
+        uint32 uint32_need_verify_dev = 9;
+        uint32 uint32_verify_dev_interval = 10;
+        HistoryData msg_walking_history = 20;
+    }
+    message DeviceLoc {
+        uint32 timestamp = 1;
+        uint32 lat = 2;
+        uint32 lon = 3;
+        uint32 gps_type = 4;
+        uint32 uint32_precision = 5;
+    }
+    message HistoryData {
+        repeated HistoryDetail details = 1;
+        uint32 tag = 2;
+    }
+    message HistoryDetail {
+        uint32 date = 1;
+        uint32 run = 2;
+        uint32 walk = 3;
+        uint32 duration = 4;
+    }
+    message ReqReportDevs {
+        repeated DeviceInfo dev_infos = 1;
+        DeviceLoc dev_loc = 2;
+    }
+    message RespHeader {
+        int32 result = 1;
+        string desc = 2;
+    }
+    message RspReportDevs {
+        int32 result = 1;
+        uint32 report_same_dev_interval = 2;
+        uint32 report_any_devs_interval = 3;
+        uint32 report_often_period = 4;
+        uint32 report_often_frequence = 5;
+        uint32 freq_limit_report_any_devs_interval = 6;
+        uint32 force_report_lbs = 7;
+        uint32 force_report_lbs_period = 8;
+        uint32 report_same_lost_devs_interval = 9;
+        uint32 report_max_dev_num = 10;
+        repeated DeviceInfo lost_devs = 11;
+    }

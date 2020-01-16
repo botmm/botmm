@@ -1,0 +1,18 @@
+syntax = "proto3";
+package cmd0x874;
+    message ConvertToGroupReq {
+        uint64 uint64_conf_uin = 1;
+    }
+    message ConvertToGroupRsp {
+        uint64 uint64_conf_uin = 1;
+        uint64 uint64_group_code = 2;
+    }
+    message ReqBody {
+        uint32 uint32_subcmd = 1;
+        ConvertToGroupReq msg_convert_group = 2;
+    }
+    message RspBody {
+        uint32 uint32_code = 1;
+        bytes bytes_err_msg = 2;
+        ConvertToGroupRsp msg_convert_group = 3;
+    }

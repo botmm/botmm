@@ -1,0 +1,10 @@
+syntax = "proto3";
+package GroupLocation;
+    message SetGroupLocationReq {
+        uint32 groupcode = 1;
+        string grouplocation = 2;
+    }
+    message SetGroupLocationRes {
+        int32 result = 1;
+        string grouplocation = 2;
+    }

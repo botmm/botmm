@@ -1,0 +1,58 @@
+syntax = "proto3";
+import "tencent/im/nearfield_date/nearby_date.proto";
+import "appoint/define/appoint_define.proto";
+package nearby_date;
+    message BusiReqHead {
+        int32 int32_version = 1;
+        int32 int32_seq = 2;
+    }
+    message BusiRespHead {
+        int32 int32_version = 1;
+        int32 int32_seq = 2;
+        int32 int32_reply_code = 3;
+        string str_result = 4;
+    }
+    message Cell {
+        int32 int32_mcc = 1;
+        int32 int32_mnc = 2;
+        int32 int32_lac = 3;
+        int32 int32_cellid = 4;
+        int32 int32_rssi = 5;
+    }
+    message GPS {
+        int32 int32_lat = 1;
+        int32 int32_lon = 2;
+        int32 int32_alt = 3;
+        enum eType = 4;
+    }
+    message LBSInfo {
+        GPS msg_gps = 1;
+        repeated Wifi rpt_msg_wifis = 2;
+        repeated Cell rpt_msg_cells = 3;
+    }
+    message ReqGetList {
+        BusiReqHead msg_head = 1;
+        LBSInfo msg_lbs_info = 2;
+        uint32 uint32_time = 3;
+        uint32 uint32_subject = 4;
+        uint32 uint32_gender = 5;
+        uint32 uint32_age_low = 6;
+        uint32 uint32_age_up = 7;
+        uint32 uint32_profession = 8;
+        bytes bytes_cookie = 9;
+    }
+    message RespGetList {
+        BusiRespHead msg_head = 1;
+        repeated UserProfile rpt_msg_user_list = 2;
+        uint32 uint32_ended = 3;
+        bytes bytes_cookie = 4;
+    }
+    message UserProfile {
+        /* message */ appoint_define.PublisherInfo msg_publisher_info = 1;
+        /* message */ appoint_define.AppointInfo msg_appoints_info = 2;
+        repeated uint64 rpt_uint64_uin = 3;
+    }
+    message Wifi {
+        uint64 uint64_mac = 1;
+        int32 int32_rssi = 2;
+    }

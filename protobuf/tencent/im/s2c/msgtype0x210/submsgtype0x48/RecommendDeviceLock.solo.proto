@@ -1,0 +1,8 @@
+message RecommendDeviceLock {
+    message PBBoolField canCancel;
+    string wording;
+    string str_title;
+    string str_second_title;
+    string str_third_title;
+    repeated string str_wording_list;
+}

@@ -1,0 +1,75 @@
+syntax = "proto3";
+package TroopTips0x857;
+    message AIOGrayTipsInfo {
+        uint32 opt_uint32_show_lastest = 1;
+        bytes opt_bytes_content = 2;
+        uint32 opt_uint32_remind = 3;
+        bytes opt_bytes_brief = 4;
+        uint64 uint64_receiver_uin = 5;
+    }
+    message AIOTopTipsInfo {
+        bytes opt_bytes_content = 1;
+        uint32 opt_uint32_icon = 2;
+        enum opt_enum_action = 3;
+        bytes opt_bytes_url = 4;
+        bytes opt_bytes_data = 5;
+        bytes opt_bytes_data_i = 6;
+        bytes opt_bytes_data_a = 7;
+        bytes opt_bytes_data_p = 8;
+    }
+    message FloatedTipsInfo {
+        bytes opt_bytes_content = 1;
+    }
+    message GroupNotifyInfo {
+        uint32 opt_uint32_auto_pull_flag = 1;
+        bytes opt_bytes_feeds_id = 2;
+    }
+    message MessageBoxInfo {
+        bytes opt_bytes_content = 1;
+        bytes opt_bytes_title = 2;
+        bytes opt_bytes_button = 3;
+    }
+    message MessageRecallReminder {
+        uint64 uint64_uin = 1;
+        bytes bytes_nickname = 2;
+        repeated MessageRecallReminder.MessageMeta uint32_recalled_msg_list = 3;
+        bytes str_reminder_content = 4;
+        bytes bytes_userdef = 5;
+    }
+    message NotifyMsgBody {
+        enum opt_enum_type = 1;
+        uint64 opt_uint64_msg_time = 2;
+        uint64 opt_uint64_msg_expires = 3;
+        uint64 opt_uint64_group_code = 4;
+        AIOGrayTipsInfo opt_msg_graytips = 5;
+        MessageBoxInfo opt_msg_messagebox = 6;
+        FloatedTipsInfo opt_msg_floatedtips = 7;
+        AIOTopTipsInfo opt_msg_toptips = 8;
+        RedGrayTipsInfo opt_msg_redtips = 9;
+        GroupNotifyInfo opt_msg_group_notify = 10;
+        MessageRecallReminder opt_msg_recall = 11;
+        ThemeStateNotify opt_msg_theme_notify = 12;
+        uint32 uint32_service_type = 13;
+        NotifyObjmsgUpdate opt_msg_objmsg_update = 14;
+    }
+    message NotifyObjmsgUpdate {
+        bytes bytes_objmsg_id = 1;
+        uint32 uint32_update_type = 2;
+        bytes bytes_ext_msg = 3;
+    }
+    message RedGrayTipsInfo {
+        uint32 opt_uint32_show_lastest = 1;
+        uint64 uint64_sender_uin = 2;
+        uint64 uint64_receiver_uin = 3;
+        bytes bytes_sender_rich_content = 4;
+        bytes bytes_receiver_rich_content = 5;
+        bytes bytes_authkey = 6;
+    }
+    message ThemeStateNotify {
+        uint32 uint32_state = 1;
+        bytes bytes_feeds_id = 2;
+        bytes bytes_theme_name = 3;
+        uint64 uint64_action_uin = 4;
+        uint64 uint64_create_uin = 5;
+        bytes bytes_gray_tips = 6;
+    }

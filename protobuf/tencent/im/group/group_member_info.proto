@@ -1,0 +1,72 @@
+syntax = "proto3";
+package group_member_info;
+    message CustomEntry {
+        bytes str_name = 1;
+        bytes str_value = 2;
+        bool bool_clicked = 3;
+        bytes str_url = 4;
+        uint64 uint64_report_id = 5;
+    }
+    message FlowersEntry {
+        uint64 uint64_flower_count = 1;
+    }
+    message GBarInfo {
+        uint32 uint32_gbar_id = 1;
+        uint32 uint32_uin_lev = 2;
+        bytes str_head_portrait = 3;
+        bytes bytes_gbar_name = 4;
+    }
+    message MemberInfo {
+        uint64 uint64_uin = 1;
+        uint32 uint32_result = 2;
+        bytes str_errmsg = 3;
+        bool bool_is_friend = 4;
+        bytes str_remark = 5;
+        bool bool_is_concerned = 6;
+        uint32 uint32_credit = 7;
+        bytes str_card = 8;
+        uint32 uint32_sex = 9;
+        bytes str_location = 10;
+        bytes str_nick = 11;
+        uint32 uint32_age = 12;
+        bytes str_lev = 13;
+        uint64 uint64_join = 14;
+        uint64 uint64_last_speak = 15;
+        repeated CustomEntry rpt_msg_custom_enties = 16;
+        repeated GBarInfo rpt_msg_gbar_concerned = 17;
+        bytes str_gbar_title = 18;
+        bytes str_gbar_url = 19;
+        uint32 uint32_gbar_cnt = 20;
+        bool bool_is_allow_mod_card = 21;
+        bool bool_is_vip = 22;
+        bool bool_is_year_vip = 23;
+        bool bool_is_super_vip = 24;
+        bool bool_is_super_qq = 25;
+        uint32 uint32_vip_lev = 26;
+        uint32 uint32_role = 27;
+        bool bool_location_shared = 28;
+        uint64 uint64_distance = 29;
+        uint32 uint32_concern_type = 30;
+        bytes bytes_special_title = 31;
+        uint32 uint32_special_title_expire_time = 32;
+        FlowersEntry msg_flower_entry = 33;
+        TeamEntry msg_team_entry = 34;
+        bytes bytes_phone_num = 35;
+        bytes bytes_job = 36;
+        uint32 medal_id = 37;
+    }
+    message ReqBody {
+        uint64 uint64_group_code = 1;
+        uint64 uint64_uin = 2;
+    }
+    message RspBody {
+        uint64 uint64_group_code = 1;
+        uint32 uint32_self_role = 2;
+        MemberInfo msg_meminfo = 3;
+        bool bool_self_location_shared = 4;
+        uint32 uint32_group_type = 5;
+    }
+    message TeamEntry {
+        repeated uint64 rpt_uint64_depid = 1;
+        repeated uint64 rpt_uint64_self_depid = 2;
+    }

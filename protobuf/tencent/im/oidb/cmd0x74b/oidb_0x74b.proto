@@ -1,0 +1,29 @@
+syntax = "proto3";
+package oidb_0x74b;
+    message HeadInfo {
+        uint32 uint32_id = 1;
+        repeated VideoHeadInfo rpt_videoheadlist = 2;
+        string str_photohead = 4;
+        uint32 uint32_timestamp = 5;
+        uint32 uint32_type = 6;
+        uint32 uint32_invalid = 11;
+    }
+    message OneUinHeadInfo {
+        uint64 uint64_uin = 1;
+        uint32 uint32_timestamp = 2;
+        repeated HeadInfo rpt_msg_head_list = 4;
+        uint64 uint64_tinyid = 11;
+    }
+    message ReqBody {
+        repeated uint64 rpt_uint64_uin = 1;
+        repeated uint64 rpt_uint64_tinyid = 2;
+        repeated uint32 rpt_uint32_video_size = 3;
+        repeated uint32 rpt_head_type = 10;
+    }
+    message RspBody {
+        repeated OneUinHeadInfo rpt_msg_uin_head_list = 1;
+    }
+    message VideoHeadInfo {
+        string str_url = 1;
+        uint32 uint32_video_size = 2;
+    }

@@ -1,0 +1,64 @@
+syntax = "proto3";
+import "tencent/im/msg/im_msg_body.proto";
+import "tencent/im/reminder/im_reminder$Reminder.proto";
+import "tencent/im/reminder/im_reminder.proto";
+import "tencent/im/reminder/im_reminder$Request.proto";
+package im_reminder;
+    message PkgHead {
+        uint32 seq = 1;
+        string password = 2;
+        uint32 result = 3;
+        string err = 4;
+        uint64 uin = 5;
+        uint32 bussi_type = 6;
+        uint32 auth_method = 7;
+        string sid = 8;
+        string client_ip = 9;
+        string skey = 10;
+        bytes auth_a2 = 11;
+        uint32 client_port = 12;
+        uint32 client_appid = 13;
+    }
+    message Reminder {
+        Reminder.User from_user = 1;
+        Reminder.User to_user = 2;
+        uint64 at_time = 3;
+        bytes content = 4;
+        uint64 seq = 5;
+        bool enable = 6;
+        uint32 already_pushed = 7;
+        uint64 last_op_time = 8;
+        uint64 last_op_type = 9;
+        uint32 relationship = 10;
+        string redirect_url = 11;
+        string reminder_nick = 12;
+        uint32 bussi_type = 13;
+        string pc_tips_title = 14;
+        string pc_tips_redirect_url = 15;
+        string lang = 16;
+        uint64 association_seq = 17;
+        uint64 only_reminder_author = 18;
+        /* message */ im_msg_body.MsgBody msg_body = 19;
+    }
+    message ReminderPackage {
+        PkgHead head = 1;
+        repeated Request request = 2;
+        repeated Response response = 3;
+    }
+    message Request {
+        enum operation = 1;
+        Request.Add add = 2;
+        Request.Remove remove = 3;
+        Request.Update update = 4;
+        Request.Get get = 5;
+        Request.Disable disable = 6;
+        Request.Enable enable = 7;
+        Request.CheckEnable check_enable = 8;
+        Request.TimeReachedReminders time_reached = 9;
+        Reminder reminder = 10;
+    }
+    message Response {
+        repeated Reminder reminder = 1;
+        uint32 result = 2;
+        string err = 3;
+    }

@@ -1,0 +1,10 @@
+syntax = "proto3";
+package msg_svc.PbGroupMsgWithDrawResp;
+    message MessageResult {
+        uint32 uint32_result = 1;
+        uint32 uint32_msg_seq = 2;
+        uint32 uint32_msg_time = 3;
+        uint32 uint32_msg_random = 4;
+        bytes bytes_err_msg = 5;
+        uint32 uint32_msg_type = 6;
+    }

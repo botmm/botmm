@@ -1,0 +1,10 @@
+syntax = "proto3";
+package SubMsgType0x85;
+    message MsgBody {
+        uint32 uint32_show_lastest = 1;
+        uint64 uint64_sender_uin = 2;
+        uint64 uint64_receiver_uin = 3;
+        bytes bytes_sender_rich_content = 4;
+        bytes bytes_receiver_rich_content = 5;
+        bytes bytes_authkey = 6;
+    }

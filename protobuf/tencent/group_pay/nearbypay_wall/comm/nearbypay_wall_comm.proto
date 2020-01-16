@@ -1,0 +1,84 @@
+syntax = "proto3";
+import "tencent/group_pay/nearbypay_wall/comm/nearbypay_wall_comm.proto";
+package nearbypay_wall_comm;
+    message ClientInfo {
+        uint32 uint32_client_type = 1;
+        bytes bytes_version = 2;
+    }
+    message GiftInfo {
+        uint64 uint64_send_uin = 1;
+        uint64 uint64_recv_uin = 2;
+        bytes bytes_send_nickname = 3;
+        bytes bytes_recv_nickname = 4;
+        bytes bytes_send_avatar = 5;
+        bytes bytes_recv_avatar = 6;
+        enum gift_type = 7;
+        MultiGift multi_gift = 8;
+        SingleGift single_gift = 9;
+        TextGift text_gift = 10;
+        uint64 uint64_send_tinyid = 11;
+        uint64 uint64_recv_tinyid = 12;
+    }
+    message Index {
+        uint64 uint64_first_key = 1;
+        uint64 uint64_second_key = 2;
+        bytes bytes_index = 3;
+        IndexType1 msg_index_type1 = 4;
+    }
+    message IndexType1 {
+    }
+    message LocationInfo {
+        int64 int64_longitude = 1;
+        int64 int64_latitude = 2;
+        enum int32_gps_type = 3;
+        uint64 uint64_cityid = 4;
+    }
+    message MultiGift {
+        uint32 uint32_gift_count = 1;
+        uint32 uint32_gift_id = 2;
+    }
+    message NearbyMemberGift {
+        uint32 uint32_package_id = 1;
+        uint32 uint32_image_width = 2;
+        uint32 uint32_image_height = 3;
+    }
+    message NearbyRunAdContext {
+        Picture msg_pic = 1;
+        Text msg_text = 2;
+        NearbyMemberGift msg_nearby_member_gift = 3;
+        PictureStack msg_picture_stack = 4;
+    }
+    message NearbyRunAdMsg {
+        repeated NearbyRunAdContext rpt_msg_nearby_runad_context = 1;
+        uint32 uint32_msg_type = 2;
+        bytes bytes_click_url = 3;
+        uint32 uint32_run_ad_type = 4;
+        bool bool_click_disappear = 5;
+    }
+    message Picture {
+        bytes bytes_image_url = 1;
+        uint32 uint32_image_width = 2;
+        uint32 uint32_image_height = 3;
+        uint32 uint32_image_style = 4;
+    }
+    message PictureStack {
+        repeated Picture rpt_msg_picture = 1;
+    }
+    message ReqParam {
+        ReqParam1 msg_req_param1 = 1;
+    }
+    message ReqParam1 {
+        uint64 uint64_time_stamp_new_feeds = 1;
+    }
+    message SingleGift {
+        uint32 uint32_gift_id = 1;
+        bytes bytes_gift_name = 2;
+    }
+    message Text {
+        bytes bytes_text = 1;
+        uint32 uint32_font_size = 2;
+        uint32 uint32_font_color = 3;
+    }
+    message TextGift {
+        bytes bytes_text = 1;
+    }

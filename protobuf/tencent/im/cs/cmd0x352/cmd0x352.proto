@@ -1,0 +1,92 @@
+syntax = "proto3";
+package cmd0x352;
+    message GetImgUrlReq {
+        uint64 uint64_src_uin = 1;
+        uint64 uint64_dst_uin = 2;
+        bytes bytes_file_resid = 3;
+        uint32 uint32_url_flag = 4;
+        uint32 uint32_url_type = 6;
+        uint32 uint32_req_term = 7;
+        uint32 uint32_req_platform_type = 8;
+        uint32 uint32_src_file_type = 9;
+        uint32 uint32_inner_ip = 10;
+        bool bool_address_book = 11;
+        uint32 uint32_bu_type = 12;
+        bytes bytes_build_ver = 13;
+        uint32 uint32_pic_up_timestamp = 14;
+    }
+    message GetImgUrlRsp {
+        bytes bytes_file_resid = 1;
+        uint32 uint32_client_ip = 2;
+        uint32 uint32_result = 3;
+        bytes bytes_fail_msg = 4;
+        repeated bytes rpt_bytes_thumb_down_url = 5;
+        repeated bytes rpt_bytes_original_down_url = 6;
+        ImgInfo msg_img_info = 7;
+        repeated uint32 rpt_uint32_down_ip = 8;
+        repeated uint32 rpt_uint32_down_port = 9;
+        bytes bytes_thumb_down_para = 10;
+        bytes bytes_original_down_para = 11;
+        bytes bytes_down_domain = 12;
+        repeated bytes rpt_bytes_big_down_url = 13;
+        bytes bytes_big_down_para = 14;
+        bytes bytes_big_thumb_down_para = 15;
+    }
+    message ImgInfo {
+        bytes bytes_file_md5 = 1;
+        uint32 uint32_file_type = 2;
+        uint64 uint64_file_size = 3;
+        uint32 uint32_file_width = 4;
+        uint32 uint32_file_height = 5;
+        uint64 uint64_file_flag = 6;
+        uint32 uint32_file_cut_pos = 7;
+    }
+    message ReqBody {
+        uint32 uint32_subcmd = 1;
+        repeated TryUpImgReq rpt_msg_tryup_img_req = 2;
+        repeated GetImgUrlReq rpt_msg_getimg_url_req = 3;
+        uint32 uint32_net_type = 10;
+    }
+    message RspBody {
+        uint32 uint32_subcmd = 1;
+        repeated TryUpImgRsp rpt_msg_tryup_img_rsp = 2;
+        repeated GetImgUrlRsp rpt_msg_getimg_url_rsp = 3;
+        bool bool_new_bigchan = 4;
+        bytes bytes_fail_msg = 10;
+    }
+    message TryUpImgReq {
+        uint64 uint64_src_uin = 1;
+        uint64 uint64_dst_uin = 2;
+        uint64 uint64_file_id = 3;
+        bytes bytes_file_md5 = 4;
+        uint64 uint64_file_size = 5;
+        bytes bytes_file_name = 6;
+        uint32 uint32_src_term = 7;
+        uint32 uint32_platform_type = 8;
+        uint32 uint32_inner_ip = 9;
+        bool bool_address_book = 10;
+        uint32 uint32_retry = 11;
+        uint32 uint32_bu_type = 12;
+        bool bool_pic_original = 13;
+        uint32 uint32_pic_width = 14;
+        uint32 uint32_pic_height = 15;
+        uint32 uint32_pic_type = 16;
+        bytes bytes_build_ver = 17;
+        bytes bytes_file_index = 18;
+        bool bool_reject_tryfast = 21;
+    }
+    message TryUpImgRsp {
+        uint64 uint64_file_id = 1;
+        uint32 uint32_client_ip = 2;
+        uint32 uint32_result = 3;
+        bytes bytes_fail_msg = 4;
+        bool bool_file_exit = 5;
+        ImgInfo msg_img_info = 6;
+        repeated uint32 rpt_uint32_up_ip = 7;
+        repeated uint32 rpt_uint32_up_port = 8;
+        bytes bytes_up_ukey = 9;
+        bytes bytes_up_resid = 10;
+        bytes bytes_up_uuid = 11;
+        uint64 uint64_up_offset = 12;
+        uint64 uint64_block_size = 13;
+    }

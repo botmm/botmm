@@ -1,0 +1,9 @@
+syntax = "proto3";
+package SubMsgType0xcc;
+    message MsgBody {
+        uint32 uint32_msg_type = 1;
+        bytes bytes_msg_info = 2;
+        uint64 uint64_uin = 3;
+        bytes bytes_union_id = 4;
+        bytes bytes_sub_type = 5;
+    }

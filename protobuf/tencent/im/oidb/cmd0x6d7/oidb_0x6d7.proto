@@ -1,0 +1,62 @@
+syntax = "proto3";
+import "tencent/im/cs/group_file_common/group_file_common/FolderInfo.proto";
+package oidb_0x6d7;
+    message CreateFolderReqBody {
+        uint64 uint64_group_code = 1;
+        uint32 uint32_app_id = 2;
+        string str_parent_folder_id = 3;
+        string str_folder_name = 4;
+    }
+    message CreateFolderRspBody {
+        int32 int32_ret_code = 1;
+        string str_ret_msg = 2;
+        string str_client_wording = 3;
+        /* message */ group_file_common.FolderInfo folder_info = 4;
+    }
+    message DeleteFolderReqBody {
+        uint64 uint64_group_code = 1;
+        uint32 uint32_app_id = 2;
+        string str_folder_id = 3;
+    }
+    message DeleteFolderRspBody {
+        int32 int32_ret_code = 1;
+        string str_ret_msg = 2;
+        string str_client_wording = 3;
+    }
+    message MoveFolderReqBody {
+        uint64 uint64_group_code = 1;
+        uint32 uint32_app_id = 2;
+        string str_folder_id = 3;
+        string str_parent_folder_id = 4;
+        string str_dest_folder_id = 5;
+    }
+    message MoveFolderRspBody {
+        int32 int32_ret_code = 1;
+        string str_ret_msg = 2;
+        string str_client_wording = 3;
+        /* message */ group_file_common.FolderInfo folder_info = 4;
+    }
+    message RenameFolderReqBody {
+        uint64 uint64_group_code = 1;
+        uint32 uint32_app_id = 2;
+        string str_folder_id = 3;
+        string str_new_folder_name = 4;
+    }
+    message RenameFolderRspBody {
+        int32 int32_ret_code = 1;
+        string str_ret_msg = 2;
+        string str_client_wording = 3;
+        /* message */ group_file_common.FolderInfo folder_info = 4;
+    }
+    message ReqBody {
+        CreateFolderReqBody create_folder_req = 1;
+        DeleteFolderReqBody delete_folder_req = 2;
+        RenameFolderReqBody rename_folder_req = 3;
+        MoveFolderReqBody move_folder_req = 4;
+    }
+    message RspBody {
+        CreateFolderRspBody create_folder_rsp = 1;
+        DeleteFolderRspBody delete_folder_rsp = 2;
+        RenameFolderRspBody rename_folder_rsp = 3;
+        MoveFolderRspBody move_folder_rsp = 4;
+    }

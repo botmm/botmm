@@ -1,0 +1,25 @@
+syntax = "proto3";
+import "tencent/im/oidb/hotchat/Common/SeatsInfo.proto";
+package oidb_0xa88;
+    message NoticeBody {
+        uint32 uint32_service_type = 1;
+        uint32 uint32_seat_op = 2;
+        uint64 uint64_guest_uin = 3;
+        repeated Common.SeatsInfo rpt_msg_seats_info = 4;
+        repeated uint64 uint64_white_uin = 5;
+        uint32 uint32_seat_id = 6;
+    }
+    message ReqBody {
+        bytes bytes_poid = 1;
+        uint64 uint64_guest_uin = 2;
+        uint32 uint32_seat_id = 3;
+        uint32 uint32_seat_op = 4;
+        uint64 uint64_groupcode = 5;
+    }
+    message RspBody {
+        bytes bytes_poid = 1;
+        uint64 uint64_guest_uin = 2;
+        bytes bytes_msg_error_info = 3;
+        repeated Common.SeatsInfo rpt_msg_seats_info = 4;
+        uint64 uint64_groupcode = 5;
+    }

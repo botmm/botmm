@@ -1,0 +1,47 @@
+syntax = "proto3";
+import "tencent/im/sso2sns/cmd0x3/sso2sns_0x3_blocklist.proto";
+package sso2sns_0x3_blocklist;
+    message BlockUinInfo {
+        uint64 uint64_block_uin = 1;
+        uint32 uint32_source_id = 2;
+        uint32 uint32_source_sub_id = 3;
+    }
+    message ReqBody {
+        ReqBodyGetBlockList msg_body_get_blocklist = 1;
+        ReqBodyAddBlockList msg_body_add_blocklist = 2;
+        ReqBodyDelBlockList msg_body_del_blocklist = 3;
+    }
+    message ReqBodyAddBlockList {
+        uint64 uint64_uin = 1;
+        repeated BlockUinInfo rpt_msg_block_uin_info = 2;
+    }
+    message ReqBodyDelBlockList {
+        uint64 uint64_uin = 1;
+        repeated uint64 rpt_uint64_del_uin = 2;
+    }
+    message ReqBodyGetBlockList {
+        uint64 uint64_uin = 1;
+        fixed32 fixed32_last_get_time = 2;
+        uint32 uint32_start_pos = 3;
+        uint32 uint32_want_num = 4;
+        uint32 uint32_get_type = 5;
+    }
+    message RspBody {
+        RspBodyGetBlockList msg_body_get_blocklist = 1;
+        RspBodyAddBlockList msg_body_add_blocklist = 2;
+        RspBodyDelBlockList msg_body_del_blocklist = 3;
+    }
+    message RspBodyAddBlockList {
+        uint64 uint64_uin = 1;
+    }
+    message RspBodyDelBlockList {
+        uint64 uint64_uin = 1;
+    }
+    message RspBodyGetBlockList {
+        uint64 uint64_uin = 1;
+        fixed32 fixed32_get_time = 2;
+        uint32 uint32_get_type = 3;
+        uint32 uint32_completed = 4;
+        uint32 uint32_now_pos = 5;
+        repeated BlockUinInfo rpt_msg_block_uin_info = 6;
+    }

@@ -1,0 +1,25 @@
+syntax = "proto3";
+import "tencent/sso/accretion/flower_info.proto";
+package flower_info;
+    message SFlowerInfo {
+        uint64 send_uin = 1;
+        uint64 recv_uin = 2;
+        string flower_url = 3;
+        uint32 num = 4;
+    }
+    message SFlowerInfoReq {
+        uint64 uin = 1;
+        uint64 queryuin = 2;
+        string version = 3;
+        uint32 platform = 4;
+        enum type = 5;
+        string key = 6;
+    }
+    message SFlowerInfoRsp {
+        repeated SFlowerInfo flowers = 1;
+        uint32 num = 2;
+        int32 ret = 3;
+        repeated string rpt_flower_url = 4;
+        string flower_msg_tips = 5;
+        uint32 flower_flag = 6;
+    }

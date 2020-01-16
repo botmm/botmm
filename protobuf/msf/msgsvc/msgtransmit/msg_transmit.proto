@@ -1,0 +1,6 @@
+syntax = "proto3";
+import "msf/msgcomm/msg_comm.proto";
+package msg_transmit;
+    message PbMultiMsgTransmit {
+        repeated msg_comm.Msg msg = 1;
+    }

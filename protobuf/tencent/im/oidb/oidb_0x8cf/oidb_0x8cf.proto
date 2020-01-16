@@ -1,0 +1,15 @@
+syntax = "proto3";
+package oidb_0x8cf;
+    message AppBrief {
+        uint64 opt_uint64_appid = 1;
+        uint32 opt_uint32_time_stamp = 2;
+    }
+    message ReqBody {
+        uint64 opt_uint64_groupcode = 1;
+        uint32 opt_uint32_need_mobile_sysapps = 2;
+    }
+    message RspBody {
+        uint64 opt_uint64_groupcode = 1;
+        repeated uint64 rpt_uint64_appid = 2;
+        repeated AppBrief rpt_msg_app_brief = 3;
+    }

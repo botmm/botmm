@@ -1,0 +1,35 @@
+syntax = "proto3";
+package oidb_0x51d;
+    message AppNoticeInfo {
+        uint64 opt_uint64_appdid = 1;
+        NoticeInfo opt_msg_app_notice = 2;
+    }
+    message GetAppNoticeRsp {
+        repeated AppNoticeInfo rpt_msg_app_notice = 1;
+    }
+    message GetOfficeNoticeRsp {
+        NoticeInfo opt_msg_office_notice = 1;
+    }
+    message GetSubItemNoticeRsp {
+        uint64 opt_uint64_appdid = 1;
+        repeated SubItemNoticeInfo rpt_msg_subitem_notice = 2;
+    }
+    message NoticeInfo {
+        uint32 opt_uint32_notice_count = 1;
+        uint32 opt_uint32_notice_version = 2;
+    }
+    message ReqBody {
+        uint64 opt_uint64_handled_uin = 1;
+        uint64 opt_uint64_office_appid = 2;
+    }
+    message RspBody {
+        uint32 opt_uint32_result = 1;
+        bytes opt_bytes_errinfo = 2;
+        GetOfficeNoticeRsp opt_msg_office_notice_rsp = 3;
+        GetAppNoticeRsp opt_msg_app_notice_rsp = 4;
+        GetSubItemNoticeRsp opt_msg_subitem_notice_rsp = 5;
+    }
+    message SubItemNoticeInfo {
+        uint32 opt_uint32_subitem_id = 1;
+        NoticeInfo opt_msg_subitem_notice = 2;
+    }

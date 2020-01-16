@@ -1,0 +1,15 @@
+syntax = "proto3";
+import "appoint/define/appoint_define/FeedComment.proto";
+package oidb_0x9d3;
+    message ReqBody {
+        string str_feed_id = 1;
+        string str_comment_id = 2;
+        uint32 uint32_fetch_old_count = 3;
+        uint32 uint32_fetch_new_count = 4;
+    }
+    message RspBody {
+        repeated appoint_define.FeedComment rpt_msg_comment = 1;
+        string str_error_tips = 2;
+        uint32 uint32_fetch_old_over = 3;
+        uint32 uint32_fetch_new_over = 4;
+    }

@@ -1,0 +1,4 @@
+services:
+#    botmm_server.example:
+#        class: botmm\ServerBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

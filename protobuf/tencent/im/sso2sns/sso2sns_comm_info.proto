@@ -1,0 +1,7 @@
+syntax = "proto3";
+package sso2sns_comm_info;
+    message Sso2SnsCommInfo {
+        uint32 uint32_seq = 1;
+        uint32 uint32_result = 2;
+        string str_error_msg = 3;
+    }

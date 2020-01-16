@@ -1,0 +1,28 @@
+syntax = "proto3";
+package im_common;
+    message GroupInfo {
+        uint64 group_id = 1;
+        enum group_type = 2;
+    }
+    message Signature {
+        uint32 key_type = 1;
+        uint32 session_app_id = 2;
+        bytes session_key = 3;
+    }
+    message Token {
+        bytes buf = 1;
+        uint32 c2c_type = 2;
+        uint32 service_type = 3;
+    }
+    message User {
+        uint64 uin = 1;
+        uint32 app_id = 2;
+        uint32 instance_id = 3;
+        uint32 app_type = 4;
+        fixed32 client_ip = 5;
+        uint32 version = 6;
+        string str_phone_number = 7;
+        uint32 platform_id = 8;
+        uint32 language = 9;
+        bytes equip_key = 10;
+    }

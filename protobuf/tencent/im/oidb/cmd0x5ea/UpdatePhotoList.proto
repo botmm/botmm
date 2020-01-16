@@ -1,0 +1,31 @@
+syntax = "proto3";
+import "appoint/define/appoint_define/LBSInfo.proto";
+package UpdatePhotoList;
+    message HeadInfo {
+        uint32 uint32_headid = 1;
+        string str_headurl = 2;
+        uint32 uint32_is_curhead = 3;
+        string str_video_url = 4;
+        uint32 uint32_video_time = 5;
+        uint32 uint32_video_size = 6;
+        string str_video_id = 7;
+    }
+    message ReqBody {
+        repeated uint32 rpt_uint32_headids = 1;
+        string str_upload_url = 2;
+        uint32 uint32_copy_count_from_qzone = 3;
+        /* message */ appoint_define.LBSInfo msg_lbs_info = 4;
+        repeated RichHead rpt_msg_rich_headids = 5;
+    }
+    message RichHead {
+        uint32 uint32_headid = 1;
+        string str_video_id = 2;
+    }
+    message RspBody {
+        repeated HeadInfo rpt_msg_headinfo = 1;
+        string str_errorinfo = 2;
+        uint32 uint32_import_state = 3;
+        uint32 uint32_import_count = 4;
+        uint32 uint32_import_rest_count = 5;
+        uint32 uint32_rest_count_in_qzone = 6;
+    }

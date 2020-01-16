@@ -1,0 +1,19 @@
+syntax = "proto3";
+package cmd0x682;
+    message ChatInfo {
+        uint64 uint64_touin = 1;
+        uint32 uint32_chatflag = 2;
+        uint32 uint32_goldflag = 3;
+        uint32 uint32_totalexpcount = 4;
+        uint32 uint32_curexpcount = 5;
+        uint32 uint32_totalFlag = 6;
+        uint32 uint32_curdayFlag = 7;
+        bytes express_tips_msg = 8;
+        bytes express_msg = 9;
+    }
+    message ReqBody {
+        repeated uint64 rpt_uint64_touinlist = 1;
+    }
+    message RspBody {
+        repeated ChatInfo rpt_msg_chatinfo = 1;
+    }

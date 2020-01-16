@@ -1,0 +1,27 @@
+syntax = "proto3";
+package oidb_0x6b5;
+    message LoginSig {
+        uint32 uint32_type = 1;
+        bytes bytes_sig = 2;
+        uint32 uint32_appid = 3;
+    }
+    message Player {
+        uint64 uint64_uin = 1;
+        uint64 uint64_time = 2;
+        int32 int32_amount = 3;
+        int32 int32_index = 4;
+        bytes bytes_tips = 5;
+    }
+    message ReqBody {
+        uint64 uint64_group_id = 1;
+        bytes bytes_gift_bagid = 2;
+        uint32 uint32_channel = 3;
+        LoginSig msg_login_sig = 4;
+        uint32 uint32_business_id = 5;
+        uint32 uint32_portal = 6;
+    }
+    message RspBody {
+        uint32 uint32_result = 1;
+        bytes bytes_errmsg = 2;
+        Player msg_grab_result = 3;
+    }

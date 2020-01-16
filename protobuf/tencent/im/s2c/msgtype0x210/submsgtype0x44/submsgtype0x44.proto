@@ -1,0 +1,51 @@
+syntax = "proto3";
+package submsgtype0x44;
+    message ClearCountMsg {
+        uint64 uint64_uin = 1;
+        uint32 uint32_time = 2;
+        uint32 uint32_processflag = 3;
+    }
+    message FriendSyncMsg {
+        uint64 uint64_uin = 1;
+        uint64 uint64_fuin = 2;
+        uint32 uint32_processtype = 3;
+        uint32 uint32_time = 4;
+        uint32 uint32_processflag = 5;
+        uint32 uint32_sourceid = 6;
+        uint32 uint32_sourcesubid = 7;
+        repeated string rpt_str_wording = 8;
+    }
+    message GroupSyncMsg {
+        uint32 uint32_msg_type = 1;
+        uint64 uint64_msg_seq = 2;
+        uint64 uint64_grp_code = 3;
+        uint64 uint64_ga_code = 4;
+        uint64 uint64_opt_uin1 = 5;
+        uint64 uint64_opt_uin2 = 6;
+        bytes bytes_msg_buf = 7;
+        bytes bytes_auth_key = 8;
+        uint32 uint32_msg_status = 9;
+        uint64 uint64_action_uin = 10;
+        uint64 uint64_action_time = 11;
+        uint32 uint32_cur_max_mem_count = 12;
+        uint32 uint32_next_max_mem_count = 13;
+        uint32 uint32_cur_mem_count = 14;
+        uint32 uint32_req_src_id = 15;
+        uint32 uint32_req_src_sub_id = 16;
+        uint32 uint32_inviter_role = 17;
+        uint32 uint32_ext_admin_num = 18;
+        uint32 uint32_processflag = 19;
+    }
+    message ModifySyncMsg {
+        uint32 uint32_time = 1;
+    }
+    message MsgBody {
+        FriendSyncMsg msg_friend_msg_sync = 1;
+        GroupSyncMsg msg_group_msg_sync = 2;
+        ClearCountMsg msg_clean_count_msg = 3;
+        ModifySyncMsg msg_modify_msg_sync = 4;
+        WaitingSyncMsg msg_waiting_msg_sync = 5;
+    }
+    message WaitingSyncMsg {
+        uint32 uint32_time = 1;
+    }

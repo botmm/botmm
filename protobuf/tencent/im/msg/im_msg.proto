@@ -1,0 +1,51 @@
+syntax = "proto3";
+package im_msg;
+    message C2C {
+        /* message */ im_common.User sender = 1;
+        /* message */ im_common.User receiver = 2;
+        C2CRelation c2c_relation = 3;
+    }
+    message C2CRelation {
+        enum c2c_type = 1;
+        /* message */ im_common.GroupInfo group_info = 2;
+        /* message */ im_common.Token token = 3;
+    }
+    message ContentHead {
+        uint32 pkg_num = 1;
+        uint32 pkg_index = 2;
+        uint32 seq = 3;
+        uint32 date_time = 4;
+        uint32 msg_type = 5;
+        uint32 div_seq = 6;
+        uint64 msgdb_uin = 7;
+        uint32 msgdb_seq = 8;
+        uint32 word_msg_seq = 9;
+        uint32 msg_rand = 10;
+    }
+    message Group {
+        /* message */ im_common.User sender = 1;
+        /* message */ im_common.User receiver = 2;
+        /* message */ im_common.GroupInfo group_info = 3;
+    }
+    message Msg {
+        MsgHead head = 1;
+        /* message */ im_msg_body.MsgBody body = 2;
+    }
+    message MsgHead {
+        RoutingHead routing_head = 1;
+        ContentHead content_head = 2;
+        bytes gbk_tmp_msg_body = 3;
+    }
+    message MsgSendReq {
+        Msg msg = 1;
+        bytes bu_msg = 2;
+        uint32 msg_tail_id = 3;
+        uint32 conn_msg_flag = 4;
+        bytes bytes_cookie = 5;
+    }
+    message MsgSendResp {
+    }
+    message RoutingHead {
+        C2C c2c = 1;
+        Group group = 2;
+    }

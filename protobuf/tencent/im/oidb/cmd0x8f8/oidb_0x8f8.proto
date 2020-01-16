@@ -1,0 +1,151 @@
+syntax = "proto3";
+import "com/trunk/group_feeds/group_feeds/GroupFeedsMessage.proto";
+import "com/trunk/feeds_inner_define/feeds_inner_define/FaceRecordSet.proto";
+import "com/trunk/group_feeds/group_feeds/GroupFeedsMessage/VoteRecord.proto";
+import "com/trunk/group_feeds/group_feeds/GroupFeedsMessage/VoteStatistic.proto";
+package oidb_0x8f8;
+    message LiteMailIndexInfo {
+        bytes bytes_feeds_id = 1;
+        SourceID msg_source_id = 2;
+    }
+    message ReqBody {
+        SourceID msg_source_id = 1;
+        SubCmd01AddFeedsReq msg_add_feeds = 2;
+        SubCmd02AddCmmntReq msg_add_cmmnt = 3;
+        SubCmd04AddFaceReq msg_add_face = 4;
+        SubCmd05DelFeedsReq msg_del_feeds = 5;
+        SubCmd06DelCmmntReq msg_del_cmmnt = 6;
+        SubCmd07SetFeedsFlagReq msg_set_feeds_flag = 7;
+        SubCmd09AddVisitReq msg_add_visit = 8;
+        SubCmd16AttendVoteReq msg_attend_vote = 9;
+        SubCmd17DelAPicUrlReq msg_del_apic = 10;
+        SubCmd18SetThemeStateReq msg_set_theme = 11;
+        SubCmd19SetAsyncMsgStateReq msg_set_async_state = 12;
+        SubCmd20DelLiteMailIndexReq msg_del_litemail_index = 13;
+    }
+    message ResultMsg {
+        uint32 uint32_result = 1;
+        bytes bytes_err_msg = 2;
+    }
+    message RspBody {
+        SourceID msg_source_id = 1;
+        ResultMsg msg_result = 2;
+        SubCmd01AddFeedsRsp msg_add_feeds_rsp = 3;
+        SubCmd02AddCmmntRsp msg_add_cmmnt_rsp = 4;
+        SubCmd04AddFaceRsp msg_add_face_rsp = 5;
+        SubCmd05DelFeedsRsp msg_del_feeds_rsp = 6;
+        SubCmd06DelCmmntRsp msg_del_cmmnt_rsp = 7;
+        SubCmd07SetFeedsFlagRsp msg_set_feeds_flag_rsp = 8;
+        SubCmd09AddVisitRsp msg_add_visit_rsp = 9;
+        SubCmd16AttendVoteRsp msg_attend_vote_rsp = 10;
+        SubCmd17DelAPicUrlRsp msg_del_apic_rsp = 11;
+        SubCmd18SetThemeStateRsp msg_set_theme_rsp = 12;
+        SubCmd19SetAsyncMsgStateRsp msg_set_asyncmsg_state_rsp = 13;
+        SubCmd20DelLiteMailIndexRsp msg_del_litemail_index_rsp = 14;
+    }
+    message SourceID {
+        uint32 uint32_source_type = 1;
+        uint64 uint64_source_code = 2;
+    }
+    message SubCmd01AddFeedsReq {
+        uint32 uint32_feeds_type = 1;
+        /* message */ group_feeds.GroupFeedsMessage msg_feeds = 2;
+        uint32 uint32_auto_pull_flag = 3;
+        uint32 uint32_msg_type = 4;
+    }
+    message SubCmd01AddFeedsRsp {
+        bytes bytes_feeds_id = 1;
+    }
+    message SubCmd02AddCmmntReq {
+        bytes bytes_feeds_id = 1;
+        /* message */ group_feeds.GroupFeedsMessage msg_comment = 2;
+        uint32 uint32_cmmnt_id = 3;
+        repeated uint64 rpt_concern_uin = 4;
+    }
+    message SubCmd02AddCmmntRsp {
+        bytes bytes_feeds_id = 1;
+        uint32 uint32_cmmnt_id = 2;
+        uint32 uint32_cmmnt_count = 3;
+    }
+    message SubCmd04AddFaceReq {
+        bytes bytes_feeds_id = 1;
+        uint32 uint32_face_type = 2;
+    }
+    message SubCmd04AddFaceRsp {
+        bytes bytes_feeds_id = 1;
+        /* message */ feeds_inner_define.FaceRecordSet msg_face_set = 2;
+    }
+    message SubCmd05DelFeedsReq {
+        bytes bytes_feeds_id = 1;
+        uint32 uint32_del_type = 2;
+        uint32 uint32_edu_id = 3;
+    }
+    message SubCmd05DelFeedsRsp {
+        bytes bytes_feeds_id = 1;
+    }
+    message SubCmd06DelCmmntReq {
+        bytes bytes_feeds_id = 1;
+        uint32 uint32_cmmnt_id = 2;
+    }
+    message SubCmd06DelCmmntRsp {
+        bytes bytes_feeds_id = 1;
+        uint32 uint32_cmmnt_id = 2;
+    }
+    message SubCmd07SetFeedsFlagReq {
+        bytes bytes_feeds_id = 1;
+        uint32 uint32_flag = 2;
+        uint32 uint32_theme_state = 3;
+    }
+    message SubCmd07SetFeedsFlagRsp {
+        bytes bytes_feeds_id = 1;
+        uint32 uint32_flag = 2;
+        uint32 uint32_theme_state = 3;
+    }
+    message SubCmd09AddVisitReq {
+        bytes bytes_feeds_id = 1;
+    }
+    message SubCmd09AddVisitRsp {
+        bytes bytes_feeds_id = 1;
+        uint32 uint32_visit_num = 2;
+    }
+    message SubCmd16AttendVoteReq {
+        bytes bytes_feeds_id = 1;
+        repeated uint32 rpt_uint32_voteids = 2;
+    }
+    message SubCmd16AttendVoteRsp {
+        bytes bytes_feeds_id = 1;
+        repeated uint32 rpt_uint32_voteids = 2;
+        repeated group_feeds.GroupFeedsMessage.VoteStatistic rpt_vote_statistic = 14;
+        repeated group_feeds.GroupFeedsMessage.VoteRecord rpt_vote_record = 15;
+    }
+    message SubCmd17DelAPicUrlReq {
+        bytes bytes_feeds_id = 1;
+        bytes bytes_pic_url = 2;
+    }
+    message SubCmd17DelAPicUrlRsp {
+        bytes bytes_feeds_id = 1;
+        bytes bytes_pic_url = 2;
+    }
+    message SubCmd18SetThemeStateReq {
+        bytes bytes_feeds_id = 1;
+        uint32 uint32_theme_state = 2;
+    }
+    message SubCmd18SetThemeStateRsp {
+        bytes bytes_feeds_id = 1;
+        uint32 uint32_theme_state = 2;
+    }
+    message SubCmd19SetAsyncMsgStateReq {
+        repeated bytes rpt_bytes_feeds_id = 1;
+        uint32 uint32_set_type = 2;
+    }
+    message SubCmd19SetAsyncMsgStateRsp {
+        repeated bytes rpt_bytes_success_feeds_id = 1;
+        repeated bytes rpt_bytes_fail_feeds_id = 2;
+    }
+    message SubCmd20DelLiteMailIndexReq {
+        repeated LiteMailIndexInfo rpt_msg_lite_mail_index = 1;
+    }
+    message SubCmd20DelLiteMailIndexRsp {
+        repeated LiteMailIndexInfo rpt_msg_succ_lite_mail_index = 1;
+        repeated LiteMailIndexInfo rpt_msg_fail_lite_mail_index = 2;
+    }

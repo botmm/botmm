@@ -1,0 +1,51 @@
+syntax = "proto3";
+package OlympicTorchSvc;
+    message ReqDeliverTorch {
+        uint64 uint64_torch_id = 1;
+        /* message */ MqqLbs.LBSInfo msg_lbs_info = 2;
+        uint32 uint32_user_share = 3;
+        bytes bytes_sig = 10;
+    }
+    message ReqExitDeliverTorch {
+    }
+    message ReqGetBusinessTorch {
+        uint64 uint64_torch_id = 1;
+        /* message */ MqqLbs.LBSInfo msg_lbs_info = 2;
+        repeated uint64 rpt_city_pic_id_list = 3;
+    }
+    message ReqGetTorchAward {
+        bytes bytes_pack_id = 1;
+        uint32 uint32_business = 2;
+        repeated uint64 rpt_city_pic_id_list = 3;
+        bytes bytes_sig = 10;
+    }
+    message RspDeliverTorch {
+        RspHead msg_rsp_head = 1;
+        uint32 uint32_min_update_time = 2;
+        uint32 uint32_expire_time = 3;
+        bytes bytes_sig = 10;
+    }
+    message RspExitDeliverTorch {
+        RspHead msg_rsp_head = 1;
+    }
+    message RspGetBusinessTorch {
+        RspHead msg_rsp_head = 1;
+        /* message */ torch_transfer.TorchbearerInfo msg_torch_info = 2;
+        SceneWording msg_scene_wording = 3;
+    }
+    message RspGetTorchAward {
+        RspHead msg_rsp_head = 1;
+        /* message */ torch_transfer.TorchbearerInfo msg_torchbearer_info = 2;
+        uint32 uint32_delay_time = 3;
+        bytes bytes_sig = 10;
+    }
+    message RspHead {
+        uint32 uint32_result = 1;
+        string str_error_msg = 2;
+    }
+    message SceneWording {
+        string str_line1 = 1;
+        string str_line2 = 2;
+        string str_link_word = 3;
+        string str_link_url = 4;
+    }

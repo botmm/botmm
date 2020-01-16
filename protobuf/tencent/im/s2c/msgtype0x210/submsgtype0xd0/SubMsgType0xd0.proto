@@ -1,0 +1,14 @@
+syntax = "proto3";
+package SubMsgType0xd0;
+    message MsgBody {
+        uint32 uint32_msg_type = 1;
+        bytes bytes_msg_info = 2;
+        uint64 uint64_hot_topic_id = 3;
+        bytes bytes_hot_topic_name = 4;
+        uint64 uint64_big_v_id = 5;
+        bytes bytes_big_v_union_id = 6;
+        uint32 uint32_pgc_type = 7;
+        bytes bytes_pgc_column_union_id = 8;
+        bytes bytes_link = 9;
+        bytes bytes_sub_type = 10;
+    }

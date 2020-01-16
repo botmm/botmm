@@ -1,0 +1,7 @@
+syntax = "proto3";
+package submsgtype0x54;
+    message MsgBody {
+        enum peer_type = 1;
+        uint64 peer_uin = 2;
+        repeated MsgBody.TaskInfo task_list = 3;
+    }

@@ -1,0 +1,7 @@
+syntax = "proto3";
+package Submsgtype0x4e.GroupBulletin;
+    message Content {
+        bytes bytes_feedid = 1;
+        uint64 uint64_uin = 2;
+        fixed32 uint32_time = 3;
+    }

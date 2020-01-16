@@ -1,0 +1,29 @@
+syntax = "proto3";
+package PackData;
+    message Pack {
+        bytes pack_id = 1;
+        uint32 state = 2;
+        uint32 type = 3;
+        uint32 ctime = 4;
+        uint32 money = 5;
+        uint32 business = 6;
+        bytes signature = 7;
+        string url = 8;
+        uint64 peer_uin = 9;
+        uint32 etime = 10;
+        bytes peer_nick = 11;
+        bool expired = 12;
+        bool locked = 13;
+        string order = 14;
+        string peer_face = 15;
+        uint64 uin = 16;
+        uint32 group_type = 17;
+        uint32 group_id = 18;
+        uint32 promotion_id = 19;
+        string user_ip = 20;
+        uint32 user_apn = 21;
+        bool empty = 22;
+        uint32 appid = 23;
+        bool provider_dead = 24;
+        uint32 mtime = 25;
+    }

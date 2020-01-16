@@ -1,0 +1,18 @@
+syntax = "proto3";
+import "appoint/define/appoint_define/InterestItem.proto";
+package cmd0x9c8;
+    message ReqBody {
+        string str_keyword = 1;
+        uint32 uint32_tag_type = 2;
+        uint32 uint32_fetch_start = 3;
+        uint32 uint32_fetch_count = 4;
+        uint32 uint32_match_op = 5;
+        uint32 uint32_personal_info_flag = 6;
+    }
+    message RspBody {
+        uint32 uint32_tag_type = 1;
+        repeated appoint_define.InterestItem rpt_msg_tag_list = 2;
+        uint32 uint32_next_pos = 3;
+        repeated appoint_define.InterestItem rpt_msg_sel_list = 4;
+        string str_error = 5;
+    }

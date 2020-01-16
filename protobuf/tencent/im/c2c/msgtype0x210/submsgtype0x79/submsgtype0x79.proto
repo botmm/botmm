@@ -1,0 +1,6 @@
+syntax = "proto3";
+package submsgtype0x79;
+    message MsgBody {
+        uint32 uint32_src_app_id = 1;
+        uint32 uint32_undeal_count = 2;
+    }

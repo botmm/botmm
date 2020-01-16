@@ -1,0 +1,23 @@
+syntax = "proto3";
+package oidb_0x589;
+    message GetUserOpenIdReq {
+        uint32 uint32_req_flag = 1;
+        uint64 uint64_req_uin = 2;
+        uint64 uint64_req_host_uin = 3;
+    }
+    message GetUserOpenIdRsp {
+        GetUserOpenIdReq msg_req_id = 1;
+        uint32 uint32_result = 2;
+        bytes bytes_open_id = 3;
+        bytes bytes_group_open_id = 4;
+        bytes bytes_discuss_open_id = 5;
+        bytes bytes_token = 6;
+    }
+    message ReqBody {
+        uint64 uint64_app_id = 1;
+        repeated GetUserOpenIdReq rpt_msg_user_id = 2;
+    }
+    message RspBody {
+        uint64 uint64_app_id = 1;
+        repeated GetUserOpenIdRsp rpt_msg_open_id = 2;
+    }

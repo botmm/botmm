@@ -1,0 +1,12 @@
+syntax = "proto3";
+package head;
+    message ContentHead {
+        uint32 uint32_type = 1;
+        uint32 uint32_subtype = 2;
+    }
+    message Head {
+        MsgHead msg_msg_head = 12;
+    }
+    message MsgHead {
+        ContentHead msg_content_head = 1;
+    }

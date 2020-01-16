@@ -1,0 +1,47 @@
+syntax = "proto3";
+package oidb_0x6c2;
+    message GiftBagInfo {
+        bytes bytes_gift_bagid = 1;
+        int32 int32_count = 2;
+        int32 int32_amount = 3;
+        uint64 uint64_start_time = 4;
+        uint64 uint64_end_time = 5;
+        repeated Player msg_paly = 6;
+        int32 int32_end = 7;
+        int32 int32_remain_count = 8;
+        int32 int32_remain_amount = 9;
+        int32 int32_winner = 10;
+        uint64 uint64_gift_owner = 11;
+        uint64 uint64_group_id = 12;
+        uint64 uint64_done_time = 13;
+        bytes bytes_gift_name = 14;
+        bytes bytes_gift_unit = 15;
+        bytes bytes_ext = 10000;
+    }
+    message LoginSig {
+        uint32 uint32_type = 1;
+        bytes bytes_sig = 2;
+        uint32 uint32_appid = 3;
+    }
+    message Player {
+        uint64 uint64_uin = 1;
+        uint64 uint64_time = 2;
+        int32 int32_amount = 3;
+        int32 int32_index = 4;
+        bytes bytes_tips = 5;
+    }
+    message ReqBody {
+        uint64 uint64_group_id = 1;
+        bytes bytes_gift_bagid = 2;
+        int32 int32_page_index = 3;
+        int32 int32_page_size = 4;
+        uint32 uint32_channel = 5;
+        LoginSig msg_login_sig = 6;
+    }
+    message RspBody {
+        uint32 uint32_result = 1;
+        bytes bytes_errmsg = 2;
+        GiftBagInfo msg_gift_bag_info = 3;
+        int32 int32_player = 4;
+        Player msg_winner = 5;
+    }

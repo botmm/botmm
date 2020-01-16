@@ -1,0 +1,17 @@
+syntax = "proto3";
+import "tencent/nearby/common/nearby_common.proto";
+import "tencent/nearby/user/relation/UserFollowStatus.proto";
+package UserFollowStatus;
+    message UserFollowStatusInfo {
+        uint64 dst_uin = 1;
+        enum follow_status = 2;
+    }
+    message UserFollowStatusReq {
+        uint64 uin = 1;
+        repeated uint64 dst_uin_list = 2;
+    }
+    message UserFollowStatusRsp {
+        uint64 uin = 1;
+        repeated UserFollowStatusInfo follow_status_info_list = 2;
+        /* message */ nearby_common.ErrorInfo result = 3;
+    }

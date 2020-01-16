@@ -1,0 +1,22 @@
+syntax = "proto3";
+package C2CType0x211_SubC2CType0x9.MsgBody;
+    message HPPrinterStateInfo {
+        uint64 uint64_printer_din = 1;
+        string str_printer_qr_pic_url = 2;
+        string str_printer_qr_open_url = 3;
+        string str_printer_tip_url = 4;
+    }
+    message MsgPrinter {
+        repeated string rpt_string_printer = 1;
+        uint64 uint64_print_session_id = 2;
+        uint32 uint32_print_result = 3;
+        string str_result_msg = 4;
+        repeated uint64 rpt_uint64_session_id = 5;
+        repeated C2CType0x211_SubC2CType0x9.MsgBody.SupportFileInfo rpt_msg_support_file_info = 6;
+        /* message */ C2CType0x211_SubC2CType0x9.MsgBody.HPPrinterStateInfo hp_printer_state_info = 7;
+    }
+    message SupportFileInfo {
+        string str_file_suffix = 1;
+        uint32 uint32_copies = 2;
+        uint32 uint32_duplex = 3;
+    }

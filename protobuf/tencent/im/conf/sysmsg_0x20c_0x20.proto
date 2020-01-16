@@ -1,0 +1,20 @@
+syntax = "proto3";
+package sysmsg_0x20c_0x20;
+    message Convert2Group {
+        uint64 u64_operator = 1;
+        uint64 u64_discuss_code = 2;
+        uint64 u64_group_code = 3;
+    }
+    message MemberNumRemind {
+        uint64 u64_discuss_code = 1;
+        uint32 u32_mem_num = 2;
+    }
+    message SysMsgBody {
+        uint32 u32_cmd = 1;
+        Convert2Group msg_convert_to_group = 2;
+        MemberNumRemind msg_mem_num_remind = 3;
+        UploadFileRemind msg_upload_file_remind = 4;
+    }
+    message UploadFileRemind {
+        uint64 u64_discuss_code = 1;
+    }

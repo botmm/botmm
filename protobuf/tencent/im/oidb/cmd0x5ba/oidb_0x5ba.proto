@@ -1,0 +1,54 @@
+syntax = "proto3";
+package oidb_0x5ba;
+    message ReqBody {
+        uint32 uint32_channel = 1;
+        uint64 uint64_request_uin = 2;
+        uint64 uint64_pay_uin = 3;
+        uint64 uint64_gc = 4;
+        string string_reward_id = 5;
+        string string_vid = 6;
+        int32 int32_page_index = 7;
+        int32 int32_page_size = 8;
+        uint32 uint32_platform = 9;
+        string string_appversion = 10;
+        string string_guid = 11;
+        string string_cli_cmd = 20;
+    }
+    message Reward {
+        uint32 uint32_myreward_totalincome = 1;
+        uint32 uint32_myreward_totalcount = 2;
+        uint32 uint32_is_end = 3;
+        repeated RewardItem rpt_rewards = 4;
+    }
+    message RewardItem {
+        uint64 uint64_request_uin = 1;
+        uint32 uint32_request_time = 2;
+        uint64 uint64_pay_uin = 3;
+        uint32 uint32_pay_time = 4;
+        uint32 uint32_pay_count = 5;
+        uint32 uint32_punish_left_time = 6;
+        uint32 uint32_shootscreen_punish_time = 7;
+        string string_punish_warning_info = 8;
+        uint32 uint32_reward_type = 9;
+        uint32 uint32_reward_fee = 10;
+        uint32 uint32_reward_status = 11;
+        string string_reward_text = 12;
+        string string_reward_id = 13;
+        string string_blur_pic_url = 14;
+        string string_clear_pic_url = 15;
+        string string_vid = 16;
+        string string_cookie = 17;
+        uint32 uint32_reward_expire = 18;
+        uint32 uint32_video_duration = 19;
+        string string_ckey = 20;
+        uint32 uint32_close_time = 21;
+        uint64 uint64_request_gc = 22;
+    }
+    message RspBody {
+        uint32 uint32_result = 1;
+        bytes bytes_errmsg = 2;
+        Reward msg_rewards = 3;
+        RewardItem msg_resource = 4;
+        uint32 uint32_reward_privilege = 5;
+        string string_privilege_desc = 6;
+    }

@@ -1,0 +1,36 @@
+syntax = "proto3";
+package submsgtype0x26;
+    message AppID {
+        uint64 uint64_app_id = 1;
+    }
+    message AppNotifyContent {
+        bytes bytes_text = 1;
+        repeated AppNotifyUser opt_msg_app_notify_user = 2;
+    }
+    message AppNotifyUser {
+        uint64 opt_uint64_uin = 1;
+        uint32 opt_uint32_flag = 2;
+    }
+    message AppTip {
+        uint32 uint32_tip_info_seq = 1;
+        bytes bytes_icon = 2;
+        uint32 uint32_icon_time_stamp = 3;
+        bytes bytes_tooltip = 4;
+        uint32 uint32_reportid_click = 5;
+        uint32 uint32_reportid_show = 6;
+    }
+    message AppTipNotify {
+        AppTip msg_app_tip = 1;
+        uint32 uint32_action = 2;
+        bytes bytes_text = 3;
+        uint32 uint32_notify_seq = 4;
+        uint32 uint32_needed_tip_info_seq = 5;
+        AppNotifyContent opt_msg_app_notify_content = 6;
+    }
+    message MsgBody {
+        uint32 uint32_sub_cmd = 1;
+        repeated MsgBody.SubCmd0x1UpdateAppUnreadNum rpt_msg_subcmd_0x1_push_body = 2;
+        MsgBody.SubCmd0x2UpdateAppList msg_subcmd_0x2_push_body = 3;
+        MsgBody.SubCmd0x3UpdateDiscussAppInfo msg_subcmd_0x3_push_body = 4;
+        MsgBody.SubCmd0x4UpdateApp msg_subcmd_0x4_push_body = 5;
+    }

@@ -1,0 +1,52 @@
+syntax = "proto3";
+package oidb_0x9fa;
+    message AddFeedbackHateGroupCmd {
+        repeated uint64 uint64_group_code = 1;
+    }
+    message ChannelInfo {
+        uint64 uint64_uin = 1;
+        uint32 uint32_channel_status = 2;
+        uint64 uint64_channel_optime = 3;
+    }
+    message FeedbackData {
+        repeated FeedbackDataItem msg_feedback = 1;
+    }
+    message FeedbackDataItem {
+        uint64 uint64_group_code = 1;
+        uint64 uint64_feedback_time = 2;
+    }
+    message GetFeedbackHateGroupCmd {
+        int32 page_no = 1;
+        int32 page_size = 2;
+    }
+    message GetSimilarGroupWebInfo {
+        uint64 uint64_uin = 1;
+        uint64 uint64_group_code = 2;
+    }
+    message QueryRecommendChannelCmd {
+        repeated uint64 uint64_uin = 1;
+    }
+    message ReqBody {
+        uint32 uint32_appid = 1;
+        uint32 uint32_cmdid = 2;
+        int32 int32_channel = 3;
+        AddFeedbackHateGroupCmd msg_add_hate_group = 4;
+        QueryRecommendChannelCmd msg_channel_status = 5;
+        SetRecommendChannelCmd msg_channel_set = 6;
+        GetFeedbackHateGroupCmd msg_get_hate_group = 7;
+        GetSimilarGroupWebInfo msg_get_web_info = 8;
+    }
+    message RspBody {
+        uint32 uint32_cmdid = 1;
+        uint32 uint32_result = 2;
+        bytes bytes_errMsg = 3;
+        FeedbackData msg_feed_data = 4;
+        repeated ChannelInfo msg_channel = 5;
+        SimilarGroupWebInfo web_info = 6;
+    }
+    message SetRecommendChannelCmd {
+        repeated ChannelInfo msg_channel = 1;
+    }
+    message SimilarGroupWebInfo {
+        bytes bytes_url = 1;
+    }

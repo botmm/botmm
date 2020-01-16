@@ -1,0 +1,8 @@
+syntax = "proto3";
+package submsgtype0x31;
+    message MsgBody {
+        uint32 uint32_flag = 1;
+        uint64 uint64_uin = 2;
+        uint64 uint64_bind_uin = 3;
+        fixed32 uint32_time = 4;
+    }

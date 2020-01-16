@@ -1,0 +1,19 @@
+syntax = "proto3";
+package oidb_0x48a;
+    message ChkBlockReq {
+        OneBlockAccountData msg_block_account_data = 1;
+    }
+    message ChkBlockRsp {
+        OneBlockAccountData msg_block_account_data = 1;
+        uint32 uint32_result = 2;
+    }
+    message OneBlockAccountData {
+        uint32 uint32_account_type = 1;
+        uint64 uint64_block_qcall_id = 2;
+    }
+    message ReqBody {
+        ChkBlockReq msg_chk_block_req = 1;
+    }
+    message RspBody {
+        ChkBlockRsp msg_chk_block_rsp = 1;
+    }

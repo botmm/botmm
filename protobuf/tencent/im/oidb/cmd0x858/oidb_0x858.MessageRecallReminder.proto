@@ -1,0 +1,7 @@
+syntax = "proto3";
+package oidb_0x858.MessageRecallReminder;
+    message MessageMeta {
+        uint32 uint32_seq = 1;
+        uint32 uint32_time = 2;
+        uint32 uint32_msg_random = 3;
+    }

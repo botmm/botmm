@@ -1,0 +1,39 @@
+syntax = "proto3";
+import "tencent/im/mobileqq/mobroute/DomainIp.proto";
+package DomainIp;
+    message DomainServerList {
+        string string_IP = 1;
+        uint32 uint32_Port = 2;
+    }
+    message DomainiplistInfo {
+        int32 int32_result = 1;
+        string string_dname = 2;
+        uint32 uint32_type = 3;
+        uint32 uint32_ttl = 4;
+        repeated DomainServerList ServerList_data = 5;
+    }
+    message MobRouteSSOList {
+        uint32 uint32_timeout = 1;
+        repeated MobRouteSSOListInfo vec_tcplist = 2;
+        repeated MobRouteSSOListInfo vec_httplist = 3;
+    }
+    message MobRouteSSOListInfo {
+        string string_ip = 1;
+        uint32 uint32_port = 2;
+    }
+    message MobRouteSSOListReq {
+        uint32 uint32_uintype = 1;
+        string string_uin = 2;
+        string string_imsi = 3;
+        uint32 uint32_nettype = 4;
+        uint32 uint32_appid = 5;
+        string string_imei = 6;
+    }
+    message NameRspBody {
+        SubCmd_name_Rsp SubCmd_name_Rsp = 1;
+    }
+    message SubCmd_name_Rsp {
+        uint32 uint32_uip = 1;
+        uint32 uint32_qq = 2;
+        repeated DomainiplistInfo iplistInfo = 3;
+    }

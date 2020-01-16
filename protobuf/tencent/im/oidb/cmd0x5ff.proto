@@ -1,0 +1,10 @@
+syntax = "proto3";
+import "appoint/define/appoint_define/AppointID.proto";
+package cmd0x5ff;
+    message ReqBody {
+        /* message */ appoint_define.AppointID msg_appoint_id = 1;
+        string str_comment_id = 2;
+    }
+    message RspBody {
+        string str_error_tips = 1;
+    }

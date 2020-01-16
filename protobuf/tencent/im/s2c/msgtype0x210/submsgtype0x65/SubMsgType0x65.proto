@@ -1,0 +1,11 @@
+syntax = "proto3";
+package SubMsgType0x65;
+    message MsgBody {
+        uint32 uint32_cmd = 1;
+        MsgExpiredPkg msg_expired_pkg = 2;
+    }
+    message MsgExpiredPkg {
+        uint32 uint32_platform = 1;
+        bytes bytes_expire_pkg = 2;
+        bytes bytes_predown_pkg = 3;
+    }

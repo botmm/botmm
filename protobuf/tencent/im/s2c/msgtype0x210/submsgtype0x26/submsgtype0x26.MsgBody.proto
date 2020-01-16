@@ -1,0 +1,24 @@
+syntax = "proto3";
+package submsgtype0x26.MsgBody;
+    message SubCmd0x1UpdateAppUnreadNum {
+        /* message */ submsgtype0x26.AppID msg_app_id = 1;
+        uint64 uint64_group_code = 2;
+        sint32 sint32_unread_num = 3;
+        /* message */ submsgtype0x26.AppTipNotify msg_app_tip_notify = 4;
+        sint32 sint32_album_cnt = 5;
+    }
+    message SubCmd0x2UpdateAppList {
+        repeated submsgtype0x26.AppID rpt_msg_app_id = 1;
+        repeated uint32 rpt_uint32_time_stamp = 2;
+        uint64 uint64_group_code = 3;
+    }
+    message SubCmd0x3UpdateDiscussAppInfo {
+        /* message */ submsgtype0x26.AppID msg_app_id = 1;
+        uint64 uint64_conf_uin = 2;
+        /* message */ submsgtype0x26.AppTipNotify msg_app_tip_notify = 3;
+    }
+    message SubCmd0x4UpdateApp {
+        /* message */ submsgtype0x26.AppID msg_app_id = 1;
+        uint64 uint64_group_code = 2;
+        sint32 sint32_unread_num = 3;
+    }

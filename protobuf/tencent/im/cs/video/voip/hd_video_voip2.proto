@@ -1,0 +1,195 @@
+syntax = "proto3";
+package hd_video_voip2;
+    message CmdFailedRspBody {
+        uint32 uint32_error_code = 1;
+        bytes bytes_error_info = 2;
+    }
+    message CmdGetCallTypeReqBody {
+        uint32 uint32_from_flag = 1;
+        TelInfo msg_from_tel = 2;
+        TelInfo msg_to_tel = 3;
+        uint32 uint32_call_policy = 4;
+    }
+    message CmdGetCallTypeRspBody {
+        uint32 uint32_call_type = 1;
+        uint64 uint64_tiny_id = 2;
+        bytes bytes_call_id = 3;
+        bytes bytes_call_phone = 4;
+        uint32 uint32_call_ability = 5;
+    }
+    message CmdPhoneBindReqBody {
+        uint32 uint32_from_flag = 1;
+        TelInfo msg_from_tel = 2;
+        TelInfo msg_to_tel = 3;
+        uint32 uint32_call_policy = 4;
+        SpeedTestInfo msg_speed_test_info = 5;
+        uint64 uint64_prvt_id = 6;
+        bytes bytes_prvt_session = 7;
+    }
+    message CmdPhoneBindRspBody {
+        uint32 uint32_call_type = 1;
+        uint64 uint64_call_id = 2;
+        bytes bytes_call_id = 3;
+        bytes bytes_call_prompt = 4;
+        bytes bytes_call_phone = 5;
+        uint32 uint32_ability = 6;
+        uint32 uint32_call_phone_type = 7;
+    }
+    message CmdPhoneCallBackReqBody {
+        TelInfo msg_from_tel = 1;
+        TelInfo msg_to_tel = 2;
+        uint64 uint64_balance = 3;
+        uint32 uint32_cost_type = 4;
+        uint64 uint64_prvt_id = 5;
+        bytes bytes_prvt_session = 6;
+    }
+    message CmdPhoneCallBackRspBody {
+        bytes bytes_call_id = 1;
+        bytes bytes_call_prompt = 2;
+        bytes bytes_call_phone = 3;
+        uint32 uint32_call_phone_type = 4;
+    }
+    message CmdPhoneCancelCallBackReqBody {
+        TelInfo msg_from_tel = 1;
+        TelInfo msg_to_tel = 2;
+        bytes bytes_call_id = 3;
+    }
+    message CmdPhoneCancelCallBackRspBody {
+        bytes bytes_call_id = 1;
+    }
+    message CmdPhoneMultiChatCancelReqBody {
+        TelInfo msg_from_tel = 1;
+        bytes bytes_conf_id = 2;
+    }
+    message CmdPhoneMultiChatCancelRspBody {
+        bytes bytes_conf_id = 1;
+    }
+    message CmdPhoneMultiChatCreateReqBody {
+        TelInfo msg_from_tel = 1;
+        repeated TelInfo msg_to_tel = 2;
+        uint64 uint64_balance = 3;
+    }
+    message CmdPhoneMultiChatCreateRspBody {
+        bytes bytes_conf_id = 1;
+        repeated TelInfo msg_not_support_to_tel = 2;
+        bytes bytes_call_prompt = 3;
+        bytes bytes_call_phone = 4;
+        uint32 uint32_call_phone_type = 5;
+    }
+    message CmdPhoneMultiChatInviteReqBody {
+        TelInfo msg_from_tel = 1;
+        bytes bytes_conf_id = 2;
+        repeated TelInfo msg_invite_tel = 3;
+    }
+    message CmdPhoneMultiChatInviteRspBody {
+        bytes bytes_conf_id = 1;
+        repeated TelInfo msg_invite_fail_tel = 2;
+        repeated TelInfo msg_invite_succ_tel = 3;
+    }
+    message CmdPhoneMultiChatKickReqBody {
+        TelInfo msg_from_tel = 1;
+        bytes bytes_conf_id = 2;
+        repeated TelInfo msg_kick_tel = 3;
+    }
+    message CmdPhoneMultiChatKickRspBody {
+        bytes bytes_conf_id = 1;
+        repeated TelInfo msg_kick_fail_tel = 2;
+        repeated TelInfo msg_kick_succ_tel = 3;
+    }
+    message CmdPhoneMultiChatQueryReqBody {
+        TelInfo msg_from_tel = 1;
+        bytes bytes_conf_id = 2;
+    }
+    message CmdPhoneMultiChatQueryRspBody {
+        bytes bytes_conf_id = 1;
+        repeated TelInfo msg_chating_tel = 2;
+    }
+    message CmdPhoneSpeedTestReq {
+        uint64 uint64_self_uin = 1;
+        fixed32 fixed32_self_client_ip = 2;
+    }
+    message CmdPhoneSpeedTestRsp {
+        uint32 uint32_result = 1;
+        uint32 uint32_test_type = 2;
+        uint32 uint32_pkglen = 3;
+        uint32 uint32_pkgnum_per_second = 4;
+        uint32 uint32_sendpkg_keep_time = 5;
+        uint32 uint32_ping_interval_time = 6;
+        uint32 uint32_ping_cnt = 7;
+        uint32 uint32_ping_packet_size = 8;
+        uint32 uint32_server_interval = 9;
+        repeated CmdPhoneSpeedTestRsp.IPSpeedSvrInfo rpt_msg_ipspeed_info_list = 10;
+    }
+    message PhoneH5CheckReqBody {
+        uint64 uint64_seq = 1;
+        TelInfo msg_from_tel = 2;
+        TelInfo msg_to_tel = 3;
+        uint64 uint64_prvt_id = 4;
+    }
+    message PhoneH5CheckRspBody {
+        uint64 uint64_seq = 1;
+        TelInfo msg_from_tel = 2;
+        TelInfo msg_to_tel = 3;
+        uint32 uint32_error_no = 4;
+        uint64 uint64_balance = 5;
+    }
+    message ReqBody {
+        VoipHead msg_voip_head = 1;
+        CmdPhoneBindReqBody msg_phone_bind_req_body = 2;
+        CmdPhoneCallBackReqBody msg_phone_callback_req_body = 3;
+        CmdPhoneCancelCallBackReqBody msg_phone_cancel_callback_req_body = 4;
+        CmdPhoneSpeedTestReq msg_phone_speed_test_req_body = 5;
+        CmdPhoneMultiChatCreateReqBody msg_phone_multi_chat_create_req_body = 6;
+        CmdPhoneMultiChatInviteReqBody msg_phone_multi_chat_invite_req_body = 7;
+        CmdPhoneMultiChatQueryReqBody msg_phone_multi_chat_query_req_body = 8;
+        CmdPhoneMultiChatKickReqBody msg_phone_multi_chat_kick_req_body = 9;
+        CmdPhoneMultiChatCancelReqBody msg_phone_multi_chat_cancel_req_body = 10;
+        PhoneH5CheckReqBody msg_phone_h5_check_req_body = 11;
+        CmdGetCallTypeReqBody msg_get_call_type_req_body = 51;
+    }
+    message RspBody {
+        VoipHead msg_voip_head = 1;
+        CmdFailedRspBody msg_failed_body = 2;
+        CmdPhoneBindRspBody msg_phone_bind_rsp_body = 3;
+        CmdPhoneCallBackRspBody msg_phone_callback_rsp_body = 4;
+        CmdPhoneCancelCallBackRspBody msg_phone_cancel_callback_rsp_body = 5;
+        CmdPhoneSpeedTestRsp msg_phone_speed_test_rsp_body = 6;
+        CmdPhoneMultiChatCreateRspBody msg_phone_multi_chat_create_rsp_body = 7;
+        CmdPhoneMultiChatInviteRspBody msg_phone_multi_chat_invite_rsp_body = 8;
+        CmdPhoneMultiChatQueryRspBody msg_phone_multi_chat_query_rsp_body = 9;
+        CmdPhoneMultiChatKickRspBody msg_phone_multi_chat_kick_rsp_body = 10;
+        CmdPhoneMultiChatCancelRspBody msg_phone_multi_chat_cancel_rsp_body = 11;
+        PhoneH5CheckRspBody msg_phone_h5_check_rsp_body = 12;
+        CmdGetCallTypeRspBody msg_get_call_type_rsp_body = 52;
+    }
+    message SpeedTestInfo {
+        uint32 uint32_total_pkg = 1;
+        uint32 uint32_real_recv_pkg = 2;
+        uint32 uint32_delay = 3;
+        uint32 uint32_jitter = 4;
+        uint32 uint32_loss_continue = 5;
+        uint32 uint32_estimate_bandwidth = 6;
+    }
+    message TelInfo {
+        bytes bytes_nation = 1;
+        bytes bytes_prefix = 2;
+        bytes bytes_mobile = 3;
+        uint32 uint32_status = 4;
+        uint32 uint32_appid = 19;
+        uint64 uint64_uin = 20;
+        uint32 uint64_uin_type = 21;
+        uint64 uint64_binded_id = 22;
+        uint32 uint32_binded_id_type = 23;
+        uint32 uint32_mobile_type = 24;
+    }
+    message VoipHead {
+        uint64 uint64_uin = 1;
+        uint64 uint64_seq = 2;
+        uint32 uint32_cmd = 3;
+        uint32 uint32_error_no = 4;
+        bytes bytes_build_ver = 5;
+        uint32 uint32_term_type = 6;
+        uint32 uint32_app_type = 7;
+        uint32 uint32_biz_id = 8;
+        int32 int32_sub_service_type = 22;
+    }

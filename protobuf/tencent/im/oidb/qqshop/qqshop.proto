@@ -1,0 +1,35 @@
+syntax = "proto3";
+package qqshop;
+    message SQQSHPAccoutRelation {
+        uint64 puin = 1;
+        uint64 binduin = 2;
+        int32 distance = 3;
+        int32 customerservice = 4;
+    }
+    message SQQSHPClientReq {
+        uint32 eventid = 1;
+        repeated uint64 puinlist = 2;
+        repeated uint64 cuinlist = 3;
+        double longitude = 4;
+        double latitude = 5;
+        int32 msglistlen = 6;
+        uint64 rcpuin = 7;
+        uint64 ad_id = 8;
+    }
+    message SQQSHPClientRsp {
+        repeated SQQSHPRecmdAccount recmdlist = 1;
+        repeated SQQSHPAccoutRelation bindlist = 2;
+        uint32 retcode = 3;
+        SQQSHPNewUserRecmd newusrrecmd = 4;
+        uint64 rcpuin = 5;
+    }
+    message SQQSHPNewUserRecmd {
+        int32 recmdflag = 1;
+        string recmdurl = 2;
+    }
+    message SQQSHPRecmdAccount {
+        uint64 puin = 1;
+        string nick = 2;
+        string headurl = 3;
+        string desc = 4;
+    }

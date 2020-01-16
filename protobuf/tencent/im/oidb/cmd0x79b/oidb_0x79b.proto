@@ -1,0 +1,14 @@
+syntax = "proto3";
+import "tencent/im/oidb/cmd0x88d/oidb_0x88d/GroupInfo.proto";
+package oidb_0x79b;
+    message ReqBody {
+        uint64 uint64_group_code = 1;
+        /* message */ oidb_0x88d.GroupInfo info = 2;
+        uint32 uint32_source = 3;
+        uint32 uint32_notify_aio_flag = 4;
+        uint32 uint32_tribe_type = 5;
+        uint64 uint64_tribe_id = 6;
+        string str_tribe_name = 7;
+    }
+    message RspBody {
+    }

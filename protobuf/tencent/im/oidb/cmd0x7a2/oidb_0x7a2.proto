@@ -1,0 +1,16 @@
+syntax = "proto3";
+package oidb_0x7a2;
+    message LoginSig {
+        uint32 uint32_type = 1;
+        bytes bytes_sig = 2;
+        uint32 uint32_appid = 3;
+    }
+    message ReqBody {
+        uint32 uint32_flag = 5;
+    }
+    message RspBody {
+        uint32 uint32_result = 1;
+        string str_errmsg = 2;
+        uint64 uint64_bind_uin = 3;
+        repeated uint64 uint64_multi_bind_uin = 4;
+    }

@@ -1,0 +1,26 @@
+syntax = "proto3";
+package SubMsgType0x90;
+    message DpNotifyMsgBdoy {
+        uint32 uint32_pid = 1;
+        uint64 uint64_din = 2;
+        repeated NotifyItem rpt_msg_notify_info = 3;
+        string string_extend_info = 4;
+    }
+    message Head {
+        uint32 uint32_cmd = 1;
+    }
+    message MsgBody {
+        Head msg_head = 1;
+        PushBody msg_body = 2;
+    }
+    message NotifyItem {
+        uint32 uint32_propertyid = 1;
+    }
+    message OccupyMicrophoneNotifyMsgBody {
+        uint32 uint32_uin = 1;
+        uint64 uint64_din = 2;
+    }
+    message PushBody {
+        DpNotifyMsgBdoy msg_dp_notify_body = 1;
+        OccupyMicrophoneNotifyMsgBody msg_occupy_microphone_body = 2;
+    }

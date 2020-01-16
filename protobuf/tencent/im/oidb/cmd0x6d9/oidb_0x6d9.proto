@@ -1,0 +1,36 @@
+syntax = "proto3";
+import "tencent/im/cs/group_file_common/group_file_common/FeedsInfo.proto";
+import "tencent/im/cs/group_file_common/group_file_common/FeedsResult.proto";
+package oidb_0x6d9;
+    message FeedsReqBody {
+        uint64 uint64_group_code = 1;
+        uint32 uint32_app_id = 2;
+        repeated group_file_common.FeedsInfo rpt_feeds_info_list = 3;
+    }
+    message FeedsRspBody {
+        int32 int32_ret_code = 1;
+        string str_ret_msg = 2;
+        string str_client_wording = 3;
+        repeated group_file_common.FeedsResult rpt_feeds_result_list = 4;
+    }
+    message ReqBody {
+        TransFileReqBody trans_file_req = 1;
+        FeedsReqBody feeds_info_req = 5;
+    }
+    message RspBody {
+        TransFileRspBody trans_file_rsp = 1;
+        FeedsRspBody feeds_info_rsp = 5;
+    }
+    message TransFileReqBody {
+        uint64 uint64_group_code = 1;
+        uint32 uint32_app_id = 2;
+        uint32 uint32_bus_id = 3;
+        string str_file_id = 4;
+    }
+    message TransFileRspBody {
+        int32 int32_ret_code = 1;
+        string str_ret_msg = 2;
+        string str_client_wording = 3;
+        uint32 uint32_save_bus_id = 4;
+        string str_save_file_path = 5;
+    }

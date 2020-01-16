@@ -1,0 +1,74 @@
+syntax = "proto3";
+import "tencent/im/hw/group_mgr.proto";
+import "tencent/im/hw/group_mgr$LevelInfo.proto";
+package group_mgr;
+    message CardCommInfo {
+        uint64 uin = 1;
+        string nick_name = 2;
+        string card_name = 3;
+        uint32 level = 4;
+        uint32 point = 5;
+    }
+    message CardHomeworkInfo {
+        uint32 identity = 1;
+    }
+    message CardInfo {
+        CardCommInfo common = 1;
+        CardHomeworkInfo hwinfo = 2;
+    }
+    message GroupCommInfo {
+        uint32 group_option = 1;
+        string group_name = 2;
+        uint32 group_size = 3;
+        uint32 group_class = 4;
+    }
+    message GroupHomeworkInfo {
+        string city_code = 1;
+        string sc_type = 2;
+        string sc_name = 3;
+        string cl_enrol_year = 4;
+        string cl_grade = 5;
+        string cl_class = 6;
+    }
+    message GroupInfo {
+        GroupCommInfo common = 1;
+        GroupHomeworkInfo hwinfo = 2;
+    }
+    message HwCreateGroupReq {
+        uint64 gid = 1;
+        GroupInfo info = 2;
+    }
+    message HwCreateGroupRsp {
+    }
+    message HwListCardReq {
+        uint64 gid = 1;
+    }
+    message HwListCardRsp {
+        repeated CardInfo card_info = 1;
+        LevelInfo level_info = 2;
+    }
+    message HwModifyCardReq {
+        uint64 gid = 1;
+        uint64 target_uin = 2;
+        CardInfo card_info = 3;
+    }
+    message HwModifyCardRsp {
+    }
+    message HwModifyGroupReq {
+        uint64 gid = 1;
+        GroupInfo info = 2;
+    }
+    message HwModifyGroupRsp {
+    }
+    message HwQueryCardReq {
+        uint64 gid = 1;
+        uint64 target_uin = 2;
+    }
+    message HwQueryCardRsp {
+        CardInfo card_info = 1;
+    }
+    message HwRedoRsp {
+    }
+    message LevelInfo {
+        repeated LevelInfo.LevelName levels = 1;
+    }

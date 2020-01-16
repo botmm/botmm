@@ -1,0 +1,15 @@
+syntax = "proto3";
+package QPayReminderMsg;
+    message GetInfoReq {
+        string scene = 1;
+        string sub_cmd = 2;
+        string info_date = 3;
+    }
+    message GetInfoRsp {
+        uint32 result_code = 1;
+        string result_info = 2;
+        uint32 urgency = 3;
+        uint32 template_no = 4;
+        string content = 5;
+        string info_date = 6;
+    }

@@ -1,0 +1,28 @@
+syntax = "proto3";
+package SubMsgType0x76;
+    message BirthdayNotify {
+        repeated OneBirthdayFriend rpt_msg_one_friend = 1;
+    }
+    message GeoGraphicNotify {
+        bytes bytes_local_city = 1;
+        repeated OneGeoGraphicFriend rpt_msg_one_friend = 2;
+    }
+    message MsgBody {
+        uint32 uint32_msg_type = 1;
+        bool bool_strong_notify = 2;
+        uint32 uint32_push_time = 3;
+        GeoGraphicNotify msg_geographic_notify = 4;
+        BirthdayNotify msg_birthday_notify = 5;
+        bytes bytes_notify_wording = 6;
+    }
+    message OneBirthdayFriend {
+        uint64 uint64_uin = 1;
+        bool bool_lunar_birth = 2;
+        uint32 uint32_birth_month = 3;
+        uint32 uint32_birth_date = 4;
+        uint64 uint64_msg_send_time = 5;
+        uint32 uint32_birth_year = 6;
+    }
+    message OneGeoGraphicFriend {
+        uint64 uint64_uin = 1;
+    }

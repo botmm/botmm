@@ -1,0 +1,27 @@
+syntax = "proto3";
+package qqshop_richmsg;
+    message SQQSHPFolderAdMsg {
+        uint64 ad_id = 1;
+        uint32 begin_time = 2;
+        uint32 end_time = 3;
+        uint64 puin = 4;
+        string ad_url = 5;
+        string title = 6;
+        repeated string pic_url = 7;
+        string name = 8;
+        uint32 verify_flag = 9;
+        string ad_content_url = 10;
+    }
+    message SQQSHPRichMsg {
+        uint64 puin = 1;
+        uint64 msg_id = 2;
+        uint64 sendtime = 3;
+        repeated string img_url = 4;
+    }
+    message SQQSHPRichMsgReq {
+        repeated SQQSHPRichMsg rich_msgs = 1;
+    }
+    message SQQSHPRichMsgRsp {
+        repeated SQQSHPRichMsg rich_msgs = 1;
+        repeated SQQSHPFolderAdMsg ad_msgs = 2;
+    }

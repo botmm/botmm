@@ -1,0 +1,56 @@
+syntax = "proto3";
+import "tencent/im/msg/im_msg_body/CustomFace.proto";
+import "tencent/im/msg/im_msg_body/NotOnlineImage.proto";
+import "tencent/im/msg/im_msg_body/DeliverGiftMsg.proto";
+package hummer_commelem;
+    message MsgElemInfo_servtype1 {
+        bytes bytes_reward_id = 1;
+        uint64 uint64_sender_uin = 2;
+        uint32 uint32_pic_type = 3;
+        uint32 uint32_reward_money = 4;
+        bytes bytes_url = 5;
+        bytes bytes_content = 6;
+        uint32 uint32_create_timestamp = 7;
+        uint32 uint32_status = 8;
+        uint32 uint32_size = 9;
+        uint32 uint32_video_duration = 10;
+        uint64 uint64_seq = 11;
+        uint32 uint32_reward_type_ext = 12;
+    }
+    message MsgElemInfo_servtype13 {
+        uint32 uint32_sys_head_id = 1;
+        uint32 uint32_head_flag = 2;
+    }
+    message MsgElemInfo_servtype2 {
+    }
+    message MsgElemInfo_servtype3 {
+        /* message */ im_msg_body.CustomFace flash_troop_pic = 1;
+        /* message */ im_msg_body.NotOnlineImage flash_c2c_pic = 2;
+    }
+    message MsgElemInfo_servtype4 {
+        uint32 uint32_imsg_type = 1;
+        StoryAioObjMsg st_story_aio_obj_msg = 4;
+    }
+    message MsgElemInfo_servtype5 {
+        bytes vid = 1;
+        bytes cover = 2;
+        bytes title = 3;
+        bytes summary = 4;
+        uint64 createTime = 5;
+        bytes comment_content = 6;
+        uint64 author = 7;
+    }
+    message MsgElemInfo_servtype8 {
+        /* message */ im_msg_body.DeliverGiftMsg wifi_deliver_gift_msg = 1;
+    }
+    message MsgElemInfo_servtype9 {
+        uint32 uint32_anchor_status = 1;
+        bytes bytes_jump_schema = 2;
+        string str_anchor_nickname = 3;
+        bytes bytes_anchor_head_url = 4;
+        string str_live_title = 5;
+    }
+    message StoryAioObjMsg {
+        string str_ui_url = 1;
+        string str_jmp_url = 2;
+    }

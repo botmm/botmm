@@ -1,0 +1,16 @@
+syntax = "proto3";
+import "appoint/define/appoint_define/AppointContent.proto";
+import "appoint/define/appoint_define/LBSInfo.proto";
+import "appoint/define/appoint_define/AppointInfo.proto";
+package cmd0x7dc;
+    message ReqBody {
+        uint32 uint32_seq = 1;
+        /* message */ appoint_define.AppointContent msg_appointment = 2;
+        /* message */ appoint_define.LBSInfo msg_lbs_info = 3;
+        uint32 uint32_overwrite = 4;
+    }
+    message RspBody {
+        uint32 uint32_seq = 1;
+        string str_wording = 2;
+        repeated appoint_define.AppointInfo rpt_msg_appoint_info = 3;
+    }

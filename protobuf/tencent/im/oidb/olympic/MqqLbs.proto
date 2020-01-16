@@ -1,0 +1,41 @@
+syntax = "proto3";
+package MqqLbs;
+    message Cell {
+        int32 int32_mcc = 1;
+        int32 int32_mnc = 2;
+        int32 int32_lac = 3;
+        int32 int32_cellid = 4;
+        int32 int32_rssi = 5;
+    }
+    message CheatApp {
+        bytes bytes_app_name = 1;
+        uint32 uint32_run_status = 2;
+    }
+    message GPS {
+        int32 int32_lat = 1;
+        int32 int32_lon = 2;
+        int32 int32_alt = 3;
+        int32 int32_type = 4;
+        uint32 uint32_precision = 5;
+        string str_addr = 6;
+    }
+    message LBSCheckInfo {
+        uint32 uint32_fake_period = 1;
+        uint32 uint32_fake_times = 2;
+        repeated LBSFakeInfo rpt_msg_lbs_fake_info = 3;
+        repeated CheatApp rpt_msg_cheat_app = 4;
+        uint32 uint32_root_jailbreak = 5;
+    }
+    message LBSFakeInfo {
+        uint32 uint32_fake_type = 1;
+        uint32 uint32_fake_times = 2;
+    }
+    message LBSInfo {
+        GPS msg_gps = 1;
+        repeated Wifi rpt_msg_wifis = 2;
+        repeated Cell rpt_msg_cells = 3;
+    }
+    message Wifi {
+        uint64 uint64_mac = 1;
+        int32 int32_rssi = 2;
+    }

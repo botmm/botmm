@@ -1,0 +1,11 @@
+syntax = "proto3";
+package SubMsgType0x9d;
+    message ModuleUpdateNotify {
+        uint32 module_id = 1;
+        uint32 module_version = 2;
+        uint32 module_state = 3;
+    }
+    message MsgBody {
+        uint32 uint32_sub_cmd = 1;
+        repeated ModuleUpdateNotify lola_module_update = 2;
+    }

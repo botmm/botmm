@@ -1,0 +1,39 @@
+syntax = "proto3";
+package oidb_0xff1;
+    message ReqAlarmRing {
+        bytes bytes_taskid = 1;
+        bytes bytes_user_data = 2;
+    }
+    message ReqBody {
+        ReqSetAlarm msg_req_setalarm = 1;
+        ReqRevertAlarm msg_req_revert_alarm = 2;
+        ReqAlarmRing msg_req_alarm_ring = 3;
+    }
+    message ReqRevertAlarm {
+        uint32 uint32_appid = 1;
+        bytes bytes_taskid = 2;
+    }
+    message ReqSetAlarm {
+        uint32 uint32_subtype = 1;
+        bytes bytes_taskid = 2;
+        uint32 uint32_appid = 3;
+        uint32 uint32_trigger_second = 4;
+        bytes bytes_user_data = 5;
+    }
+    message RspAlarmRing {
+        bytes bytes_taskid = 1;
+        uint32 uint32_action = 2;
+    }
+    message RspBody {
+        uint32 uint32_retcode = 1;
+        bytes bytes_errmsg = 2;
+        RspSetAlarm msg_rsp_setalarm = 3;
+        RspRevertAlarm msg_rsp_revert_alarm = 4;
+        RspAlarmRing msg_rsp_alarm_ring = 5;
+    }
+    message RspRevertAlarm {
+        bytes bytes_user_data = 1;
+    }
+    message RspSetAlarm {
+        bytes bytes_taskid = 1;
+    }

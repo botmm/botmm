@@ -1,0 +1,70 @@
+syntax = "proto3";
+package oidb_0x84c;
+    message CAdcodeInfo {
+        uint64 adcode = 1;
+        uint64 redpack_num = 2;
+        uint64 begtime = 3;
+        uint64 endtime = 4;
+        bytes adname = 5;
+        bytes cityname = 6;
+        bytes icon = 7;
+        bytes merchant_name = 8;
+    }
+    message CItemInfo {
+        uint32 item_id = 1;
+        uint64 pool_num = 2;
+        uint64 item_num = 3;
+        uint64 dist_num = 4;
+    }
+    message CTaskInfo {
+        uint64 task_id = 1;
+        repeated CItemInfo items = 2;
+        uint64 adcode = 3;
+        uint64 begtime = 4;
+        uint64 endtime = 5;
+    }
+    message CollectAdcodeReq {
+        repeated uint64 adcodes = 1;
+    }
+    message CollectAdcodeRsp {
+        repeated CTaskInfo tasks = 1;
+    }
+    message CollectAllReq {
+    }
+    message CollectAllRsp {
+        repeated CTaskInfo tasks = 1;
+    }
+    message CollectTaskReq {
+        repeated uint64 task_ids = 1;
+    }
+    message CollectTaskRsp {
+        repeated CTaskInfo tasks = 1;
+    }
+    message QueryCountReq {
+        repeated uint64 adcodes = 1;
+        bool want_empty = 2;
+        uint32 status = 3;
+        repeated uint64 check_task_ids = 4;
+    }
+    message QueryCountRsp {
+        repeated CAdcodeInfo infos = 1;
+        repeated uint64 empty_task_ids = 2;
+        uint32 interval = 3;
+        uint32 admission = 4;
+        uint32 countdown = 5;
+        bool display_led = 6;
+        bool display_pendant = 7;
+        bool display_cloud = 8;
+    }
+    message ReqBody {
+        CollectAdcodeReq collect_adcode_req = 1;
+        CollectTaskReq collect_task_req = 2;
+        CollectAllReq collect_all_req = 3;
+        QueryCountReq query_count_req = 4;
+    }
+    message RspBody {
+        CollectAdcodeRsp collect_adcode_rsp = 1;
+        CollectTaskRsp collect_task_rsp = 2;
+        CollectAllRsp collect_all_rsp = 3;
+        QueryCountRsp query_count_rsp = 4;
+    }

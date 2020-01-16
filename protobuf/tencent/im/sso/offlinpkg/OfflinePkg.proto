@@ -1,0 +1,27 @@
+syntax = "proto3";
+import "tencent/im/sso/offlinpkg/OfflinePkg.proto";
+package OfflinePkg;
+    message BidPkg {
+        uint32 uint32_bid = 1;
+        repeated uint32 uint32_pkg_id = 2;
+    }
+    message ReqBody {
+        uint32 uint32_cmd = 1;
+        uint32 uint32_platform = 2;
+        repeated BidPkg st_bid_pkg = 3;
+        bytes str_qver = 4;
+        bytes str_osver = 5;
+        bytes str_osrelease = 6;
+        bytes str_osbrand = 7;
+        bytes str_osmodel = 8;
+        int32 int32_network = 9;
+        bytes str_from = 10;
+    }
+    message RspBody {
+        int32 int32_ret = 1;
+        bytes str_err_desc = 2;
+        bytes str_expire_pkg = 3;
+        bytes str_predown_pkg = 4;
+        bytes str_predown_pkg_ex = 5;
+        bytes str_offline_pkg = 6;
+    }

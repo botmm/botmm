@@ -1,0 +1,15 @@
+syntax = "proto3";
+package oidb_cmd0x74f;
+    message Range {
+        string string_name = 1;
+        uint64 uint32_days = 2;
+    }
+    message ReqBody {
+        uint64 uint64_group_code = 1;
+    }
+    message RspBody {
+        uint32 uint32_ret_code = 1;
+        repeated Range range = 2;
+        uint64 uint64_next_pull_time = 3;
+        bool bool_display_entrance = 4;
+    }

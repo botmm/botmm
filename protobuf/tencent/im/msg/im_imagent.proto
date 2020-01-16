@@ -1,0 +1,29 @@
+syntax = "proto3";
+package im_imagent;
+    message ImAgentHead {
+        enum command = 1;
+        uint32 seq = 2;
+        uint32 result = 3;
+        string err = 4;
+        bytes echo_buf = 5;
+        /* message */ im_common.User req_user = 6;
+        Requestinfo req_info = 7;
+        Signature signature = 8;
+        uint32 sub_cmd = 9;
+        uint32 server_ip = 10;
+    }
+    message ImAgentPackage {
+        ImAgentHead head = 1;
+        /* message */ im_msg.MsgSendReq msg_send_req = 11;
+        /* message */ im_msg.MsgSendResp msg_send_resp = 12;
+    }
+    message Requestinfo {
+        fixed32 req_ip = 1;
+        uint32 req_port = 2;
+        uint32 req_flag = 3;
+    }
+    message Signature {
+        uint32 key_type = 1;
+        uint32 session_app_id = 2;
+        bytes session_key = 3;
+    }

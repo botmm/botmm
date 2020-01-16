@@ -1,0 +1,41 @@
+syntax = "proto3";
+package qqshop_act;
+    message SQQSHPActInfo {
+        uint32 act_id = 1;
+        uint32 beg_ts = 2;
+        uint32 end_ts = 3;
+        uint32 status = 4;
+        string fail_pic = 5;
+    }
+    message SQQSHPActReadReq {
+        uint32 act_id = 1;
+    }
+    message SQQSHPActReadRsp {
+        uint32 code = 1;
+        uint32 act_id = 2;
+    }
+    message SQQSHPActReq {
+        uint32 act_id = 1;
+        SQQSHPUsrInfo usr_info = 2;
+    }
+    message SQQSHPActRsp {
+        uint32 code = 1;
+        SQQSHPActInfo act_info = 2;
+        SQQSHPActShowInfo act_show_info = 3;
+    }
+    message SQQSHPActShowInfo {
+        string title = 1;
+        string logo = 2;
+        string subtext = 3;
+        string btn_text = 4;
+        string btn_url = 5;
+        string detail_url = 6;
+        string gift_text = 7;
+        string act_text = 8;
+    }
+    message SQQSHPUsrInfo {
+        uint32 carriertype = 1;
+        uint32 src = 2;
+        uint32 src_idx = 3;
+        uint32 net_type = 4;
+    }

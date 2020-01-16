@@ -1,0 +1,20 @@
+syntax = "proto3";
+package obj_msg;
+    message MsgContentInfo {
+        bytes bytes_Content_info_id = 1;
+        MsgContentInfo.MsgFile msg_file = 2;
+    }
+    message MsgPic {
+        bytes bytes_small_pic_url = 1;
+        bytes bytes_original_pic_url = 2;
+        uint32 uint32_local_pic_id = 3;
+    }
+    message ObjMsg {
+        uint32 uint32_msg_type = 1;
+        bytes bytes_title = 2;
+        repeated bytes rpt_bytes_abstact = 3;
+        bytes bytes_title_ext = 5;
+        repeated MsgPic rpt_msg_pic = 6;
+        repeated MsgContentInfo msg_content_info = 7;
+        uint32 uint32_report_id_show = 8;
+    }

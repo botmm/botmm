@@ -1,0 +1,39 @@
+syntax = "proto3";
+package oidb_cmd0x69f;
+    message ChannelInfo {
+        uint32 uint32_channel_id = 1;
+        bytes bytes_channel_name = 2;
+        uint32 uint32_channel_type = 3;
+        uint32 uint32_is_first_req = 4;
+        repeated ChildChannelInfo rpt_child_channel_list = 5;
+        uint32 uint32_frame_color = 6;
+        uint32 uint32_fonts_color = 7;
+        bytes bytes_channel_jump_url = 8;
+        uint32 uint32_bold_font = 9;
+        uint32 uint32_show_icon = 10;
+        bytes bytes_ark_config = 11;
+    }
+    message ChildChannelInfo {
+        uint32 uint32_channel_id = 1;
+    }
+    message ReqBody {
+        uint64 uint64_uin = 1;
+        uint32 uint32_req_all_channel_list = 11;
+        uint32 uint32_req_my_channel_id_list = 12;
+        uint32 uint32_req_local_channel_id = 13;
+        uint32 uint32_req_bigpic_channel = 14;
+        uint32 uint32_req_video_channel = 15;
+        uint32 uint32_req_gif_channel = 16;
+        uint32 uint32_req_search_channel = 17;
+        uint32 uint32_req_recomm_channel = 18;
+        uint32 uint32_important = 19;
+        uint32 uint32_req_search_word = 20;
+        uint32 uint32_req_channel_jump_url = 21;
+    }
+    message RspBody {
+        uint64 uint64_uin = 1;
+        repeated ChannelInfo rpt_channel_list = 11;
+        repeated uint32 rpt_uint32_my_channel_id_list = 12;
+        repeated ChannelInfo rpt_recomm_channel_list = 13;
+        repeated bytes bytes_search_word = 14;
+    }

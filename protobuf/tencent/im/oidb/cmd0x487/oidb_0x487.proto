@@ -1,0 +1,21 @@
+syntax = "proto3";
+package oidb_0x487;
+    message GroupList {
+        uint64 uint64_groupcode = 1;
+        uint64 uint64_opt_uin = 2;
+        bytes bytes_group_name = 3;
+    }
+    message ReqBody {
+        uint32 uint32_channel = 1;
+        uint64 uint64_group = 2;
+        uint64 uint64_subscribe_code = 3;
+    }
+    message RspBody {
+        uint32 uint32_result = 1;
+        bytes bytes_errmsg = 2;
+        repeated GroupList msg_groups = 3;
+        uint32 uint32_privilege_flag = 4;
+        uint32 uint32_groups_flag = 5;
+        uint32 uint32_follow_state = 6;
+        uint32 uint32_remind_flag = 7;
+    }

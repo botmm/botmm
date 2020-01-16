@@ -1,0 +1,20 @@
+syntax = "proto3";
+package MusicSongInfoMatch;
+    message CMsgRequest {
+        uint64 uin = 1;
+        uint64 ct = 2;
+        uint64 cv = 3;
+        uint32 reqtype = 4;
+        repeated ParamPair urlparams = 5;
+    }
+    message CMsgResponse {
+        uint64 code = 1;
+        uint32 subcode = 2;
+        bytes msg = 3;
+        bytes data = 4;
+        uint32 reqtype = 5;
+    }
+    message ParamPair {
+        bytes key = 1;
+        bytes value = 2;
+    }

@@ -1,0 +1,27 @@
+syntax = "proto3";
+package hd_video;
+    message CmdPSTNCallbackNotifyAccept {
+        bytes bytes_call_id = 1;
+        uint32 uint32_accept_time = 2;
+    }
+    message CmdPSTNCallbackNotifyLogout {
+        bytes bytes_call_id = 1;
+        uint32 uint32_call_time = 2;
+        uint32 uint32_call_status = 3;
+    }
+    message MsgBody {
+        VideoHead msg_video_head = 1;
+        CmdPSTNCallbackNotifyAccept msg_pstn_callback_notify_accept = 10;
+        CmdPSTNCallbackNotifyLogout msg_pstn_callback_notify_logout = 11;
+    }
+    message VideoHead {
+        uint64 uint64_room_id = 1;
+        uint64 uint64_uin = 2;
+        uint32 uint32_seq = 3;
+        enum enum_body_type = 4;
+        uint32 uint32_error_no = 5;
+        string str_from_nation = 6;
+        string str_from_mobile = 7;
+        string str_to_mobile = 8;
+        string str_to_nation = 13;
+    }

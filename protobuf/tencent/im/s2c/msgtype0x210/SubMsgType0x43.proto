@@ -1,0 +1,5 @@
+syntax = "proto3";
+package SubMsgType0x43;
+    message UpdateTips {
+        bytes bytes_desc = 1;
+    }

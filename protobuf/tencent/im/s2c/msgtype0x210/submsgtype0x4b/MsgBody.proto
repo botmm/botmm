@@ -1,0 +1,12 @@
+message MsgBody {
+    string string_albumid;
+    string string_coverUrl;
+    string string_albumName;
+    uint64 uint64_opuin;
+    fixed32 uint32_time;
+    uint32 uint32_pic_cnt;
+    string string_push_msg_helper;
+    string string_push_msg_album;
+    uint32 uint32_usr_total;
+    repeated uint64 rpt_uint64_user;
+}

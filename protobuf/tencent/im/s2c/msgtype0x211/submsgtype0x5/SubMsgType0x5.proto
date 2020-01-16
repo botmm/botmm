@@ -1,0 +1,5 @@
+syntax = "proto3";
+package SubMsgType0x5;
+    message MsgBody {
+        uint32 uint32_sessionid = 1;
+    }

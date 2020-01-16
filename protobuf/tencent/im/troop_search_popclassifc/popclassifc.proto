@@ -1,0 +1,35 @@
+syntax = "proto3";
+import "tencent/im/troop_search_popclassifc/popclassifc.proto";
+import "tencent/im/troop_search_userinfo/userinfo.proto";
+package popclassifc;
+    message BannerCard {
+        repeated BannerItem rpt_banner_items = 1;
+        uint32 uint32_slid_interval = 2;
+    }
+    message BannerItem {
+        string str_pic_url = 1;
+        string str_transfer_url = 2;
+    }
+    message PopCard {
+        TitleBar title_bar = 1;
+        repeated PopItem rpt_pop_items = 2;
+    }
+    message PopItem {
+        string str_desc = 1;
+        string str_icon_url = 2;
+        string str_transfer_url = 3;
+    }
+    message ReqBody {
+        /* message */ userinfo.UserInfo user_info = 1;
+    }
+    message RspBody {
+        BannerCard banner_card = 1;
+        PopCard pop_card = 2;
+        uint32 uint32_latitude = 3;
+        uint32 uint32_longitude = 4;
+        string str_city_id = 5;
+    }
+    message TitleBar {
+        string str_icon_url = 1;
+        string str_desc = 2;
+    }

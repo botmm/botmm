@@ -1,0 +1,13 @@
+syntax = "proto3";
+package SubMsgType0x9b;
+    message MsgBody {
+        uint64 uint64_app_id = 1;
+        uint32 uint32_main_type = 2;
+        uint32 uint32_sub_type = 3;
+        bytes bytes_ext_msg = 4;
+        bytes bytes_workflow_id = 5;
+    }
+    message PbOfficeNotify {
+        uint32 opt_uint32_myoffice_flag = 1;
+        repeated uint64 rpt_uint64_appid = 2;
+    }

@@ -1,0 +1,11 @@
+syntax = "proto3";
+package msg_svc.PbThirdQQUnReadMsgNumResp;
+    message ThirdQQRespInfo {
+        uint64 third_uin = 1;
+        bytes third_uin_cookie = 2;
+        uint32 msg_num = 3;
+        uint32 msg_flag = 4;
+        uint32 redbag_time = 5;
+        uint32 status = 6;
+        uint32 last_msg_time = 7;
+    }

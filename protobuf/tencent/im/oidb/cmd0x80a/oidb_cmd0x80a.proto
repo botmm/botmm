@@ -1,0 +1,25 @@
+syntax = "proto3";
+package oidb_cmd0x80a;
+    message AttributeList {
+        uint32 att_id = 1;
+        string att_name = 2;
+        string att_value = 3;
+    }
+    message KDEventReportReq {
+        uint32 event_id = 1;
+        string event_name = 2;
+        repeated AttributeList att_list = 3;
+    }
+    message KDEventReportResp {
+        uint32 result = 1;
+        string err_msg = 2;
+    }
+    message ReqBody {
+        uint64 uint64_uin = 1;
+        uint32 uint32_network_type = 2;
+        KDEventReportReq req_kd_event_report_req = 11;
+    }
+    message RspBody {
+        uint64 uint64_uin = 1;
+        KDEventReportResp rsp_kd_event_report_resp = 11;
+    }

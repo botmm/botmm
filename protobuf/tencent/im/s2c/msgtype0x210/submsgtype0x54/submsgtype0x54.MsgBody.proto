@@ -1,0 +1,5 @@
+syntax = "proto3";
+package submsgtype0x54.MsgBody;
+    message TaskInfo {
+        uint32 task_id = 1;
+    }

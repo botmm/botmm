@@ -1,0 +1,14 @@
+syntax = "proto3";
+package youtu;
+    message NameCardOcrRsp {
+        int32 errorcode = 1;
+        string errormsg = 2;
+        string uin = 3;
+        float uin_confidence = 4;
+        string phone = 5;
+        float phone_confidence = 6;
+        string name = 7;
+        float name_confidence = 8;
+        bytes image = 9;
+        string session_id = 10;
+    }

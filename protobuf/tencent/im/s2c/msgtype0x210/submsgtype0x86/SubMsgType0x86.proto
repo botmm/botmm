@@ -1,0 +1,6 @@
+syntax = "proto3";
+package SubMsgType0x86;
+    message MsgBody {
+        uint32 uint32_notify_flag = 1;
+        bytes bytes_notify_wording = 2;
+    }

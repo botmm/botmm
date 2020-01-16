@@ -1,0 +1,33 @@
+syntax = "proto3";
+package oidb_0x899;
+    message ReqBody {
+        uint64 uint64_group_code = 1;
+        uint64 uint64_start_uin = 2;
+        uint32 uint32_identify_flag = 3;
+        repeated uint64 rpt_uint64_uin_list = 4;
+        memberlist memberlist_opt = 5;
+        uint32 uint32_member_num = 6;
+        uint32 uint32_filter_method = 7;
+        uint32 uint32_online_flag = 8;
+    }
+    message RspBody {
+        uint64 uint64_group_code = 1;
+        uint64 uint64_start_uin = 2;
+        uint32 uint32_identify_flag = 3;
+        repeated memberlist rpt_memberlist = 4;
+        bytes str_errorinfo = 5;
+    }
+    message memberlist {
+        uint64 uint64_member_uin = 1;
+        uint32 uint32_uin_flag = 2;
+        uint32 uint32_uin_flagex = 3;
+        uint32 uint32_uin_mobile_flag = 4;
+        uint32 uint32_uin_arch_flag = 5;
+        uint32 uint32_join_time = 6;
+        uint32 uint32_old_msg_seq = 7;
+        uint32 uint32_new_msg_seq = 8;
+        uint32 uint32_last_speak_time = 9;
+        uint32 uint32_level = 10;
+        uint32 uint32_point = 11;
+        uint32 uint32_shutup_timestap = 12;
+    }

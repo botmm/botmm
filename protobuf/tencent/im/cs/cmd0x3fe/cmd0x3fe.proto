@@ -1,0 +1,85 @@
+syntax = "proto3";
+package cmd0x3fe;
+    message LevelInfo {
+        uint64 uint64_uin = 1;
+        uint32 uint32_online_level = 2;
+        uint32 uint32_show_level = 3;
+        uint32 uint32_level_color = 4;
+        uint32 uint32_score = 5;
+        uint32 uint32_req_flag = 10;
+        uint32 uint32_req_timer = 11;
+        uint32 uint32_user_identity = 12;
+        string nickname = 13;
+        repeated Medal rpt_medal_list = 14;
+    }
+    message LevelMsg {
+        uint32 uint32_subcmd = 1;
+        ReqBody msg_level_req = 10;
+        RspBody msg_level_rsp = 11;
+    }
+    message Medal {
+        uint32 uint32_id = 1;
+        uint32 uint32_level = 2;
+        uint32 uint32_type = 3;
+        string str_icon_url = 4;
+        string str_head_icon_url = 5;
+        string str_name = 6;
+    }
+    message NotifyMsg {
+        uint32 uint32_subcmd = 1;
+        uint64 uint64_from_uin = 2;
+        uint64 uint64_to_uin = 3;
+        uint64 uint64_guin = 4;
+        uint32 uint32_count = 5;
+    }
+    message ReqBody {
+        repeated UserInfo rpt_msg_user_info = 1;
+        uint64 uint64_group_code = 2;
+    }
+    message RspBody {
+        int32 int32_ret = 1;
+        repeated LevelInfo rpt_msg_level_info = 2;
+        uint32 uint32_subcmd = 10;
+    }
+    message TmemLevelInfo {
+        uint32 uint32_time_stamp = 1;
+        uint32 uint32_day_socre = 2;
+        uint32 uint32_online_time = 3;
+        uint32 uint32_online_score = 4;
+        uint32 uint32_send_flowers_score = 5;
+        uint32 uint32_recv_flowers_score = 6;
+        uint32 uint32_send_gift_score = 7;
+        uint32 uint32_recv_gift_score = 8;
+        uint32 uint32_upgrade_score = 9;
+        LevelInfo msg_level_info = 15;
+        uint32 uint32_send_flower_num = 16;
+        uint32 uint32_recv_flower_num = 17;
+        uint32 uint32_send_gift_num = 18;
+        uint32 uint32_recv_gift_num = 19;
+        uint32 uint32_recv_gift_total = 20;
+        uint32 uint32_send_gift_total = 21;
+        uint32 uint32_recv_flower_total = 22;
+        repeated qun_video_identity_score recent_days = 23;
+        uint32 uint32_identity_score = 24;
+        uint32 uint32_identity_level = 25;
+        repeated uint32 uint32_identity_upgrade_score = 26;
+        repeated uint32 uint32_days_to_downgrade = 27;
+        repeated event_medal rpt_msg_event_medal = 28;
+    }
+    message UserInfo {
+        uint64 uint64_uin = 1;
+        uint32 uint32_online_time = 3;
+    }
+    message event_medal {
+        uint32 uint32_id = 1;
+        uint64 uint64_create_time = 2;
+    }
+    message qun_video_identity_score {
+        uint32 uint32_identity_score = 1;
+        uint32 uint32_time = 2;
+        uint32 uint32_send_flower_num = 3;
+        uint32 uint32_recv_flower_num = 4;
+        uint32 uint32_send_gift_num = 5;
+        uint32 uint32_recv_gift_num = 6;
+        uint32 uint32_online_time = 7;
+    }

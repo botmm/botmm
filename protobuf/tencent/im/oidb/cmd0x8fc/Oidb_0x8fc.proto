@@ -1,0 +1,33 @@
+syntax = "proto3";
+package Oidb_0x8fc;
+    message LevelName {
+        uint32 uint32_level = 1;
+        string str_name = 2;
+    }
+    message MemberInfo {
+        uint64 uint64_uin = 1;
+        uint32 uint32_point = 2;
+        uint32 uint32_active_day = 3;
+        uint32 uint32_level = 4;
+        bytes bytes_special_title = 5;
+        uint32 uint32_special_title_expire_time = 6;
+        bytes bytes_uin_name = 7;
+        bytes member_card_name = 8;
+        bytes bytes_phone = 9;
+        bytes bytes_email = 10;
+        bytes bytes_remark = 11;
+        uint32 uint32_gender = 12;
+        bytes bytes_job = 13;
+    }
+    message ReqBody {
+        uint64 uint64_group_code = 1;
+        uint32 uint32_show_flag = 2;
+        repeated MemberInfo rpt_mem_level_info = 3;
+        repeated LevelName rpt_level_name = 4;
+        uint32 uint32_update_time = 5;
+        uint32 uint32_office_mode = 6;
+    }
+    message RspBody {
+        uint64 uint64_group_code = 1;
+        string strErrInfo = 2;
+    }

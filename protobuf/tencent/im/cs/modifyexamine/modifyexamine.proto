@@ -1,0 +1,12 @@
+syntax = "proto3";
+package modifyexamine;
+    message ReqBody {
+        uint64 uint64_gc = 1;
+        string skey = 2;
+    }
+    message RspBody {
+        uint32 uint32_result = 1;
+        uint32 uint32_limit_times = 2;
+        uint32 uint32_modify_times = 3;
+        string str_errmsg = 4;
+    }

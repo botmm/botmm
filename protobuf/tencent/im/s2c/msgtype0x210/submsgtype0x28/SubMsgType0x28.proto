@@ -1,0 +1,24 @@
+syntax = "proto3";
+package SubMsgType0x28;
+    message FollowList {
+        uint64 uint64_puin = 1;
+        uint64 uint64_uin = 2;
+        uint32 uint32_type = 3;
+        uint32 uint32_seqno = 4;
+    }
+    message MsgBody {
+        uint32 uint32_sub_cmd = 1;
+        RspFollowList msg_rsp_followlist = 2;
+        RspTypeList msg_rsp_typelist = 3;
+    }
+    message RspFollowList {
+        repeated FollowList rpt_msg_followlist = 1;
+    }
+    message RspTypeList {
+        repeated TypeList rpt_msg_typelist = 1;
+    }
+    message TypeList {
+        uint64 uint64_puin = 1;
+        uint32 uint32_flag = 2;
+        uint32 uint32_type = 3;
+    }

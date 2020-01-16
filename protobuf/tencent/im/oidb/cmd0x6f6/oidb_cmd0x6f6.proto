@@ -1,0 +1,21 @@
+syntax = "proto3";
+package oidb_cmd0x6f6;
+    message GbarInfo {
+        uint32 uint32_bid = 1;
+        bytes str_name = 2;
+    }
+    message GroupInfo {
+        uint64 uint64_group_code = 1;
+    }
+    message ReqBody {
+        repeated GroupInfo rpt_msg_group_info = 1;
+    }
+    message RspBody {
+        repeated RspInfo rpt_msg_rsp_info = 1;
+        bytes str_errinfo = 2;
+    }
+    message RspInfo {
+        uint64 uint64_group_code = 1;
+        uint32 uint32_result = 2;
+        GbarInfo stgbarinfo = 3;
+    }

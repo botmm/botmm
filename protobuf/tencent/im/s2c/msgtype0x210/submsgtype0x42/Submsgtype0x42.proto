@@ -1,0 +1,6 @@
+syntax = "proto3";
+package Submsgtype0x42;
+    message GameStatusSync {
+        uint32 uint32_game_appid = 1;
+        bytes bytes_data = 2;
+    }

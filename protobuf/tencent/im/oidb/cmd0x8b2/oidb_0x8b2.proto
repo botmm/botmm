@@ -1,0 +1,16 @@
+syntax = "proto3";
+package oidb_0x8b2;
+    message ReqBody {
+        bytes string_hot_group_id = 1;
+        repeated uint64 uint64_administrator_uin = 2;
+        bool bool_clear_all_administrator = 3;
+        uint64 uint64_group_code = 4;
+    }
+    message RspBody {
+        bytes string_hot_group_id = 1;
+        repeated uint64 uint64_administrator_uin = 2;
+        bytes string_group_memo = 3;
+        bytes string_jumping_url = 4;
+        uint64 uint64_modify_time = 5;
+        uint64 uint64_group_code = 6;
+    }

@@ -1,0 +1,18 @@
+syntax = "proto3";
+import "tencent/im/groupvideo/s2c/gv_pstn_bill.proto";
+package gv_pstn_bill;
+    message GroupVideoS2CBody {
+        S2CNotifyBillReq msg_s2c_notify_bill_req = 1;
+    }
+    message S2CNotifyBillReq {
+        uint32 uint32_seq = 1;
+        uint32 uint32_busstype = 2;
+        uint32 uint32_authmode = 3;
+        uint32 uint32_groupcode = 4;
+        uint64 uint64_uin = 5;
+        uint32 uint32_room_num = 6;
+        uint32 uint32_create_time = 7;
+        uint64 uint32_close_time = 8;
+        string str_bill_msg = 11;
+        string str_bill_detail = 12;
+    }

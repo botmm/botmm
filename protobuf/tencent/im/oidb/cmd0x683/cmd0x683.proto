@@ -1,0 +1,53 @@
+syntax = "proto3";
+import "appoint/define/appoint_define/LBSInfo.proto";
+package cmd0x683;
+    message GodInfo {
+        uint64 uint64_tinyid = 1;
+        bytes bytes_nickname = 2;
+        bytes bytes_declaration = 3;
+        uint32 uint32_age = 4;
+        uint32 uint32_gender = 5;
+        string str_constellation = 6;
+        uint32 uint32_profession = 7;
+        string str_distance = 8;
+        uint32 uint32_marriage = 9;
+        string str_vipinfo = 10;
+        uint32 uint32_recommend = 11;
+        uint32 uint32_praiseflag = 12;
+        uint32 uint32_praisecount = 13;
+        uint64 uint64_uin = 14;
+        uint32 uint32_chatflag = 15;
+        uint32 uint32_chatup_count = 16;
+        bytes bytes_chatsig = 17;
+        uint32 uint32_charm = 18;
+        uint32 uint32_charm_level = 19;
+        bytes bytes_praise_cookies = 20;
+    }
+    message Location {
+        string strCountry = 1;
+        string strProvince = 2;
+        string strCity = 3;
+        /* message */ appoint_define.LBSInfo msg_lbs_info = 4;
+    }
+    message RankListInfo {
+        uint32 uint32_listtype = 1;
+        uint32 uint32_listtime = 2;
+        repeated GodInfo rpt_msg_godinfo = 3;
+        uint32 uint32_imgod_flag = 4;
+        uint32 uint32_reach_end_flag = 6;
+    }
+    message RankListReq {
+        uint32 uint32_listtype = 1;
+        uint32 uint32_lasttime = 2;
+        uint64 uint64_lasttinyid = 3;
+        uint32 uint32_fetchcount = 4;
+    }
+    message ReqBody {
+        Location msg_location = 1;
+        repeated RankListReq rpt_msg_ranklist_req = 2;
+    }
+    message RspBody {
+        repeated RankListInfo rpt_msg_ranklist_info = 1;
+        string str_errinfo = 2;
+        uint32 uint32_refuse_rank = 3;
+    }

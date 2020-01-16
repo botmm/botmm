@@ -1,0 +1,12 @@
+syntax = "proto3";
+package babyq_cookie;
+    message BabyQCookie {
+        uint32 uint32_type = 1;
+        repeated uint64 rpt_uint64_maybe_uin = 2;
+        uint64 uint64_group_uin = 3;
+        uint64 uint64_buluo_id = 4;
+        uint32 uint32_game_appid = 5;
+        uint32 uint32_no_reward = 6;
+        uint32 uint32_need_not_report = 11;
+        uint32 uint32_video_type = 12;
+    }

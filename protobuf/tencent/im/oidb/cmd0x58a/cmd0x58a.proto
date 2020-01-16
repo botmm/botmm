@@ -1,0 +1,27 @@
+syntax = "proto3";
+package cmd0x58a;
+    message CmdErrorCode {
+        uint32 uint32_code = 1;
+        bytes bytes_err_msg = 2;
+    }
+    message ConfBaseInfo {
+        uint64 uint64_conf_uin = 1;
+        uint32 uint32_is_favorite = 2;
+        uint32 uint32_info_seq = 3;
+        uint32 uint32_member_num = 4;
+    }
+    message GetCommConfReq {
+        uint64 uint64_other_uin = 1;
+    }
+    message GetConfListRsp {
+        repeated ConfBaseInfo rpt_msg_conf_base_info = 1;
+    }
+    message ReqBody {
+        uint32 uint32_subcmd = 1;
+        GetCommConfReq msg_get_comm_conf_req = 2;
+    }
+    message RspBody {
+        CmdErrorCode msg_cmd_error_code = 1;
+        uint32 uint32_subcmd = 2;
+        GetConfListRsp msg_get_conf_list = 3;
+    }

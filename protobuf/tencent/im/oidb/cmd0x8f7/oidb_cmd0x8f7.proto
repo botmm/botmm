@@ -1,0 +1,79 @@
+syntax = "proto3";
+package oidb_cmd0x8f7;
+    message ApplyDelReqBody {
+        repeated bytes rpt_bytes_uuid = 1;
+    }
+    message ApplyDelRspBody {
+    }
+    message ApplyDownAbsReq {
+        bytes bytes_uuid = 1;
+    }
+    message ApplyDownAbsRsp {
+        uint32 uint32_download_ip = 1;
+        bytes bytes_download_dns = 2;
+        uint32 uint32_download_port = 3;
+        bytes bytes_file_sha = 4;
+        bytes bytes_download_key = 5;
+        bytes bytes_cookie = 6;
+    }
+    message ApplyDownloadReqBody {
+        bytes bytes_uuid = 1;
+        uint32 uint32_url_type = 9;
+    }
+    message ApplyDownloadRspBody {
+        bytes bytes_server_name = 1;
+        bytes bytes_url = 2;
+        uint32 uint32_download_port = 3;
+        bytes bytes_cookie_name = 4;
+        bytes bytes_cookie_val = 5;
+        uint32 uint32_version = 6;
+    }
+    message ApplyUploadReqBody {
+        bytes bytes_file_name = 1;
+        uint64 uint64_file_size = 2;
+        bytes bytes_sha = 3;
+        bytes bytes_md5 = 4;
+        uint64 uint64_modify_time = 5;
+        uint32 uint32_upload_type = 6;
+    }
+    message ApplyUploadRspBody {
+        bool bool_file_exist = 1;
+        bytes bytes_uuid = 2;
+        bytes bytes_check_key = 3;
+        bytes bytes_server_name = 4;
+        uint32 uint32_server_port = 5;
+        bytes bytes_random_sha = 6;
+        bytes bytes_conflict_key = 7;
+        uint32 uint32_expired_time = 8;
+        uint32 uint32_version = 9;
+        uint32 uint32_uploadip = 10;
+    }
+    message ReqBody {
+        uint32 uint32_subcmd = 1;
+        SourceID msg_source_id = 2;
+        uint32 uint32_client_type = 3;
+        uint32 uint32_client_net = 4;
+        uint32 uint32_client_ver = 5;
+        bytes bytes_workflow_id = 6;
+        uint64 uint64_appid = 7;
+        ApplyUploadReqBody msg_upload_req_body = 11;
+        ApplyDownloadReqBody msg_download_req_body = 12;
+        ApplyDownAbsReq msg_downabs_req_body = 13;
+        ApplyDelReqBody msg_del_req_body = 14;
+    }
+    message RspBody {
+        int32 int32_ret_code = 1;
+        bytes bytes_ret_msg = 2;
+        uint32 uint32_subcmd = 3;
+        SourceID msg_source_id = 4;
+        bytes bytes_workflow_id = 5;
+        uint64 uint64_appid = 6;
+        ApplyUploadRspBody msg_upload_rsp_body = 11;
+        ApplyDownloadRspBody msg_download_rsp_body = 12;
+        ApplyDownAbsRsp msg_downabs_rsp_body = 13;
+        ApplyDelRspBody msg_del_rsp_body = 14;
+    }
+    message SourceID {
+        uint32 uint32_source_type = 1;
+        uint64 uint64_source_code = 2;
+    }

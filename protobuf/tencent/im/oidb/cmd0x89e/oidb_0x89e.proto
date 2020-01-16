@@ -1,0 +1,14 @@
+syntax = "proto3";
+package oidb_0x89e;
+    message ReqBody {
+        uint64 uint64_group_code = 1;
+        uint64 uint64_old_owner = 2;
+        uint64 uint64_new_owner = 3;
+    }
+    message RspBody {
+        uint64 uint64_group_code = 1;
+        uint64 uint64_old_owner = 2;
+        uint32 uint64_new_owner = 3;
+        uint32 uint32_result = 4;
+        bytes str_errorinfo = 5;
+    }

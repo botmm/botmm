@@ -1,0 +1,105 @@
+syntax = "proto3";
+package Oidb_0x5cf;
+    message All {
+        uint64 uint64_uin = 1;
+        uint64 uint64_fuin = 2;
+        uint32 uint32_reqtype = 3;
+        uint32 uint32_time = 4;
+        repeated string rpt_str_wording = 5;
+        string str_add_source = 6;
+        uint32 uint32_sourceid = 7;
+        uint32 uint32_sourcesubid = 8;
+        uint32 uint32_flag = 9;
+        uint32 uint32_ackflag = 10;
+        uint32 uint32_groupid = 11;
+        uint32 uint32_count = 12;
+        string str_mainemailaccount = 13;
+        uint64 uint64_group_code = 14;
+        uint32 uint32_relatioin = 15;
+        uint32 uint32_comm_friend_num = 16;
+    }
+    message ClrMsgInfo {
+        uint32 uint32_platform = 1;
+    }
+    message Decided {
+        uint64 uint64_uin = 1;
+        uint64 uint64_fuin = 2;
+        uint32 uint32_reqtype = 3;
+        uint32 uint32_time = 4;
+        repeated string rpt_str_wording = 5;
+        string str_add_source = 6;
+        uint32 uint32_sourceid = 7;
+        uint32 uint32_sourcesubid = 8;
+        uint64 uint64_group_code = 9;
+    }
+    message DelDecideInfo {
+        uint64 uint64_uin = 1;
+        uint32 uint32_time = 2;
+        uint32 uint32_req_type = 3;
+    }
+    message DelMsgInfo {
+        repeated DelDecideInfo rpt_msg_decide_info = 1;
+        repeated DelUnDecideInfo rpt_msg_undecide_info = 2;
+        uint32 uint32_platform = 3;
+    }
+    message DelUnDecideInfo {
+        uint64 uint64_uin = 1;
+    }
+    message FailedSys {
+        string str_msg = 1;
+    }
+    message ReqBody {
+        uint32 uint32_version = 1;
+        fixed32 fixed32_sequence = 2;
+        uint32 uint32_type = 3;
+        uint64 uint64_touin = 4;
+        uint32 uint32_startindex = 5;
+        uint32 uint32_reqnum = 6;
+        string str_reserve = 7;
+        uint32 uint32_getFlag = 8;
+        uint32 uint32_starttime = 9;
+        uint32 uint32_cleartime = 10;
+        uint32 uint32_need_unread_undecide_num = 11;
+        uint32 uint32_need_comm_friend = 12;
+        uint32 uint32_need_unread_noagree_count = 13;
+        uint32 uint32_need_group_uin = 14;
+        DelMsgInfo msg_del_msg_info = 15;
+        ClrMsgInfo msg_clr_msg_info = 16;
+    }
+    message RspBody {
+        uint32 uint32_version = 1;
+        uint32 uint32_result = 2;
+        SuccessRead msg_successread = 3;
+        FailedSys msg_failedsys = 4;
+        string str_reserve = 5;
+    }
+    message SuccessRead {
+        fixed32 fixed32_sequence = 1;
+        uint32 uint32_over = 2;
+        uint32 uint32_totle = 3;
+        repeated UnDecide rpt_msg_undecide = 4;
+        repeated Decided rpt_msg_decided = 5;
+        uint32 uint32_un_read_count = 6;
+        repeated All rpt_msg_all = 7;
+        uint64 uint64_updatetime = 8;
+        uint32 uint32_un_read_count2 = 9;
+        uint32 uint32_first_update = 10;
+        uint32 uint32_unread_undecide_num = 11;
+        repeated uint64 rpt_uint64_unread_undecide_uin = 12;
+    }
+    message UnDecide {
+        uint64 uint64_uin = 1;
+        uint64 uint64_fuin = 2;
+        uint32 uint32_flag = 3;
+        uint32 uint32_ackflag = 4;
+        uint32 uint32_reqtype = 5;
+        uint32 uint32_groupid = 6;
+        uint32 uint32_sourceid = 7;
+        uint32 uint32_sourcesubid = 8;
+        uint32 uint32_time = 9;
+        uint32 uint32_count = 10;
+        repeated string rpt_str_wording = 11;
+        string str_mainemailaccount = 12;
+        string str_add_source = 13;
+        uint64 uint64_group_code = 14;
+    }

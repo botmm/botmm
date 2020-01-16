@@ -1,0 +1,24 @@
+syntax = "proto3";
+package oidb_0x48b;
+    message GetTotalblockInfo {
+        uint32 uint32_account_type = 1;
+        uint64 uint64_block_qcall_id = 2;
+        bytes bytes_mobile = 3;
+    }
+    message GetblockListReq {
+        uint32 uint32_start_idx = 1;
+        uint32 uint32_req_num = 2;
+        uint32 uint32_last_get_time = 3;
+    }
+    message GetblockListRsp {
+        uint32 uint32_over = 1;
+        uint32 uint32_next_start_idx = 2;
+        uint32 uint32_get_time = 3;
+        repeated GetTotalblockInfo rpt_msg_get_total_block_info = 4;
+    }
+    message ReqBody {
+        GetblockListReq msg_get_blocklist_req = 1;
+    }
+    message RspBody {
+        GetblockListRsp msg_get_blocklist_rsp = 1;
+    }

@@ -1,0 +1,43 @@
+syntax = "proto3";
+package oidb_cmd0x920;
+    message CancleMeeting {
+        repeated MeetingInfo rpt_msg_meeting_info2 = 1;
+    }
+    message CreateMeeting {
+        repeated MeetingInfo rpt_msg_meeting_info1 = 1;
+    }
+    message GetDiscussMeeting {
+        uint64 uint64_discuss_uin = 1;
+    }
+    message GetSpecifiedMeeting {
+        repeated MeetingInfo rpt_msg_meeting_info3 = 1;
+    }
+    message GetUserMeeting {
+    }
+    message MeetingInfo {
+        uint64 uint64_discuss_uin = 1;
+        uint64 uint64_creator_uin = 2;
+        uint32 uint32_begin_time = 3;
+        uint32 uint32_end_time = 4;
+        repeated uint64 rpt_uint64_participants = 5;
+        bytes bytes_meeting_intro = 6;
+        uint64 uint64_meeting_seq = 7;
+        uint32 uint32_enable = 8;
+        uint32 uint32_type = 9;
+        uint32 uint32_err_code = 20;
+        bytes bytes_error_info = 21;
+    }
+    message ReqBody {
+        uint32 uint32_subcmd = 1;
+        CreateMeeting msg_create_meeting = 2;
+        CancleMeeting msg_cancle_meeting = 3;
+        GetDiscussMeeting msg_get_discuss_meeting = 4;
+        GetUserMeeting msg_get_user_meeting = 5;
+        GetSpecifiedMeeting msg_get_specified_meeting = 6;
+    }
+    message RspBody {
+        uint32 uint32_subcmd = 1;
+        CreateMeeting msg_create_meeting = 2;
+        CancleMeeting msg_cancle_meeting = 3;
+        repeated MeetingInfo rpt_msg_meeting_info = 4;
+    }

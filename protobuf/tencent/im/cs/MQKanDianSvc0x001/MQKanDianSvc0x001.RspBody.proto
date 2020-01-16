@@ -1,0 +1,10 @@
+syntax = "proto3";
+package MQKanDianSvc0x001.RspBody;
+    message ArticleInfo {
+        string str_subject = 1;
+        string str_abstract = 2;
+        string str_content_url = 3;
+    }
+    message WordsOfCut {
+        repeated string rpt_str_words = 1;
+    }

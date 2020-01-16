@@ -1,0 +1,34 @@
+syntax = "proto3";
+package cmd0x6cd;
+    message PullRedpointReq {
+        uint32 uint32_taskid = 1;
+        uint64 uint64_last_pull_seq = 2;
+    }
+    message RedpointInfo {
+        uint32 uint32_taskid = 1;
+        uint64 uint64_cur_seq = 2;
+        uint64 uint64_pull_seq = 3;
+        uint64 uint64_read_seq = 4;
+        uint32 uint32_pull_times = 5;
+        uint32 uint32_last_pull_time = 6;
+        int32 int32_remained_time = 7;
+        uint32 uint32_last_recv_time = 8;
+        uint64 uint64_from_id = 9;
+        enum enum_redpoint_type = 10;
+        RepointExtraInfo msg_redpoint_extra_info = 11;
+        string str_config_version = 12;
+    }
+    message RepointExtraInfo {
+        uint32 uint32_count = 1;
+        string str_icon_url = 2;
+        string str_tips = 3;
+        bytes bytes_data = 4;
+    }
+    message ReqBody {
+        repeated PullRedpointReq rpt_last_pull_redpoint = 1;
+        repeated PullRedpointReq rpt_unfinished_redpoint = 2;
+    }
+    message RspBody {
+        repeated RedpointInfo rpt_msg_redpoint = 1;
+        repeated PullRedpointReq rpt_unfinished_redpoint = 2;
+    }

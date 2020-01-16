@@ -1,0 +1,47 @@
+syntax = "proto3";
+import "tencent/im/nearfield_group/nearfield_group.proto";
+import "appoint/define/appoint_define.proto";
+package nearfield_group;
+    message BusiReqHead {
+        int32 int32_version = 1;
+        int32 int32_seq = 2;
+    }
+    message BusiRespHead {
+        int32 int32_version = 1;
+        int32 int32_seq = 2;
+        int32 int32_reply_code = 3;
+        string str_result = 4;
+    }
+    message GroupProfile {
+        uint64 uint64_group_code = 1;
+        bytes bytes_group_name = 2;
+        uint64 uint64_owner_uin = 3;
+        bytes bytes_owner_nick = 4;
+        bytes bytes_distance = 5;
+    }
+    message ReqExit {
+        BusiReqHead msg_head = 1;
+        uint64 uint64_group_code = 2;
+    }
+    message ReqGetGroupList {
+        BusiReqHead msg_head = 1;
+        /* message */ appoint_define.LBSInfo msg_lbs_info = 2;
+        uint64 uint64_group_code = 3;
+    }
+    message ReqJoinGroup {
+        BusiReqHead msg_head = 1;
+        uint64 uint64_group_code = 2;
+        uint64 uint64_owner_uin = 3;
+        bytes bytes_distance = 4;
+    }
+    message RespExit {
+        BusiRespHead msg_head = 1;
+    }
+    message RespGetGroupList {
+        BusiRespHead msg_head = 1;
+        repeated GroupProfile rpt_msg_group_list = 2;
+    }
+    message RespJoinGroup {
+        BusiRespHead msg_head = 1;
+        uint64 uint64_group_code = 2;
+    }

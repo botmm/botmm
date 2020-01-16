@@ -1,0 +1,73 @@
+syntax = "proto3";
+package Stt;
+    message CorretTextReq {
+        uint64 uint64_sessionid = 1;
+        uint32 uint32_ptt_type = 2;
+        uint64 uint64_sender_uin = 3;
+        uint64 uint64_receiver_uin = 4;
+        uint32 uint32_fileid = 5;
+        string str_Filemd5 = 6;
+        string str_file_path = 7;
+        uint32 uint32_total_len = 8;
+        uint32 uint32_seq = 9;
+        uint32 uint32_pos = 10;
+        uint32 uint32_len = 11;
+        bytes bytes_text = 12;
+        uint32 uint32_ptt_format = 13;
+    }
+    message CorretTextResp {
+        uint64 uint64_sessionid = 1;
+        uint32 uint32_error_code = 2;
+        uint32 uint32_seq = 3;
+    }
+    message ReqBody {
+        uint32 uint32_sub_cmd = 1;
+        TransGroupPttReq msg_group_ptt_req = 2;
+        TransC2CPttReq msg_c2c_ptt_req = 3;
+        CorretTextReq msg_corret_text_req = 4;
+    }
+    message RspBody {
+        uint32 uint32_sub_cmd = 1;
+        TransGroupPttResp msg_group_ptt_resp = 2;
+        TransC2CPttResp msg_c2c_ptt_resp = 3;
+        CorretTextResp msg_corret_text_Resp = 4;
+    }
+    message TransC2CPttReq {
+        uint64 uint64_sessionid = 1;
+        uint64 uint64_sender_uin = 2;
+        uint64 uint64_receiver_uin = 3;
+        string str_file_path = 4;
+        uint32 uint32_ptt_time = 5;
+        uint32 uint32_filesize = 6;
+        uint32 uint32_ptt_format = 7;
+    }
+    message TransC2CPttResp {
+        uint64 uint64_sessionid = 1;
+        uint32 uint32_error_code = 2;
+        uint32 uint32_waittime = 3;
+        uint64 uint64_sender_uin = 4;
+        uint64 uint64_receiver_uin = 5;
+        string str_file_path = 6;
+        uint32 uint32_serviceprovider = 7;
+    }
+    message TransGroupPttReq {
+        uint64 uint64_sessionid = 1;
+        uint64 uint64_sender_uin = 2;
+        uint64 uint64_group_uin = 3;
+        uint32 uint32_fileid = 4;
+        string str_filemd5 = 5;
+        uint32 uint32_ptt_time = 6;
+        uint32 uint32_filesize = 7;
+        uint32 uint32_ptt_format = 8;
+        string str_file_path = 9;
+    }
+    message TransGroupPttResp {
+        uint64 uint64_sessionid = 1;
+        uint32 uint32_error_code = 2;
+        uint32 uint32_waittime = 3;
+        uint64 uint64_sender_uin = 4;
+        uint64 uint64_group_uin = 5;
+        uint32 uint32_fileid = 6;
+        string str_Filemd5 = 7;
+        uint32 uint32_serviceprovider = 8;
+    }

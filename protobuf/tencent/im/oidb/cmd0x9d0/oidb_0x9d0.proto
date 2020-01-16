@@ -1,0 +1,17 @@
+syntax = "proto3";
+import "appoint/define/appoint_define/FeedInfo.proto";
+import "appoint/define/appoint_define/PublisherInfo.proto";
+package oidb_0x9d0;
+    message ReqBody {
+        uint64 uint64_req_uid = 1;
+        uint32 uint32_feed_num = 2;
+        bytes bytes_cookie = 3;
+        uint64 uint64_req_uin = 4;
+    }
+    message RspBody {
+        string str_error_tips = 1;
+        /* message */ appoint_define.PublisherInfo msg_user_info = 2;
+        repeated appoint_define.FeedInfo rpt_msg_feeds = 3;
+        bytes bytes_cookie = 4;
+        uint32 uint32_completed = 5;
+    }

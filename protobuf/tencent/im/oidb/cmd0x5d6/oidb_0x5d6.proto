@@ -1,0 +1,21 @@
+syntax = "proto3";
+package oidb_0x5d6;
+    message ReqBody {
+        uint32 uint32_seq = 1;
+        repeated SnsUpateBuffer rpt_msg_update_buffer = 2;
+        uint32 uint32_domain = 3;
+    }
+    message RspBody {
+        uint32 uint32_Seq = 1;
+        string str_wording = 2;
+    }
+    message SnsUpateBuffer {
+        uint64 uint64_uin = 1;
+        repeated SnsUpdateItem rpt_msg_sns_update_item = 400;
+        repeated uint32 rpt_uin32_idlist = 401;
+    }
+    message SnsUpdateItem {
+        uint32 uint32_update_sns_type = 1;
+        bytes bytes_value = 2;
+        uint32 uint32_value_offset = 3;
+    }

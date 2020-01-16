@@ -1,0 +1,40 @@
+syntax = "proto3";
+import "appoint/define/appoint_define/LBSInfo.proto";
+import "appoint/define/appoint_define/LocaleInfo.proto";
+import "appoint/define/appoint_define/AppointInfo.proto";
+import "appoint/define/appoint_define/PublisherInfo.proto";
+import "appoint/define/appoint_define/StrangerInfo.proto";
+package cmd0x7de;
+    message BusiReqHead {
+        int32 int32_version = 1;
+        int32 int32_seq = 2;
+    }
+    message BusiRespHead {
+        int32 int32_version = 1;
+        int32 int32_seq = 2;
+        int32 int32_reply_code = 3;
+        string str_result = 4;
+    }
+    message ReqBody {
+        BusiReqHead msg_head = 1;
+        /* message */ appoint_define.LBSInfo msg_lbs_info = 2;
+        uint32 uint32_time = 3;
+        uint32 uint32_subject = 4;
+        uint32 uint32_gender = 5;
+        uint32 uint32_age_low = 6;
+        uint32 uint32_age_up = 7;
+        uint32 uint32_profession = 8;
+        bytes bytes_cookie = 9;
+        /* message */ appoint_define.LocaleInfo msg_destination = 10;
+    }
+    message RspBody {
+        BusiRespHead msg_head = 1;
+        repeated UserProfile rpt_msg_user_list = 2;
+        uint32 uint32_ended = 3;
+        bytes bytes_cookie = 4;
+    }
+    message UserProfile {
+        /* message */ appoint_define.PublisherInfo msg_publisher_info = 1;
+        /* message */ appoint_define.AppointInfo msg_appoints_info = 2;
+        repeated appoint_define.StrangerInfo rpt_msg_vistor_info = 3;
+    }

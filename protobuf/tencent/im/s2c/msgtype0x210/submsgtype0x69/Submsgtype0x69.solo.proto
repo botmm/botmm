@@ -1,0 +1,11 @@
+message Submsgtype0x69 {
+    uint32 uint32_appid;
+    message PBBoolField bool_display_reddot;
+    uint32 uint32_number;
+    uint32 uint32_reason;
+    uint32 uint32_last_time;
+    uint64 uint64_cmd_uin;
+    bytes str_face_url;
+    bytes bytes_custom_buffer;
+    uint32 uint32_expire_time;
+}

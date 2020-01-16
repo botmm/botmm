@@ -1,0 +1,25 @@
+syntax = "proto3";
+package subcmd0x501;
+    message ReqBody {
+        SubCmd0x501ReqBody msg_subcmd_0x501_req_body = 1281;
+    }
+    message RspBody {
+        SubCmd0x501Rspbody msg_subcmd_0x501_rsp_body = 1281;
+    }
+    message SubCmd0x501ReqBody {
+        uint64 uint64_uin = 1;
+        uint32 uint32_idc_id = 2;
+        uint32 uint32_appid = 3;
+        uint32 uint32_login_sig_type = 4;
+        bytes bytes_login_sig_ticket = 5;
+        uint32 uint32_request_flag = 6;
+        repeated uint32 rpt_uint32_service_types = 7;
+        uint32 uint32_bid = 8;
+    }
+    message SubCmd0x501Rspbody {
+        bytes bytes_httpconn_sig_session = 1;
+        bytes bytes_session_key = 2;
+        repeated SubCmd0x501Rspbody.SrvAddrs rpt_msg_httpconn_addrs = 3;
+        uint32 uint32_share_type = 12;
+        uint32 uint32_share_channel = 13;
+    }

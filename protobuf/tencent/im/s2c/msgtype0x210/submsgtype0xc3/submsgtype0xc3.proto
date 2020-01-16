@@ -1,0 +1,7 @@
+syntax = "proto3";
+package submsgtype0xc3;
+    message MsgBody {
+        uint32 uint32_type = 1;
+        bytes bytes_push_data = 2;
+        uint64 uint64_timestamp = 3;
+    }

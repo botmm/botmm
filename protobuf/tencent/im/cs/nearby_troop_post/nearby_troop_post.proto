@@ -1,0 +1,29 @@
+syntax = "proto3";
+package nearby_troop_post;
+    message ReqBody {
+        uint32 uint32_sub_cmd = 1;
+        ReqNearbyPostInfo msg_subcmd0x1_req_nearbyinfo = 2;
+    }
+    message ReqNearbyPostInfo {
+        uint32 uint64_longtitude = 1;
+        uint32 uint64_latitude = 2;
+        uint32 uint64_range = 3;
+        uint32 uint64_uin = 4;
+    }
+    message RspBody {
+        uint32 uint32_sub_cmd = 1;
+        int32 int32_result = 2;
+        string str_erro = 3;
+        RspNearbyPostInfo msg_subcmd0x1_rsp_nearbypostinfo = 4;
+    }
+    message RspNearbyPostInfo {
+        string str_title = 1;
+        string str_desc = 2;
+        string str_title_url = 3;
+        uint32 uint32_distance = 4;
+        string str_post_title = 5;
+        string str_post_picture_url = 6;
+        string str_post_address = 7;
+        string str_post_url = 8;
+        uint32 uint32_post_replys = 9;
+    }

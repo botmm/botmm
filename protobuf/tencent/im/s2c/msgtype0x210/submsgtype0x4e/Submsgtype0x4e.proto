@@ -1,0 +1,11 @@
+syntax = "proto3";
+package Submsgtype0x4e;
+    message GroupBulletin {
+        repeated GroupBulletin.Content rpt_msg_content = 1;
+    }
+    message MsgBody {
+        uint64 uint64_group_id = 1;
+        uint64 uint64_group_code = 2;
+        uint32 uint32_appid = 3;
+        GroupBulletin msg_group_bulletin = 4;
+    }

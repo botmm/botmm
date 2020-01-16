@@ -1,0 +1,21 @@
+syntax = "proto3";
+package SttResultPush;
+    message MsgBody {
+        uint32 uint32_sub_cmd = 1;
+        TransPttResp msg_ptt_resp = 2;
+    }
+    message TransPttResp {
+        uint64 uint64_sessionid = 1;
+        uint32 uint32_ptt_type = 2;
+        uint32 uint32_error_code = 3;
+        uint32 uint32_total_len = 4;
+        uint32 uint32_seq = 5;
+        uint32 uint32_pos = 6;
+        uint32 uint32_len = 7;
+        bytes bytes_text = 8;
+        uint64 uint64_sender_uin = 9;
+        uint64 uint64_receiver_uin = 10;
+        uint32 uint32_FileID = 11;
+        string str_Filemd5 = 12;
+        string str_file_path = 13;
+    }

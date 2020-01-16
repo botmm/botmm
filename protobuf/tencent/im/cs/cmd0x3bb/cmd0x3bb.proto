@@ -1,0 +1,24 @@
+syntax = "proto3";
+package cmd0x3bb;
+    message AnonyMsg {
+        uint32 uint32_cmd = 1;
+        ReqBody msg_anony_req = 10;
+        RspBody msg_anony_rsp = 11;
+    }
+    message AnonyStatus {
+        uint32 uint32_forbid_talking = 1;
+        bytes str_err_msg = 10;
+    }
+    message ReqBody {
+        uint64 uint64_uin = 1;
+        uint64 uint64_group_code = 2;
+    }
+    message RspBody {
+        int32 int32_ret = 1;
+        uint64 uint64_group_code = 2;
+        bytes str_anony_name = 3;
+        uint32 uint32_portrait_index = 4;
+        uint32 uint32_bubble_index = 5;
+        uint32 uint32_expired_time = 6;
+        AnonyStatus msg_anony_status = 10;
+    }

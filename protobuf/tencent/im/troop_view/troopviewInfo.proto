@@ -1,0 +1,8 @@
+syntax = "proto3";
+import "tencent/im/troop_search_popclassifc/popclassifc.proto";
+import "tencent/im/troop_search_searchtab/searchtab.proto";
+package troopviewInfo;
+    message RspBody {
+        /* message */ popclassifc.RspBody popRsb = 1;
+        /* message */ searchtab.RspBody searchRsb = 2;
+    }

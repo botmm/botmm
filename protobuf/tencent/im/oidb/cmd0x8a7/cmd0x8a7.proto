@@ -1,0 +1,16 @@
+syntax = "proto3";
+package cmd0x8a7;
+    message ReqBody {
+        uint32 uint32_sub_cmd = 1;
+        uint32 uint32_limit_interval_type_for_uin = 2;
+        uint32 uint32_limit_interval_type_for_group = 3;
+        uint64 uint64_uin = 4;
+        uint64 uint64_group_code = 5;
+    }
+    message RspBody {
+        bool bool_can_at_all = 1;
+        uint32 uint32_remain_at_all_count_for_uin = 2;
+        uint32 uint32_remain_at_all_count_for_group = 3;
+        bytes bytes_prompt_msg_1 = 4;
+        bytes bytes_prompt_msg_2 = 5;
+    }

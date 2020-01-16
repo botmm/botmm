@@ -1,0 +1,9 @@
+syntax = "proto3";
+package cmd0x7c9;
+    message ReqBody {
+        uint32 uint32_req_type = 1;
+        uint32 uint32_has_data = 2;
+    }
+    message RspBody {
+        uint32 uint32_next_time_gap = 1;
+    }

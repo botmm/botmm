@@ -1,0 +1,15 @@
+syntax = "proto3";
+package jstoken;
+    message ReqBody {
+        uint32 uint32_appid = 1;
+        bytes bytes_group_openid = 2;
+        bytes bytes_url = 3;
+        bytes bytes_jstoken = 4;
+    }
+    message RspBody {
+        uint32 uint32_result = 1;
+        bytes bytes_err_info = 2;
+        repeated bytes rpt_bytes_apilist = 3;
+        uint32 uint32_frequency = 4;
+        uint32 uint32_token_time_out = 5;
+    }

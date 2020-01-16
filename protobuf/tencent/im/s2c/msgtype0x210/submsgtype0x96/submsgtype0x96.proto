@@ -1,0 +1,5 @@
+syntax = "proto3";
+package submsgtype0x96;
+    message MsgBody {
+        string string_push_msg = 1;
+    }

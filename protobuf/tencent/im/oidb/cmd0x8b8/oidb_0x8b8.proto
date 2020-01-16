@@ -1,0 +1,30 @@
+syntax = "proto3";
+package oidb_0x8b8;
+    message DelPicReq {
+        uint32 uint32_del_cnt = 1;
+        repeated uint32 rpt_uint32_del_list = 2;
+    }
+    message ModifyOrderReq {
+        uint32 uint32_pic_cnt = 1;
+        repeated uint32 rpt_uint32_pic_list = 2;
+    }
+    message ReqBody {
+        uint64 uint64_group_uin = 1;
+        uint32 uint32_sequence = 2;
+        uint32 uint32_subcmd = 3;
+        ModifyOrderReq msg_modify_order = 4;
+        SetDefaultReq msg_set_default = 5;
+        DelPicReq msg_del_pic = 6;
+    }
+    message RspBody {
+        uint32 uint32_result = 1;
+        uint64 uint64_group_uin = 2;
+        uint32 uint32_sequence = 3;
+        uint32 uint32_subcmd = 4;
+        uint32 uint32_default_id = 5;
+        uint32 uint32_pic_cnt = 6;
+        repeated uint32 rpt_uint32_pic_list = 7;
+    }
+    message SetDefaultReq {
+        uint32 uint32_default_id = 1;
+    }

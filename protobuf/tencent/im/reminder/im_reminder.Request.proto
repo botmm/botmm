@@ -1,0 +1,28 @@
+syntax = "proto3";
+import "tencent/im/reminder/im_reminder.proto";
+package im_reminder.Request;
+    message Add {
+        /* message */ im_reminder.Reminder reminder = 1;
+    }
+    message CheckEnable {
+        /* message */ im_reminder.Reminder reminder = 1;
+    }
+    message Disable {
+        /* message */ im_reminder.Reminder reminder = 1;
+    }
+    message Enable {
+        /* message */ im_reminder.Reminder reminder = 1;
+    }
+    message Get {
+        /* message */ im_reminder.Reminder reminder = 1;
+    }
+    message Remove {
+        /* message */ im_reminder.Reminder reminder = 1;
+    }
+    message TimeReachedReminders {
+        /* message */ im_reminder.Reminder reminder = 1;
+    }
+    message Update {
+        /* message */ im_reminder.Reminder from = 1;
+        /* message */ im_reminder.Reminder to = 2;
+    }

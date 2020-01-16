@@ -1,0 +1,17 @@
+syntax = "proto3";
+package SubMsgType0x3;
+    message FailNotify {
+        uint32 uint32_sessionid = 1;
+        uint32 uint32_retCode = 2;
+        bytes bytes_reason = 3;
+    }
+    message MsgBody {
+        ProgressNotify msg_progress_notify = 1;
+        FailNotify msg_fail_notify = 2;
+    }
+    message ProgressNotify {
+        uint32 uint32_sessionid = 1;
+        bytes bytes_uuid = 2;
+        uint32 uint32_progress = 3;
+        uint32 uint32_average_speed = 4;
+    }

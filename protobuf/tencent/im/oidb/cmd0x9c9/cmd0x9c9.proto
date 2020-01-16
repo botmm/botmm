@@ -1,0 +1,51 @@
+syntax = "proto3";
+package cmd0x9c9;
+    message ReqBody {
+        string str_nick = 20002;
+        uint32 uint32_gender = 20009;
+        string str_college = 20021;
+        uint32 uint32_constellation = 20022;
+        bytes bytes_location = 20032;
+        uint32 uint32_age = 20037;
+        bytes bytes_location_district = 20041;
+        bytes bytes_hometown_district = 20043;
+        bytes bytes_hometown = 24002;
+        string str_company = 24008;
+        bytes bytes_birthday = 26003;
+        string str_stranger_nick = 27034;
+        bytes bytes_stranger_declare = 27035;
+        uint32 uint32_love_status = 27036;
+        uint32 uint32_profession = 27037;
+        uint32 uint32_qzone_visible = 40311;
+        uint32 uint32_interest_visible = 40312;
+        uint32 uint32_stranger_profile_flag = 40496;
+        uint32 uint32_gift_visible = 41806;
+        uint32 uint32_face_flag = 41987;
+        uint32 uint32_guide_flag = 41998;
+        bytes bytes_reqbody_5ea = 60001;
+        bytes bytes_reqbody_9c7 = 60002;
+    }
+    message RspBody {
+        string str_errorinfo = 1;
+        string str_nick = 20002;
+        uint32 uint32_gender = 20009;
+        string str_college = 20021;
+        uint32 uint32_constellation = 20022;
+        bytes bytes_birthday = 20031;
+        bytes bytes_location = 20032;
+        uint32 uint32_age = 20037;
+        bytes bytes_location_district = 20041;
+        bytes bytes_hometown_district = 20043;
+        bytes bytes_hometown = 24002;
+        string str_company = 24008;
+        string str_stranger_nick = 27034;
+        bytes bytes_stranger_declare = 27035;
+        uint32 uint32_love_status = 27036;
+        uint32 uint32_profession = 27037;
+        uint32 uint32_qzone_visible = 40311;
+        uint32 uint32_interest_visible = 40312;
+        uint32 uint32_stranger_profile_flag = 40496;
+        uint32 uint32_gift_visible = 41806;
+        bytes bytes_rspbody_5ea = 60001;
+        bytes bytes_rspbody_9c7 = 60002;
+    }

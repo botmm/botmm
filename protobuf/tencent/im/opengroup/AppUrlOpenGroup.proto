@@ -1,0 +1,15 @@
+syntax = "proto3";
+package AppUrlOpenGroup;
+    message ReqBody {
+        uint32 uint32_appid = 1;
+        bytes bytes_url = 2;
+        bytes bytes_param = 3;
+    }
+    message RspBody {
+        uint32 uint32_result = 1;
+        bytes bytes_err_info = 2;
+        bytes bytes_app_name = 3;
+        bytes bytes_company = 4;
+        bytes bytes_share_url = 5;
+        bytes bytes_info_url = 6;
+    }

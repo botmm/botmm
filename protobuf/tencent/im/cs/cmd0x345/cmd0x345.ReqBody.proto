@@ -1,0 +1,80 @@
+syntax = "proto3";
+package cmd0x345.ReqBody;
+    message SubCmd0x1ReqBody {
+        string str_md5 = 1;
+        string str_sha = 2;
+        string str_file_name = 3;
+        uint64 uint64_file_size = 4;
+        uint32 uint32_upload_type = 5;
+        uint32 uint32_disscus_uin = 6;
+        uint32 uint32_sender_uin = 7;
+        uint32 uint32_costom_id = 8;
+    }
+    message SubCmd0x2ReqBody {
+        uint32 uint32_disscus_uin = 1;
+        uint32 uint32_sender_uin = 2;
+        string str_file_name = 3;
+        uint64 uint64_file_size = 4;
+        string str_file_id = 5;
+        string str_batch_id = 6;
+        string str_batch_item_id = 7;
+        string str_client_key = 8;
+        string str_file_key = 9;
+        uint32 uint32_mark = 10;
+        uint64 uint64_time = 11;
+        uint64 uint64_sequence = 12;
+        uint32 uint32_busid = 13;
+        uint32 uint32_random = 14;
+        bytes bytes_pb_bytes_reserve = 15;
+    }
+    message SubCmd0x3ReqBody {
+        uint32 uint32_uin = 1;
+        string str_file_id = 2;
+        uint32 uint32_disscus_uin = 3;
+        uint32 uint32_costom_id = 4;
+        uint64 uint64_uin = 5;
+        uint64 uint64_disscus_uin = 6;
+    }
+    message SubCmd0x4ReqBody {
+    }
+    message SubCmd0x5ReqBody {
+        uint32 uint32_src_bus_id = 1;
+        bytes bytes_src_parent_folder = 2;
+        bytes bytes_src_file_path = 3;
+        uint32 uint32_dst_uin = 4;
+        uint64 uint64_file_size = 5;
+        uint32 uint32_from_uin = 6;
+        string str_file_name = 7;
+        bytes bytes_md5 = 8;
+    }
+    message SubCmd0x6ReqBody {
+        uint32 uint32_dst_bus_id = 1;
+        uint64 uint64_src_uin = 2;
+        bytes bytes_uuid = 3;
+        bytes bytes_file_md5 = 4;
+        uint64 uint64_dst_uin = 5;
+        uint64 uint64_file_size = 6;
+        string str_file_name = 7;
+        string str_src_file_path = 8;
+        string str_src_parent_folder = 9;
+        uint32 uint32_client_type = 10;
+        uint64 uint64_app_id = 11;
+        string str_dst_phone_number = 12;
+        bytes bytes_sig = 13;
+        uint64 uint64_talk_type = 14;
+    }
+    message SubCmd0x7ReqBody {
+        uint64 uint64_disscus_uin = 1;
+        string str_file_path = 2;
+    }
+    message SubCmd0x9ReqBody {
+        uint64 uint64_disscus_uin = 1;
+        uint32 uint32_begin = 2;
+        uint32 uint32_file_num = 3;
+    }
+    message SubCmd0xaReqBody {
+        uint64 uint64_uin = 1;
+        uint64 uint64_disscus_uin = 2;
+        string str_file_id = 3;
+        string str_session_info = 4;
+    }

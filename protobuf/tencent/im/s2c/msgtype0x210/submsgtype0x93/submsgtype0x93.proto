@@ -1,0 +1,30 @@
+syntax = "proto3";
+package submsgtype0x93;
+    message LiteMailIndexInfo {
+        bytes bytes_feeds_id = 1;
+        SourceID msg_source_id = 2;
+    }
+    message MsgBody {
+        uint32 uint32_msg_type = 1;
+        UnreadMailCountChanged msg_umc_changed = 2;
+        StateChangeNotify msg_state_changed = 3;
+    }
+    message SourceID {
+        uint32 uint32_source_type = 1;
+        uint64 uint64_source_code = 2;
+    }
+    message StateChangeNotify {
+        SourceID msg_source_id = 1;
+        bytes bytes_feeds_id = 2;
+        enum enum_msg_type = 3;
+        bytes bytes_ext_msg = 4;
+        uint64 uint64_req_uin = 5;
+        repeated LiteMailIndexInfo rpt_msg_lite_mail_index = 6;
+    }
+    message UnreadMailCountChanged {
+        UnreadMailCountInfo msg_umc = 1;
+    }
+    message UnreadMailCountInfo {
+        uint32 uint32_unread_count = 1;
+        uint32 uint32_data_version = 2;
+    }

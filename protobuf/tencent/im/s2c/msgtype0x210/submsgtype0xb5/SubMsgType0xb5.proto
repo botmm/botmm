@@ -1,0 +1,22 @@
+syntax = "proto3";
+package SubMsgType0xb5;
+    message MsgBody {
+        bytes bytes_gray_tip_content = 1;
+        uint32 uint32_animation_package_id = 2;
+        bytes bytes_animation_package_url_a = 3;
+        bytes bytes_animation_package_url_i = 4;
+        bytes bytes_remind_brief = 5;
+        uint32 uint32_gift_id = 6;
+        uint32 uint32_gift_count = 7;
+        bytes bytes_animation_brief = 8;
+        uint64 uint64_sender_uin = 9;
+        uint64 uint64_receiver_uin = 10;
+        bytes bytes_stmessage_title = 11;
+        bytes bytes_stmessage_subtitle = 12;
+        bytes bytes_stmessage_message = 13;
+        uint32 uint32_stmessage_giftpicid = 14;
+        bytes bytes_stmessage_comefrom = 15;
+        uint32 uint32_stmessage_exflag = 16;
+        bytes bytes_to_all_gift_id = 17;
+        uint64 uint64_group_code = 10000;
+    }

@@ -1,0 +1,14 @@
+syntax = "proto3";
+import "tencent/nearby/common/nearby_common.proto";
+package follow_user;
+    message FollowUserReq {
+        uint64 uin = 1;
+        uint64 dst_uin = 2;
+        enum follow_type = 3;
+        enum source = 4;
+    }
+    message FollowUserRsp {
+        uint64 uin = 1;
+        uint64 dst_uin = 2;
+        /* message */ nearby_common.ErrorInfo result = 3;
+    }

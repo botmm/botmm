@@ -1,0 +1,9 @@
+syntax = "proto3";
+import "tencent/im/cs/group_file_common/group_file_common/FileInfo.proto";
+import "tencent/im/cs/group_file_common/group_file_common/FolderInfo.proto";
+package oidb_0x6d8.GetFileListRspBody;
+    message Item {
+        uint32 uint32_type = 1;
+        /* message */ group_file_common.FolderInfo folder_info = 2;
+        /* message */ group_file_common.FileInfo file_info = 3;
+    }

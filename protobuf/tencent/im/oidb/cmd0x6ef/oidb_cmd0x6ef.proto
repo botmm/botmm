@@ -1,0 +1,14 @@
+syntax = "proto3";
+package oidb_cmd0x6ef;
+    message ReqBody {
+        uint64 gc = 1;
+        string event_id = 2;
+        uint64 seq = 3;
+    }
+    message RspBody {
+        uint64 gc = 1;
+        uint64 seq = 2;
+        bytes remind_brief = 3;
+        uint32 is_create = 4;
+        uint32 is_join = 5;
+    }

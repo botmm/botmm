@@ -1,0 +1,13 @@
+syntax = "proto3";
+package oidb_0x59f;
+    message ContactBindInfo {
+        string mobile = 1;
+        string nation_code = 2;
+    }
+    message ReqBody {
+    }
+    message RspBody {
+        uint32 uint32_is_first_login = 1;
+        ContactBindInfo msg_contact_bind_info = 15;
+        string str_reg_mobile = 17;
+    }

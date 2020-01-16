@@ -1,0 +1,14 @@
+syntax = "proto3";
+package C2CType0x211_SubC2CType0xb.MsgBody;
+    message MsgHeader {
+        enum uint32_body_type = 1;
+        uint32 uint32_session_type = 2;
+        uint64 uint64_to_uin = 3;
+        string str_to_mobile = 4;
+        uint64 uint64_room_id = 5;
+    }
+    message RejectNotify {
+        enum enum_reject_reason = 1;
+        string str_msg = 2;
+        string str_ring_filename = 3;
+    }

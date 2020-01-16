@@ -1,0 +1,8 @@
+syntax = "proto3";
+package SubMsgType0xa8;
+    message MsgBody {
+        uint32 uint32_action_type = 1;
+        uint32 uint32_action_subType = 2;
+        bytes bytes_msg_summary = 3;
+        bytes bytes_extend_content = 4;
+    }

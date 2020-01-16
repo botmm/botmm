@@ -1,0 +1,15 @@
+syntax = "proto3";
+package SubMsgType0xb3;
+    message MsgBody {
+        uint32 uint32_type = 1;
+        PushAddFrdNotify msg_add_frd_notify = 2;
+    }
+    message PushAddFrdNotify {
+        uint64 uint64_fuin = 1;
+        uint64 uint64_fuin_bubble_id = 2;
+        fixed32 fixed32_timestamp = 3;
+        bytes bytes_wording = 4;
+        bytes bytes_fuin_nick = 5;
+        uint32 uint32_source_id = 6;
+        uint32 uint32_subsource_id = 7;
+    }

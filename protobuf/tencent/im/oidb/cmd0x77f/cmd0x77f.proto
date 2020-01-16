@@ -1,0 +1,15 @@
+syntax = "proto3";
+package cmd0x77f;
+    message ReqBody {
+        uint32 uint32_listtype = 1;
+        repeated VisitProfRec rpt_msg_visit_prof_rec = 2;
+        uint32 uint32_list_ruleid = 3;
+    }
+    message VisitProfRec {
+        uint64 uint64_tinyid = 1;
+        uint32 uint32_seq = 2;
+        uint32 uint32_enter_count = 3;
+        uint32 uint32_visit_duration = 4;
+        uint32 uint32_visit_pic_count = 5;
+        uint32 uint32_opflag = 6;
+    }

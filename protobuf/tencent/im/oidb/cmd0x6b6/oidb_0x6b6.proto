@@ -1,0 +1,68 @@
+syntax = "proto3";
+package oidb_0x6b6;
+    message AnonymousGroupMsg {
+        uint32 uint32_flags = 1;
+        bytes str_anon_id = 2;
+        bytes str_anon_nick = 3;
+        uint32 uint32_head_portrait = 4;
+        uint32 uint32_expire_time = 5;
+        uint32 uint32_bubble_id = 6;
+    }
+    message ExtParam {
+        LoginSig msg_login_sig = 1;
+        uint32 uint32_business_id = 2;
+    }
+    message GPSInfo {
+        int64 int64_longitude = 1;
+        int64 int64_latitude = 2;
+        int32 int32_gps_type = 3;
+    }
+    message LoginSig {
+        uint32 uint32_type = 1;
+        bytes bytes_sig = 2;
+        uint32 uint32_appid = 3;
+    }
+    message ReqBody {
+        uint64 uint64_group = 1;
+        bytes bytes_user_ip = 2;
+        bytes bytes_version = 3;
+        uint32 uint32_portal = 4;
+        uint32 uint32_client = 5;
+        uint32 uint32_instance_id = 6;
+        ExtParam msg_ext_param = 7;
+        SendFlowerReq msg_send_flower = 8;
+        ThrowFlowerReq msg_throw_flower = 9;
+        TmpMsgToken msg_tmp_msg_token = 10;
+        GPSInfo msg_gps_info = 11;
+        AnonymousGroupMsg msg_anony = 12;
+    }
+    message RspBody {
+        int32 int32_ret = 1;
+        bytes bytes_msg = 2;
+        SendFlowerRsp msg_send_flower = 4;
+        ThrowFlowerRsp msg_throw_flower = 5;
+    }
+    message SendFlowerReq {
+        int32 int32_count = 1;
+        uint64 uint64_to_uin = 2;
+        uint32 uint32_play_rule = 3;
+        uint32 uint32_custom_flag = 4;
+        uint32 uint32_product_id = 5;
+        uint32 uint32_gift_id = 6;
+    }
+    message SendFlowerRsp {
+        uint32 uint32_product_id = 1;
+    }
+    message ThrowFlowerReq {
+        int32 int32_count = 1;
+        uint32 uint32_play_rule = 2;
+        uint32 uint32_product_id = 3;
+    }
+    message ThrowFlowerRsp {
+        uint32 uint32_product_id = 1;
+    }
+    message TmpMsgToken {
+        bytes buf = 1;
+        uint32 c2c_type = 2;
+        uint32 service_type = 3;
+    }

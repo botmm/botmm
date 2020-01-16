@@ -1,0 +1,29 @@
+
+test_test001:
+    resource: "@testTest001Bundle/Controller/"
+    type: annotation
+    prefix:   /test
+
+botmm_gradee:
+    resource: "@botmmGradeeBundle/Controller/"
+    type:     annotation
+    prefix:   /gradee
+
+botmm_client:
+    resource: "@botmmClientBundle/Controller/"
+    type:     annotation
+    prefix:   /client
+
+botmm_server:
+    resource: "@botmmServerBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+botmm_buffer:
+    resource: "@botmmBufferBundle/Controller/"
+    type:     annotation
+    prefix:   /buffer
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation

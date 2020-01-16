@@ -1,0 +1,60 @@
+syntax = "proto3";
+package SubMsgType0x6f;
+    message BirthdayReminderPush {
+        bytes bytes_reminder_wording = 2004;
+    }
+    message FanpaiziNotify {
+        uint64 uint64_from_uin = 1;
+        string str_from_nick = 2;
+        bytes bytes_tips_content = 3;
+        bytes bytes_sig = 4;
+    }
+    message ForwardBody {
+        uint32 uint32_notify_type = 1;
+        uint32 uint32_op_type = 2;
+        FanpaiziNotify msg_fanpanzi_notify = 2000;
+        MCardNotificationLike msg_mcard_notification_like = 2001;
+        VipInfoNotify vip_info_notify = 2002;
+        PushLostDevFound msg_push_lost_dev_found = 2003;
+        BirthdayReminderPush msg_birthday_reminder_push = 2004;
+        PushLostDevFound msg_push_lost_dev = 2005;
+        RewardInfo msg_babyq_reward_info = 2007;
+    }
+    message MCardNotificationLike {
+        uint64 uint64_from_uin = 1;
+        uint32 uint32_counter_total = 2;
+        uint32 uint32_counter_new = 3;
+        string str_wording = 4;
+    }
+    message MsgBody {
+        repeated ForwardBody rpt_msg_mod_infos = 1;
+    }
+    message PushLostDevFound {
+        uint32 uint32_msg_type = 1;
+        uint32 uint32_dev_time = 3;
+        uint64 uint64_din = 6;
+    }
+    message RewardInfo {
+        uint32 uint32_type = 1;
+        bytes bytes_name = 2;
+        bytes bytes_jmp_url = 3;
+        bytes bytes_cookies = 4;
+        bytes bytes_jmp_wording = 5;
+        bytes bytes_opt_wording = 6;
+        bytes bytes_opt_url = 7;
+        uint64 uint64_face_addon_id = 8;
+        bytes bytes_icon_url = 9;
+        bytes bytes_toast_wording = 10;
+        uint32 uint32_report_type = 11;
+    }
+    message VipInfoNotify {
+        uint64 uint64_uin = 1;
+        uint32 uint32_vip_level = 2;
+        uint32 uint32_vip_identify = 3;
+        uint32 uint32_ext = 4;
+        string str_ext = 5;
+        uint32 uint32_red_flag = 6;
+        uint32 uint32_disable_red_envelope = 7;
+        uint32 uint32_redpack_id = 8;
+        string str_redpack_name = 9;
+    }

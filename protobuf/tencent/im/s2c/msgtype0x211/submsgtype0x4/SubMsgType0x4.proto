@@ -1,0 +1,10 @@
+syntax = "proto3";
+import "tencent/im/msg/im_msg_body/NotOnlineFile.proto";
+import "tencent/im/msg/resv21/hummer_resv_21/FileImgInfo.proto";
+package SubMsgType0x4;
+    message MsgBody {
+        /* message */ im_msg_body.NotOnlineFile msg_not_online_file = 1;
+        uint32 uint32_msg_time = 2;
+        uint32 uint32_OnlineFileForPolyToOffline = 3;
+        /* message */ hummer_resv_21.FileImgInfo file_image_info = 4;
+    }

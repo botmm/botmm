@@ -1,0 +1,17 @@
+syntax = "proto3";
+package video_url;
+    message ReqBody {
+        bytes bytes_share_url = 1;
+        uint32 uint32_platform_type = 2;
+        bytes bytes_machine_info = 3;
+        uint32 uint32_network_type = 4;
+        uint32 uint32_cur_play_time = 5;
+        bytes bytes_mobileQ_ver = 6;
+    }
+    message RspBody {
+        int32 int32_result = 1;
+        bytes bytes_err_msg = 2;
+        repeated bytes rpt_bytes_play_urls = 3;
+        uint32 uint32_total_time = 4;
+        uint32 uint32_defn = 5;
+    }

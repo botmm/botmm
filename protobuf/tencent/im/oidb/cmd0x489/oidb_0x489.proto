@@ -1,0 +1,20 @@
+syntax = "proto3";
+package oidb_0x489;
+    message DelBlockReq {
+        OneDelBlockData msg_one_block_data = 1;
+    }
+    message DelBlockRsp {
+        OneDelBlockData msg_one_block_data = 1;
+    }
+    message OneDelBlockData {
+        uint32 uint32_account_type = 1;
+        uint64 uint64_block_qcall_id = 2;
+        uint32 uint32_result = 3;
+        bytes bytes_mobile = 4;
+    }
+    message ReqBody {
+        DelBlockReq msg_del_block_req = 1;
+    }
+    message RspBody {
+        DelBlockRsp msg_del_block_rsp = 1;
+    }

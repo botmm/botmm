@@ -1,0 +1,8 @@
+syntax = "proto3";
+package oidb_cmd0x6b2;
+    message ReqBody {
+        bytes bytes_body = 1;
+    }
+    message RspBody {
+        bytes bytes_body = 1;
+    }

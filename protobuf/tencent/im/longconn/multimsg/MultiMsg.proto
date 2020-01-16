@@ -1,0 +1,50 @@
+syntax = "proto3";
+import "tencent/im/longconn/multimsg/MultiMsg.proto";
+package MultiMsg;
+    message MultiMsgApplyDownReq {
+        bytes bytes_msg_resid = 1;
+        uint32 uint32_msg_type = 2;
+        uint64 uint64_src_uin = 3;
+    }
+    message MultiMsgApplyDownRsp {
+        uint32 uint32_result = 1;
+        bytes bytes_thumb_down_para = 2;
+        bytes bytes_msg_key = 3;
+        repeated uint32 rpt_uint32_down_ip = 4;
+        repeated uint32 rpt_uint32_down_port = 5;
+        bytes bytes_msg_resid = 6;
+    }
+    message MultiMsgApplyUpReq {
+        uint64 uint64_dst_uin = 1;
+        uint64 uint64_msg_size = 2;
+        bytes bytes_msg_md5 = 3;
+        uint32 uint32_msg_type = 4;
+        uint32 uint32_apply_id = 5;
+    }
+    message MultiMsgApplyUpRsp {
+        uint32 uint32_result = 1;
+        bytes bytes_msg_resid = 2;
+        bytes bytes_msg_ukey = 3;
+        repeated uint32 rpt_uint32_up_ip = 4;
+        repeated uint32 rpt_uint32_up_port = 5;
+        uint64 uint64_block_size = 6;
+        uint64 uint64_up_offset = 7;
+        uint32 uint32_apply_id = 8;
+        bytes bytes_msg_key = 9;
+        bytes bytes_msg_sig = 10;
+    }
+    message ReqBody {
+        uint32 uint32_subcmd = 1;
+        uint32 uint32_term_type = 2;
+        uint32 uint32_platform_type = 3;
+        uint32 uint32_net_type = 4;
+        bytes bytes_build_ver = 5;
+        repeated MultiMsgApplyUpReq rpt_multimsg_applyup_req = 6;
+        repeated MultiMsgApplyDownReq rpt_multimsg_applydown_req = 7;
+        uint32 uint32_bu_type = 8;
+    }
+    message RspBody {
+        uint32 uint32_subcmd = 1;
+        repeated MultiMsgApplyUpRsp rpt_multimsg_applyup_rsp = 2;
+        repeated MultiMsgApplyDownRsp rpt_multimsg_applydown_rsp = 3;
+    }

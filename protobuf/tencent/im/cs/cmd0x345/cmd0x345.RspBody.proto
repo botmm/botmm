@@ -1,0 +1,78 @@
+syntax = "proto3";
+package cmd0x345.RspBody;
+    message FileAttr {
+        uint64 uint64_size = 1;
+        uint32 uint32_ttl = 2;
+        uint32 uint32_download_times = 3;
+        uint32 uint32_owner = 4;
+        uint32 uint32_trans_from = 5;
+        string str_file_path = 6;
+        bytes bytes_md5 = 7;
+        bytes bytes_sha = 8;
+        bytes bytes_sha3 = 9;
+        string str_file_name = 10;
+        uint32 uint32_create_time = 11;
+        uint32 uint32_modify_time = 12;
+        uint32 uint32_upload_uin = 13;
+    }
+    message SubCmd0x1RspBody {
+        string str_file_id = 1;
+        string str_check_sum = 2;
+        string str_host = 3;
+        uint32 uint32_port = 4;
+        string str_file_key = 5;
+        string str_file_name = 6;
+        string str_warn = 7;
+        uint32 uint32_costom_id = 8;
+    }
+    message SubCmd0x2RspBody {
+    }
+    message SubCmd0x3RspBody {
+        string str_host = 1;
+        uint32 uint32_port = 2;
+        string str_check_sum = 3;
+        string str_cookie = 4;
+        uint32 uint32_costom_id = 5;
+        string str_ret_msg = 6;
+        int32 int32_ret_code = 7;
+        string str_suggest_file_name = 8;
+        bytes bytes_sha = 9;
+    }
+    message SubCmd0x4RspBody {
+        uint32 uint32_max_transfer_file_count = 1;
+        uint64 uint64_max_transfer_single_file_size = 2;
+        uint32 uint32_max_transfer_file_queue_num = 3;
+        uint32 uint32_max_download_file_num = 4;
+    }
+    message SubCmd0x5RspBody {
+        string str_ret_msg = 1;
+        string str_file_id = 2;
+    }
+    message SubCmd0x6RspBody {
+        string str_ret_msg = 1;
+        string str_file_id = 2;
+    }
+    message SubCmd0x7RspBody {
+        string str_server_ip = 1;
+        fixed32 uint32_server_port = 2;
+        string str_dns = 3;
+        string str_url = 4;
+        bytes bytes_sha = 5;
+        bytes bytes_thri_sha = 6;
+        bytes bytes_md5 = 7;
+        bytes bytes_cookie = 8;
+        string str_ret_msg = 9;
+    }
+    message SubCmd0x9RspBody {
+        uint32 uint32_begin = 1;
+        uint32 uint32_total_file_num = 2;
+        uint32 uint32_file_num = 3;
+        repeated cmd0x345.RspBody.FileAttr rpt_msg_file_list = 4;
+    }
+    message SubCmd0xaRspBody {
+        uint64 uint64_uin = 1;
+        uint64 uint64_disscus_uin = 2;
+        string str_file_id = 3;
+        string str_session_info = 4;
+        string str_ret_msg = 5;
+    }

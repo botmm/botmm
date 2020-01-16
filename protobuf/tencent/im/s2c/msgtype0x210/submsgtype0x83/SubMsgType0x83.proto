@@ -1,0 +1,16 @@
+syntax = "proto3";
+package SubMsgType0x83;
+    message MsgBody {
+        repeated MsgParams rpt_msg_params = 1;
+        uint64 uint64_seq = 2;
+        uint64 uint64_group_id = 3;
+    }
+    message MsgParams {
+        uint32 uint32_type = 1;
+        uint64 uint64_from_uin = 2;
+        uint64 uint64_to_uin = 3;
+        string str_data = 4;
+        bytes bytes_data = 5;
+    }
+    message MsgRep {
+    }

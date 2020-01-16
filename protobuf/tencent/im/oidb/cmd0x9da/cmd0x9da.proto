@@ -1,0 +1,14 @@
+syntax = "proto3";
+import "appoint/define/appoint_define/UserFeed.proto";
+package cmd0x9da;
+    message ReqBody {
+        uint64 uint64_topic_id = 1;
+        uint32 uint32_feed_num = 2;
+        bytes bytes_cookie = 3;
+    }
+    message RspBody {
+        string str_error_tips = 1;
+        repeated appoint_define.UserFeed rpt_msg_feeds = 2;
+        bytes bytes_cookie = 3;
+        uint32 uint32_completed = 4;
+    }

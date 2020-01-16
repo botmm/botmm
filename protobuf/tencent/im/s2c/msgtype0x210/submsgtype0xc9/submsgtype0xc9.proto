@@ -1,0 +1,15 @@
+syntax = "proto3";
+package submsgtype0xc9;
+    message BusinessMsg {
+        enum msg_type = 1;
+        bytes bytes_msg_data = 2;
+        bool bool_tab_visible = 3;
+    }
+    message MsgBody {
+        uint32 uint32_type = 1;
+        uint64 uint64_from_uin = 2;
+        uint64 uint64_action_uin = 3;
+        enum source = 4;
+        repeated BusinessMsg rpt_msg_business_msg = 5;
+        bool bool_new_friend = 6;
+    }

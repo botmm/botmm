@@ -1,0 +1,37 @@
+syntax = "proto3";
+import "tencent/im/longconn/longmsg/LongMsg.proto";
+package LongMsg;
+    message MsgDownReq {
+        uint32 uint32_src_uin = 1;
+        bytes bytes_msg_resid = 2;
+    }
+    message MsgDownRsp {
+        uint32 uint32_result = 1;
+        bytes bytes_msg_resid = 2;
+        bytes bytes_msg_content = 3;
+    }
+    message MsgUpReq {
+        uint32 uint32_msg_type = 1;
+        uint64 uint64_dst_uin = 2;
+        uint32 uint32_msg_id = 3;
+        bytes bytes_msg_content = 4;
+        uint32 uint32_store_type = 5;
+        bytes bytes_msg_ukey = 6;
+    }
+    message MsgUpRsp {
+        uint32 uint32_result = 1;
+        uint32 uint32_msg_id = 2;
+        bytes bytes_msg_resid = 3;
+    }
+    message ReqBody {
+        uint32 uint32_subcmd = 1;
+        uint32 uint32_term_type = 2;
+        uint32 uint32_platform_type = 3;
+        repeated MsgUpReq rpt_msg_up_req = 4;
+        repeated MsgDownReq rpt_msg_down_req = 5;
+    }
+    message RspBody {
+        uint32 uint32_subcmd = 1;
+        repeated MsgUpRsp rpt_msg_up_rsp = 2;
+        repeated MsgDownRsp rpt_msg_down_rsp = 3;
+    }

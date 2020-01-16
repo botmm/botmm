@@ -1,0 +1,9 @@
+syntax = "proto3";
+package submsgtype0x7c;
+    message MsgBody {
+        uint64 uint64_uin = 1;
+        int32 int32_cmd = 2;
+        repeated string rpt_string_cmd_ext = 3;
+        uint64 uint64_seq = 4;
+        repeated string rpt_string_seq_ext = 5;
+    }

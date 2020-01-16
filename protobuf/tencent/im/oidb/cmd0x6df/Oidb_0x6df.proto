@@ -1,0 +1,34 @@
+syntax = "proto3";
+package Oidb_0x6df;
+    message DevInfo {
+        uint32 uint32_appid = 1;
+        bytes bytes_imei = 2;
+        bytes bytes_guid = 3;
+        bytes bytes_vendorid = 4;
+        bytes bytes_androidid = 5;
+        uint32 uint32_wifi = 6;
+    }
+    message PhoneInfo {
+        uint32 uint32_type = 1;
+        string str_country_code = 2;
+        string str_phone = 3;
+        uint32 uint32_bu_status = 4;
+    }
+    message ReqBody {
+        uint32 uint32_src = 1;
+        string str_country_code = 2;
+        string str_phone = 3;
+        DevInfo dev_info = 4;
+    }
+    message RspBody {
+        uint32 uint32_result = 1;
+        uint32 uint32_src = 2;
+        string str_country_code = 3;
+        string str_binding_phone = 4;
+        uint32 uint32_binding_time = 5;
+        uint32 uint32_need_unify = 6;
+        uint32 uint32_phone_type = 7;
+        repeated PhoneInfo phone_info = 8;
+        bytes bytes_skip_url = 9;
+        bytes bytes_vas_result = 10;
+    }

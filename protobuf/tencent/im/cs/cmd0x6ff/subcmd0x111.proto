@@ -1,0 +1,43 @@
+syntax = "proto3";
+package subcmd0x111;
+    message ContentItem {
+        uint32 uint32_filed = 1;
+        GeneralBuffer msg_general_buffer = 2;
+    }
+    message GeneralBuffer {
+        bytes bytes_value = 1;
+    }
+    message GroupInfo {
+        uint32 uint32_type = 1;
+        bytes bytes_name = 2;
+    }
+    message OneRenMaiFrd {
+        uint64 uint64_uin = 1;
+        uint32 uint32_update_time = 2;
+        bytes bytes_remark = 3;
+        bytes bytes_nick = 4;
+        uint32 uint32_closeness = 5;
+        uint32 uint32_group = 6;
+    }
+    message RenMaiInfo {
+        uint32 uint32_sync_type = 1;
+        uint32 uint32_next_start_time = 2;
+        repeated GroupInfo rpt_msg_group_info = 3;
+        repeated OneRenMaiFrd rpt_msg_frd = 4;
+        repeated uint64 rpt_uint64_del_frd = 5;
+        uint32 uint32_next_interval = 6;
+    }
+    message ReqBody {
+        SubCmd0x111ReqBody msg_subcmd_0x111_req_body = 273;
+    }
+    message RspBody {
+        SubCmd0x111RspBody msg_subcmd_0x111_rsp_body = 273;
+    }
+    message SubCmd0x111ReqBody {
+        uint32 uint32_start_time = 1;
+        repeated uint32 rpt_uint32_fieldlist = 2;
+        repeated uint64 rpt_uint64_uinlist = 3;
+    }
+    message SubCmd0x111RspBody {
+        repeated ContentItem rpt_msg_contentItem = 1;
+    }

@@ -1,0 +1,26 @@
+syntax = "proto3";
+package oidb_0x51c;
+    message AppNoticeVar {
+        uint64 opt_uint64_appdid = 1;
+        NoticeVar opt_msg_app_noticevar = 2;
+        repeated SubItemNoticeVar rpt_msg_subitem_noticevar = 3;
+    }
+    message NoticeVar {
+        uint32 opt_uint32_operate_type = 1;
+        uint32 opt_uint32_notice_var = 2;
+        uint32 opt_uint32_notice_version = 3;
+    }
+    message ReqBody {
+        uint64 opt_uint64_handled_uin = 1;
+        NoticeVar opt_msg_office_noticevar = 2;
+        repeated AppNoticeVar rpt_msg_app_noticevar = 3;
+    }
+    message RspBody {
+        uint32 opt_uint32_result = 1;
+        bytes opt_bytes_errinfo = 2;
+        uint64 opt_uint64_handled_uin = 3;
+    }
+    message SubItemNoticeVar {
+        uint32 opt_uint32_subitem_id = 1;
+        NoticeVar opt_msg_subitem_noticevar = 2;
+    }

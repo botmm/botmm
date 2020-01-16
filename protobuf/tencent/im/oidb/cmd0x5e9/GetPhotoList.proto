@@ -1,0 +1,29 @@
+syntax = "proto3";
+package GetPhotoList;
+    message HeadInfo {
+        uint32 uint32_headid = 1;
+        string str_headurl = 2;
+        uint32 uint32_is_curhead = 4;
+        uint32 uint32_flag = 5;
+        uint32 uint32_proc_state = 6;
+        uint32 uint32_face = 7;
+        uint32 uint32_charm = 8;
+        string str_video_url = 9;
+        uint32 uint32_video_time = 10;
+        uint32 uint32_video_size = 11;
+        string str_video_id = 12;
+    }
+    message ReqBody {
+        repeated uint64 rpt_uint64_uin = 1;
+        uint32 uint32_fetch_type = 2;
+    }
+    message RspBody {
+        repeated UinHeadInfo rpt_msg_uin_heads = 1;
+    }
+    message UinHeadInfo {
+        uint64 uint64_uin = 1;
+        uint32 uint32_timestamp = 2;
+        uint32 uint32_headcount = 3;
+        repeated HeadInfo rpt_msg_headinfo = 4;
+        string str_headurl = 5;
+    }

@@ -1,0 +1,56 @@
+syntax = "proto3";
+import "appoint/define/appoint_define/LBSInfo.proto";
+package Oidb_0x686;
+    message CharmEvent {
+        uint32 uint32_pop_flag = 1;
+        uint32 uint32_old_charm = 2;
+        uint32 uint32_old_charm_level = 3;
+        uint32 uint32_new_charm = 4;
+        uint32 uint32_new_charm_level = 5;
+        uint32 uint32_next_level_threshold = 6;
+        string str_tips_content = 7;
+        uint32 uint32_cur_level_threshold = 8;
+    }
+    message NearbyCharmNotify {
+        uint32 uint32_pop_flag = 1;
+        uint32 uint32_old_charm = 2;
+        uint32 uint32_old_charm_level = 3;
+        uint32 uint32_old_prof_percent = 4;
+        uint32 uint32_new_charm = 5;
+        uint32 uint32_new_charm_level = 6;
+        uint32 uint32_new_prof_percent = 7;
+        uint32 uint32_next_level_threshold = 8;
+        string str_tips_content = 9;
+        uint32 uint32_cur_level_threshold = 10;
+    }
+    message NearbyFeedConfig {
+        uint32 uint32_publish_feed_min_level = 1;
+        string str_publish_feed_tips = 2;
+        string str_unable_publish_feed_tips = 3;
+        uint32 uint32_publish_comment_min_level = 4;
+        string str_unable_publish_comment_tips = 5;
+    }
+    message NearbyRankConfig {
+        uint32 uint32_rank_sw = 1;
+        repeated RankTitleConfig rpt_msg_title_configs = 2;
+    }
+    message RankTitleConfig {
+        uint32 uint32_listtype = 1;
+        string str_first_title = 2;
+        string str_second_title = 3;
+    }
+    message ReqBody {
+        /* message */ appoint_define.LBSInfo msg_lbs_info = 1;
+        uint32 uint32_last_config_seq = 2;
+        uint32 uint32_last_config_time = 3;
+        repeated uint32 uint32_push_redpoint_id = 4;
+    }
+    message RspBody {
+        NearbyCharmNotify msg_notify_event = 1;
+        CharmEvent msg_charm_event = 2;
+        uint32 uint32_config_seq = 3;
+        NearbyRankConfig msg_rank_config = 4;
+        uint32 uint32_gold_flag = 5;
+        NearbyFeedConfig msg_feed_config = 6;
+        uint32 uint32_config_time = 7;
+    }

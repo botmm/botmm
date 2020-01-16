@@ -1,0 +1,11 @@
+parameters:
+    device:
+       imei:          ""
+       ver:           ""
+       appId:         ""
+       pc_ver:        ""
+       os_type:       ""
+       os_version:    ""
+       _network_type: ""
+       _apn:          ""
+       device:        ""

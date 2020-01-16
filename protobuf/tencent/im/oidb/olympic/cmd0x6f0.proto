@@ -1,0 +1,10 @@
+syntax = "proto3";
+package cmd0x6f0;
+    message ReqBody {
+        repeated uint64 rpt_uin_list = 1;
+        uint64 uint64_req_torch_info = 2;
+        enum enum_req_source = 3;
+    }
+    message RspBody {
+        repeated torch_transfer.TorchbearerInfo rpt_torchbearer_list = 1;
+    }

@@ -1,0 +1,7 @@
+syntax = "proto3";
+package oidb_cmd0x77d;
+    message ReqBody {
+        bytes bytes_reward_cookie = 1;
+    }
+    message RspBody {
+    }

@@ -1,0 +1,6 @@
+syntax = "proto3";
+package msg_svc.PbPullDiscussMsgSeqReq;
+    message DiscussInfoReq {
+        uint64 conf_uin = 1;
+        uint64 last_seq = 2;
+    }

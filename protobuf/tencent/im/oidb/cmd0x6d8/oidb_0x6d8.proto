@@ -1,0 +1,109 @@
+syntax = "proto3";
+import "tencent/im/cs/group_file_common/group_file_common/FileInfo.proto";
+package oidb_0x6d8;
+    message FileTimeStamp {
+        uint32 uint32_upload_time = 1;
+        string str_file_id = 2;
+    }
+    message GetFileCountReqBody {
+        uint64 uint64_group_code = 1;
+        uint32 uint32_app_id = 2;
+        uint32 uint32_bus_id = 3;
+    }
+    message GetFileCountRspBody {
+        int32 int32_ret_code = 1;
+        string str_ret_msg = 2;
+        string str_client_wording = 3;
+        uint32 uint32_all_file_count = 4;
+        bool bool_file_too_many = 5;
+        uint32 uint32_limit_count = 6;
+        bool bool_is_full = 7;
+    }
+    message GetFileInfoReqBody {
+        uint64 uint64_group_code = 1;
+        uint32 uint32_app_id = 2;
+        uint32 uint32_bus_id = 3;
+        string str_file_id = 4;
+        uint32 uint32_field_flag = 5;
+    }
+    message GetFileInfoRspBody {
+        int32 int32_ret_code = 1;
+        string str_ret_msg = 2;
+        string str_client_wording = 3;
+        /* message */ group_file_common.FileInfo file_info = 4;
+    }
+    message GetFileListReqBody {
+        uint64 uint64_group_code = 1;
+        uint32 uint32_app_id = 2;
+        string str_folder_id = 3;
+        FileTimeStamp start_timestamp = 4;
+        uint32 uint32_file_count = 5;
+        FileTimeStamp max_timestamp = 6;
+        uint32 uint32_all_file_count = 7;
+        uint32 uint32_req_from = 8;
+        uint32 uint32_sort_by = 9;
+        uint32 uint32_filter_code = 10;
+        uint64 uint64_uin = 11;
+        uint32 uint32_field_flag = 12;
+        uint32 uint32_start_index = 13;
+        bytes bytes_context = 14;
+        uint32 uint32_client_version = 15;
+    }
+    message GetFileListRspBody {
+        int32 int32_ret_code = 1;
+        string str_ret_msg = 2;
+        string str_client_wording = 3;
+        bool bool_is_end = 4;
+        repeated GetFileListRspBody.Item rpt_item_list = 5;
+        FileTimeStamp msg_max_timestamp = 6;
+        uint32 uint32_all_file_count = 7;
+        uint32 uint32_filter_code = 8;
+        bool bool_safe_check_flag = 11;
+        uint32 uint32_safe_check_res = 12;
+        uint32 uint32_next_index = 13;
+        bytes bytes_context = 14;
+        uint32 uint32_role = 15;
+        uint32 uint32_open_flag = 16;
+    }
+    message GetFilePreviewReqBody {
+        uint64 uint64_group_code = 1;
+        uint32 uint32_app_id = 2;
+        uint32 uint32_bus_id = 3;
+        string str_file_id = 4;
+    }
+    message GetFilePreviewRspBody {
+        int32 int32_ret_code = 1;
+        string str_ret_msg = 2;
+        string str_client_wording = 3;
+        uint32 int32_server_ip = 4;
+        uint32 int32_server_port = 5;
+        string str_download_dns = 6;
+        bytes bytes_download_url = 7;
+        string str_cookie_val = 8;
+        bytes bytes_reserved_field = 9;
+    }
+    message GetSpaceReqBody {
+        uint64 uint64_group_code = 1;
+        uint32 uint32_app_id = 2;
+    }
+    message GetSpaceRspBody {
+        int32 int32_ret_code = 1;
+        string str_ret_msg = 2;
+        string str_client_wording = 3;
+        uint64 uint64_total_space = 4;
+        uint64 uint64_used_space = 5;
+    }
+    message ReqBody {
+        GetFileInfoReqBody file_info_req = 1;
+        GetFileListReqBody file_list_info_req = 2;
+        GetFileCountReqBody group_file_cnt_req = 3;
+        GetSpaceReqBody group_space_req = 4;
+        GetFilePreviewReqBody file_preview_req = 5;
+    }
+    message RspBody {
+        GetFileInfoRspBody file_info_rsp = 1;
+        GetFileListRspBody file_list_info_rsp = 2;
+        GetFileCountRspBody group_file_cnt_rsp = 3;
+        GetSpaceRspBody group_space_rsp = 4;
+        GetFilePreviewRspBody file_preview_rsp = 5;
+    }

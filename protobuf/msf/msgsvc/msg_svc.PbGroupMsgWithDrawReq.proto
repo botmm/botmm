@@ -1,0 +1,7 @@
+syntax = "proto3";
+package msg_svc.PbGroupMsgWithDrawReq;
+    message MessageInfo {
+        uint32 uint32_msg_seq = 1;
+        uint32 uint32_msg_random = 2;
+        uint32 uint32_msg_type = 3;
+    }

@@ -1,0 +1,12 @@
+syntax = "proto3";
+package subcmd0x50b;
+    message ReqBody {
+        SubCmd0x50bReqBody msg_subcmd_0x50c_req_body = 1291;
+    }
+    message RspBody {
+    }
+    message SubCmd0x50bReqBody {
+        bytes bytes_msg_resid = 1;
+        bytes bytes_msg_ukey = 2;
+        bytes bytes_obj_msg = 3;
+    }

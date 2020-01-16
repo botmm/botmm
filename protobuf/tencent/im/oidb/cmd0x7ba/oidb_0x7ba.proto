@@ -1,0 +1,18 @@
+syntax = "proto3";
+package oidb_0x7ba;
+    message PraiseInfo {
+        uint64 uint64_ddwuin = 10;
+        uint32 uint32_praise_today_count = 11;
+        uint32 uint32_rank_number = 12;
+        uint32 uint32_praise_total_count = 13;
+    }
+    message ReqBody {
+        uint64 uint64_uin = 10;
+        uint32 uint32_start_index = 11;
+        uint32 uint32_want_num = 12;
+    }
+    message RspBody {
+        repeated PraiseInfo rpt_info = 10;
+        uint32 uint32_next_index = 11;
+        uint32 uint32_complete = 12;
+    }

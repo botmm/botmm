@@ -1,0 +1,6 @@
+syntax = "proto3";
+package submsgtype0x78;
+    message MsgBody {
+        uint32 uint32_type = 1;
+        uint32 uint32_version = 2;
+    }

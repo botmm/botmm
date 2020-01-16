@@ -1,0 +1,11 @@
+syntax = "proto3";
+package GetJoinedHotChatList;
+    message ReqBody {
+        uint64 uint64_uin = 1;
+        uint32 uint32_req_type = 2;
+    }
+    message RspBody {
+        uint64 uint64_uin = 1;
+        uint32 uint32_req_type = 2;
+        repeated Common.WifiPOIInfo rpt_msg_wifi_poi_info = 3;
+    }

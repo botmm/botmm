@@ -1,0 +1,8 @@
+syntax = "proto3";
+package oidb_0x9d2;
+    message ReqBody {
+        string str_feed_id = 1;
+    }
+    message RspBody {
+        string str_error_tips = 1;
+    }

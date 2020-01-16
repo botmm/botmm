@@ -1,0 +1,22 @@
+syntax = "proto3";
+import "tencent/im/new_year_2014/Unisso.proto";
+package Unisso;
+    message UniSsoServerReq {
+        UniSsoServerReqComm comm = 1;
+        bytes reqdata = 2;
+    }
+    message UniSsoServerReqComm {
+        int64 platform = 1;
+        string osver = 2;
+        string mqqver = 3;
+    }
+    message UniSsoServerRsp {
+        int64 ret = 1;
+        string errmsg = 2;
+        UniSsoServerRspComm comm = 3;
+        bytes rspdata = 4;
+    }
+    message UniSsoServerRspComm {
+        uint32 delayms = 1;
+        uint32 packagesize = 2;
+    }

@@ -1,0 +1,7 @@
+syntax = "proto3";
+package C2CType0x211_SubC2CType0x9;
+    message MsgBody {
+        string str_service = 1;
+        uint32 uint32_CMD = 2;
+        MsgBody.MsgPrinter msg_printer = 3;
+    }

@@ -1,0 +1,12 @@
+syntax = "proto3";
+package cmd0x6ce;
+    message ReadRedpointReq {
+        uint32 uint32_taskid = 1;
+        uint64 uint64_read_seq = 2;
+        uint32 uint32_appid = 3;
+    }
+    message ReqBody {
+        repeated ReadRedpointReq rpt_msg_read_req = 1;
+    }
+    message RspBody {
+    }

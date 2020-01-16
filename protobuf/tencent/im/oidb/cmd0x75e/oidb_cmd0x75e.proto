@@ -1,0 +1,21 @@
+syntax = "proto3";
+package oidb_cmd0x75e;
+    message ArticleInfo {
+        bytes bytes_article_xml = 1;
+    }
+    message ReqBody {
+        uint64 uint64_uin = 1;
+        uint32 uint32_network_type = 2;
+        ReqPara msg_req_para = 11;
+    }
+    message ReqPara {
+        enum enum_op_type = 1;
+    }
+    message RspArticle {
+        enum enum_op_type = 1;
+        repeated ArticleInfo rpt_article_info = 11;
+    }
+    message RspBody {
+        uint64 uint64_uin = 1;
+        RspArticle msg_rsp_article = 11;
+    }

@@ -1,0 +1,35 @@
+syntax = "proto3";
+import "tencent/im/group/group_label/GroupLabel/Label.proto";
+package cmd0x8b4;
+    message GroupInfo {
+        uint64 uint64_gc = 1;
+        string str_group_name = 2;
+        string str_face_url = 3;
+        uint32 uint32_set_display_time = 4;
+        repeated GroupLabel.Label rpt_group_label = 5;
+        bytes bytes_text_intro = 6;
+        bytes bytes_rich_intro = 7;
+    }
+    message ReqBody {
+        uint64 uint64_gc = 1;
+        uint64 uint64_guin = 2;
+        uint32 uint32_flag = 3;
+        uint64 uint64_dst_uin = 21;
+        uint32 uint32_start = 22;
+        uint32 uint32_cnt = 23;
+        bytes bytes_tag = 24;
+    }
+    message RspBody {
+        uint32 uint32_result = 1;
+        uint32 uint32_flag = 2;
+        bytes bytes_tag = 21;
+        repeated GroupInfo rpt_group_info = 22;
+        repeated bytes bytes_text_label = 23;
+    }
+    message TagInfo {
+        uint64 uint64_dst_uin = 1;
+        uint32 uint32_start = 2;
+        uint32 uint32_cnt = 3;
+        uint32 uint32_timestamp = 4;
+        uint32 uint32_0x7dd_seq = 5;
+    }

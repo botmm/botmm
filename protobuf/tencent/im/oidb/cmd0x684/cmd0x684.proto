@@ -1,0 +1,6 @@
+syntax = "proto3";
+package cmd0x684;
+    message RspBody {
+        uint32 uint32_listtype = 1;
+        string str_errinfo = 2;
+    }

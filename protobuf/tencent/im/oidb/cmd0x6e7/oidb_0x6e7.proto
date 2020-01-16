@@ -1,0 +1,11 @@
+syntax = "proto3";
+package oidb_0x6e7;
+    message ReqBody {
+        uint64 uint64_group_code = 1;
+        string str_app_src = 2;
+        string str_version = 3;
+    }
+    message RspBody {
+        uint32 uint32_is_white = 1;
+        uint32 uint32_interval = 2;
+    }

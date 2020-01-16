@@ -1,0 +1,10 @@
+syntax = "proto3";
+package CreateHotChat;
+    message ReqBody {
+        /* message */ Common.WifiPOIInfo create_req_info = 1;
+        /* message */ LBS.LBSInfo lbs_info = 2;
+    }
+    message RspBody {
+        uint32 uint32_group_code = 1;
+        uint32 uint32_group_uin = 2;
+    }

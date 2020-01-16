@@ -1,0 +1,12 @@
+syntax = "proto3";
+package oidb_0x8ab;
+    message ReqBody {
+        /* message */ LBS.LBSInfo lbs_info = 1;
+        bytes hotnamecode = 2;
+        uint32 req_flag = 3;
+        uint32 version_flag = 4;
+    }
+    message RspBody {
+        /* message */ Common.WifiPOIInfo poi_info = 1;
+        uint32 join_poi_status = 2;
+    }

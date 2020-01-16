@@ -1,0 +1,16 @@
+syntax = "proto3";
+package submsgtype0x7e;
+    message MsgBody {
+        string str_notice = 1;
+        WalletMsgPush msg_online_push = 2;
+    }
+    message WalletMsgPush {
+        uint32 uint32_action = 1;
+        uint32 uint32_timestamp = 2;
+        bytes bytes_extend = 3;
+        string str_serialno = 4;
+        string str_billno = 5;
+        string str_appinfo = 6;
+        uint32 uint32_amount = 7;
+        string str_jumpurl = 8;
+    }

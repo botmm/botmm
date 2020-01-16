@@ -1,0 +1,187 @@
+syntax = "proto3";
+import "com/trunk/Qworkflow/Qworkflow/Workflow.proto";
+import "com/trunk/Qworkflow/Qworkflow/Approver.proto";
+import "com/trunk/Qworkflow/Qworkflow/WorkflowState.proto";
+import "com/trunk/Qworkflow/Qworkflow/WorkflowBrief.proto";
+import "com/trunk/Qworkflow/Qworkflow/AppID.proto";
+import "com/trunk/Qworkflow/Qworkflow/ApproverState.proto";
+import "com/trunk/Qworkflow/Qworkflow/UserSource.proto";
+package oidb_0x4d4;
+    message AddWorkflowReq {
+        /* message */ Qworkflow.Workflow msg_workflow = 1;
+    }
+    message AddWorkflowRsp {
+        uint32 uint32_result = 1;
+        bytes bytes_error_msg = 2;
+        bytes bytes_workflow_id = 3;
+        uint32 uint32_data_version = 4;
+    }
+    message ApproverChange {
+        enum enum_change_type = 1;
+        /* message */ Qworkflow.Approver msg_approver = 2;
+    }
+    message ApproverChangeInState {
+        /* message */ Qworkflow.WorkflowState msg_workflow_state = 1;
+        repeated ApproverChange rpt_msg_approver_change_list = 2;
+    }
+    message DeleteWorkflowReq {
+        bytes bytes_workflow_id = 1;
+    }
+    message DeleteWorkflowRsp {
+        uint32 uint32_result = 1;
+        bytes bytes_error_msg = 2;
+    }
+    message GetWorkflowByIDReq {
+        bytes bytes_workflow_id = 1;
+        /* message */ Qworkflow.WorkflowBrief msg_workflow_brief = 2;
+    }
+    message GetWorkflowByIDRsp {
+        uint32 uint32_result = 1;
+        bytes bytes_error_msg = 2;
+        GetWorkflowResult msg_workflow_result = 3;
+    }
+    message GetWorkflowListReq {
+        uint64 uint64_end_time = 1;
+        repeated Qworkflow.WorkflowBrief rpt_msg_workflow_list = 2;
+        uint32 uint32_amount = 3;
+        WorkflowFilter msg_filter = 4;
+        WorkflowOrder msg_order = 5;
+    }
+    message GetWorkflowListRsp {
+        uint32 uint32_result = 1;
+        bytes bytes_error_msg = 2;
+        uint64 uint64_start_time = 3;
+        uint64 uint64_end_time = 4;
+        repeated GetWorkflowResult rpt_msg_result_list = 5;
+    }
+    message GetWorkflowResult {
+        uint32 uint32_result = 1;
+        WorkflowSource msg_workflow_source = 2;
+        /* message */ Qworkflow.Workflow msg_workflow = 3;
+    }
+    message HastenWorkflowReq {
+        bytes bytes_workflow_id = 1;
+    }
+    message HastenWorkflowRsp {
+        uint32 uint32_result = 1;
+        bytes bytes_error_msg = 2;
+    }
+    message RecallWorkflowReq {
+        bytes bytes_workflow_id = 1;
+    }
+    message RecallWorkflowRsp {
+        uint32 uint32_result = 1;
+        bytes bytes_error_msg = 2;
+    }
+    message ReqBody {
+        /* message */ Qworkflow.AppID msg_appid = 1;
+        GetWorkflowListReq msg_get_workflow_list_req = 2;
+        UpdateWorkflowsReq msg_update_workflows_req = 3;
+        AddWorkflowReq msg_add_workflow_req = 4;
+        DeleteWorkflowReq msg_delete_workflow_req = 5;
+        RecallWorkflowReq msg_recall_workflow_req = 6;
+        SetWorkflowsReadedReq msg_set_workflows_readed_req = 7;
+        SetAllWorkflowProcessedReq msg_set_all_workflow_processed_req = 8;
+        GetWorkflowByIDReq msg_get_workflow_by_id_req = 9;
+        SetWorkflowsIgnoreStateReq msg_set_workflows_ignore_state_req = 10;
+        ShareWorkflowReq msg_share_workflow_req = 11;
+        HastenWorkflowReq msg_hasten_workflow_req = 12;
+    }
+    message RspBody {
+        /* message */ Qworkflow.AppID msg_appid = 1;
+        GetWorkflowListRsp msg_get_workflow_list_rsp = 2;
+        UpdateWorkflowsRsp msg_update_workflow_rsp = 3;
+        AddWorkflowRsp msg_add_workflow_rsp = 4;
+        DeleteWorkflowRsp msg_delete_workflow_rsp = 5;
+        RecallWorkflowRsp msg_recall_workflow_rsp = 6;
+        SetWorkflowsReadedRsp msg_set_workflows_readed_rsp = 7;
+        SetAllWorkflowProcessedRsp msg_set_all_workflow_processed_rsp = 8;
+        GetWorkflowByIDRsp msg_get_workflow_by_id_rsp = 9;
+        SetWorkflowsIgnoreStateRsp msg_set_workflows_ignore_state_rsp = 10;
+        ShareWorkflowRsp msg_share_workflow_rsp = 11;
+        HastenWorkflowRsp msg_hasten_workflow_rsp = 12;
+    }
+    message SetAllWorkflowProcessedReq {
+        uint64 uint64_end_time = 1;
+        /* message */ Qworkflow.ApproverState msg_approver_state = 2;
+    }
+    message SetAllWorkflowProcessedRsp {
+        uint32 uint32_result = 1;
+        bytes bytes_error_msg = 2;
+        uint32 uint32_failure_count = 3;
+    }
+    message SetWorkflowsIgnoreStateReq {
+        enum enum_state = 1;
+        repeated Qworkflow.WorkflowBrief rpt_msg_workflow_list = 2;
+    }
+    message SetWorkflowsIgnoreStateRsp {
+        uint32 uint32_result = 1;
+        bytes bytes_error_msg = 2;
+        repeated Qworkflow.WorkflowBrief rpt_msg_failure_list = 3;
+    }
+    message SetWorkflowsReadedReq {
+        repeated Qworkflow.WorkflowBrief rpt_msg_workflow_list = 1;
+    }
+    message SetWorkflowsReadedRsp {
+        uint32 uint32_result = 1;
+        bytes bytes_error_msg = 2;
+        repeated Qworkflow.WorkflowBrief rpt_msg_failure_list = 3;
+    }
+    message ShareReceiver {
+        uint64 uint64_uin = 1;
+        /* message */ Qworkflow.UserSource msg_source = 2;
+    }
+    message ShareWorkflowReq {
+        bytes bytes_workflow_id = 1;
+        ShareReceiver msg_receiver = 2;
+    }
+    message ShareWorkflowRsp {
+        uint32 uint32_result = 1;
+        bytes bytes_error_msg = 2;
+    }
+    message UpdateApproverListOfState {
+        bytes bytes_workflow_id = 1;
+        uint32 uint32_data_version = 2;
+        repeated ApproverChangeInState rpt_msg_state_approver_change_list = 3;
+    }
+    message UpdateApproverProcessState {
+        bytes bytes_workflow_id = 1;
+        uint32 uint32_data_version = 2;
+        /* message */ Qworkflow.ApproverState msg_approver_state = 3;
+    }
+    message UpdateFailure {
+        uint32 uint32_result = 1;
+        bytes bytes_error_msg = 2;
+        bytes bytes_workflow_id = 3;
+        /* message */ Qworkflow.Workflow msg_workflow = 4;
+    }
+    message UpdateHandOver {
+        bytes bytes_workflow_id = 1;
+        uint32 uint32_data_version = 2;
+        /* message */ Qworkflow.Approver msg_approver = 3;
+    }
+    message UpdateWorkflowsReq {
+        enum enum_update_type = 1;
+        repeated UpdateApproverListOfState rpt_msg_update_list = 2;
+        repeated UpdateApproverProcessState rpt_msg_process_workflows = 3;
+        UpdateHandOver msg_hand_over = 4;
+    }
+    message UpdateWorkflowsRsp {
+        enum enum_update_type = 1;
+        uint32 uint32_result = 2;
+        bytes bytes_error_msg = 3;
+        repeated UpdateFailure rpt_msg_udpate_failure_list = 4;
+    }
+    message WorkflowFilter {
+        uint32 uint32_main_type = 1;
+        uint32 uint32_sub_type = 2;
+        uint64 uint64_author_uin = 3;
+        repeated Qworkflow.ApproverState rpt_msg_my_state = 4;
+        enum enum_ignore_state = 5;
+        WorkflowSource msg_workflow_source = 6;
+    }
+    message WorkflowOrder {
+    }
+    message WorkflowSource {
+        enum enum_source_type = 1;
+    }

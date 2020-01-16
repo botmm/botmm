@@ -1,0 +1,31 @@
+syntax = "proto3";
+package oidb_0xa8d;
+    message Cmd0xa8dExitPublicGroupReqBody {
+        uint64 uint64_visitor_uin = 1;
+    }
+    message Cmd0xa8dJoinPublicGroupReqBody {
+        uint64 uint64_visitor_uin = 1;
+    }
+    message Cmd0xa8dJoinPublicGroupRspBody {
+        uint64 uint64_GroupCode = 1;
+        uint32 uint32_SpeakInterval = 2;
+        uint32 uint32_GroupFlagEx = 3;
+        uint32 uint32_StartSpeakInterval = 4;
+        uint32 uint32_GroupClassEx = 5;
+        uint32 uint32_GroupClass = 6;
+        uint32 uint32_MaxMember = 7;
+        uint32 uint32_SpecialClass = 8;
+        bytes bytes_GroupName = 9;
+    }
+    message ReqBody {
+        uint64 uint64_group_code = 1;
+        uint32 uint32_req_type = 2;
+        Cmd0xa8dJoinPublicGroupReqBody msg_join_group = 3;
+        Cmd0xa8dExitPublicGroupReqBody msg_exit_group = 4;
+        uint32 uint32_req_client_type = 5;
+    }
+    message RspBody {
+        uint64 uint64_group_code = 1;
+        uint32 uint32_req_type = 2;
+        Cmd0xa8dJoinPublicGroupRspBody msg_join_group = 3;
+    }

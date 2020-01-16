@@ -1,0 +1,16 @@
+message NearbyEntranceContent {
+    int64 int64_id;
+;    int32 int32_id_type;
+    string str_url;
+    int32 int32_pic_type;
+    int32 int32_sub_pic_type;
+    string str_title;
+    string str_content;
+    string str_content2;
+    string pic_url;
+    string bg_color;
+    string txt_color;
+    string logo_url;
+    string corner_wording;
+    string str_distance;
+}

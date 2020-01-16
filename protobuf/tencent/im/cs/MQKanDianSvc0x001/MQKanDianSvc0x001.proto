@@ -1,0 +1,14 @@
+syntax = "proto3";
+package MQKanDianSvc0x001;
+    message ReqBody {
+        enum enum_cut_mode = 1;
+        enum enum_request_mode = 2;
+        repeated string rpt_str_sentences = 3;
+        bool bool_use_hmm = 4;
+        uint32 uint32_request_article_num = 5;
+    }
+    message RspBody {
+        int32 int32_error_num = 1;
+        repeated RspBody.WordsOfCut rpt_msg_words = 2;
+        repeated RspBody.ArticleInfo rpt_msg_articles = 3;
+    }

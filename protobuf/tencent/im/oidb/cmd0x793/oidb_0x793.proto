@@ -1,0 +1,20 @@
+syntax = "proto3";
+package oidb_0x793;
+    message ReqBody {
+        uint64 uint64_uin = 1;
+        bytes feedsid = 2;
+        uint64 uint64_time = 3;
+        uint32 uint32_getnum = 4;
+    }
+    message RspBody {
+        uint32 uint32_result = 1;
+        bytes errMsg = 2;
+        repeated UinListInfo rpt_uinlist = 3;
+        uint32 uint32_flag = 4;
+    }
+    message UinListInfo {
+        uint64 uint64_uin = 1;
+        uint64 uint64_time = 2;
+        uint32 uint32_type = 3;
+        bytes feedsid = 4;
+    }

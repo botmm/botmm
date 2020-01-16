@@ -1,0 +1,22 @@
+syntax = "proto3";
+package Oidb_0x8fd;
+    message GroupMemberInfo {
+        uint64 uint64_group_code = 1;
+        uint32 uint32_show_flag = 2;
+        uint32 uint32_sys_show_flag = 3;
+        repeated LevelName rpt_msg_level_name = 4;
+    }
+    message LevelName {
+        uint32 uint32_level = 1;
+        string str_name = 2;
+    }
+    message ReqBody {
+        repeated uint64 rpt_uint64_group_code = 1;
+        ReqFilter msg_reqfilter = 2;
+    }
+    message ReqFilter {
+        uint32 uint32_level_name_flag = 1;
+    }
+    message RspBody {
+        repeated GroupMemberInfo rpt_msg_grp_member_info = 1;
+    }

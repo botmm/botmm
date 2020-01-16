@@ -1,0 +1,46 @@
+syntax = "proto3";
+import "appoint/define/appoint_define/AppointInfo.proto";
+import "appoint/define/appoint_define/DateComment.proto";
+import "appoint/define/appoint_define/PublisherInfo.proto";
+import "appoint/define/appoint_define/StrangerInfo.proto";
+import "appoint/define/appoint_define/AppointID.proto";
+import "appoint/define/appoint_define/LBSInfo.proto";
+package cmd0x7ce;
+    message AppintDetail {
+        /* message */ appoint_define.PublisherInfo msg_publisher_info = 1;
+        /* message */ appoint_define.AppointInfo msg_appoints_info = 2;
+        uint32 uint32_score = 3;
+        uint32 uint32_join_over = 4;
+        uint32 uint32_join_next = 5;
+        repeated appoint_define.StrangerInfo rpt_msg_stranger_info = 6;
+        uint32 uint32_view_over = 7;
+        uint32 uint32_view_next = 8;
+        repeated appoint_define.StrangerInfo rpt_msg_vistor_info = 9;
+        uint32 uint32_me_join = 10;
+        uint32 uint32_can_profile = 12;
+        string str_profile_errmsg = 13;
+        uint32 uint32_can_aio = 14;
+        string str_aio_errmsg = 15;
+        bytes bytes_SigC2C = 16;
+        uint64 uint64_uin = 17;
+        uint32 uint32_limited = 18;
+        repeated appoint_define.DateComment rpt_msg_comment_list = 19;
+        uint32 uint32_comment_over = 20;
+        uint32 uint32_me_invited = 23;
+    }
+    message ReqBody {
+        repeated appoint_define.AppointID rpt_appoint_ids = 1;
+        uint32 uint32_join_start = 2;
+        uint32 uint32_join_want = 3;
+        uint32 uint32_view_start = 4;
+        uint32 uint32_view_want = 5;
+        /* message */ appoint_define.LBSInfo msg_lbs_info = 6;
+        repeated uint64 rpt_uint64_uins = 7;
+        uint32 uint32_view_comment_count = 8;
+        uint64 uint64_request_uin = 100;
+    }
+    message RspBody {
+        repeated AppintDetail rpt_msg_appoints_info = 1;
+        uint32 uint32_secure_flag = 2;
+        string str_secure_tips = 3;
+    }

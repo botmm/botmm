@@ -1,0 +1,36 @@
+syntax = "proto3";
+package faceroam_sso;
+    message PlatInfo {
+        int64 implat = 1;
+        string osver = 2;
+        string mqqver = 3;
+    }
+    message ReqBody {
+        PlatInfo comm = 1;
+        uint64 uint64_uin = 2;
+        uint32 uint32_sub_cmd = 3;
+        ReqUserInfo reqcmd_0x01 = 4;
+        ReqDeleteItem reqcmd_0x02 = 5;
+    }
+    message ReqDeleteItem {
+        repeated string filename = 1;
+    }
+    message ReqUserInfo {
+    }
+    message RspBody {
+        int64 ret = 1;
+        string errmsg = 2;
+        uint32 sub_cmd = 3;
+        RspUserInfo rspcmd_0x01 = 4;
+        RspDeleteItem rspcmd_0x02 = 5;
+    }
+    message RspDeleteItem {
+        repeated string filename = 1;
+        repeated int64 ret = 2;
+    }
+    message RspUserInfo {
+        repeated string filename = 1;
+        repeated string delete_file = 2;
+        string bid = 3;
+        uint32 max_roam_size = 4;
+    }

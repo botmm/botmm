@@ -1,0 +1,39 @@
+syntax = "proto3";
+import "tencent/im/troop_search_userinfo/userinfo.proto";
+package userinfo;
+    message AppInfo {
+        enum plat_type = 1;
+        string str_app_version = 2;
+    }
+    message Cell {
+        uint32 uint32_mcc = 1;
+        uint32 uint32_mnc = 2;
+        uint32 uint32_lac = 3;
+        uint32 uint32_cellid = 4;
+        int32 int32_rssi = 5;
+    }
+    message DevAttr {
+        string str_imei = 1;
+        string str_imsi = 2;
+        string str_phonenum = 3;
+    }
+    message GPS {
+        uint32 uint32_lat = 1;
+        uint32 uint32_lon = 2;
+        int32 int32_alt = 3;
+        enum type = 4;
+    }
+    message UserInfo {
+        uint64 uin = 1;
+        string skey = 2;
+        GPS gps = 3;
+        repeated Wifi rpt_wifi = 4;
+        repeated Cell rpt_cell = 5;
+        DevAttr attr = 6;
+        AppInfo app_info = 7;
+        bytes bytes_client_version = 8;
+    }
+    message Wifi {
+        uint64 uint64_mac = 1;
+        int32 int32_rssi = 2;
+    }

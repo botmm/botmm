@@ -1,0 +1,21 @@
+syntax = "proto3";
+import "appoint/define/appoint_define/LBSInfo.proto";
+import "appoint/define/appoint_define/UserFeed.proto";
+package oidb_0x9cf;
+    message ReqBody {
+        /* message */ appoint_define.LBSInfo msg_lbs_info = 1;
+        bytes bytes_cookie = 2;
+        UserLocation msg_location = 3;
+        uint32 uint32_get_comment = 4;
+    }
+    message RspBody {
+        string str_error_tips = 1;
+        repeated appoint_define.UserFeed rpt_msg_feeds = 2;
+        bytes bytes_cookie = 3;
+        uint32 uint32_completed = 4;
+    }
+    message UserLocation {
+        string strCountry = 1;
+        string strProvince = 2;
+        string strCity = 3;
+    }

@@ -1,0 +1,5 @@
+syntax = "proto3";
+package ptt_reserve;
+    message ReserveStruct {
+        uint32 uint32_change_voice = 1;
+    }

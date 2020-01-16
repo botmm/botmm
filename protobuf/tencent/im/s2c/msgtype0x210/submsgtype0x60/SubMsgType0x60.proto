@@ -1,0 +1,8 @@
+syntax = "proto3";
+package SubMsgType0x60;
+    message MsgBody {
+        uint32 uint32_pushcmd = 1;
+        int64 int64_ts = 2;
+        string str_ssid = 3;
+        string str_content = 4;
+    }

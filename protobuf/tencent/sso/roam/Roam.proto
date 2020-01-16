@@ -1,0 +1,20 @@
+syntax = "proto3";
+import "tencent/sso/roam/Roam.proto";
+package Roam;
+    message RoamQualifyReq {
+        RoamReqHead head = 1;
+    }
+    message RoamQualifyRsp {
+        RoamRspHead head = 1;
+    }
+    message RoamReqHead {
+        int32 protocol_ver = 1;
+        int32 client_plat_id = 2;
+        string client_ver = 3;
+        string os_ver = 4;
+        uint64 uin = 5;
+    }
+    message RoamRspHead {
+        int32 result = 1;
+        string msg = 2;
+    }

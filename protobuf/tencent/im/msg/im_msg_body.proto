@@ -1,0 +1,620 @@
+syntax = "proto3";
+package im_msg_body;
+    message AnonymousGroupMsg {
+        uint32 uint32_flags = 1;
+        bytes str_anon_id = 2;
+        bytes str_anon_nick = 3;
+        uint32 uint32_head_portrait = 4;
+        uint32 uint32_expire_time = 5;
+        uint32 uint32_bubble_id = 6;
+    }
+    message ApolloActMsg {
+        uint32 uint32_action_id = 1;
+        bytes bytes_action_name = 2;
+        bytes bytes_action_text = 3;
+        uint32 uint32_flag = 4;
+        uint32 uint32_peer_uin = 5;
+        uint32 uint32_sender_ts = 6;
+        uint32 uint32_peer_ts = 7;
+        int32 int32_sender_status = 8;
+        int32 int32_peer_status = 9;
+        uint32 diytext_id = 10;
+        bytes diytext_content = 11;
+        bytes input_text = 12;
+        bytes bytes_pb_reserve = 13;
+    }
+    message ArkAppElem {
+        string app_name = 1;
+        string min_version = 2;
+        string xml_template = 3;
+        bytes bytes_data = 4;
+    }
+    message Attr {
+        sint32 code_page = 1;
+        uint32 time = 2;
+        uint32 random = 3;
+        uint32 color = 4;
+        uint32 size = 5;
+        uint32 effect = 6;
+        uint32 char_set = 7;
+        uint32 pitch_and_family = 8;
+        string font_name = 9;
+        bytes reserve_data = 10;
+    }
+    message BitAppMsg {
+        bytes bytes_buf = 1;
+    }
+    message BlessingMessage {
+        uint32 uint32_msg_type = 1;
+        uint32 uint32_ex_flag = 2;
+    }
+    message CommonElem {
+        uint32 uint32_service_type = 1;
+        bytes bytes_pb_elem = 2;
+    }
+    message ConferenceTipsInfo {
+        uint32 uint32_session_type = 1;
+        uint64 uint64_session_uin = 2;
+        string str_text = 3;
+    }
+    message CrmElem {
+        bytes crm_buf = 1;
+        bytes bytes_msg_resid = 2;
+        uint32 uint32_qidian_flag = 3;
+    }
+    message CustomElem {
+        bytes bytes_desc = 1;
+        bytes bytes_data = 2;
+        enum enum_type = 3;
+        bytes bytes_ext = 4;
+        bytes bytes_sound = 5;
+    }
+    message CustomFace {
+        bytes bytes_guid = 1;
+        string str_file_path = 2;
+        string str_shortcut = 3;
+        bytes bytes_buffer = 4;
+        bytes bytes_flag = 5;
+        bytes bytes_old_data = 6;
+        uint32 uint32_file_id = 7;
+        uint32 uint32_server_ip = 8;
+        uint32 uint32_server_port = 9;
+        uint32 uint32_file_type = 10;
+        bytes bytes_signature = 11;
+        uint32 uint32_useful = 12;
+        bytes bytes_md5 = 13;
+        string str_thumb_url = 14;
+        string str_big_url = 15;
+        string str_orig_url = 16;
+        uint32 biz_type = 17;
+        uint32 repeat_index = 18;
+        uint32 repeat_image = 19;
+        uint32 image_type = 20;
+        uint32 index = 21;
+        uint32 uint32_width = 22;
+        uint32 uint32_height = 23;
+        uint32 uint32_source = 24;
+        uint32 uint32_size = 25;
+        uint32 uint32_origin = 26;
+        uint32 uint32_thumb_width = 27;
+        uint32 uint32_thumb_height = 28;
+        uint32 uint32_show_len = 29;
+        uint32 uint32_download_len = 30;
+        string str_400_url = 31;
+        uint32 uint32_400_width = 32;
+        uint32 uint32_400_height = 33;
+        bytes bytes_pb_reserve = 34;
+    }
+    message DeliverGiftMsg {
+        bytes bytes_gray_tip_content = 1;
+        uint32 uint32_animation_package_id = 2;
+        bytes bytes_animation_package_url_a = 3;
+        bytes bytes_animation_package_url_i = 4;
+        bytes bytes_remind_brief = 5;
+        uint32 uint32_gift_id = 6;
+        uint32 uint32_gift_count = 7;
+        bytes bytes_animation_brief = 8;
+        uint64 uint64_sender_uin = 9;
+        uint64 uint64_receiver_uin = 10;
+        bytes bytes_stmessage_title = 11;
+        bytes bytes_stmessage_subtitle = 12;
+        bytes bytes_stmessage_message = 13;
+        uint32 uint32_stmessage_giftpicid = 14;
+        bytes bytes_stmessage_comefrom = 15;
+        uint32 uint32_stmessage_exflag = 16;
+        bytes bytes_to_all_gift_id = 17;
+        bytes bytes_comefrom_link = 18;
+    }
+    message EIMInfo {
+        uint64 uint64_root_id = 1;
+        uint32 uint32_flag = 2;
+    }
+    message Elem {
+        Text text = 1;
+        Face face = 2;
+        OnlineImage online_image = 3;
+        NotOnlineImage not_online_image = 4;
+        TransElem trans_elem_info = 5;
+        MarketFace market_face = 6;
+        ElemFlags elem_flags = 7;
+        CustomFace custom_face = 8;
+        ElemFlags2 elem_flags2 = 9;
+        FunFace fun_face = 10;
+        SecretFileMsg secret_file = 11;
+        RichMsg rich_msg = 12;
+        GroupFile group_file = 13;
+        PubGroup pub_group = 14;
+        MarketTrans market_trans = 15;
+        ExtraInfo extra_info = 16;
+        ShakeWindow shake_window = 17;
+        PubAccount pub_account = 18;
+        VideoFile video_file = 19;
+        TipsInfo tips_info = 20;
+        AnonymousGroupMsg anon_group_msg = 21;
+        QQLiveOld qq_live_old = 22;
+        LifeOnlineAccount life_online = 23;
+        QQWalletMsg qqwallet_msg = 24;
+        CrmElem crm_elem = 25;
+        ConferenceTipsInfo conference_tips_info = 26;
+        RedBagInfo redbag_info = 27;
+        LowVersionTips low_version_tips = 28;
+        bytes bankcode_ctrl_info = 29;
+        NearByMessageType near_by_msg = 30;
+        CustomElem custom_elem = 31;
+        LocationInfo location_info = 32;
+        PubAccInfo pub_acc_info = 33;
+        SmallEmoji small_emoji = 34;
+        FSJMessageElem fsj_msg_elem = 35;
+        ArkAppElem ark_app = 36;
+        GeneralFlags general_flags = 37;
+        CustomFace hc_flash_pic = 38;
+        DeliverGiftMsg deliver_gift_msg = 39;
+        BitAppMsg bitapp_msg = 40;
+        OpenQQData open_qq_data = 41;
+        ApolloActMsg apollo_msg = 42;
+        GroupPubAccountInfo group_pub_acc_info = 43;
+        BlessingMessage bless_msg = 44;
+        SourceMsg src_msg = 45;
+        LolaMsg lola_msg = 46;
+        GroupBusinessMsg group_business_msg = 47;
+        WorkflowNotifyMsg msg_workflow_notify = 48;
+        PatsElem pat_elem = 49;
+        GroupPostElem group_post_elem = 50;
+        LightAppElem light_app = 51;
+        EIMInfo eim_info = 52;
+        CommonElem common_elem = 53;
+    }
+    message ElemFlags {
+        bytes bytes_flags1 = 1;
+        bytes bytes_business_data = 2;
+    }
+    message ElemFlags2 {
+        uint32 uint32_color_text_id = 1;
+        uint64 uint64_msg_id = 2;
+        uint32 uint32_whisper_session_id = 3;
+        uint32 uint32_ptt_change_bit = 4;
+        uint32 uint32_vip_status = 5;
+        uint32 uint32_compatible_id = 6;
+        repeated ElemFlags2.Inst rpt_insts = 7;
+        uint32 uint32_msg_rpt_cnt = 8;
+        ElemFlags2.Inst src_inst = 9;
+        uint32 uint32_longtitude = 10;
+        uint32 uint32_latitude = 11;
+        uint32 uint32_custom_font = 12;
+        PcSupportDef pc_support_def = 13;
+        uint32 uint32_crm_flags = 14;
+    }
+    message ExtraInfo {
+        bytes bytes_nick = 1;
+        bytes bytes_group_card = 2;
+        uint32 uint32_level = 3;
+        uint32 uint32_flags = 4;
+        uint32 uint32_group_mask = 5;
+        uint32 uint32_msg_tail_id = 6;
+        bytes bytes_sender_title = 7;
+        bytes bytes_apns_tips = 8;
+        uint64 uint64_uin = 9;
+        uint32 uint32_msg_state_flag = 10;
+        uint32 uint32_apns_sound_type = 11;
+    }
+    message FSJMessageElem {
+        uint32 uint32_msg_type = 1;
+    }
+    message Face {
+        uint32 index = 1;
+        bytes old = 2;
+        bytes buf = 11;
+    }
+    message FunFace {
+        FunFace.Turntable msg_turntable = 1;
+        FunFace.Bomb msg_bomb = 2;
+    }
+    message GeneralFlags {
+        uint32 uint32_bubble_diy_text_id = 1;
+        uint32 uint32_group_flag_new = 2;
+        uint64 uint64_uin = 3;
+        bytes bytes_rp_id = 4;
+        uint32 uint32_prp_fold = 5;
+        uint32 long_text_flag = 6;
+        bytes long_text_resid = 7;
+        uint32 uint32_group_type = 8;
+        uint32 uint32_to_uin_flag = 9;
+        uint32 uint32_glamour_level = 10;
+        uint32 uint32_member_level = 11;
+        uint64 uint64_group_rank_seq = 12;
+        uint32 uint32_olympic_torch = 13;
+        bytes babyq_guide_msg_cookie = 14;
+        uint32 uin32_expert_flag = 15;
+        uint32 uint32_bubble_sub_id = 16;
+        uint64 uint64_pendant_id = 17;
+        bytes bytes_rp_index = 18;
+        bytes bytes_pb_reserve = 19;
+    }
+    message GroupBusinessMsg {
+        uint32 uint32_flags = 1;
+        bytes bytes_head_url = 2;
+        bytes bytes_head_clk_url = 3;
+        bytes bytes_nick = 4;
+        bytes bytes_nick_color = 5;
+        bytes bytes_rank = 6;
+        bytes bytes_rank_color = 7;
+        bytes bytes_rank_bgcolor = 8;
+    }
+    message GroupFile {
+        bytes bytes_filename = 1;
+        uint64 uint64_file_size = 2;
+        bytes bytes_file_id = 3;
+        bytes bytes_batch_id = 4;
+        bytes bytes_file_key = 5;
+        bytes bytes_mark = 6;
+        uint64 uint64_sequence = 7;
+        bytes bytes_batch_item_id = 8;
+        uint32 uint32_feed_msg_time = 9;
+        bytes bytes_pb_reserve = 10;
+    }
+    message GroupPostElem {
+        uint32 uint32_trans_type = 1;
+        bytes bytes_trans_msg = 2;
+    }
+    message GroupPubAccountInfo {
+        uint64 uint64_pub_account = 1;
+    }
+    message LifeOnlineAccount {
+        uint64 uint64_unique_id = 1;
+        uint32 uint32_op = 2;
+        uint32 uint32_show_time = 3;
+        uint32 uint32_report = 4;
+        uint32 uint32_ack = 5;
+        uint64 uint64_bitmap = 6;
+        bytes gdt_imp_data = 7;
+        bytes gdt_cli_data = 8;
+        bytes view_id = 9;
+    }
+    message LightAppElem {
+        bytes bytes_data = 1;
+        bytes bytes_msg_resid = 2;
+    }
+    message LocationInfo {
+        double double_longitude = 1;
+        double double_latitude = 2;
+        bytes bytes_desc = 3;
+    }
+    message LolaMsg {
+        bytes bytes_msg_resid = 1;
+        bytes bytes_encode_content = 2;
+        bytes bytes_long_msg_url = 3;
+        bytes bytes_download_key = 4;
+    }
+    message LowVersionTips {
+        uint32 uint32_business_id = 1;
+        uint32 uint32_session_type = 2;
+        uint64 uint64_session_uin = 3;
+        uint64 uint64_sender_uin = 4;
+        string str_text = 5;
+    }
+    message MarketFace {
+        bytes bytes_face_name = 1;
+        uint32 uint32_item_type = 2;
+        uint32 uint32_face_info = 3;
+        bytes bytes_face_id = 4;
+        uint32 uint32_tab_id = 5;
+        uint32 uint32_sub_type = 6;
+        bytes bytes_key = 7;
+        bytes bytes_param = 8;
+        uint32 uint32_media_type = 9;
+        uint32 uint32_image_width = 10;
+        uint32 uint32_image_height = 11;
+        bytes bytes_mobileparam = 12;
+        bytes bytes_pb_reserve = 13;
+    }
+    message MarketTrans {
+        int32 int32_flag = 1;
+        bytes bytes_xml = 2;
+        bytes bytes_msg_resid = 3;
+        uint32 uint32_ability = 4;
+        uint32 uint32_min_ability = 5;
+    }
+    message MsgBody {
+        RichText rich_text = 1;
+        bytes msg_content = 2;
+        bytes msg_encrypt_content = 3;
+    }
+    message MsgBody_subtype4 {
+        NotOnlineFile msg_not_online_file = 1;
+        uint32 uint32_msg_time = 2;
+    }
+    message NearByMessageType {
+        uint32 uint32_type = 1;
+        uint32 uint32_identify_type = 2;
+    }
+    message NotOnlineFile {
+        uint32 uint32_file_type = 1;
+        bytes bytes_sig = 2;
+        bytes bytes_file_uuid = 3;
+        bytes bytes_file_md5 = 4;
+        bytes bytes_file_name = 5;
+        uint64 uint64_file_size = 6;
+        bytes bytes_note = 7;
+        uint32 uint32_reserved = 8;
+        uint32 uint32_subcmd = 9;
+        uint32 uint32_micro_cloud = 10;
+        uint32 uint32_danger_evel = 50;
+        uint32 uint32_life_time = 51;
+        uint32 uint32_upload_time = 52;
+        uint32 uint32_abs_file_type = 53;
+        uint32 uint32_client_type = 54;
+        uint32 uint32_expire_time = 55;
+    }
+    message NotOnlineImage {
+        bytes file_path = 1;
+        uint32 file_len = 2;
+        bytes download_path = 3;
+        bytes old_ver_send_file = 4;
+        uint32 img_type = 5;
+        bytes previews_image = 6;
+        bytes pic_md5 = 7;
+        uint32 pic_height = 8;
+        uint32 pic_width = 9;
+        bytes res_id = 10;
+        bytes flag = 11;
+        string str_thumb_url = 12;
+        uint32 original = 13;
+        string str_big_url = 14;
+        string str_orig_url = 15;
+        uint32 biz_type = 16;
+        uint32 result = 17;
+        uint32 index = 18;
+        bytes op_face_buf = 19;
+        bool old_pic_md5 = 20;
+        uint32 uint32_thumb_width = 21;
+        uint32 uint32_thumb_height = 22;
+        uint32 uint32_file_id = 23;
+        uint32 uint32_show_len = 24;
+        uint32 uint32_download_len = 25;
+        string str_400_url = 26;
+        uint32 uint32_400_width = 27;
+        uint32 uint32_400_height = 28;
+        bytes bytes_pb_reserve = 29;
+    }
+    message OnlineImage {
+        bytes guid = 1;
+        bytes file_path = 2;
+        bytes old_ver_send_file = 3;
+    }
+    message OpenQQData {
+        bytes bytes_car_qq_data = 1;
+    }
+    message PatsElem {
+        uint32 uint32_pat_type = 1;
+        uint32 uint32_pat_count = 2;
+    }
+    message PcSupportDef {
+        uint32 uint32_pc_ptl_begin = 1;
+        uint32 uint32_pc_ptl_end = 2;
+        uint32 uint32_mac_ptl_begin = 3;
+        uint32 uint32_mac_ptl_end = 4;
+        repeated uint32 rpt_ptls_support = 5;
+        repeated uint32 rpt_ptls_not_support = 6;
+    }
+    message Ptt {
+        uint32 uint32_file_type = 1;
+        uint64 uint64_src_uin = 2;
+        bytes bytes_file_uuid = 3;
+        bytes bytes_file_md5 = 4;
+        bytes bytes_file_name = 5;
+        uint32 uint32_file_size = 6;
+        bytes bytes_reserve = 7;
+        uint32 uint32_file_id = 8;
+        uint32 uint32_server_ip = 9;
+        uint32 uint32_server_port = 10;
+        bool bool_valid = 11;
+        bytes bytes_signature = 12;
+        bytes bytes_shortcut = 13;
+        bytes bytes_file_key = 14;
+        uint32 uint32_magic_ptt_index = 15;
+        uint32 uint32_voice_switch = 16;
+        bytes bytes_ptt_url = 17;
+        bytes bytes_group_file_key = 18;
+        uint32 uint32_time = 19;
+        bytes bytes_down_para = 20;
+        uint32 uint32_format = 29;
+        bytes bytes_pb_reserve = 30;
+    }
+    message PubAccInfo {
+        uint32 uint32_is_inter_num = 1;
+        string string_msg_template_id = 2;
+        string string_long_msg_url = 3;
+        bytes bytes_download_key = 4;
+    }
+    message PubAccount {
+        bytes bytes_buf = 1;
+        uint64 uint64_pub_account_uin = 2;
+    }
+    message PubGroup {
+        bytes bytes_nickname = 1;
+        uint32 uint32_gender = 2;
+        uint32 uint32_age = 3;
+        uint32 uint32_distance = 4;
+    }
+    message QQLiveOld {
+        uint32 uint32_sub_cmd = 1;
+        bytes str_show_text = 2;
+        bytes str_param = 3;
+        bytes str_introduce = 4;
+    }
+    message QQWalletAioBody {
+        uint64 uint64_senduin = 1;
+        QQWalletAioElem sender = 2;
+        QQWalletAioElem receiver = 3;
+        sint32 sint32_channelid = 4;
+        sint32 sint32_templateid = 5;
+        uint32 uint32_resend = 6;
+        uint32 uint32_msg_priority = 7;
+        sint32 sint32_redtype = 8;
+        bytes bytes_billno = 9;
+        bytes bytes_authkey = 10;
+        sint32 sint32_sessiontype = 11;
+        sint32 sint32_msgtype = 12;
+        sint32 sint32_envelopeid = 13;
+        bytes bytes_name = 14;
+        sint32 sint32_conftype = 15;
+        sint32 sint32_msg_from = 16;
+        bytes bytes_pc_body = 17;
+        bytes string_index = 18;
+        uint32 uint32_redchannel = 19;
+        repeated uint64 uint64_grap_uin = 20;
+    }
+    message QQWalletAioElem {
+        uint32 uint32_background = 1;
+        uint32 uint32_icon = 2;
+        bytes bytes_title = 3;
+        bytes bytes_subtitle = 4;
+        bytes bytes_content = 5;
+        bytes bytes_linkurl = 6;
+        bytes bytes_blackstripe = 7;
+        bytes bytes_notice = 8;
+        uint32 uint32_title_color = 9;
+        uint32 uint32_subtitle_color = 10;
+        bytes bytes_actions_priority = 11;
+        bytes bytes_jump_url = 12;
+        bytes bytes_native_ios = 13;
+        bytes bytes_native_android = 14;
+        bytes bytes_iconurl = 15;
+        uint32 uint32_content_color = 16;
+        uint32 uint32_content_bgcolor = 17;
+        bytes bytes_aio_image_left = 18;
+        bytes bytes_aio_image_right = 19;
+        bytes bytes_cft_image = 20;
+    }
+    message QQWalletMsg {
+        QQWalletAioBody aio_body = 1;
+    }
+    message RedBagInfo {
+        uint32 redbag_type = 1;
+    }
+    message RichMsg {
+        bytes bytes_template_1 = 1;
+        uint32 uint32_service_id = 2;
+        bytes bytes_msg_resid = 3;
+        uint32 uint32_rand = 4;
+        uint32 uint32_seq = 5;
+        uint32 uint32_flags = 6;
+    }
+    message RichText {
+        Attr attr = 1;
+        repeated Elem elems = 2;
+        NotOnlineFile not_online_file = 3;
+        Ptt ptt = 4;
+        TmpPtt tmp_ptt = 5;
+        Trans211TmpMsg trans_211_tmp_msg = 6;
+    }
+    message SecretFileMsg {
+        bytes bytes_file_key = 1;
+        uint64 uint64_from_uin = 2;
+        uint64 uint64_to_uin = 3;
+        uint32 uint32_status = 4;
+        uint32 uint32_ttl = 5;
+        uint32 uint32_type = 6;
+        uint32 uint32_encrypt_prehead_length = 7;
+        uint32 uint32_encrypt_type = 8;
+        bytes bytes_encrypt_key = 9;
+        uint32 uint32_read_times = 10;
+        uint32 uint32_left_time = 11;
+        NotOnlineImage not_online_image = 12;
+        ElemFlags2 elem_flags2 = 13;
+        uint32 uint32_opertype = 14;
+        string str_fromphonenum = 15;
+    }
+    message ShakeWindow {
+        uint32 uint32_type = 1;
+        uint32 uint32_reserve = 2;
+        uint64 uint64_uin = 3;
+    }
+    message SmallEmoji {
+        uint32 packIdSum = 1;
+    }
+    message SourceMsg {
+        repeated uint32 uint32_orig_seqs = 1;
+        uint64 uint64_sender_uin = 2;
+        uint32 uint32_time = 3;
+        uint32 uint32_flag = 4;
+        repeated Elem elems = 5;
+        uint32 uint32_type = 6;
+        bytes bytes_richMsg = 7;
+    }
+    message Text {
+        bytes str = 1;
+        string link = 2;
+        bytes attr_6_buf = 3;
+        bytes attr_7_buf = 4;
+        bytes buf = 11;
+    }
+    message TipsInfo {
+        string text = 1;
+    }
+    message TmpPtt {
+        uint32 uint32_file_type = 1;
+        bytes bytes_file_uuid = 2;
+        bytes bytes_file_md5 = 3;
+        bytes bytes_file_name = 4;
+        uint32 uint32_file_size = 5;
+        uint32 uint64_ptt_times = 6;
+        uint32 uint32_user_type = 7;
+        uint32 uint32_ptttrans_flag = 8;
+        uint32 uint32_busi_type = 9;
+        uint64 uint64_msg_id = 10;
+        bytes bytes_pb_reserve = 30;
+    }
+    message Trans211TmpMsg {
+        bytes bytes_msg_body = 1;
+        uint32 uint32_c2c_cmd = 2;
+    }
+    message TransElem {
+        uint32 elem_type = 1;
+        bytes elem_value = 2;
+    }
+    message VideoFile {
+        bytes bytes_file_uuid = 1;
+        bytes bytes_file_md5 = 2;
+        bytes bytes_file_name = 3;
+        uint32 uint32_file_format = 4;
+        uint32 uint32_file_time = 5;
+        uint32 uint32_file_size = 6;
+        uint32 uint32_thumb_width = 7;
+        uint32 uint32_thumb_height = 8;
+        bytes bytes_thumb_file_md5 = 9;
+        bytes bytes_source = 10;
+        uint32 uint32_thumb_file_size = 11;
+        uint32 uint32_busi_type = 12;
+        uint32 uint32_from_chat_type = 13;
+        uint32 uint32_to_chat_type = 14;
+        bool bool_support_progressive = 15;
+        uint32 uint32_file_width = 16;
+        uint32 uint32_file_height = 17;
+        uint32 uint32_sub_busi_type = 18;
+        uint32 uint32_video_attr = 19;
+    }
+    message WorkflowNotifyMsg {
+        bytes bytes_ext_msg = 1;
+        uint64 uint64_create_uin = 2;
+    }

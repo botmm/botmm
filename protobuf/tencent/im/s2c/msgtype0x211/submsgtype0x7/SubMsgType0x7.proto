@@ -1,0 +1,17 @@
+syntax = "proto3";
+package SubMsgType0x7;
+    message MsgBody {
+        uint32 uint32_sub_cmd = 1;
+        MsgBody.MsgHeader msg_header = 2;
+        repeated MsgBody.FTNNotify rpt_msg_subcmd_0x1_ftn_notify = 3;
+        repeated MsgBody.NFCNotify rpt_msg_subcmd_0x2_nfc_notify = 4;
+        repeated MsgBody.FileControl rpt_msg_subcmd_0x3_filecontrol = 5;
+        MsgBody.GenericSubCmd msg_subcmd_0x4_generic = 6;
+        repeated MsgBody.MoloNotify rpt_msg_subcmd_0x5_molo_notify = 7;
+        repeated MsgBody.RNFCNotify rpt_msg_subcmd_0x8_rnfc_notify = 8;
+        repeated MsgBody.FTNNotify rpt_msg_subcmd_0x9_ftn_thumb_notify = 9;
+        repeated MsgBody.NFCNotify rpt_msg_subcmd_0xa_nfc_thumb_notify = 10;
+        repeated MsgBody.MpFileNotify rpt_msg_subcmd_0xb_mpfile_notify = 11;
+        MsgBody.ProgressReq msg_subcmd_0xc_progress_req = 12;
+        MsgBody.ProgressRsp msg_subcmd_0xd_progress_rsp = 13;
+    }

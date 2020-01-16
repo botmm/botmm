@@ -1,0 +1,17 @@
+syntax = "proto3";
+package msg_svc.PbDelRoamMsgReq;
+    message C2CMsg {
+        uint64 from_uin = 1;
+        uint64 peer_uin = 2;
+        uint32 msg_time = 3;
+        uint32 msg_random = 4;
+        uint32 msg_seq = 5;
+    }
+    message DisMsg {
+        uint64 discuss_uin = 1;
+        uint64 msg_seq = 2;
+    }
+    message GrpMsg {
+        uint64 group_code = 1;
+        uint64 msg_seq = 2;
+    }

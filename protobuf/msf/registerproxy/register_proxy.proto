@@ -1,0 +1,45 @@
+syntax = "proto3";
+import "msf/registerproxy/register_proxy.proto";
+package register_proxy;
+    message DiscussList {
+        uint64 discuss_code = 1;
+        uint64 discuss_seq = 2;
+        uint64 member_seq = 3;
+        uint64 info_seq = 4;
+        bool bHotGroup = 5;
+        uint64 redpack_time = 6;
+        bool has_msg = 7;
+    }
+    message GroupList {
+        uint64 group_code = 1;
+        uint64 group_seq = 2;
+        uint64 member_seq = 3;
+        uint64 mask = 4;
+        uint64 redpack_time = 5;
+        bool has_msg = 6;
+    }
+    message SvcPbResponsePullDisMsgProxy {
+        uint64 member_seq = 1;
+        bytes msg_content = 2;
+    }
+    message SvcRegisterProxyMsgResp {
+        uint32 result = 1;
+        bytes err_msg = 2;
+        uint32 flag = 3;
+        uint32 seq = 4;
+        SvcResponseMsgInfo msg_info = 5;
+        repeated GroupList group_list = 6;
+        repeated DiscussList discuss_list = 7;
+        repeated SvcResponsePbPullGroupMsgProxy gourp_msg = 8;
+        repeated SvcPbResponsePullDisMsgProxy discuss_msg = 9;
+        bytes c2c_msg = 10;
+        bytes pub_account_msg = 11;
+    }
+    message SvcResponseMsgInfo {
+        uint32 group_num = 1;
+        uint32 discuss_num = 2;
+    }
+    message SvcResponsePbPullGroupMsgProxy {
+        uint64 member_seq = 1;
+        bytes msg_content = 2;
+    }

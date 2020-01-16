@@ -1,0 +1,6 @@
+syntax = "proto3";
+package msg_svc.PbPullGroupMsgSeqReq;
+    message GroupInfoReq {
+        uint64 group_code = 1;
+        uint64 last_seq = 2;
+    }

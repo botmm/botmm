@@ -1,0 +1,14 @@
+syntax = "proto3";
+import "appoint/define/appoint_define/FeedContent.proto";
+import "appoint/define/appoint_define/LBSInfo.proto";
+import "appoint/define/appoint_define/FeedInfo.proto";
+package oidb_0x9ce;
+    message ReqBody {
+        /* message */ appoint_define.LBSInfo msg_lbs_info = 1;
+        /* message */ appoint_define.FeedContent msg_feed_content = 2;
+        uint64 uint64_topic_id = 3;
+    }
+    message RspBody {
+        string str_error_tips = 1;
+        /* message */ appoint_define.FeedInfo msg_feed_info = 2;
+    }

@@ -1,0 +1,20 @@
+syntax = "proto3";
+import "tencent/im/group/group_label/GroupLabel.proto";
+import "tencent/im/troop_search_userinfo/userinfo.proto";
+import "tencent/im/nearbygroup/ext/NearbyGroupExt.proto";
+package NearbyGroupExt;
+    message GroupItem {
+        uint64 uint64_group_code = 1;
+        bytes bytes_group_name = 2;
+        bytes bytes_group_intro = 3;
+        repeated GroupLabel.Label rpt_label_list = 4;
+    }
+    message ReqBody {
+        /* message */ userinfo.UserInfo user_info = 1;
+        uint32 uint32_type = 3;
+    }
+    message RspBody {
+        uint32 uint32_total_num = 1;
+        repeated GroupItem rpt_group_list = 2;
+        string str_wording = 3;
+    }

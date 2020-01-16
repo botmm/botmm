@@ -1,0 +1,22 @@
+syntax = "proto3";
+package oidb_0x88c;
+    message ReqBody {
+        uint32 uint32_uin = 1;
+        uint32 uint32_appid = 2;
+    }
+    message RspBody {
+        uint32 uint32_uin = 1;
+        string str_errorinfo = 2;
+        uint32 uint32_group_500 = 3;
+        uint32 uint32_group_1k = 4;
+        uint32 uint32_group_2k = 5;
+        uint32 uint32_group_mini = 6;
+        uint32 uint32_created_group_500 = 7;
+        uint32 uint32_created_group_1k = 8;
+        uint32 uint32_created_group_2k = 9;
+        uint32 uint32_created_group_mini = 10;
+        uint32 uint32_group_500_freq_avail = 11;
+        uint32 uint32_group_1k_freq_avail = 12;
+        uint32 uint32_group_2k_freq_avail = 13;
+        uint32 uint32_group_mini_freq_avail = 14;
+    }

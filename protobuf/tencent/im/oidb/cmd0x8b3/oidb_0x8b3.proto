@@ -1,0 +1,13 @@
+syntax = "proto3";
+package oidb_0x8b3;
+    message ReqBody {
+        bytes string_hot_group_id = 1;
+        groupinfo st_group_info = 2;
+    }
+    message RspBody {
+        bytes string_hot_group_id = 1;
+    }
+    message groupinfo {
+        bytes string_group_memo = 1;
+        bytes string_jumping_url = 2;
+    }

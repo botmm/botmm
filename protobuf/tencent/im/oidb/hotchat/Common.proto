@@ -1,0 +1,48 @@
+syntax = "proto3";
+package Common;
+    message SeatsInfo {
+        uint32 uint32_seat_flag = 1;
+        uint64 uin64_guest_uin = 2;
+        uint32 uint32_seat_id = 3;
+        uint32 uint32_seat_seq = 4;
+    }
+    message WifiPOIInfo {
+        bytes bytes_uid = 1;
+        bytes bytes_name = 2;
+        uint32 uint32_face_id = 3;
+        bytes bytes_sig = 4;
+        uint32 uint32_group_code = 5;
+        uint32 uint32_group_uin = 6;
+        uint32 uint32_visitor_num = 7;
+        uint32 uint32_wifi_poi_type = 8;
+        uint32 uint32_is_member = 9;
+        uint32 uint32_distance = 10;
+        uint32 uint32_msg_tab_switch_off = 11;
+        string face_url = 12;
+        uint32 hot_theme_group_flag = 13;
+        string banner_url = 14;
+        uint32 uint32_special_flag = 15;
+        uint32 uint32_total_num_limit = 16;
+        uint32 uint32_is_admin = 17;
+        string string_join_group_url = 18;
+        uint32 uint32_group_type_flag = 19;
+        uint32 uint32_creater_city_id = 20;
+        uint32 uint32_is_user_create = 21;
+        uint64 uint64_owner_uin = 22;
+        uint32 uint32_audit_flag = 23;
+        uint32 uint32_tv_pk_flag = 24;
+        uint32 uint32_sub_type = 25;
+        uint64 uint64_last_msg_seq = 26;
+        repeated SeatsInfo rpt_msg_seats_info = 27;
+        uint64 uint64_flower_num = 28;
+        uint64 uint64_flower_point = 29;
+        uint64 uint64_favorites_time = 31;
+        uint32 uint32_favorites_expired = 32;
+        uint32 uint32_group_id = 33;
+        uint64 uint64_praise_nums = 34;
+        uint64 uint64_report_praise_gap_time = 35;
+        uint64 uint64_report_praise_gap_frequency = 36;
+        uint64 uint64_get_praise_gap_time = 37;
+        uint64 uint64_vistor_join_group_time = 38;
+        uint64 uint64_exit_group_code = 42;
+    }

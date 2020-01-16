@@ -1,0 +1,118 @@
+syntax = "proto3";
+package hd_video_putinfo;
+    message AndroidCameraInfo {
+        uint32 uint32_param1 = 1;
+        uint32 uint32_param2 = 2;
+        uint32 uint32_param3 = 3;
+        uint32 uint32_param4 = 4;
+        uint32 uint32_param5 = 5;
+        uint32 uint32_param6 = 6;
+        uint32 uint32_param7 = 7;
+        uint32 uint32_param8 = 8;
+        uint32 uint32_param9 = 9;
+        uint32 uint32_param10 = 10;
+        uint32 uint32_param11 = 11;
+        uint32 uint32_param12 = 12;
+        uint32 uint32_param13 = 13;
+        uint32 uint32_param14 = 14;
+        uint32 uint32_param15 = 15;
+        uint32 uint32_param16 = 16;
+    }
+    message AudioSwitchPointInfo {
+        uint32 uint32_wifi_shake = 1;
+        uint32 uint32_wifi_time_delay = 2;
+        uint32 uint32_wifi_pack_loss = 3;
+        uint32 uint32_wifi_pack_loss_rate = 4;
+        bytes bytes_wifi_words = 6;
+        uint32 uint32_nowifi_shake = 7;
+        uint32 uint32_nowifi_time_delay = 8;
+        uint32 uint32_nowifi_pack_loss = 9;
+        uint32 uint32_nowifi_pack_loss_rate = 10;
+        bytes bytes_nowifi_words = 12;
+    }
+    message CmdReportClientInfoReqBody {
+        uint32 uint32_mobile_type = 1;
+        uint32 uint32_mobile_os_info = 2;
+        uint32 uint32_instid = 3;
+        bytes bytes_client_system_info = 4;
+        bytes bytes_device_info = 5;
+        MobileHardWareValue msg_device_info = 6;
+        VideoHardWareInfo msg_video_info = 7;
+        bytes bytes_mobile_rom_info = 8;
+        uint32 uint32_sharp_sdk_ver = 9;
+        uint32 uint32_open_general_info = 10;
+        bytes bytes_app_version = 11;
+    }
+    message CmdToClientConfigInfoRspBody {
+        uint32 uint32_log_flag = 2;
+        bytes bytes_log_report_time = 3;
+        AndroidCameraInfo msg_android_camera_set = 4;
+        SharpTraeInfo msg_sharp_trae_info_set = 5;
+        uint64 uint64_switch = 6;
+        MobileQQPttInfo msg_qq_ptt_info_set = 7;
+        AudioSwitchPointInfo msg_audio_quality_set = 8;
+        repeated TransBuffer rpt_msg_trans_buffer_list = 9;
+    }
+    message MobileHardWareValue {
+        uint32 uint32_mobile_cpu_struct = 1;
+        uint32 uint32_mobile_cpu_number = 2;
+        uint32 uint32_mobile_cpu_hertz = 3;
+        uint32 uint32_mobile_camera_turn = 4;
+    }
+    message MobileQQPttInfo {
+        uint32 uint32_param1 = 1;
+        uint32 uint32_param2 = 2;
+        uint32 uint32_param3 = 3;
+        uint32 uint32_param4 = 4;
+        uint32 uint32_param5 = 5;
+        uint32 uint32_param6 = 6;
+        uint32 uint32_param7 = 7;
+        uint32 uint32_param8 = 8;
+        uint32 uint32_param9 = 9;
+        uint32 uint32_param10 = 10;
+        uint32 uint32_param11 = 11;
+        uint32 uint32_param12 = 12;
+        uint32 uint32_param13 = 13;
+        uint32 uint32_param14 = 14;
+        uint32 uint32_param15 = 15;
+    }
+    message PutinfoHead {
+        enum enum_body_type = 1;
+        uint64 uint64_uin = 2;
+        bytes bytes_appid = 3;
+        uint64 uint64_seq = 4;
+        uint32 uint32_error_no = 5;
+        bytes bytes_error_msg = 6;
+        bytes bytes_config_ver = 7;
+    }
+    message ReqBody {
+        PutinfoHead msg_putinfo_head = 1;
+        CmdReportClientInfoReqBody msg_report_client_info_req_body = 2;
+    }
+    message RspBody {
+        PutinfoHead msg_putinfo_head = 1;
+        CmdToClientConfigInfoRspBody msg_to_client_config_info_rsq_body = 2;
+    }
+    message SharpTraeInfo {
+        uint32 uint32_trae_source = 1;
+        uint32 uint32_trae_interface = 2;
+        uint32 uint32_trae_stream_type = 3;
+        uint32 uint32_trae_volume = 4;
+        uint32 uint32_trae_mode = 5;
+        uint32 uint32_arm_flag = 6;
+        uint32 uint32_cpu_hertz = 7;
+        uint32 uint32_audio_set = 8;
+        uint32 uint32_param9 = 9;
+        uint32 uint32_param10 = 10;
+        uint32 uint32_param11 = 11;
+    }
+    message TransBuffer {
+        uint32 uint32_type = 1;
+        bytes bytes_content = 2;
+    }
+    message VideoHardWareInfo {
+        uint32 uint32_mobile_max_encodeframe = 1;
+        uint32 uint32_mobile_max_decodeframe = 2;
+        uint32 uint32_mobile_width = 3;
+        uint32 uint32_mobile_height = 4;
+    }

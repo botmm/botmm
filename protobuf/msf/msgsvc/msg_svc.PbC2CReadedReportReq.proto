@@ -1,0 +1,7 @@
+syntax = "proto3";
+package msg_svc.PbC2CReadedReportReq;
+    message UinPairReadInfo {
+        uint64 peer_uin = 1;
+        uint32 last_read_time = 2;
+        bytes crm_sig = 3;
+    }

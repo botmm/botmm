@@ -1,0 +1,23 @@
+syntax = "proto3";
+package oidb_cmd0x59a;
+    message ExpertFields {
+        uint32 uint32_req_name = 21;
+        uint32 uint32_req_face_url = 22;
+    }
+    message ExpertInfo {
+        uint64 uint64_expert_tinyid = 1;
+        bytes bytes_name = 21;
+        bytes bytes_face_url = 22;
+    }
+    message ReqBody {
+        uint32 uint32_category_id = 1;
+        bytes bytes_client_version = 2;
+        bytes bytes_web_version = 3;
+        bytes bytes_cgi_version = 4;
+        uint64 uint64_expert_tinyid = 5;
+        ExpertFields msg_expert_fields = 6;
+    }
+    message RspBody {
+        uint32 uint32_category_id = 1;
+        ExpertInfo msg_expert_info = 2;
+    }

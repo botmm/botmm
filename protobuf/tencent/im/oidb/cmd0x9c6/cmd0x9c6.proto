@@ -1,0 +1,17 @@
+syntax = "proto3";
+import "appoint/define/appoint_define/InterestTag.proto";
+package cmd0x9c6;
+    message InterestMsg {
+        uint64 uint64_ddwUin = 1;
+        /* message */ appoint_define.InterestTag msg_interest_tag = 2;
+        repeated appoint_define.InterestTag rpt_latest_interest_tags = 3;
+        uint32 uint32_mod_time = 4;
+    }
+    message ReqBody {
+        repeated uint64 rpt_uint64_uins = 1;
+        uint32 uint32_tag_type = 2;
+    }
+    message RspBody {
+        repeated InterestMsg rpt_msg_interests = 1;
+        string str_error = 2;
+    }

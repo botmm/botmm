@@ -1,0 +1,11 @@
+syntax = "proto3";
+package obj_msg.MsgContentInfo;
+    message MsgFile {
+        uint32 uint32_bus_id = 1;
+        bytes bytes_file_path = 2;
+        uint64 uint64_file_size = 3;
+        string str_file_name = 4;
+        int64 int64_dead_time = 5;
+        bytes bytes_file_sha1 = 6;
+        bytes bytes_ext = 7;
+    }

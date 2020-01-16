@@ -1,0 +1,6 @@
+syntax = "proto3";
+package hd_video_voip2.CmdPhoneSpeedTestRsp;
+    message IPSpeedSvrInfo {
+        fixed32 fixed32_server_ip = 1;
+        uint32 uint32_server_port = 2;
+    }

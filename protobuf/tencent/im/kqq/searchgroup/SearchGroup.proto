@@ -1,0 +1,49 @@
+syntax = "proto3";
+import "tencent/im/kqq/searchgroup/SearchGroup.proto";
+package SearchGroup;
+    message GroupClusterInfo {
+        uint32 dwIsEnd = 1;
+        uint32 dwGroupNum = 2;
+        repeated GroupInfo vGroupInfo = 3;
+        uint32 dwTotalSearchNum = 4;
+    }
+    message GroupInfo {
+        uint32 dwGroupCode = 1;
+        uint32 dwGroupUin = 2;
+        uint32 dwGroupOwnerId = 3;
+        uint32 dwCurMemberNum = 4;
+        uint32 dwMaxMemberNum = 5;
+        string sGroupName = 6;
+        string sGroupFingerMem = 7;
+        uint32 dwGroupFaceId = 8;
+        string sGroupFaceUrl = 9;
+        string sGroupTag = 10;
+        uint32 dwGroupClass = 11;
+        string sGroupClassText = 12;
+        uint32 dwGroupLevel = 13;
+        bool bSameCity = 14;
+        bool bGroupFull = 15;
+        bool bGroupAllow = 16;
+        bool bGroupIn = 17;
+        uint32 dwGroupHotDegree = 18;
+        uint32 dwGroupFlagExt = 19;
+        string sGroupLocation = 20;
+        uint32 dwGroupOption = 21;
+        uint32 dwAuthGroupType = 22;
+    }
+    message SearchGroupReq {
+        uint64 qwUin = 1;
+        uint32 dwVersion = 2;
+        uint32 dwReqUinNum = 3;
+        uint32 dwPageNo = 4;
+        enum eSubCmd = 5;
+        string sReqContent = 6;
+        enum eGroupSortType = 7;
+        uint32 dwNextRecTime = 8;
+    }
+    message SearchGroupRes {
+        uint32 dwResult = 1;
+        GroupClusterInfo stGroupClusterInfo = 2;
+        string sErrInfo = 3;
+        uint32 dwNextRecTime = 4;
+    }

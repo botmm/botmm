@@ -1,0 +1,31 @@
+syntax = "proto3";
+package oidb_0x858;
+    message MessageRecallReminder {
+        uint64 uint64_uin = 1;
+        bytes bytes_nickname = 2;
+        repeated MessageRecallReminder.MessageMeta uint32_recalled_msg_list = 3;
+        bytes str_reminder_content = 4;
+        bytes bytes_userdef = 5;
+    }
+    message NotifyMsgBody {
+        enum opt_enum_type = 1;
+        uint64 opt_uint64_msg_time = 2;
+        uint64 opt_uint64_msg_expires = 3;
+        uint64 opt_uint64_conf_uin = 4;
+        RedGrayTipsInfo opt_msg_redtips = 5;
+        MessageRecallReminder opt_msg_recall_reminder = 6;
+        NotifyObjmsgUpdate opt_msg_obj_update = 7;
+    }
+    message NotifyObjmsgUpdate {
+        bytes bytes_objmsg_id = 1;
+        uint32 uint32_update_type = 2;
+        bytes bytes_ext_msg = 3;
+    }
+    message RedGrayTipsInfo {
+        uint32 opt_uint32_show_lastest = 1;
+        uint64 uint64_sender_uin = 2;
+        uint64 uint64_receiver_uin = 3;
+        bytes bytes_sender_rich_content = 4;
+        bytes bytes_receiver_rich_content = 5;
+        bytes bytes_authkey = 6;
+    }

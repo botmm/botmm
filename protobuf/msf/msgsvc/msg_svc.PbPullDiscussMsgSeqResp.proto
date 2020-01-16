@@ -1,0 +1,7 @@
+syntax = "proto3";
+package msg_svc.PbPullDiscussMsgSeqResp;
+    message DiscussInfoResp {
+        uint64 conf_uin = 1;
+        uint64 member_seq = 2;
+        uint64 conf_seq = 3;
+    }

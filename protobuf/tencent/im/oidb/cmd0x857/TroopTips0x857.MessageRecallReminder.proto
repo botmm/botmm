@@ -1,0 +1,7 @@
+syntax = "proto3";
+package TroopTips0x857.MessageRecallReminder;
+    message MessageMeta {
+        uint32 uint32_seq = 1;
+        uint32 uint32_time = 2;
+        uint32 uint32_msg_random = 3;
+    }

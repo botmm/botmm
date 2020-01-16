@@ -1,0 +1,22 @@
+syntax = "proto3";
+import "tencent/group_pay/nearbypay_wall/comm/nearbypay_wall_comm/ClientInfo.proto";
+import "tencent/group_pay/nearbypay_wall/comm/nearbypay_wall_comm/Index.proto";
+import "tencent/group_pay/nearbypay_wall/comm/nearbypay_wall_comm/LocationInfo.proto";
+import "tencent/group_pay/nearbypay_wall/comm/nearbypay_wall_comm/ReqParam.proto";
+import "tencent/group_pay/nearbypay_wall/comm/nearbypay_wall_comm/GiftInfo.proto";
+import "tencent/group_pay/nearbypay_wall/comm/nearbypay_wall_comm/NearbyRunAdMsg.proto";
+package cmd0x807;
+    message ReqBody {
+        /* message */ nearbypay_wall_comm.LocationInfo msg_location_info = 1;
+        /* message */ nearbypay_wall_comm.ClientInfo msg_client_info = 2;
+        /* message */ nearbypay_wall_comm.Index msg_prev_index = 3;
+        /* message */ nearbypay_wall_comm.ReqParam msg_req_param = 4;
+    }
+    message RspBody {
+        repeated nearbypay_wall_comm.NearbyRunAdMsg rpt_msg_nearby_runad_msg = 1;
+        uint64 uint64_cityid = 2;
+        /* message */ nearbypay_wall_comm.Index msg_next_index = 3;
+        uint64 uint64_next_time = 4;
+        repeated nearbypay_wall_comm.GiftInfo rpt_msg_nearby_gift_list_msg = 5;
+        uint32 uint32_city_consume_threshold = 6;
+    }

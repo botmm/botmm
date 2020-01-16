@@ -1,0 +1,8 @@
+syntax = "proto3";
+package generalflags;
+    message ResvAttr {
+        uint32 uint32_global_group_level = 1;
+        uint32 uint32_nearby_charm_level = 2;
+        uint64 redbag_msg_sender_uin = 3;
+        uint32 uint32_title_id = 4;
+    }

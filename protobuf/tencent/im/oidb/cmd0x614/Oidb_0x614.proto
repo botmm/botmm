@@ -1,0 +1,26 @@
+syntax = "proto3";
+package Oidb_0x614;
+    message DeviceManageHead {
+        uint32 uint32_cmd = 1;
+        uint32 uint32_result = 2;
+        uint64 uint64_uin = 3;
+        bytes bytes_guid = 4;
+        uint32 uint32_appid = 5;
+        uint32 uint32_subappid = 6;
+        bytes bytes_appname = 7;
+    }
+    message ReNameDeviceNameReqBody {
+        bytes bytes_guid = 1;
+        uint32 uint32_appid = 2;
+        uint32 uint32_subappid = 3;
+        bytes bytes_appname = 4;
+        bytes bytes_device_des = 5;
+        bytes bytes_rename_device_name = 6;
+    }
+    message ReqBody {
+        DeviceManageHead msg_dm_head = 1;
+        ReNameDeviceNameReqBody msg_mdn_req_body = 2;
+    }
+    message RspBody {
+        DeviceManageHead msg_dm_head = 1;
+    }

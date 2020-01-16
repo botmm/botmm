@@ -1,0 +1,6 @@
+syntax = "proto3";
+package C2CType0x211_SubC2CType0xb;
+    message MsgBody {
+        MsgBody.MsgHeader msg_msg_header = 1;
+        MsgBody.RejectNotify msg_reject_motify = 2;
+    }

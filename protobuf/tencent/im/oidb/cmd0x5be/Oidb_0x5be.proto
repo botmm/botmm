@@ -1,0 +1,22 @@
+syntax = "proto3";
+package Oidb_0x5be;
+    message AppInfo {
+        uint64 uint64_appid = 1;
+        bytes bytes_app_name = 2;
+        bytes bytes_url = 3;
+        bytes bytes_icon = 4;
+        bytes bytes_open_param = 5;
+        int32 int32_unread_num = 6;
+        uint32 uint32_open_type = 7;
+    }
+    message ReqBody {
+        uint64 opt_uint64_groupcode = 1;
+        repeated uint64 rpt_appid_list = 2;
+        uint32 opt_uint32_request_app_num = 3;
+        uint32 opt_version = 4;
+    }
+    message RspBody {
+        uint64 opt_uint64_groupcode = 1;
+        repeated AppInfo rpt_appinfo_list = 2;
+        bytes opt_bytes_more_app_url = 3;
+    }

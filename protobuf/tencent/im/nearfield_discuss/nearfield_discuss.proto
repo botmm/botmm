@@ -1,0 +1,92 @@
+syntax = "proto3";
+import "tencent/im/nearfield_discuss/nearfield_discuss.proto";
+package nearfield_discuss;
+    message BusiReqHead {
+        int32 int32_version = 1;
+        int32 int32_seq = 2;
+    }
+    message BusiRespHead {
+        int32 int32_version = 1;
+        int32 int32_seq = 2;
+        int32 int32_reply_code = 3;
+        string str_result = 4;
+    }
+    message Cell {
+        int32 int32_mcc = 1;
+        int32 int32_mnc = 2;
+        int32 int32_lac = 3;
+        int32 int32_cellid = 4;
+        int32 int32_rssi = 5;
+    }
+    message GPS {
+        int32 int32_lat = 1;
+        int32 int32_lon = 2;
+        int32 int32_alt = 3;
+        enum eType = 4;
+    }
+    message LBSInfo {
+        GPS msg_gps = 1;
+        repeated Wifi rpt_msg_wifis = 2;
+        repeated Cell rpt_msg_cells = 3;
+    }
+    message NotifyList {
+        enum notify_type = 1;
+        repeated UpdateInfo rpt_msg_update_list = 2;
+        uint32 uint32_session_id = 3;
+    }
+    message ReqExit {
+        BusiReqHead msg_head = 1;
+        LBSInfo msg_lbs_info = 2;
+        string str_number = 3;
+        uint32 uint32_session_id = 4;
+    }
+    message ReqGetList {
+        BusiReqHead msg_head = 1;
+        LBSInfo msg_lbs_info = 2;
+        string str_number = 3;
+        uint32 uint32_session_id = 4;
+        bytes bytes_cookie = 5;
+    }
+    message ReqJoinDiscuss {
+        BusiReqHead msg_head = 1;
+        LBSInfo msg_lbs_info = 2;
+        string str_number = 3;
+        uint32 uint32_session_id = 4;
+        uint32 uint32_join_type = 5;
+    }
+    message RespExit {
+        BusiRespHead msg_head = 1;
+    }
+    message RespGetList {
+        BusiRespHead msg_head = 1;
+        repeated UserProfile rpt_msg_user_list = 2;
+        uint32 uint32_session_id = 3;
+        int32 int32_update_interval = 4;
+        bytes bytes_cookie = 5;
+        uint32 uint32_button_switch = 6;
+        uint32 uint32_has_created = 7;
+        uint64 uint64_creator = 8;
+    }
+    message RespJoinDiscuss {
+        BusiRespHead msg_head = 1;
+        string str_number = 2;
+        uint32 uint32_session_id = 3;
+        uint32 uint32_discuss_id = 4;
+        bool bool_is_creater = 5;
+        uint32 uint32_join_type = 6;
+    }
+    message UpdateInfo {
+        enum type = 1;
+        UserProfile msg_user = 2;
+    }
+    message UserProfile {
+        uint64 uint64_uin = 1;
+        int32 int32_face_id = 2;
+        int32 int32_sex = 3;
+        int32 int32_age = 4;
+        string str_nick = 5;
+    }
+    message Wifi {
+        uint64 uint64_mac = 1;
+        int32 int32_rssi = 2;
+    }

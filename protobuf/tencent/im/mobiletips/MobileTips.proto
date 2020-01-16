@@ -1,0 +1,21 @@
+syntax = "proto3";
+import "tencent/im/mobiletips/MobileTips.proto";
+package MobileTips;
+    message MobileTipsPkg {
+        ReqBody req = 1;
+        RspBody rsp = 2;
+    }
+    message ReqBody {
+        enum peer_type = 1;
+        uint64 peer_uin = 2;
+        repeated TaskInfo task_list = 3;
+    }
+    message RspBody {
+        uint32 result = 1;
+        string err = 2;
+    }
+    message TaskInfo {
+        uint32 task_id = 1;
+        uint32 msgcnt = 2;
+        repeated string keywords = 3;
+    }

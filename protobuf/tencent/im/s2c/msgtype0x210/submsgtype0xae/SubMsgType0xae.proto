@@ -1,0 +1,31 @@
+syntax = "proto3";
+package SubMsgType0xae;
+    message AddFriendSource {
+        uint32 uint32_source = 1;
+        uint32 uint32_sub_source = 2;
+    }
+    message MsgBody {
+        uint32 uint32_type = 1;
+        PushPeopleMayKnow msg_people_may_konw = 2;
+        PushPeopleMayKnowV2 msg_persons_may_know = 3;
+    }
+    message PersonMayKnow {
+        uint64 uint64_uin = 1;
+        bytes bytes_name = 2;
+        uint32 uint32_age = 3;
+        uint32 uint32_sex = 4;
+        bytes bytes_main_reason = 5;
+        bytes bytes_soure_reason = 6;
+        bytes bytes_alghrithm = 7;
+        uint32 uint32_source = 8;
+        AddFriendSource msg_ios_source = 9;
+        AddFriendSource msg_android_source = 10;
+    }
+    message PushPeopleMayKnow {
+        fixed32 fixed32_timestamp = 1;
+        bytes bytes_wording_msg = 2;
+    }
+    message PushPeopleMayKnowV2 {
+        fixed32 fixed32_timestamp = 1;
+        repeated PersonMayKnow rpt_msg_friend_list = 2;
+    }

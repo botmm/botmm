@@ -1,0 +1,4 @@
+message MsgBody {
+    uint32 uint32_sec_cmd;
+    bytes bytes_data;
+}

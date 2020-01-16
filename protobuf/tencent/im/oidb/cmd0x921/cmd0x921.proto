@@ -1,0 +1,21 @@
+syntax = "proto3";
+package cmd0x921;
+    message GetAtAllRemain {
+        uint64 uint64_uin = 1;
+        uint64 uint64_discuss_uin = 2;
+    }
+    message GetAtAllRemainRsp {
+        uint64 uint64_uin = 1;
+        uint32 uint32_uin_remain = 2;
+        uint64 uint64_discuss_uin = 3;
+        uint32 uint32_discuss_uin_remain = 4;
+        bool bool_priviledge = 5;
+    }
+    message ReqBody {
+        uint32 uint32_subcmd = 1;
+        GetAtAllRemain msg_get_at_all_remain = 2;
+    }
+    message RspBody {
+        uint32 uint32_subcmd = 1;
+        GetAtAllRemainRsp msg_get_at_all_remain = 2;
+    }

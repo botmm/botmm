@@ -1,0 +1,9 @@
+syntax = "proto3";
+package Submsgtype0x3e;
+    message MsgBody {
+        uint32 uint32_subcmd = 1;
+        uint32 uint32_random = 2;
+        uint32 uint32_result = 3;
+        bytes bytes_device = 4;
+        uint32 uint32_sid = 5;
+    }

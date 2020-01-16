@@ -1,0 +1,5 @@
+syntax = "proto3";
+package submsgtype0xa0;
+    message MsgBody {
+        uint32 uint32_is_mass_bless_open = 1;
+    }

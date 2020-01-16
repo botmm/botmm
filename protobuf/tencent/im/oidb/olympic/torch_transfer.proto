@@ -1,0 +1,43 @@
+syntax = "proto3";
+package torch_transfer;
+    message BusinessEntryInfo {
+        uint32 uint32_business_entry_new = 1;
+        uint32 uint32_business_entry_seq = 2;
+    }
+    message CityBackPicInfo {
+        uint32 uint32_city_id = 1;
+        string str_city_name = 2;
+        uint64 uint64_city_pic_id = 3;
+        string str_city_pic_url = 4;
+        string str_city_pic_md5 = 5;
+        string str_cons_pic_url = 6;
+        string str_cons_pic_md5 = 7;
+    }
+    message LightCityInfo {
+        uint32 uint32_cur_city_id = 1;
+        uint32 uint32_next_city_num = 2;
+    }
+    message TorchLimitInfo {
+        uint32 uint32_timestamp = 1;
+        bool bool_limit = 2;
+    }
+    message TorchPicInfo {
+        uint32 uint32_business_type = 1;
+        string str_torch_pic_url = 2;
+        string str_torch_pic_md5 = 3;
+        repeated CityBackPicInfo rpt_city_pic_list = 4;
+    }
+    message TorchbearerInfo {
+        uint64 uint64_uin = 1;
+        uint64 uint64_bearer_id = 2;
+        uint32 uint32_transfer_num = 3;
+        TorchPicInfo msg_pic_info = 4;
+        LightCityInfo msg_light_city_info = 5;
+        TorchLimitInfo msg_limit_info = 6;
+        BusinessEntryInfo msg_business_entry_info = 7;
+        TorcherRankInfo msg_torcher_rank_info = 8;
+    }
+    message TorcherRankInfo {
+        bool bool_only_torcher = 1;
+        uint32 uint32_rankings = 2;
+    }

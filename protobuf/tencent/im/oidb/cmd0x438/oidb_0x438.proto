@@ -1,0 +1,23 @@
+syntax = "proto3";
+package oidb_0x438;
+    message RedBagInfo {
+        uint64 uint64_creator_uin = 1;
+        bytes string_redbag_id = 2;
+        uint64 uint64_expire_time = 3;
+        bytes string_password = 4;
+        bytes string_authkey = 5;
+        uint64 uint64_code = 6;
+        uint32 uint32_source = 7;
+        bytes bytes_pc_body = 8;
+        bytes string_index = 9;
+    }
+    message ReqBody {
+        repeated ReqInfo stReqInfo = 1;
+    }
+    message ReqInfo {
+        uint64 uint64_code = 1;
+        uint64 uint64_last_redbag_time = 2;
+    }
+    message RspBody {
+        repeated RedBagInfo PasswdRedBag = 1;
+    }

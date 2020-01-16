@@ -1,0 +1,25 @@
+syntax = "proto3";
+package oidb_0x7df;
+    message FriendScore {
+        uint64 uint64_friend_uin = 1;
+        uint32 uint32_friend_score = 2;
+        bytes bytes_relation_name = 3;
+        uint32 uint32_rank = 4;
+        bytes bytes_nick = 5;
+    }
+    message ReqBody {
+        uint32 uint32_seq = 1;
+        uint32 uint32_start_index = 2;
+        uint32 uint32_req_num = 3;
+        repeated uint64 rpt_uint64_uinlist = 4;
+        uint32 uint32_sort = 5;
+        uint32 uint32_nick = 6;
+    }
+    message RspBody {
+        uint32 uint32_seq = 1;
+        uint32 uint32_over = 2;
+        uint32 uint32_next_start = 3;
+        repeated FriendScore rpt_msg_friend_score = 4;
+        uint32 uint32_total = 5;
+        uint32 uint32_low_score = 6;
+    }

@@ -1,0 +1,458 @@
+syntax = "proto3";
+import "msf/msgsvc/msg_svc.proto";
+import "msf/msgsvc/msg_svc$PbC2CMsgWithDrawReq.proto";
+import "msf/msgsvc/msg_svc$PbC2CMsgWithDrawResp.proto";
+import "msf/msgsvc/msg_svc$PbC2CReadedReportReq.proto";
+import "msf/msgsvc/msg_svc$PbDelRoamMsgReq.proto";
+import "msf/msgsvc/msg_svc$PbDeleteMsgReq.proto";
+import "msf/msgcomm/msg_comm.proto";
+import "msf/msgsvc/msg_svc$PbGroupMsgWithDrawReq.proto";
+import "msf/msgsvc/msg_svc$PbGroupMsgWithDrawResp.proto";
+import "msf/msgsvc/msg_svc$PbPullDiscussMsgSeqReq.proto";
+import "msf/msgsvc/msg_svc$PbPullDiscussMsgSeqResp.proto";
+import "msf/msgsvc/msg_svc$PbPullGroupMsgSeqReq.proto";
+import "msf/msgsvc/msg_svc$PbPullGroupMsgSeqResp.proto";
+import "tencent/im/msg/im_msg_body.proto";
+import "msf/msgsvc/msg_svc$PbThirdQQUnReadMsgNumReq.proto";
+import "msf/msgsvc/msg_svc$PbThirdQQUnReadMsgNumResp.proto";
+import "tencent/im/c2c/msgtype0xa6/submsgtype0xc1/SubMsgType0xc1.proto";
+import "tencent/im/s2c/msgtype0x210/submsgtype0x1a/SubMsgType0x1a.proto";
+import "tencent/im/msg/im_msg_head.proto";
+package msg_svc;
+    message AccostTmp {
+        uint64 to_uin = 1;
+        bytes sig = 2;
+        bool reply = 3;
+    }
+    message AddressListTmp {
+        string from_phone = 1;
+        string to_phone = 2;
+        uint64 to_uin = 3;
+        bytes sig = 4;
+        uint32 from_contact_size = 5;
+    }
+    message AuthTmp {
+        uint64 to_uin = 1;
+        bytes sig = 2;
+    }
+    message BsnsTmp {
+        uint64 to_uin = 1;
+        bytes sig = 2;
+    }
+    message BusinessWPATmp {
+        uint64 to_uin = 1;
+        bytes sig = 2;
+        bytes sigt = 3;
+    }
+    message C2C {
+        uint64 to_uin = 1;
+    }
+    message CommTmp {
+        uint64 to_uin = 1;
+        uint32 c2c_type = 2;
+        uint32 svr_type = 3;
+        bytes sig = 4;
+        bytes reserved = 5;
+    }
+    message Dis {
+        uint64 dis_uin = 1;
+    }
+    message DisTmp {
+        uint64 dis_uin = 1;
+        uint64 to_uin = 2;
+    }
+    message Grp {
+        uint64 group_code = 1;
+    }
+    message GrpTmp {
+        uint64 group_uin = 1;
+        uint64 to_uin = 2;
+    }
+    message MsgSendInfo {
+        uint32 receiver = 1;
+    }
+    message MultiMsgAssist {
+        repeated RoutingHead repeated_routing = 1;
+        enum msg_use = 2;
+        uint64 uint64_temp_id = 3;
+        uint64 uint64_vedio_len = 4;
+        bytes bytes_redbag_id = 5;
+        uint64 uint64_redbag_amount = 6;
+        uint32 uint32_has_readbag = 7;
+        uint32 uint32_has_vedio = 8;
+    }
+    message NearByAssistantTmp {
+        uint64 to_uin = 1;
+        bytes sig = 2;
+        bool reply = 3;
+    }
+    message NearByDatingTmp {
+        uint64 to_uin = 1;
+        bytes sig = 2;
+        bool reply = 3;
+    }
+    message PbBindUinGetMsgReq {
+        uint64 bind_uin = 1;
+        bytes bind_uin_sig = 2;
+        enum sync_flag = 3;
+        bytes sync_cookie = 4;
+    }
+    message PbBindUinMsgReadedConfirmReq {
+        bytes sync_cookie = 1;
+        uint64 bind_uin = 2;
+    }
+    message PbBindUinMsgReadedConfirmResp {
+        uint32 result = 1;
+        string errmsg = 2;
+        bytes sync_cookie = 3;
+        uint64 bind_uin = 4;
+    }
+    message PbBindUinUnReadMsgNumReq {
+        uint64 bind_uin = 1;
+        bytes sync_cookie = 2;
+    }
+    message PbBindUinUnReadMsgNumResp {
+        uint32 result = 1;
+        string errmsg = 2;
+        uint64 bind_uin = 3;
+        uint32 msg_num = 4;
+    }
+    message PbC2CMsgWithDrawReq {
+        repeated PbC2CMsgWithDrawReq.MsgInfo msg_info = 1;
+        uint32 uint32_long_message_flag = 2;
+        bytes bytes_reserved = 3;
+        uint32 uint32_sub_cmd = 4;
+    }
+    message PbC2CMsgWithDrawResp {
+        uint32 result = 1;
+        string errmsg = 2;
+        repeated PbC2CMsgWithDrawResp.MsgStatus msg_status = 3;
+        uint32 uint32_sub_cmd = 4;
+    }
+    message PbC2CReadedReportReq {
+        bytes sync_cookie = 1;
+        repeated PbC2CReadedReportReq.UinPairReadInfo pair_info = 2;
+    }
+    message PbC2CReadedReportResp {
+        uint32 result = 1;
+        string errmsg = 2;
+        bytes sync_cookie = 3;
+    }
+    message PbC2CUnReadMsgNumReq {
+    }
+    message PbC2CUnReadMsgNumResp {
+        uint32 result = 1;
+        string errmsg = 2;
+        uint32 msg_num = 3;
+    }
+    message PbDelRoamMsgReq {
+        PbDelRoamMsgReq.C2CMsg c2c_msg = 1;
+        PbDelRoamMsgReq.GrpMsg grp_msg = 2;
+        PbDelRoamMsgReq.DisMsg dis_msg = 3;
+    }
+    message PbDelRoamMsgResp {
+        uint32 result = 1;
+        string errmsg = 2;
+    }
+    message PbDeleteMsgReq {
+        repeated PbDeleteMsgReq.MsgItem msgItems = 1;
+    }
+    message PbDeleteMsgResp {
+        uint32 result = 1;
+        string errmsg = 2;
+    }
+    message PbDiscussReadedReportReq {
+        uint64 conf_uin = 1;
+        uint64 last_read_seq = 2;
+    }
+    message PbDiscussReadedReportResp {
+        uint32 result = 1;
+        string errmsg = 2;
+        uint64 conf_uin = 3;
+        uint64 member_seq = 4;
+        uint64 conf_seq = 5;
+    }
+    message PbGetDiscussMsgReq {
+        uint64 discuss_uin = 1;
+        uint64 end_seq = 2;
+        uint64 begin_seq = 3;
+        uint64 last_get_time = 4;
+        uint64 discuss_info_seq = 5;
+        enum filter = 6;
+        uint64 member_seq = 7;
+    }
+    message PbGetDiscussMsgResp {
+        uint32 result = 1;
+        string errmsg = 2;
+        uint64 discuss_uin = 3;
+        uint64 return_end_seq = 4;
+        uint64 return_begin_seq = 5;
+        repeated msg_comm.Msg msg = 6;
+        uint64 last_get_time = 7;
+        uint64 discuss_info_seq = 8;
+    }
+    message PbGetGroupMsgReq {
+        uint64 group_code = 1;
+        uint64 begin_seq = 2;
+        uint64 end_seq = 3;
+        enum filter = 4;
+        uint64 member_seq = 5;
+        bool public_group = 6;
+        uint32 shield_flag = 7;
+        uint32 save_traffic_flag = 8;
+    }
+    message PbGetGroupMsgResp {
+        uint32 result = 1;
+        string errmsg = 2;
+        uint64 group_code = 3;
+        uint64 return_begin_seq = 4;
+        uint64 return_end_seq = 5;
+        repeated msg_comm.Msg msg = 6;
+    }
+    message PbGetMsgReq {
+        enum sync_flag = 1;
+        bytes sync_cookie = 2;
+        uint32 ramble_flag = 3;
+        uint32 latest_ramble_number = 4;
+        uint32 other_ramble_number = 5;
+        uint32 online_sync_flag = 6;
+        uint32 context_flag = 7;
+        uint32 whisper_session_id = 8;
+        uint32 msg_req_type = 9;
+        bytes pubaccount_cookie = 10;
+    }
+    message PbGetMsgResp {
+        uint32 result = 1;
+        string errmsg = 2;
+        bytes sync_cookie = 3;
+        enum sync_flag = 4;
+        repeated msg_comm.UinPairMsg uin_pair_msgs = 5;
+        uint64 bind_uin = 6;
+        uint32 msg_rsp_type = 7;
+        bytes pubaccount_cookie = 8;
+    }
+    message PbGetOneDayRoamMsgReq {
+        uint64 peer_uin = 1;
+        uint64 last_msgtime = 2;
+        uint64 random = 3;
+        uint32 read_cnt = 4;
+    }
+    message PbGetOneDayRoamMsgResp {
+        uint32 result = 1;
+        string errmsg = 2;
+        uint64 peer_uin = 3;
+        uint64 last_msgtime = 4;
+        uint64 random = 5;
+        repeated msg_comm.Msg msg = 6;
+        uint32 iscomplete = 7;
+    }
+    message PbGetRoamMsgReq {
+        uint64 peer_uin = 1;
+        uint64 last_msgtime = 2;
+        uint64 random = 3;
+        uint32 read_cnt = 4;
+        uint32 check_pwd = 5;
+        bytes sig = 6;
+        bytes pwd = 7;
+        uint32 subcmd = 8;
+        uint64 begin_msgtime = 9;
+        uint32 req_type = 10;
+    }
+    message PbGetRoamMsgResp {
+        uint32 result = 1;
+        string errmsg = 2;
+        uint64 peer_uin = 3;
+        uint64 last_msgtime = 4;
+        uint64 random = 5;
+        repeated msg_comm.Msg msg = 6;
+        bytes sig = 7;
+    }
+    message PbGroupMsgWithDrawReq {
+        uint32 uint32_sub_cmd = 1;
+        uint32 uint32_group_type = 2;
+        uint64 uint64_group_code = 3;
+        repeated PbGroupMsgWithDrawReq.MessageInfo msg_list = 4;
+        bytes bytes_userdef = 5;
+    }
+    message PbGroupMsgWithDrawResp {
+        uint32 result = 1;
+        string errmsg = 2;
+        uint32 uint32_sub_cmd = 3;
+        uint32 uint32_group_type = 4;
+        uint64 uint64_group_code = 5;
+        repeated PbGroupMsgWithDrawResp.MessageResult failed_msg_list = 6;
+        bytes bytes_userdef = 7;
+    }
+    message PbGroupReadedReportReq {
+        uint64 group_code = 1;
+        uint64 last_read_seq = 2;
+    }
+    message PbGroupReadedReportResp {
+        uint32 result = 1;
+        string errmsg = 2;
+        uint64 group_code = 3;
+        uint64 member_seq = 4;
+        uint64 group_msg_seq = 5;
+    }
+    message PbMsgReadedReportReq {
+        repeated PbGroupReadedReportReq grp_read_report = 1;
+        repeated PbDiscussReadedReportReq dis_read_report = 2;
+        PbC2CReadedReportReq c2c_read_report = 3;
+        PbBindUinMsgReadedConfirmReq bind_uin_read_report = 4;
+    }
+    message PbMsgReadedReportResp {
+        repeated PbGroupReadedReportResp grp_read_report = 1;
+        repeated PbDiscussReadedReportResp dis_read_report = 2;
+        PbC2CReadedReportResp c2c_read_report = 3;
+        PbBindUinMsgReadedConfirmResp bind_uin_read_report = 4;
+    }
+    message PbMsgWithDrawReq {
+        repeated PbC2CMsgWithDrawReq c2c_with_draw = 1;
+        repeated PbGroupMsgWithDrawReq group_with_draw = 2;
+    }
+    message PbMsgWithDrawResp {
+        repeated PbC2CMsgWithDrawResp c2c_with_draw = 1;
+        repeated PbGroupMsgWithDrawResp group_with_draw = 2;
+    }
+    message PbPullDiscussMsgSeqReq {
+        repeated PbPullDiscussMsgSeqReq.DiscussInfoReq discuss_info_req = 1;
+    }
+    message PbPullDiscussMsgSeqResp {
+        uint32 result = 1;
+        string errmsg = 2;
+        repeated PbPullDiscussMsgSeqResp.DiscussInfoResp discuss_info_resp = 3;
+    }
+    message PbPullGroupMsgSeqReq {
+        repeated PbPullGroupMsgSeqReq.GroupInfoReq group_info_req = 1;
+    }
+    message PbPullGroupMsgSeqResp {
+        uint32 result = 1;
+        string errmsg = 2;
+        repeated PbPullGroupMsgSeqResp.GroupInfoResp group_info_resp = 3;
+    }
+    message PbSearchRoamMsgInCloudReq {
+        bytes serialize_reqbody = 1;
+    }
+    message PbSearchRoamMsgInCloudResp {
+        repeated msg_comm.Msg msg = 1;
+        bytes serialize_rspbody = 2;
+    }
+    message PbSendMsgReq {
+        RoutingHead routing_head = 1;
+        /* message */ msg_comm.ContentHead content_head = 2;
+        /* message */ im_msg_body.MsgBody msg_body = 3;
+        uint32 msg_seq = 4;
+        uint32 msg_rand = 5;
+        bytes sync_cookie = 6;
+        /* message */ msg_comm.AppShareInfo app_share = 7;
+        uint32 msg_via = 8;
+        uint32 data_statist = 9;
+        MultiMsgAssist multi_msg_assist = 10;
+    }
+    message PbSendMsgResp {
+        uint32 result = 1;
+        string errmsg = 2;
+        uint32 send_time = 3;
+        uint32 uint32_svrbusy_wait_time = 4;
+        MsgSendInfo msg_send_info = 5;
+    }
+    message PbThirdQQUnReadMsgNumReq {
+        repeated PbThirdQQUnReadMsgNumReq.ThirdQQReqInfo thirdqq_req_info = 1;
+        uint32 source = 2;
+    }
+    message PbThirdQQUnReadMsgNumResp {
+        uint32 result = 1;
+        string errmsg = 2;
+        repeated PbThirdQQUnReadMsgNumResp.ThirdQQRespInfo thirdqq_resp_info = 3;
+        uint32 interval = 4;
+    }
+    message PbUnReadMsgSeqReq {
+        PbC2CUnReadMsgNumReq c2c_unread_info = 1;
+        repeated PbBindUinUnReadMsgNumReq binduin_unread_info = 2;
+        PbPullGroupMsgSeqReq group_unread_info = 3;
+        PbPullDiscussMsgSeqReq discuss_unread_info = 4;
+        PbThirdQQUnReadMsgNumReq thirdqq_unread_info = 5;
+    }
+    message PbUnReadMsgSeqResp {
+        PbC2CUnReadMsgNumResp c2c_unread_info = 1;
+        repeated PbBindUinUnReadMsgNumResp binduin_unread_info = 2;
+        PbPullGroupMsgSeqResp group_unread_info = 3;
+        PbPullDiscussMsgSeqResp discuss_unread_info = 4;
+        PbThirdQQUnReadMsgNumResp thirdqq_unread_info = 5;
+    }
+    message PubGroupTmp {
+        uint64 to_uin = 1;
+        bytes sig = 2;
+        uint64 group_uin = 3;
+    }
+    message PublicPlat {
+        uint64 to_uin = 1;
+        bytes sig = 2;
+    }
+    message QQQueryBusinessTmp {
+        uint64 to_uin = 1;
+        bytes sig = 2;
+    }
+    message RichStatusTmp {
+        uint64 to_uin = 1;
+        bytes sig = 2;
+    }
+    message RoutingHead {
+        C2C c2c = 1;
+        Grp grp = 2;
+        GrpTmp grp_tmp = 3;
+        Dis dis = 4;
+        DisTmp dis_tmp = 5;
+        WPATmp wpa_tmp = 6;
+        SecretFileHead secret_file = 7;
+        PublicPlat public_plat = 8;
+        TransMsg trans_msg = 9;
+        AddressListTmp address_list = 10;
+        RichStatusTmp rich_status_tmp = 11;
+        TransCmd trans_cmd = 12;
+        AccostTmp accost_tmp = 13;
+        PubGroupTmp pub_group_tmp = 14;
+        Trans0x211 trans_0x211 = 15;
+        BusinessWPATmp business_wpa_tmp = 16;
+        AuthTmp auth_tmp = 17;
+        BsnsTmp bsns_tmp = 18;
+        QQQueryBusinessTmp qq_querybusiness_tmp = 19;
+        NearByDatingTmp nearby_dating_tmp = 20;
+        NearByAssistantTmp nearby_assistant_tmp = 21;
+        CommTmp comm_tmp = 22;
+    }
+    message SecretFileHead {
+        /* message */ SubMsgType0xc1.MsgBody secret_file_msg = 1;
+        /* message */ SubMsgType0x1a.MsgBody secret_file_status = 2;
+    }
+    message Trans0x211 {
+        uint64 to_uin = 1;
+        uint32 cc_cmd = 2;
+        /* message */ im_msg_head.InstCtrl inst_ctrl = 3;
+        bytes sig = 4;
+        uint32 c2c_type = 5;
+        uint32 service_type = 6;
+    }
+    message TransCmd {
+        uint64 to_uin = 1;
+        uint32 msg_type = 2;
+    }
+    message TransMsg {
+        uint64 to_uin = 1;
+        uint32 c2c_cmd = 2;
+    }
+    message TransReq {
+        int32 command = 1;
+        uint32 req_tag = 2;
+        bytes req_buff = 3;
+    }
+    message TransResp {
+        uint32 result = 1;
+        string errmsg = 2;
+        uint32 resp_tag = 3;
+        bytes resp_buff = 4;
+    }
+    message WPATmp {
+        uint64 to_uin = 1;
+        bytes sig = 2;
+    }

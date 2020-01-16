@@ -1,0 +1,23 @@
+syntax = "proto3";
+package oidb_0x796;
+    message ItemInfo {
+        uint64 uint64_uin = 1;
+        uint64 uint64_time = 2;
+    }
+    message ReqBody {
+        bytes feedsid = 1;
+        uint64 uint64_time = 2;
+        uint64 uint64_uin = 3;
+        uint32 uint32_type = 4;
+        ItemInfo stLastInfo = 5;
+        uint32 uint32_seq = 6;
+    }
+    message RspBody {
+        uint32 uint32_result = 1;
+        bytes errMsg = 2;
+        repeated ItemInfo rpt_items = 3;
+        ItemInfo stPagePointItem = 4;
+        uint32 uint32_flag = 5;
+        uint32 uint32_rsp_seq = 6;
+        uint32 uint32_need_update = 7;
+    }

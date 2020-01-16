@@ -1,0 +1,9 @@
+syntax = "proto3";
+package Submsgtype0x3b;
+    message MsgBody {
+        uint32 uint32_sub_cmd = 1;
+        uint64 uint64_group_code = 2;
+        uint32 uint32_user_show_flag = 3;
+        uint32 uint32_member_level_changed = 4;
+        uint32 uint32_officemode = 5;
+    }

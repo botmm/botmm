@@ -1,0 +1,14 @@
+syntax = "proto3";
+package SubMsgType0x1a;
+    message MsgBody {
+        bytes bytes_file_key = 1;
+        uint32 uint32_from_uin = 2;
+        uint32 uint32_to_uin = 3;
+        uint32 uint32_status = 4;
+        uint32 uint32_ttl = 5;
+        string string_desc = 6;
+        uint32 uint32_type = 7;
+        uint32 uint32_capture_times = 8;
+        uint64 uint64_from_uin = 9;
+        uint64 uint64_to_uin = 10;
+    }

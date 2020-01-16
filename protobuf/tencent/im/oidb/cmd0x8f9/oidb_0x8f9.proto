@@ -1,0 +1,154 @@
+syntax = "proto3";
+import "com/trunk/group_feeds/group_feeds/GroupFeedsMessage.proto";
+import "com/trunk/feeds_inner_define/feeds_inner_define/FaceRecordSet.proto";
+package oidb_0x8f9;
+    message ConcernUinInfo {
+        uint64 uint64_concern_uin = 1;
+        uint32 uint32_confirm_time = 2;
+        uint32 uint32_read_time = 3;
+    }
+    message FeedsState {
+        uint32 uint32_concern_flag = 1;
+        uint32 uint32_readed_flag = 2;
+        uint32 uint32_ignored_flag = 3;
+    }
+    message GetAsyncMsgFeedsReq {
+        int32 int32_req_start = 1;
+        uint32 uint32_req_num = 2;
+    }
+    message GetCommentsByTopReq {
+        bytes bytes_feeds_id = 1;
+        int32 int32_req_start = 2;
+        uint32 uint32_req_num = 3;
+    }
+    message GetFeedsByIDReq {
+        bytes bytes_feeds_id = 1;
+    }
+    message GetFeedsByTimeReq {
+        uint32 uint32_begin_time = 1;
+        uint32 uint32_end_time = 2;
+        uint32 uint32_req_num = 3;
+    }
+    message GetFeedsByTopReq {
+        int32 int32_req_start = 1;
+        uint32 uint32_req_num = 2;
+    }
+    message GetFeedsByTypeReq {
+        uint32 uint32_feeds_type = 1;
+        int32 int32_req_start = 2;
+        uint32 uint32_req_num = 3;
+    }
+    message GetLatestNodeInfoReq {
+        uint32 uint32_node_type = 1;
+        uint32 uint32_unread_count_flag = 2;
+    }
+    message GetLatestNodeInfoRsp {
+        uint32 uint32_result = 1;
+        bytes bytes_err_msg = 2;
+        LiteMailBrief msg_litemail_brief = 3;
+        UnreadMailCountInfo msg_unread_cnt_info = 4;
+    }
+    message GetLiteMailListByUinReq {
+        uint32 uint32_end_time = 1;
+        repeated LiteMailBrief rpt_msg_litemail_list = 2;
+        uint32 uint32_amount = 3;
+        LiteMailFilter msg_filter = 4;
+    }
+    message GetLiteMailListByUinRsp {
+        uint32 uint32_start_time = 1;
+        uint32 uint32_end_time = 2;
+        repeated LiteMail rpt_msg_litemail_list = 3;
+        uint32 uint32_result = 4;
+        bytes bytes_err_msg = 5;
+    }
+    message GroupFeedsCommentRecord {
+        bytes bytes_feeds_id = 1;
+        SourceID msg_source_id = 2;
+        uint64 uint64_from_uin = 3;
+        uint32 uint32_comment_id = 4;
+        uint32 uint32_comment_flag = 5;
+        uint32 uint32_create_time = 6;
+        uint32 uint32_modify_time = 7;
+        bytes bytes_reserve = 8;
+        /* message */ group_feeds.GroupFeedsMessage msg_comment_content = 9;
+    }
+    message GroupFeedsRecord {
+        SourceID msg_source_id = 1;
+        uint64 uint64_from_uin = 2;
+        uint32 uint32_feeds_type = 3;
+        bytes bytes_feeds_id = 4;
+        uint32 uint32_feeds_flag = 5;
+        uint32 uint32_create_time = 6;
+        uint32 uint32_modify_time = 7;
+        uint32 uint32_visit_count = 8;
+        uint32 uint32_comment_num = 9;
+        bytes bytes_reserve = 10;
+        /* message */ feeds_inner_define.FaceRecordSet msg_face_record = 11;
+        /* message */ group_feeds.GroupFeedsMessage msg_feeds_content = 12;
+        repeated GroupFeedsCommentRecord rpt_msg_comments = 13;
+        repeated ConcernUinInfo rpt_concern_uin_info = 14;
+        FeedsState msg_feeds_state = 15;
+    }
+    message LiteMail {
+        GroupFeedsRecord msg_mail = 1;
+        uint32 uint32_result = 2;
+    }
+    message LiteMailBrief {
+        bytes bytes_feeds_id = 1;
+        SourceID msg_source_id = 2;
+        uint32 uint32_last_modify_time = 3;
+        uint32 uint32_create_time = 4;
+        uint32 uint32_my_read_status = 5;
+        uint64 uint64_author_uin = 6;
+        bytes bytes_feeds_summary = 7;
+        uint32 uint32_summary_truncate_flag = 8;
+    }
+    message LiteMailFilter {
+        uint32 uint32_filter_type = 1;
+    }
+    message ReqBody {
+        SourceID msg_source_id = 1;
+        GetFeedsByTopReq msg_req_by_top = 2;
+        GetFeedsByTimeReq msg_req_by_time = 3;
+        GetFeedsByIDReq msg_req_by_id = 4;
+        GetCommentsByTopReq msg_req_comment_by_top = 5;
+        GetFeedsByTypeReq msg_req_by_type = 6;
+        GetFeedsByTopReq msg_req_get_theme_list = 7;
+        GetCommentsByTopReq msg_req_themecont_by_top = 8;
+        GetAsyncMsgFeedsReq msg_req_async_feeds = 9;
+        GetLiteMailListByUinReq msg_req_get_litemail_list_by_uin = 10;
+        SetAllLiteMailReadedByEndTimeReq msg_set_all_litemail_readed_by_endtime = 11;
+        GetLatestNodeInfoReq msg_req_get_latest_node_info = 12;
+    }
+    message ResultMsg {
+        uint32 uint32_result = 1;
+        bytes bytes_err_msg = 2;
+    }
+    message RspBody {
+        SourceID msg_source_id = 1;
+        ResultMsg msg_result_msg = 2;
+        repeated GroupFeedsRecord rpt_feeds_recored = 3;
+        repeated GroupFeedsCommentRecord rpt_feeds_comments = 4;
+        uint32 uint32_last_modify_time = 5;
+        uint32 uint32_feeds_rsp_flag = 6;
+        uint32 uint32_unread_num = 7;
+        GetLiteMailListByUinRsp msg_litemail_list = 8;
+        SetAllLiteMailReadedByEndTimeRsp msg_set_all_litemail_readed_by_endtime = 9;
+        GetLatestNodeInfoRsp msg_rsp_get_latest_node_info = 10;
+    }
+    message SetAllLiteMailReadedByEndTimeReq {
+        uint32 uint32_end_time = 1;
+    }
+    message SetAllLiteMailReadedByEndTimeRsp {
+        uint32 uint32_result = 1;
+        bytes bytes_err_msg = 2;
+    }
+    message SourceID {
+        uint32 uint32_source_type = 1;
+        uint64 uint64_source_code = 2;
+    }
+    message UnreadMailCountInfo {
+        uint64 uint64_uin = 1;
+        uint32 uint32_unread_count = 2;
+        uint32 uint32_data_version = 3;
+    }

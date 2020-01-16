@@ -1,0 +1,73 @@
+syntax = "proto3";
+package Oidb_0x43c;
+    message CardInfo {
+        bytes card_id = 1;
+        string pic_url = 2;
+        string name = 3;
+        string company = 4;
+        repeated uint64 uins = 5;
+        repeated string mobiles = 6;
+        repeated string descs = 7;
+        uint64 bind_uin = 8;
+        enum card_src = 9;
+        uint32 last_update_time = 10;
+        OCRInfo ocr_info = 11;
+        repeated MobileInfo mobile_info = 12;
+        repeated UinInfo uin_info = 13;
+        string bind_mbl = 14;
+    }
+    message MobileInfo {
+        string mobile = 1;
+        bool isFriend = 2;
+        uint64 bind_uin = 3;
+        string nick_name = 4;
+        string format_mobile = 5;
+    }
+    message OCRInfo {
+        string name = 1;
+        repeated uint64 uins = 2;
+        repeated string mobiles = 3;
+        float name_dependLevel = 4;
+        float uins_dependLevel = 5;
+        float mobiles_dependLevel = 6;
+    }
+    message RequestAdd {
+        CardInfo card_info = 1;
+        bool isMine = 2;
+    }
+    message RequestCardDetail {
+        bytes card_id = 1;
+    }
+    message RequestCardList {
+        uint32 seq = 1;
+        uint32 next_flag = 2;
+        uint32 req_num = 3;
+    }
+    message RequestDel {
+        bytes card_id = 1;
+    }
+    message RequestModify {
+        CardInfo card_info = 1;
+    }
+    message ResponseAdd {
+        bytes card_id = 1;
+    }
+    message ResponseCardDetail {
+        bytes card_id = 1;
+        CardInfo card_info = 2;
+    }
+    message ResponseCardList {
+        uint32 seq = 1;
+        uint32 next_flag = 2;
+        repeated CardInfo others = 3;
+        CardInfo mine = 4;
+    }
+    message ResponseDel {
+    }
+    message ResponseModify {
+    }
+    message UinInfo {
+        uint64 uin = 1;
+        bool isFriend = 2;
+        bool isSearchable = 3;
+    }

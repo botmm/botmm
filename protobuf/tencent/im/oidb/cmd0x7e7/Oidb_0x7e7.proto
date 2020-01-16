@@ -1,0 +1,22 @@
+syntax = "proto3";
+package Oidb_0x7e7;
+    message PlatformInfo {
+        bytes os_name = 1;
+        uint64 build_no = 2;
+        uint64 pub_no = 3;
+    }
+    message ReqBody {
+        uint32 cmd_id = 1;
+        bytes cmd_key = 2;
+        uint32 env = 3;
+        uint32 platform = 4;
+        PlatformInfo platform_info = 5;
+        uint64 corp_uin = 6;
+        uint64 user_uin = 7;
+        uint64 timestamp = 8;
+        bytes json_string = 9;
+    }
+    message RspBody {
+        uint32 ret_code = 1;
+        bytes ret_msg = 2;
+    }

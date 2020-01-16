@@ -1,0 +1,34 @@
+syntax = "proto3";
+package Oidb_0x5d1;
+    message ClearFriendIdReq {
+        uint32 uint32_if_check_seq = 1;
+        uint64 uint64_seq = 2;
+        repeated uint64 rpt_uint64_friends = 3;
+    }
+    message ClearFriendIdRsp {
+        uint32 uint32_result = 1;
+        uint64 uint64_seq = 2;
+        bytes bytes_error_msg = 3;
+    }
+    message ReqBody {
+        uint32 uint32_cmd = 1;
+        uint32 uint32_id = 2;
+        SetFriendIdReq msg_set_friend_id = 3;
+        ClearFriendIdReq msg_clear_friend_id = 4;
+    }
+    message RspBody {
+        uint32 uint32_cmd = 1;
+        uint32 uint32_id = 2;
+        SetFriendIdRsp msg_set_friend_id = 3;
+        ClearFriendIdRsp msg_clear_friend_id = 4;
+    }
+    message SetFriendIdReq {
+        uint32 uint32_if_check_seq = 1;
+        uint64 uint64_seq = 2;
+        repeated uint64 rpt_uint64_friends = 3;
+    }
+    message SetFriendIdRsp {
+        uint32 uint32_result = 1;
+        uint64 uint64_seq = 2;
+        bytes bytes_error_msg = 3;
+    }

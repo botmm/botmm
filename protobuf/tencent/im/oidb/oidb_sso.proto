@@ -1,0 +1,10 @@
+syntax = "proto3";
+package oidb_sso;
+    message OIDBSSOPkg {
+        uint32 uint32_command = 1;
+        uint32 uint32_service_type = 2;
+        uint32 uint32_result = 3;
+        bytes bytes_bodybuffer = 4;
+        string str_error_msg = 5;
+        string str_client_version = 6;
+    }

@@ -1,0 +1,66 @@
+syntax = "proto3";
+import "tencent/im/oidb/olympic/MqqLbs/LBSCheckInfo.proto";
+import "tencent/im/oidb/olympic/MqqLbs/LBSInfo.proto";
+package cmd0x7b4;
+    message ControlPointInfo {
+        uint64 uint64_task_id = 1;
+        repeated ControllerInfo rpt_control_info = 2;
+    }
+    message ControllerInfo {
+        uint64 uint64_uin = 1;
+        bytes bytes_uin_pic = 2;
+    }
+    message LBSSig {
+        int32 int32_lat = 1;
+        int32 int32_lon = 2;
+        uint32 uint32_time = 3;
+        bytes bytes_verify_key = 4;
+    }
+    message POIInfo {
+        uint64 uint64_poi_id = 1;
+        int32 int32_lat = 2;
+        int32 int32_lon = 3;
+        repeated TaskStatusInfo rpt_taskstatus_info = 4;
+        repeated ControlPointInfo rpt_control_point_info = 5;
+    }
+    message ReqBody {
+        int32 int32_lat = 1;
+        int32 int32_lon = 2;
+        uint32 uint32_app_id = 3;
+        uint32 uint32_map_level = 4;
+        uint32 uint32_req_occasion = 6;
+        uint64 uint64_adcode = 8;
+        bytes bytes_cookie = 12;
+        LBSSig msg_lbs_sig = 13;
+        /* message */ MqqLbs.LBSInfo msg_lbs_info = 14;
+        /* message */ MqqLbs.LBSCheckInfo msg_lbs_check_info = 15;
+        uint32 uint32_lbs_accuracy = 16;
+        bytes bytes_encrypt_sig = 17;
+        uint32 uint32_flag = 20;
+    }
+    message RspBody {
+        repeated POIInfo rpt_poi_info = 1;
+        repeated TaskCommonInfo rpt_taskcommon_info = 2;
+        uint32 uint32_get_award_range = 3;
+        uint32 uint32_flush_dist = 4;
+        uint32 uint32_flush_time = 5;
+        bytes bytes_cookie = 10;
+        uint32 uint32_lbs_interval = 16;
+    }
+    message TaskCommonInfo {
+        uint64 uint64_task_id = 1;
+        uint32 uint32_priority = 2;
+        uint32 uint32_treasure_type = 3;
+        string str_logo_url = 4;
+        uint32 uint32_cooldown = 11;
+        bytes bytes_animation = 12;
+        bytes bytes_jump_url = 13;
+        bytes bytes_screen_info = 14;
+        bytes bytes_config = 15;
+        uint32 uint32_begtime = 16;
+        uint32 uint32_endtime = 17;
+    }
+    message TaskStatusInfo {
+        uint64 uint64_task_id = 1;
+        uint32 uint32_status = 2;
+    }

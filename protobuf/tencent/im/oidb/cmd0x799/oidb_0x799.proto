@@ -1,0 +1,17 @@
+syntax = "proto3";
+package oidb_0x799;
+    message LongNickInfo {
+        bytes StrTopicId = 1;
+        bytes StrNick = 2;
+        uint32 Type = 3;
+        uint32 dwCreateTime = 4;
+        uint32 dwModiTime = 5;
+        uint32 dwDelTime = 6;
+    }
+    message ReqBody {
+        repeated bytes StrTopicIdList = 1;
+    }
+    message RspBody {
+        uint32 uint32_result = 1;
+        repeated LongNickInfo astLongNickInfoList = 2;
+    }

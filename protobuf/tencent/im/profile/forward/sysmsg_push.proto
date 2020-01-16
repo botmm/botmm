@@ -1,0 +1,25 @@
+syntax = "proto3";
+import "tencent/im/profile/forward/sysmsg_push.proto";
+package sysmsg_push;
+    message AppointmentNot {
+        uint64 uint64_from_uin = 1;
+        uint32 uint32_notifytype = 2;
+        bytes bytes_tips_content = 3;
+    }
+    message ForwardBody {
+        uint32 uint32_notify_type = 1;
+        uint32 uint32_op_type = 2;
+        AppointmentNot msg_appointment_not = 20;
+    }
+    message ForwardHead {
+        uint64 uint64_uin = 1;
+        uint32 uint32_client_type = 2;
+        uint32 uint32_req_type = 3;
+        uint32 uint32_cmd = 4;
+        uint32 uint32_sub_cmd = 5;
+        fixed32 fixed32_service_addr = 6;
+        repeated fixed32 rpt_fixed32_client_addr = 7;
+        uint32 uint32_sequence = 8;
+        uint32 uint32_if_need_ack = 9;
+        uint32 uint32_result = 10;
+    }

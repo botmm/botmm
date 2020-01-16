@@ -1,0 +1,62 @@
+syntax = "proto3";
+package SubMsgType0x8d;
+    message ChannelNotify {
+        uint64 uint64_channel_id = 1;
+        bytes bytes_channel_name = 2;
+        bytes bytes_wording = 3;
+        repeated uint64 rpt_top_article_id_list = 4;
+    }
+    message CommentFeeds {
+        uint64 uint64_feeds_owner = 1;
+        uint64 uint64_feeds_id = 2;
+        uint64 uint64_comment_uin = 3;
+        bytes bytes_comment_id = 4;
+        uint64 uint64_reply_uin = 5;
+        bytes bytes_reply_id = 6;
+        bytes bytes_comment_info = 7;
+        bytes bytes_feeds_subject = 8;
+    }
+    message DeleteComment {
+        uint64 uint64_feeds_owner = 1;
+        uint64 uint64_feeds_id = 2;
+        uint64 uint64_comment_uin = 3;
+        bytes bytes_comment_id = 4;
+        uint64 uint64_reply_uin = 5;
+        bytes bytes_reply_id = 6;
+        uint64 uint64_delete_uin = 7;
+    }
+    message DeleteFeeds {
+        uint64 uint64_feeds_owner = 1;
+        uint64 uint64_feeds_id = 2;
+        uint64 uint64_delete_uin = 3;
+    }
+    message LikeFeeds {
+        uint64 uint64_feeds_owner = 1;
+        uint64 uint64_feeds_id = 2;
+        uint64 uint64_like_uin = 3;
+        bytes bytes_feeds_subject = 4;
+    }
+    message MsgBody {
+        repeated NotifyBody rpt_msg_notify_infos = 1;
+        RedSpotNotifyBody red_spot_notify_body = 2;
+    }
+    message NotifyBody {
+        uint32 uint32_notify_type = 1;
+        uint32 uint32_seq = 2;
+        uint32 uint32_push_time = 3;
+        PublishFeeds msg_publish_feeds = 10;
+        CommentFeeds msg_comment_feeds = 11;
+        LikeFeeds msg_like_feeds = 12;
+        DeleteFeeds msg_delete_feeds = 13;
+        DeleteComment msg_delete_comment = 14;
+    }
+    message PublishFeeds {
+        uint64 uint64_feeds_owner = 1;
+        uint64 uint64_feeds_id = 2;
+    }
+    message RedSpotNotifyBody {
+        uint32 uint32_time = 1;
+        repeated uint64 rpt_new_channel_list = 2;
+        bytes bytes_guide_wording = 3;
+        ChannelNotify msg_channel_notify = 4;
+    }

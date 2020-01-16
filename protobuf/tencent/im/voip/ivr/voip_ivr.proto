@@ -1,0 +1,37 @@
+syntax = "proto3";
+import "tencent/im/voip/ivr/voip_ivr.proto";
+package voip_ivr;
+    message DialDemoReqBody {
+        string key = 1;
+    }
+    message DialDemoRspBody {
+    }
+    message Head {
+        uint32 command = 1;
+        uint32 ret_code = 2;
+        string ret_msg = 3;
+        uint64 room_id = 4;
+        uint64 user_uin = 5;
+    }
+    message IvrAckReqBody {
+        uint32 seq = 1;
+    }
+    message IvrAckRspBody {
+    }
+    message IvrSubmitReqBody {
+        string data = 1;
+    }
+    message IvrSubmitRspBody {
+    }
+    message ReqBody {
+        Head head = 1;
+        DialDemoReqBody dial_demo_body = 2;
+        IvrSubmitReqBody ivr_submit_body = 3;
+        IvrAckReqBody ivr_ack_body = 4;
+    }
+    message RspBody {
+        Head head = 1;
+        DialDemoRspBody dial_demo_body = 2;
+        IvrSubmitRspBody ivr_submit_body = 3;
+        IvrAckRspBody ivr_ack_body = 4;
+    }

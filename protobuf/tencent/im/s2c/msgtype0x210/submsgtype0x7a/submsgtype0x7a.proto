@@ -1,0 +1,11 @@
+syntax = "proto3";
+package submsgtype0x7a;
+    message MsgBody {
+        bytes bytes_content = 1;
+        uint64 uint64_from_uin = 2;
+        string string_nick = 3;
+        uint64 uint64_discuss_uin = 4;
+        string string_discuss_nick = 5;
+        uint64 uint64_seq = 6;
+        uint64 uint64_at_time = 7;
+    }

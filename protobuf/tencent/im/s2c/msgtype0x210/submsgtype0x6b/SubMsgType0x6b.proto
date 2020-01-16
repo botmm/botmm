@@ -1,0 +1,8 @@
+syntax = "proto3";
+package SubMsgType0x6b;
+    message MsgBody {
+        uint64 uint64_to_uin = 1;
+        bytes bytes_tips_content = 2;
+        bytes bytes_yes_text = 3;
+        bytes bytes_no_text = 4;
+    }

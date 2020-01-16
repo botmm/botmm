@@ -1,0 +1,73 @@
+syntax = "proto3";
+import "tencent/im/lbs/member_lbs.proto";
+package member_lbs;
+    message Attr {
+        bytes str_imei = 1;
+        bytes str_imsi = 2;
+        bytes str_phone_num = 3;
+    }
+    message Cell {
+        int32 int32_mobile_country_code = 1;
+        int32 int32_mobile_network_code = 2;
+        int32 int32_location_area_code = 3;
+        int32 int32_cell_id = 4;
+        int32 int32_rssi = 5;
+    }
+    message GPS {
+        int64 int64_latitude = 1;
+        int64 int64_longitude = 2;
+        int64 int64_altitude = 3;
+        uint32 uint32_gps_type = 4;
+    }
+    message LBSInfo {
+        GPS msg_gps = 1;
+        repeated Wifi rpt_msg_wifis = 2;
+        repeated Cell rpt_msg_cells = 3;
+        fixed32 uint32_ip = 4;
+        Attr msg_attr = 5;
+        int64 int64_precision = 6;
+    }
+    message Location {
+        int64 int64_latitude = 1;
+        int64 int64_longitude = 2;
+    }
+    message MemsDistance {
+        uint64 uint64_uin = 1;
+        int64 int64_distance = 2;
+    }
+    message NeighbourInfo {
+        uint64 uint64_uin = 1;
+        int64 int64_latitude = 2;
+        int64 int64_longitude = 3;
+        double double_distance = 4;
+        uint32 uint32_sex = 5;
+        uint32 uint32_age = 6;
+        bytes str_nick = 7;
+    }
+    message NeighbourNumber {
+        uint64 uint64_group_code = 1;
+        uint64 uint64_neighbour_number = 2;
+        uint64 uint64_located_number = 3;
+    }
+    message ReqBody {
+        LBSInfo msg_lbsinfo = 1;
+        uint64 uint64_group_code = 2;
+        uint64 uint64_uin = 3;
+        bool bool_need_neighbours = 4;
+    }
+    message RspBody {
+        uint32 uint32_result = 1;
+        bytes str_result_info = 2;
+        Location msg_location = 3;
+        NeighbourNumber msg_neighbour_number = 4;
+        MemsDistance msg_mems_distance = 5;
+        bool bool_show_tips = 6;
+        bytes str_tips_wording = 7;
+        bytes str_tips_native_url = 8;
+        bytes str_tips_web_url = 9;
+        repeated NeighbourInfo rpt_msg_neighbours_info = 10;
+    }
+    message Wifi {
+        int64 int64_mac = 1;
+        int32 int32_rssi = 2;
+    }

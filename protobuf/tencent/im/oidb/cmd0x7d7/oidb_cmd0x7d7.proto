@@ -1,0 +1,13 @@
+syntax = "proto3";
+package oidb_cmd0x7d7;
+    message ReqBody {
+        bytes bytes_cookies = 1;
+    }
+    message RspBody {
+        uint32 uint32_request_gap = 1;
+        bytes bytes_cookies = 2;
+        repeated recommendinfo rpt_msg_frdlist = 3;
+    }
+    message recommendinfo {
+        uint64 uint64_uin = 1;
+    }

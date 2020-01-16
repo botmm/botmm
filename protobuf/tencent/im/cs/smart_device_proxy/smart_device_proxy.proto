@@ -1,0 +1,34 @@
+syntax = "proto3";
+package smart_device_proxy;
+    message CgiReq {
+        string str_cgiName = 1;
+        bytes bytes_param = 2;
+        bytes bytes_cookie = 3;
+    }
+    message CgiRsp {
+        int32 int32_errorCode = 1;
+        string str_errorMsg = 2;
+        bytes bytes_rsp = 3;
+    }
+    message CommonHead {
+        uint64 uint32_uin = 1;
+        uint64 uint64_din = 2;
+        uint64 uint64_tinyid = 3;
+        uint32 uint32_pid = 4;
+        bytes bytes_sn = 5;
+        bytes bytes_uinA2 = 6;
+        bytes bytes_tinyidA2 = 7;
+        string str_version = 8;
+        uint32 uint32_seq = 9;
+        uint32 uint32_flag = 10;
+    }
+    message ReqBody {
+        int32 int32_cmd = 1;
+        CommonHead msg_header = 2;
+        bytes bytes_body = 3;
+    }
+    message RspBody {
+        int32 int32_cmd = 1;
+        int32 int32_errorCode = 2;
+        bytes bytes_info = 3;
+    }

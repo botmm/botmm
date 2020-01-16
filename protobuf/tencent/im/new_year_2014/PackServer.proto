@@ -1,0 +1,130 @@
+syntax = "proto3";
+import "tencent/im/new_year_2014/PackData.proto";
+import "tencent/im/new_year_2014/PackServer.proto";
+package PackServer;
+    message GetNewPackReq {
+        uint32 promotion_id = 1;
+        uint32 seq = 2;
+        bytes signature = 3;
+        uint32 group_id = 4;
+        uint32 group_type = 5;
+        uint32 business = 20;
+    }
+    message GetNewPackResp {
+        uint32 promotion_id = 1;
+        uint32 seq = 2;
+        /* message */ PackData.Pack data = 3;
+        string empty_url = 4;
+        bool follow = 5;
+        uint32 is_bingo_limit = 10;
+    }
+    message GivePackReq {
+        bytes pack_id = 1;
+        uint64 peer_uin = 2;
+    }
+    message GivePackResp {
+        bytes data = 1;
+        uint64 peer_uin = 2;
+    }
+    message PkgReq {
+        uint32 cmdtype = 1;
+        uint64 uin = 2;
+        GetNewPackReq get_new_pack = 3;
+        QueryPackListReq query_pack_list = 4;
+        SetPackUsedReq set_pack_used = 5;
+        GivePackReq give_pack = 6;
+        QueryPackReq query_pack = 7;
+        QueryUserHistoryReq query_user_history = 8;
+        QueryLuckyUsersReq query_lucky_users = 9;
+        QueryPromotionReq query_promotion = 10;
+        QueryBusinessReq query_business = 11;
+        QueryRemainPackReq query_remain_pack = 12;
+        QueryReloadCounterReq query_reload_counter = 13;
+        bytes skey = 20;
+        bytes a8 = 21;
+        uint32 appid = 22;
+        uint32 from_id = 23;
+        uint32 net_type = 24;
+        uint32 ctime = 25;
+    }
+    message PkgResp {
+        uint32 cmdtype = 1;
+        uint64 uin = 2;
+        uint32 errcode = 3;
+        string errmsg = 4;
+        string resp_name = 5;
+        GetNewPackResp get_new_pack = 6;
+        QueryPackListResp query_pack_list = 7;
+        SetPackUsedResp set_pack_used = 8;
+        GivePackResp give_pack = 9;
+        QueryPackResp query_pack = 10;
+        QueryUserHistoryResp query_user_history = 11;
+        QueryLuckyUsersResp query_lucky_users = 12;
+        QueryPromotionResp query_promotion = 13;
+        QueryBusinessResp query_business = 14;
+        QueryRemainPackResp query_remain_pack = 15;
+        uint32 grab_interval = 20;
+        uint32 report_active_interval = 21;
+        uint32 report_normal_interval = 22;
+    }
+    message QueryBusinessReq {
+        uint32 business = 1;
+    }
+    message QueryBusinessResp {
+        uint32 business = 1;
+        /* message */ PackData.Pack pack = 2;
+    }
+    message QueryLuckyUsersReq {
+        uint32 count = 1;
+    }
+    message QueryLuckyUsersResp {
+        bytes list = 1;
+    }
+    message QueryPackListReq {
+        uint32 from_index = 1;
+        int32 count = 2;
+        int32 type = 3;
+    }
+    message QueryPackListResp {
+        uint32 from_index = 1;
+        uint32 total_count = 2;
+        uint32 count = 3;
+        repeated PackData.Pack data = 4;
+    }
+    message QueryPackReq {
+        bytes pack_id = 1;
+    }
+    message QueryPackResp {
+        /* message */ PackData.Pack data = 1;
+    }
+    message QueryPromotionReq {
+        uint32 promotion_id = 1;
+    }
+    message QueryPromotionResp {
+        uint32 promotion_id = 1;
+    }
+    message QueryReloadCounterReq {
+        uint32 now = 1;
+    }
+    message QueryRemainPackReq {
+        uint32 promotion_id = 1;
+    }
+    message QueryRemainPackResp {
+        uint32 promotion_id = 1;
+        uint32 pack_count = 2;
+        uint32 interval_time = 3;
+    }
+    message QueryUserHistoryReq {
+        uint32 promotion_id = 1;
+    }
+    message QueryUserHistoryResp {
+        uint32 promotion_id = 1;
+    }
+    message SetPackUsedReq {
+        bytes pack_id = 1;
+        bool external = 2;
+    }
+    message SetPackUsedResp {
+        bytes data = 1;
+        uint32 business = 2;
+    }

@@ -1,0 +1,11 @@
+syntax = "proto3";
+package oidb_0x9d5;
+    message ReqBody {
+        string str_feed_id = 1;
+        string str_comment_id = 2;
+    }
+    message RspBody {
+        string str_error_tips = 1;
+        string str_comment_count_info = 2;
+        uint32 uint32_comment_count = 3;
+    }

@@ -1,0 +1,37 @@
+syntax = "proto3";
+import "appoint/define/appoint_define/PublisherInfo.proto";
+package Oidb_0x66b;
+    message ReqBody {
+        bytes bytes_reqbody_5eb = 60100;
+        uint32 uint32_req_likeinfo = 60200;
+        uint32 uint32_req_pansocialinfo = 60300;
+        uint32 uint32_req_giftinfo = 60400;
+        uint32 uint32_req_configinfo = 60500;
+        uint32 uint32_req_visitor = 60600;
+    }
+    message RspBody {
+        bytes bytes_rspbody_5eb = 60100;
+        RspLikeInfo stLikeInfo = 60200;
+        RspPansocialInfo stPansocialInfo = 60300;
+        bytes bytes_rspbody_gift = 60400;
+        repeated RspConfigItem stConfigList = 60500;
+        repeated appoint_define.PublisherInfo rpt_msg_vistor_info = 60600;
+    }
+    message RspConfigItem {
+        uint32 uint32_id = 60501;
+        string str_name = 60502;
+        string str_url = 60503;
+        string str_picurl = 60504;
+        uint32 uint32_redtouch_appid = 60505;
+        string str_tips = 60506;
+    }
+    message RspLikeInfo {
+        uint32 uint32_total = 60201;
+        uint32 uint32_new = 60202;
+    }
+    message RspPansocialInfo {
+        uint32 uint32_charm = 60301;
+        uint32 uint32_charmlevel = 60302;
+        uint32 uint32_charmlevelvalue = 60303;
+        uint32 uint32_nextcharmlevelvalue = 60304;
+    }

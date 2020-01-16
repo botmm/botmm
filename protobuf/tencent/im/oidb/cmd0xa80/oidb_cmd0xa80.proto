@@ -1,0 +1,24 @@
+syntax = "proto3";
+package oidb_cmd0xa80;
+    message MemberInfo {
+        uint64 uint64_member_uin = 1;
+        uint64 uint64_flag_ex_pos = 2;
+        uint32 uint32_heartbeat_time = 3;
+        uint64 uint64_group_msg_mask = 4;
+    }
+    message ReqBody {
+        repeated ReqGroupInfo rpt_msg_req_group_info = 1;
+    }
+    message ReqGroupInfo {
+        uint64 uint64_group_code = 1;
+        repeated MemberInfo rpt_msg_member_info = 2;
+        uint32 uint32_op = 3;
+    }
+    message RspBody {
+        repeated RspGroupInfo rpt_msg_rsp_group_info = 1;
+    }
+    message RspGroupInfo {
+        uint64 uint64_group_code = 1;
+        uint32 uint32_result = 2;
+        bytes bytes_error_msg = 3;
+    }

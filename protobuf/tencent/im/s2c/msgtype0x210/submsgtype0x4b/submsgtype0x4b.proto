@@ -1,0 +1,14 @@
+syntax = "proto3";
+package submsgtype0x4b;
+    message MsgBody {
+        string string_albumid = 1;
+        string string_coverUrl = 2;
+        string string_albumName = 3;
+        uint64 uint64_opuin = 4;
+        fixed32 uint32_time = 5;
+        uint32 uint32_pic_cnt = 6;
+        string string_push_msg_helper = 7;
+        string string_push_msg_album = 8;
+        uint32 uint32_usr_total = 9;
+        repeated uint64 rpt_uint64_user = 10;
+    }

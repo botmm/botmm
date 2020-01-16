@@ -1,0 +1,15 @@
+syntax = "proto3";
+package SubMsgType0xc6;
+    message AccountExceptionAlertBody {
+        string str_title = 1;
+        string str_content = 2;
+        string str_left_button_text = 3;
+        string str_right_button_text = 4;
+        string str_right_button_link = 5;
+        uint32 uint32_left_button_id = 6;
+        uint32 uint32_right_button_id = 7;
+    }
+    message MsgBody {
+        uint32 uint32_sec_cmd = 1;
+        AccountExceptionAlertBody msg_s2c_account_exception_notify = 2;
+    }

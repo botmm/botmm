@@ -1,0 +1,54 @@
+syntax = "proto3";
+package oidb_cmd0x8f6;
+    message ConcernInfo {
+        uint64 uint64_uin = 1;
+    }
+    message DecreaseUnreadMailCountReq {
+        uint32 uint32_type = 1;
+        uint32 uint32_amount = 2;
+        repeated LiteMailIndex rpt_msg_indexes = 3;
+        LiteMailIndex msg_recalled_index = 4;
+        uint32 uint32_data_version = 5;
+    }
+    message DecreaseUnreadMailCountRsp {
+        repeated UnreadMailCountInfo rpt_msg_unread = 1;
+    }
+    message GetUnreadMailCountReq {
+    }
+    message GetUnreadMailCountRsp {
+        UnreadMailCountInfo msg_unread = 1;
+    }
+    message IncUnreadMailCountReq {
+        repeated UnreadMailCountInfo rpt_msg_unread = 1;
+    }
+    message IncUnreadMailCountRsp {
+        repeated UnreadMailCountInfo rpt_msg_unread = 1;
+    }
+    message LiteMailIndex {
+        SourceID msg_source = 1;
+        bytes bytes_feeds_id = 2;
+        uint64 uint64_author_uin = 3;
+        repeated ConcernInfo rpt_msg_concern_uin_list = 4;
+    }
+    message ReqBody {
+        uint32 uint32_subcmd = 1;
+        GetUnreadMailCountReq msg_get_umc = 2;
+        DecreaseUnreadMailCountReq msg_dec_umc = 3;
+        IncUnreadMailCountReq msg_inc_umc = 4;
+    }
+    message RspBody {
+        uint32 uint32_result = 1;
+        bytes bytes_error_msg = 2;
+        GetUnreadMailCountRsp msg_get_umc = 3;
+        DecreaseUnreadMailCountRsp msg_dec_umc = 4;
+        IncUnreadMailCountRsp msg_inc_umc = 5;
+    }
+    message SourceID {
+        uint32 uint32_source_type = 1;
+        uint64 uint64_source_code = 2;
+    }
+    message UnreadMailCountInfo {
+        uint64 uint64_uin = 1;
+        uint32 uint32_unread_count = 2;
+        uint32 uint32_data_version = 3;
+    }

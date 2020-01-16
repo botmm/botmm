@@ -1,0 +1,28 @@
+syntax = "proto3";
+package cmd0x8ca;
+    message AppTipNotify {
+        uint32 uint32_action = 1;
+        bytes bytes_text = 2;
+        uint32 uint32_notify_seq = 3;
+        uint32 uint32_needed_tip_info_seq = 4;
+    }
+    message AppUinSpecial {
+        uint32 opt_uint32_access_time = 1;
+    }
+    message ReqBody {
+        uint64 opt_uint32_sub_cmd = 1;
+        uint64 opt_uint64_from_uin = 2;
+        bytes opt_bytes_group_sig = 3;
+        uint64 opt_uint64_group_code = 4;
+        int32 opt_int32_opr_num = 5;
+        uint64 opt_uint64_appid = 6;
+        repeated uint64 rpt_uint64_opr_uin = 7;
+        uint32 opt_uint32_ga_owner = 8;
+        uint64 opt_uint64_ga_code = 9;
+        AppTipNotify opt_msg_app_tip_notify = 10;
+        int32 opt_int32_opr_num_album = 11;
+        AppUinSpecial opt_msg_app_uin = 12;
+    }
+    message RspBody {
+        uint64 opt_uint64_group_code = 1;
+    }

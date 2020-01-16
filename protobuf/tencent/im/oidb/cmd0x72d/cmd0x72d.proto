@@ -1,0 +1,10 @@
+syntax = "proto3";
+package cmd0x72d;
+    message ReqBody {
+        repeated uint64 rpt_uint64_groupcode = 1;
+    }
+    message RspBody {
+        uint32 opt_uint32_ret_code = 1;
+        repeated uint64 rpt_uint64_groupcode = 2;
+        uint64 opt_uint64_timestamp = 3;
+    }

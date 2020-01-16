@@ -1,0 +1,33 @@
+syntax = "proto3";
+package Oidb_0x5d0;
+    message ContentItem {
+        uint32 uint32_field = 1;
+        GeneralBuffer msg_general_buffer = 2;
+    }
+    message GeneralBuffer {
+        bytes bytes_value = 1;
+    }
+    message ReqBody {
+        uint32 uint32_start_time = 1;
+        repeated uint32 rpt_uint32_fieldlist = 2;
+        repeated uint64 rpt_uint64_uinlist = 3;
+        uint64 uint64_bind_uin = 4;
+    }
+    message RspBody {
+        repeated ContentItem rpt_msg_contentItem = 1;
+        uint32 uint32_sys_time = 2;
+        uint64 uint64_uin = 3;
+        uint32 uint32_advise_gap = 4;
+    }
+    message SnsPbBuffer {
+        repeated SnsUpdateItem rpt_msg_sns_update_item = 1;
+    }
+    message SnsUpateBuffer {
+        uint64 uint64_uin = 1;
+        repeated SnsUpdateItem rpt_msg_sns_update_item = 400;
+        repeated uint32 rpt_uin32_idlist = 401;
+    }
+    message SnsUpdateItem {
+        uint32 uint32_update_sns_type = 1;
+        bytes bytes_value = 2;
+    }

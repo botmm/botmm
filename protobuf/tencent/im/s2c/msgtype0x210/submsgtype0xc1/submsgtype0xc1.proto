@@ -1,0 +1,7 @@
+syntax = "proto3";
+package submsgtype0xc1;
+    message MsgBody {
+        uint64 uint64_groupid = 1;
+        uint32 uint32_member_num = 2;
+        string string_data = 3;
+    }

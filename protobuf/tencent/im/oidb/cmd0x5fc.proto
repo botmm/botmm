@@ -1,0 +1,26 @@
+syntax = "proto3";
+import "appoint/define/appoint_define/AppointID.proto";
+import "appoint/define/appoint_define/DateEvent.proto";
+import "appoint/define/appoint_define/FeedEvent.proto";
+import "appoint/define/appoint_define/NearbyEvent.proto";
+package cmd0x5fc;
+    message ReqBody {
+        uint64 uint64_last_event_id = 1;
+        uint64 uint64_read_event_id = 2;
+        uint32 uint32_fetch_count = 3;
+        uint64 uint64_last_nearby_event_id = 4;
+        uint64 uint64_read_nearby_event_id = 5;
+        uint32 uint32_fetch_nearby_event_count = 6;
+        uint64 uint64_last_feed_event_id = 7;
+        uint64 uint64_read_feed_event_id = 8;
+        uint32 uint32_fetch_feed_event_count = 9;
+    }
+    message RspBody {
+        repeated appoint_define.DateEvent rpt_msg_event_list = 1;
+        repeated appoint_define.AppointID rpt_act_appoint_ids = 2;
+        uint64 uint64_max_event_id = 3;
+        string str_error_tips = 4;
+        repeated appoint_define.NearbyEvent rpt_msg_nearby_event_list = 5;
+        repeated appoint_define.FeedEvent rpt_msg_feed_event_list = 6;
+        uint64 uint64_max_fresh_event_id = 7;
+    }

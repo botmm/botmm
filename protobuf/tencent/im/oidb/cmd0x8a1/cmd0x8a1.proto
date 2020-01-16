@@ -1,0 +1,54 @@
+syntax = "proto3";
+package cmd0x8a1;
+    message ClientInfo {
+        uint32 uint32_pub_no = 1;
+        uint32 uint32_version = 2;
+        uint32 uint32_app_id = 3;
+        bytes string_inst_id = 4;
+    }
+    message CreateGroupInfo {
+        uint32 uint32_group_code = 1;
+        uint64 uint64_owner_uin = 2;
+        uint32 uint32_group_option = 3;
+        uint32 uint32_group_class = 4;
+        uint32 uint32_group_class_ext = 5;
+        uint32 uint32_group_face = 6;
+        uint32 uint32_app_id = 7;
+        uint32 uint32_group_size = 8;
+        uint64 uint64_create_flag = 9;
+        bytes string_group_name = 10;
+        uint32 uint32_conf_uin = 11;
+        uint32 uint32_check_limit_flag = 12;
+        bytes string_group_memo = 13;
+        bytes string_group_finger_memo = 14;
+        bytes string_group_rich_finger_memo = 15;
+        bytes string_question = 16;
+        bytes string_answer = 17;
+        bytes string_sign = 18;
+        ClientInfo msg_client_info = 19;
+        GroupGeoInfo msg_group_geo_info = 20;
+        uint32 uint32_group_type_flag = 21;
+        uint32 uint32_group_face_flag = 22;
+    }
+    message GroupGeoInfo {
+        uint32 uint32_city_id = 1;
+        uint64 uint64_longtitude = 2;
+        uint64 uint64_latitude = 3;
+        bytes string_geo_content = 4;
+    }
+    message ReqBody {
+        uint32 uint32_create_option = 1;
+        CreateGroupInfo msg_create_group_info = 2;
+        SelectGroupCodeInfo msg_select_group_code_info = 3;
+    }
+    message RspBody {
+        uint32 uint32_create_option = 1;
+        uint32 uint32_group_code = 2;
+        uint32 uint32_group_uin = 3;
+        uint64 uint64_owner_uin = 4;
+        uint32 uint32_group_size = 5;
+        bytes string_sign = 6;
+    }
+    message SelectGroupCodeInfo {
+        uint64 uint64_owner_uin = 1;
+    }

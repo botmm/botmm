@@ -1,0 +1,12 @@
+syntax = "proto3";
+package oidb_0x7e6;
+    message ReqBody {
+        uint64 opt_uint64_group_id = 1;
+    }
+    message RspBody {
+        uint32 opt_uint32_switch_on = 1;
+        uint32 opt_uint32_num = 2;
+        repeated string rpt_string_pics = 3;
+        uint64 opt_uint64_group_id = 4;
+        string opt_string_url = 5;
+    }

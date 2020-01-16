@@ -1,0 +1,41 @@
+syntax = "proto3";
+package group_file_common;
+    message FeedsInfo {
+        uint32 uint32_bus_id = 1;
+        string str_file_id = 2;
+        uint32 uint32_msg_random = 3;
+        bytes bytes_ext = 4;
+    }
+    message FeedsResult {
+        int32 int32_ret_code = 1;
+        string str_detail = 2;
+        string str_file_id = 3;
+    }
+    message FileInfo {
+        string str_file_id = 1;
+        string str_file_name = 2;
+        uint64 uint64_file_size = 3;
+        uint32 uint32_bus_id = 4;
+        uint64 uint64_uploaded_size = 5;
+        uint32 uint32_upload_time = 6;
+        uint32 uint32_dead_time = 7;
+        uint32 uint32_modify_time = 8;
+        uint32 uint32_download_times = 9;
+        bytes bytes_sha = 10;
+        bytes bytes_sha3 = 11;
+        bytes bytes_md5 = 12;
+        string str_local_path = 13;
+        string str_uploader_name = 14;
+        uint64 uint64_uploader_uin = 15;
+        string str_parent_folder_id = 16;
+    }
+    message FolderInfo {
+        string str_folder_id = 1;
+        string str_parent_folder_id = 2;
+        string str_folder_name = 3;
+        uint32 uint32_create_time = 4;
+        uint32 uint32_modify_time = 5;
+        uint64 uint64_create_uin = 6;
+        string str_creator_name = 7;
+        uint32 uint32_total_file_count = 8;
+    }
